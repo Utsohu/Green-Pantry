@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.greenpantry.R
+import com.example.greenpantry.ui.home.RecipeDetailFragment
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,7 +44,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             descView.text = description
 
             itemView.setOnClickListener {
-                Toast.makeText(context, "$title clicked", Toast.LENGTH_SHORT).show()
+                 // Toast.makeText(context, "$title clicked", Toast.LENGTH_SHORT).show()
+                if (title == "Avocado Toast") {
+                    // Create an instance of the new fragment, passing the recipe title
+                    val recipeDetailFragment = RecipeDetailFragment.newInstance(title)
+
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, recipeDetailFragment) // R.id.fragment_container is your main container
+                        .addToBackStack(null) // Allows users to navigate back
+                        .commit()
+                } else {
+                    Toast.makeText(context, "$title clicked", Toast.LENGTH_SHORT).show()
+                }
             }
 
             suggestedPantryRecipes.addView(itemView)
