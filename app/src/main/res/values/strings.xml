@@ -13,4 +13,10 @@
     <string name="Camera">"Camera"</string>
     <string name="Search">"Search"</string>
     <string name="Setting">"Setting"</string>
+    <string name="WelcomeBack">"Welcome Back!"</string>
+    <string name="PantryOverview">"Pantry Overview"</string>
+    <string name="SeeFullPantry">"SEE FULL PANTRY"</string>
+    <string name="SuggestedPantryRecipes">"Suggested Pantry Recipes"</string>
+    <string name="YourPantry">"Your Pantry"</string>
+    <string name="pantryBack">"← Back"</string>
 </resources>
