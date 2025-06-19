@@ -18,7 +18,9 @@
     <string name="SeeFullPantry">"SEE FULL PANTRY"</string>
     <string name="SuggestedPantryRecipes">"Suggested Pantry Recipes"</string>
     <string name="YourPantry">"Your Pantry"</string>
-    <string name="pantryBack">"← Back"</string>
+    <string name="pantryBack">"&lt; Back"</string>
+    <string name="Notifications">"Notifications"</string>
+    <string name="SearchSubTitle">"Find items without scanning"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

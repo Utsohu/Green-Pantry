@@ -26,7 +26,7 @@ fun AuthButton(
         onClick = {
             onButtonClick()
         },
-        shape = RoundedCornerShape(25.dp),
+        shape = RoundedCornerShape(5.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = backgroundColor,
             contentColor = contentColor,

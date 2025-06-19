@@ -4,17 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.greenpantry.R
-import com.example.greenpantry.ui.home.RecipeDetailFragment
+import com.example.greenpantry.ui.notifs.NotificationsFragment
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
+        notifBtn.setOnClickListener {
+            // go to notification fragment
+            notifBtn.setOnClickListener {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, NotificationsFragment())
+                    .commit()
+            }
+        }
 
         val suggestedPantryRecipes = view.findViewById<LinearLayout>(R.id.homeSuggestedPantryRecipesList)
 
