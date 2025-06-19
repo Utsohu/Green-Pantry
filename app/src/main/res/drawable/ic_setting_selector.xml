@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Icon when selected -->
+    <item android:drawable="@drawable/ic_setting_on" android:state_checked="true"/>
+    <!-- Icon when unselected -->
+    <item android:drawable="@drawable/ic_setting_off"/>
+</selector>
