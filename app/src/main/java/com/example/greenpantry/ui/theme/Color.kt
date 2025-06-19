@@ -3,6 +3,7 @@ package com.example.greenpantry.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val green_primary = Color(0xFF2E7D32)
+val logo_green = Color(0xFF2A4917)
 val light_green_background = Color(0xFFE8F5E9)
 val mint_green = Color(0xFFB9F6CA)
 
