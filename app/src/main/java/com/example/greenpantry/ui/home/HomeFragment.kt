@@ -9,8 +9,12 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.example.greenpantry.R
+import com.example.greenpantry.data.database.Recipe
+import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.ui.home.RecipeDetailFragment
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -19,10 +23,44 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val suggestedPantryRecipes = view.findViewById<LinearLayout>(R.id.homeSuggestedPantryRecipesList)
 
         val items = listOf(
-            Triple("Avocado Toast", "A healthy breakfast", R.drawable.ic_launcher_foreground),
-            Triple("Quinoa Salad", "Protein-rich lunch", R.drawable.ic_launcher_foreground),
-            Triple("Smoothie Bowl", "Energizing snack", R.drawable.ic_launcher_foreground)
+            Recipe(name = "Avocado Toast", description = "A healthy breakfast", imageResId = R.drawable.ic_launcher_foreground),
+            Recipe(name = "Quinoa Salad", description = "Protein-rich lunch", imageResId = R.drawable.ic_launcher_foreground),
+            Recipe(name = "Smoothie Bowl", description = "Energizing snack", imageResId = R.drawable.ic_launcher_foreground)
         )
+
+        val db = RecipeDatabase.getDatabase(requireContext())
+        lifecycleScope.launch {
+            db.recipeDao().insertAll(items)
+            val allRecipes = db.recipeDao().getAllRecipes()
+            for (recipe in allRecipes) {
+                val itemView = LayoutInflater.from(context).inflate(R.layout.home_suggested_recipes_items, suggestedPantryRecipes, false)
+
+                val imageView = itemView.findViewById<ImageView>(R.id.itemImage)
+                val titleView = itemView.findViewById<TextView>(R.id.itemTitle)
+                val descView = itemView.findViewById<TextView>(R.id.itemDescription)
+
+                imageView.setImageResource(recipe.imageResId)
+                titleView.text = recipe.name
+                descView.text = recipe.description
+
+                itemView.setOnClickListener {
+                    // Toast.makeText(context, "$title clicked", Toast.LENGTH_SHORT).show()
+                    if (recipe.name == "Avocado Toast") {
+                        // Create an instance of the new fragment, passing the recipe title
+                        val recipeDetailFragment = RecipeDetailFragment.newInstance(recipe.name)
+
+                        parentFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, recipeDetailFragment) // R.id.fragment_container is your main container
+                            .addToBackStack(null) // Allows users to navigate back
+                            .commit()
+                    } else {
+                        Toast.makeText(context, "${recipe.name} clicked", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                suggestedPantryRecipes.addView(itemView)
+            }
+        }
 
         val button = view.findViewById<Button>(R.id.homeSeeFullPantryBtn)
         button.setOnClickListener {
@@ -30,35 +68,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 .replace(R.id.fragment_container, DetailsFragment())
                 .addToBackStack(null) // Enables back navigation
                 .commit()
-        }
-
-        for ((title, description, imageRes) in items) {
-            val itemView = LayoutInflater.from(context).inflate(R.layout.home_suggested_recipes_items, suggestedPantryRecipes, false)
-
-            val imageView = itemView.findViewById<ImageView>(R.id.itemImage)
-            val titleView = itemView.findViewById<TextView>(R.id.itemTitle)
-            val descView = itemView.findViewById<TextView>(R.id.itemDescription)
-
-            imageView.setImageResource(imageRes)
-            titleView.text = title
-            descView.text = description
-
-            itemView.setOnClickListener {
-                 // Toast.makeText(context, "$title clicked", Toast.LENGTH_SHORT).show()
-                if (title == "Avocado Toast") {
-                    // Create an instance of the new fragment, passing the recipe title
-                    val recipeDetailFragment = RecipeDetailFragment.newInstance(title)
-
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, recipeDetailFragment) // R.id.fragment_container is your main container
-                        .addToBackStack(null) // Allows users to navigate back
-                        .commit()
-                } else {
-                    Toast.makeText(context, "$title clicked", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            suggestedPantryRecipes.addView(itemView)
         }
     }
 
