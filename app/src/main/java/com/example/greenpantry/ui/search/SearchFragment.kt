@@ -20,11 +20,9 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
         notifBtn.setOnClickListener {
             // go to notification fragment
-            notifBtn.setOnClickListener {
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, NotificationsFragment())
-                    .commit()
-            }
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, NotificationsFragment())
+                .commit()
         }
 
         // search text value
@@ -36,14 +34,14 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         // this list should be scrollable with all the items available in the app
         val items =  mutableListOf<Triple<String, String, Int>>(
-            Triple("Romaine Lettuce", "Serving Size: 200g", R.drawable.ic_launcher_foreground),
-            Triple("Iceberg Lettuce", "Serving Size: 180g", R.drawable.ic_launcher_foreground),
-            Triple("Butter Lettuce", "Serving Size: 140g", R.drawable.ic_launcher_foreground),
-            Triple("Kale", "Serving Size: 200g", R.drawable.ic_launcher_foreground),
-            Triple("Spinach", "Serving Size: 250g", R.drawable.ic_launcher_foreground),
-            Triple("Cabbage", "Serving Size: 140g", R.drawable.ic_launcher_foreground),
-            Triple("Yu Choy", "Serving Size: 220g", R.drawable.ic_launcher_foreground),
-            Triple("Bok Choy", "Serving Size: 1800g", R.drawable.ic_launcher_foreground)
+            Triple("Romaine Lettuce", "Serving Size: 200g", R.drawable.ic_launcher_background),
+            Triple("Iceberg Lettuce", "Serving Size: 180g", R.drawable.ic_launcher_background),
+            Triple("Butter Lettuce", "Serving Size: 140g", R.drawable.ic_launcher_background),
+            Triple("Kale", "Serving Size: 200g", R.drawable.ic_launcher_background),
+            Triple("Spinach", "Serving Size: 250g", R.drawable.ic_launcher_background),
+            Triple("Cabbage", "Serving Size: 140g", R.drawable.ic_launcher_background),
+            Triple("Yu Choy", "Serving Size: 220g", R.drawable.ic_launcher_background),
+            Triple("Bok Choy", "Serving Size: 1800g", R.drawable.ic_launcher_background)
         )
 
         for ((title, description, imageRes) in items) {

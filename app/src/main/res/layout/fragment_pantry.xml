@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     
@@ -11,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:padding="16dp"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
@@ -49,20 +49,128 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/YourPantry"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="30sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="12dp"
+        android:textSize="35sp"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/notificationButton"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <!-- Pantry Grid -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/pantryGrid"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingBottom="16dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/details_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/round_rectangle"
+        android:backgroundTint="@color/light_green">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+
+            <!-- search bar -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/searchInputLayout"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="25dp"
+                app:hintEnabled="false"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxStrokeWidth="0dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusTopStart="20dp"
+                app:startIconDrawable="@drawable/ic_search_off"
+                app:startIconTint="@color/light_gray"
+                app:layout_constraintTop_toBottomOf="@id/SearchSubtitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/searchInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    app:hintTextColor="@color/light_gray"
+                    android:hint="@string/Search"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- filter Button -->
+            <ImageButton
+                android:id="@+id/filterButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_filter"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:padding="2dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/Notifications"/>
+
+        </LinearLayout>
+
+        <!-- Empty pantry container -->
+        <LinearLayout
+            android:id="@+id/emptyPantry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/line1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emptyPantry1"
+                android:textSize="16sp"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/white"
+                android:padding="5dp"
+                android:layout_marginTop="100dp"/>
+
+            <TextView
+                android:id="@+id/line2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emptyPantry2"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/white"
+                android:padding="5dp"/>
+        </LinearLayout>
+
+        <!-- pantry items -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pantryGrid"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:padding="16dp"
+            android:layout_marginTop="15dp"/>
+
+
+
+    </LinearLayout>
 </LinearLayout>

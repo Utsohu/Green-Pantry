@@ -20,19 +20,39 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
         notifBtn.setOnClickListener {
             // go to notification fragment
-            notifBtn.setOnClickListener {
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, NotificationsFragment())
-                    .commit()
-            }
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, NotificationsFragment())
+                .commit()
         }
+        // pantry overview - calculate based on pantry items
+        val vegeAmt = 10
+        val fruitAmt = 6
+        val proteinAmt = 3
+        val grainAmt = 2
+        val dairyAmt = 25
+        val otherAmt = 1
 
+        // change displayed values
+        val vegeCount = view.findViewById<TextView>(R.id.vegetableCount)
+        vegeCount.text = vegeAmt.toString()
+        val fruitCount = view.findViewById<TextView>(R.id.fruitCount)
+        fruitCount.text = fruitAmt.toString()
+        val proteinCount = view.findViewById<TextView>(R.id.proteinCount)
+        proteinCount.text = proteinAmt.toString()
+        val grainCount = view.findViewById<TextView>(R.id.grainCount)
+        grainCount.text = grainAmt.toString()
+        val dairyCount = view.findViewById<TextView>(R.id.dairyCount)
+        dairyCount.text = dairyAmt.toString()
+        val otherCount = view.findViewById<TextView>(R.id.otherCount)
+        otherCount.text = otherAmt.toString()
+
+        // recipes
         val suggestedPantryRecipes = view.findViewById<LinearLayout>(R.id.homeSuggestedPantryRecipesList)
 
         val items =  mutableListOf<Triple<String, String, Int>>(
-            Triple("Avocado Toast", "Time: 5min\nDifficulty: 1/10", R.drawable.ic_launcher_foreground),
-            Triple("Quinoa Salad", "Time: 20min\nDifficulty:3/10", R.drawable.ic_launcher_foreground),
-            Triple("Smoothie Bowl", "Time: 20min\nDifficulty:2/10", R.drawable.ic_launcher_foreground)
+            Triple("Avocado Toast", "Time: 5min\nDifficulty: 1/10", R.drawable.ic_launcher_background),
+            Triple("Quinoa Salad", "Time: 20min\nDifficulty:3/10", R.drawable.ic_launcher_background),
+            Triple("Smoothie Bowl", "Time: 20min\nDifficulty:2/10", R.drawable.ic_launcher_background)
         )
 
         val button = view.findViewById<Button>(R.id.homeSeeFullPantryBtn)
@@ -43,33 +63,49 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 .commit()
         }
 
-        for ((title, description, imageRes) in items) {
-            val itemView = LayoutInflater.from(context).inflate(R.layout.recipes_items, suggestedPantryRecipes, false)
+        // recipe list
+        val recipeItems = view.findViewById<LinearLayout>(R.id.homeSuggestedPantryRecipesList)
+        val noSuggestions = view.findViewById<LinearLayout>(R.id.noSuggestions)
 
-            val imageView = itemView.findViewById<ImageView>(R.id.itemImage)
-            val titleView = itemView.findViewById<TextView>(R.id.itemTitle)
-            val descView = itemView.findViewById<TextView>(R.id.itemDescription)
+        // recipe display
+        if (items.isEmpty()) {  // display empty notif message
+            recipeItems.visibility = View.INVISIBLE
+            noSuggestions.visibility = View.VISIBLE
+        } else {
+            recipeItems.visibility = View.VISIBLE
+            noSuggestions.visibility = View.INVISIBLE
+            for ((title, description, imageRes) in items) {
+                val itemView = LayoutInflater.from(context)
+                    .inflate(R.layout.recipes_items, suggestedPantryRecipes, false)
 
-            imageView.setImageResource(imageRes)
-            titleView.text = title
-            descView.text = description
+                val imageView = itemView.findViewById<ImageView>(R.id.itemImage)
+                val titleView = itemView.findViewById<TextView>(R.id.itemTitle)
+                val descView = itemView.findViewById<TextView>(R.id.itemDescription)
 
-            itemView.setOnClickListener {
-                 // Toast.makeText(context, "$title clicked", Toast.LENGTH_SHORT).show()
-                if (title == "Avocado Toast") {
-                    // Create an instance of the new fragment, passing the recipe title
-                    val recipeDetailFragment = RecipeDetailFragment.newInstance(title)
+                imageView.setImageResource(imageRes)
+                titleView.text = title
+                descView.text = description
 
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, recipeDetailFragment) // R.id.fragment_container is your main container
-                        .addToBackStack(null) // Allows users to navigate back
-                        .commit()
-                } else {
-                    Toast.makeText(context, "$title clicked", Toast.LENGTH_SHORT).show()
+                itemView.setOnClickListener {
+                    // Toast.makeText(context, "$title clicked", Toast.LENGTH_SHORT).show()
+                    if (title == "Avocado Toast") {
+                        // Create an instance of the new fragment, passing the recipe title
+                        val recipeDetailFragment = RecipeDetailFragment.newInstance(title)
+
+                        parentFragmentManager.beginTransaction()
+                            .replace(
+                                R.id.fragment_container,
+                                recipeDetailFragment
+                            ) // R.id.fragment_container is your main container
+                            .addToBackStack(null) // Allows users to navigate back
+                            .commit()
+                    } else {
+                        Toast.makeText(context, "$title clicked", Toast.LENGTH_SHORT).show()
+                    }
                 }
-            }
 
-            suggestedPantryRecipes.addView(itemView)
+                suggestedPantryRecipes.addView(itemView)
+            }
         }
     }
 
