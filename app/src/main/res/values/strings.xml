@@ -23,6 +23,17 @@
     <string name="SearchSubTitle">"Find items without scanning"</string>
     <string name="emptyNotifs1">"No Notifications Yet"</string>
     <string name="emptyNotifs2">"When you get a notification,\nit will show up here"</string>
+    <string name="Vegetables">"Vegetables"</string>
+    <string name="Fruits">"Fruits"</string>
+    <string name="Protein">"Protein"</string>
+    <string name="Dairy">"Dairy"</string>
+    <string name="Grains">"Grains"</string>
+    <string name="Other">"Other"</string>
+    <string name="noVal">"0"</string>
+    <string name="noSuggestions1">"Looks like your pantry is empty"</string>
+    <string name="noSuggestions2">"Add items to your pantry\nto get suggested recipes"</string>
+    <string name="emptyPantry1">"Your pantry is empty"</string>
+    <string name="emptyPantry2">"Add items to your pantry through\nthe camera or searching"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

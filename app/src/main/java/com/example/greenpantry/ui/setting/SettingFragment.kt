@@ -16,11 +16,9 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
         val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
         notifBtn.setOnClickListener {
             // go to notification fragment
-            notifBtn.setOnClickListener {
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, NotificationsFragment())
-                    .commit()
-            }
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, NotificationsFragment())
+                .commit()
         }
     }
 }

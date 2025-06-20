@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,14 +31,24 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
         notifBtn.setOnClickListener {
             // go to notification fragment
-            notifBtn.setOnClickListener {
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, NotificationsFragment())
-                    .commit()
-            }
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, NotificationsFragment())
+                .commit()
+        }
+
+        // search text value
+        val inputField = view.findViewById<EditText>(R.id.searchInput)
+        val userInput = inputField.text.toString()
+
+        // filter button
+        val filterBtn = view.findViewById<ImageButton>(R.id.filterButton)
+        filterBtn.setOnClickListener {
+            // filter popup
+            Toast.makeText(context, "filter clicked", Toast.LENGTH_SHORT).show()
         }
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.pantryGrid)
+        val emptyPantry = view.findViewById<LinearLayout>(R.id.emptyPantry)
 
         val itemWidthDp = 180
         val displayMetrics = resources.displayMetrics
@@ -45,6 +58,16 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
 
         recyclerView.layoutManager = GridLayoutManager(requireContext(), spanCount)
         val dummyItems = List(20) { "Item ${it + 1}" }
+
+        // display empty message if no items
+        if (dummyItems.isEmpty()) {
+            recyclerView.visibility = View.INVISIBLE
+            emptyPantry.visibility = View.VISIBLE
+        } else {
+            recyclerView.visibility = View.VISIBLE
+            emptyPantry.visibility = View.GONE
+            recyclerView.adapter = DetailItemAdapter(dummyItems)
+        }
         recyclerView.adapter = DetailItemAdapter(dummyItems)
     }
 }

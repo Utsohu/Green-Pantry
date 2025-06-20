@@ -80,7 +80,10 @@ dependencies {
     implementation(libs.androidx.material)
     implementation(libs.androidx.material.icons.extended.android)
     implementation(libs.androidx.compiler)
-
+    implementation("androidx.camera:camera-core:1.4.2")
+    implementation("androidx.camera:camera-camera2:1.4.2")
+    implementation("androidx.camera:camera-lifecycle:1.4.2")
+    implementation("androidx.camera:camera-view:1.4.2")
 }
 
 kapt{
