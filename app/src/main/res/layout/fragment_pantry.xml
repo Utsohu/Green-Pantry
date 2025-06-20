@@ -33,9 +33,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_notif"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:padding="2dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/Notifications"
-            android:padding="4dp" />
+            android:contentDescription="@string/Notifications"/>
     </LinearLayout>
 
 
@@ -46,7 +50,7 @@
         android:layout_height="wrap_content"
         android:text="@string/YourPantry"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="12dp"
         android:textColor="@color/black"

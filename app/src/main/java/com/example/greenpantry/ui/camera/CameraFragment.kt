@@ -22,5 +22,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
                     .commit()
             }
         }
+
+
     }
 }

@@ -3,7 +3,8 @@
     <color name="light_green">#61934A</color>
     <color name="dark_green">#173805</color>
     <color name="gray">#7F7F7F</color>
+    <color name="light_gray">#BEBEBE</color>
     <color name="neon_green">#4FCC1E</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>

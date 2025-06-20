@@ -32,7 +32,7 @@ val Typography = Typography(
     titleLarge = TextStyle(
         fontFamily = Roboto,
         fontWeight = FontWeight.Bold,
-        fontSize = 35.sp,
+        fontSize = 30.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.15.sp
     ),

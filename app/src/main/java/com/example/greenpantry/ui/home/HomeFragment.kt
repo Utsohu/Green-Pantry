@@ -29,10 +29,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         val suggestedPantryRecipes = view.findViewById<LinearLayout>(R.id.homeSuggestedPantryRecipesList)
 
-        val items = listOf(
-            Triple("Avocado Toast", "A healthy breakfast", R.drawable.ic_launcher_foreground),
-            Triple("Quinoa Salad", "Protein-rich lunch", R.drawable.ic_launcher_foreground),
-            Triple("Smoothie Bowl", "Energizing snack", R.drawable.ic_launcher_foreground)
+        val items =  mutableListOf<Triple<String, String, Int>>(
+            Triple("Avocado Toast", "Time: 5min\nDifficulty: 1/10", R.drawable.ic_launcher_foreground),
+            Triple("Quinoa Salad", "Time: 20min\nDifficulty:3/10", R.drawable.ic_launcher_foreground),
+            Triple("Smoothie Bowl", "Time: 20min\nDifficulty:2/10", R.drawable.ic_launcher_foreground)
         )
 
         val button = view.findViewById<Button>(R.id.homeSeeFullPantryBtn)
@@ -44,7 +44,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         for ((title, description, imageRes) in items) {
-            val itemView = LayoutInflater.from(context).inflate(R.layout.home_suggested_recipes_items, suggestedPantryRecipes, false)
+            val itemView = LayoutInflater.from(context).inflate(R.layout.recipes_items, suggestedPantryRecipes, false)
 
             val imageView = itemView.findViewById<ImageView>(R.id.itemImage)
             val titleView = itemView.findViewById<TextView>(R.id.itemTitle)

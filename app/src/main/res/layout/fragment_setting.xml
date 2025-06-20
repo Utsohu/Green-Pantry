@@ -17,6 +17,9 @@
             android:src="@drawable/ic_notif"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/Notifications"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:padding="2dp"
             android:layout_marginTop="30dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

@@ -21,6 +21,8 @@
     <string name="pantryBack">"&lt; Back"</string>
     <string name="Notifications">"Notifications"</string>
     <string name="SearchSubTitle">"Find items without scanning"</string>
+    <string name="emptyNotifs1">"No Notifications Yet"</string>
+    <string name="emptyNotifs2">"When you get a notification,\nit will show up here"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
