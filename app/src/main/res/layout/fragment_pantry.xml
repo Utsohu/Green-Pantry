@@ -5,19 +5,43 @@
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <!-- Go Back Clickable Text -->
-    <TextView
-        android:id="@+id/pantryBack"
-        android:layout_width="wrap_content"
+    
+    <!-- layout for back and notifs -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/pantryBack"
-        android:textColor="#888888"
-        android:textSize="16sp"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="8dp" />
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Go Back Clickable Text -->
+        <TextView
+            android:id="@+id/pantryBack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/pantryBack"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- Notification Button -->
+        <ImageButton
+            android:id="@+id/notificationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notif"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:padding="2dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/Notifications"/>
+    </LinearLayout>
+
 
     <!-- Pantry Title -->
     <TextView
@@ -25,10 +49,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/YourPantry"
-        android:textStyle="bold"
-        android:textSize="24sp"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="30sp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="12dp"
-        android:textColor="#000000"/>
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/notificationButton"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <!-- Pantry Grid -->
     <androidx.recyclerview.widget.RecyclerView

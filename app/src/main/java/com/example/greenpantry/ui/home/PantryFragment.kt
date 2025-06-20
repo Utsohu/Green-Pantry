@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.greenpantry.R
+import com.example.greenpantry.ui.notifs.NotificationsFragment
 
 class DetailsFragment : Fragment(R.layout.fragment_pantry) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -21,6 +23,16 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, HomeFragment())
                 .commit()
+        }
+
+        val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
+        notifBtn.setOnClickListener {
+            // go to notification fragment
+            notifBtn.setOnClickListener {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, NotificationsFragment())
+                    .commit()
+            }
         }
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.pantryGrid)
