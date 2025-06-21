@@ -9,7 +9,9 @@ import androidx.core.view.isVisible
 import com.example.greenpantry.ui.login.LoginScreen
 import com.example.greenpantry.ui.login.RegisterScreen
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private var isLoggedIn = false
@@ -18,11 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         val composeView      = findViewById<ComposeView>(R.id.compose_login_view)
         val fragmentContainer = findViewById<View>(R.id.fragment_container)
         val bottomNav        = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-
 
         fun loadHome() {
             supportFragmentManager.beginTransaction()
@@ -37,35 +37,33 @@ class MainActivity : AppCompatActivity() {
             if (!isLoggedIn) {
                 if (showingRegister) {
                     RegisterScreen(
-                        onRegisterClicked = {
+                        onNavigateHome = {
                             isLoggedIn = true
-                            composeView.isVisible      = false
+                            composeView.isVisible       = false
                             fragmentContainer.isVisible = true
                             bottomNav.isVisible         = true
                             loadHome()
                         },
-                        onLoginClicked = {
+                        onNavigateLogin = {
                             showingRegister = false
                         }
                     )
                 } else {
                     LoginScreen(
-                        onLoginClicked = {
-
+                        onNavigateHome = {
                             isLoggedIn = true
-                            composeView.isVisible      = false
+                            composeView.isVisible       = false
                             fragmentContainer.isVisible = true
                             bottomNav.isVisible         = true
                             loadHome()
                         },
-                        onRegisterClicked = {
+                        onNavigateRegister = {
                             showingRegister = true
                         }
                     )
                 }
             }
         }
-
 
         if (!isLoggedIn) {
             composeView.isVisible       = true

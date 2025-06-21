@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "194891774367",
+    "project_id": "thegreenpantry-5f802",
+    "storage_bucket": "thegreenpantry-5f802.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194891774367:android:42bf86b0d9ad168566e5aa",
+        "android_client_info": {
+          "package_name": "com.example.greenpantry"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh_P7Jjy3D49ckJQ0h4lGk7uTI84tbvS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

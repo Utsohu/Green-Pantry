@@ -15,41 +15,51 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.greenpantry.R
 import com.example.greenpantry.domain.model.LoginInputValidationType
 import com.example.greenpantry.domain.model.validateLoginInput
+import com.example.greenpantry.presentation.viewmodel.AuthUiState
+import com.example.greenpantry.presentation.viewmodel.AuthViewModel
 import com.example.greenpantry.ui.sharedcomponents.AuthButton
 import com.example.greenpantry.ui.sharedcomponents.HeaderBackground
 import com.example.greenpantry.ui.sharedcomponents.TextEntryModule
 import com.example.greenpantry.ui.theme.green_primary
 import com.example.greenpantry.ui.theme.light_green_background
 import com.example.greenpantry.ui.theme.logo_green
-import com.example.greenpantry.ui.theme.mint_green
+import androidx.compose.ui.text.font.FontWeight
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun LoginScreen(
-    onLoginClicked: () -> Unit,
-    onRegisterClicked: () -> Unit
+    onNavigateHome: () -> Unit,
+    onNavigateRegister: () -> Unit,
+    viewModel: AuthViewModel = hiltViewModel()
 ) {
-    var email           by remember { mutableStateOf("") }
-    var password        by remember { mutableStateOf("") }
-    var isPasswordShown by remember { mutableStateOf(false) }
-    var isLoading       by remember { mutableStateOf(false) }
+    val uiState by viewModel.uiState
 
-    var emailError    by remember { mutableStateOf<String?>(null) }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var isPasswordShown by remember { mutableStateOf(false) }
+
+    var emailError by remember { mutableStateOf<String?>(null) }
     var passwordError by remember { mutableStateOf<String?>(null) }
+
+    LaunchedEffect(uiState.loginSuccess) {
+        if (uiState.loginSuccess) {
+            onNavigateHome()
+        }
+    }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
     ) {
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -57,17 +67,16 @@ fun LoginScreen(
             contentAlignment = Alignment.BottomCenter
         ) {
             HeaderBackground(
-                leftColor  = logo_green,
+                leftColor = logo_green,
                 rightColor = logo_green,
-                modifier   = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize()
             )
             Image(
-                painter            = painterResource(R.drawable.logo),
+                painter = painterResource(R.drawable.logo),
                 contentDescription = "The Green Pantry Logo",
-                modifier           = Modifier.size(220.dp)
+                modifier = Modifier.size(220.dp)
             )
         }
-
 
         Column(
             modifier = Modifier
@@ -79,102 +88,87 @@ fun LoginScreen(
                 .align(Alignment.TopCenter),
             verticalArrangement = Arrangement.spacedBy(15.dp)
         ) {
-
             TextEntryModule(
-                description    = "Email address",
-                hint           = "Enter valid email",
-                textValue      = email,
-                onValueChanged = { email = it; emailError = null },
-                textColor      = Color.Gray,
-                cursorColor    = green_primary,
-                leadingIcon    = Icons.Default.Email
+                description = "Email address",
+                hint = "Enter valid email",
+                textValue = email,
+                onValueChanged = {
+                    email = it
+                    emailError = null
+                },
+                textColor = Color.Gray,
+                cursorColor = green_primary,
+                leadingIcon = Icons.Default.Email
             )
             emailError?.let {
-                Text(
-                    it,
-                    color = MaterialTheme.colorScheme.error,
-                    style = MaterialTheme.typography.labelSmall
-                )
+                Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall)
             }
-
 
             TextEntryModule(
-                description            = "Password",
-                hint                   = "Enter password",
-                textValue              = password,
-                onValueChanged         = { password = it; passwordError = null },
-                textColor              = Color.Gray,
-                cursorColor            = green_primary,
-                trailingIcon           = Icons.Default.Email,
-                onTrailingIconClick    = { isPasswordShown = !isPasswordShown },
-                visualTransformation   = if (isPasswordShown)
-                    VisualTransformation.None
-                else
-                    PasswordVisualTransformation(),
-                keyboardType           = KeyboardType.Password
+                description = "Password",
+                hint = "Enter password",
+                textValue = password,
+                onValueChanged = {
+                    password = it
+                    passwordError = null
+                },
+                textColor = Color.Gray,
+                cursorColor = green_primary,
+                trailingIcon = Icons.Default.Email,
+                onTrailingIconClick = { isPasswordShown = !isPasswordShown },
+                visualTransformation = if (isPasswordShown) VisualTransformation.None else PasswordVisualTransformation(),
+                keyboardType = KeyboardType.Password
             )
             passwordError?.let {
-                Text(
-                    it,
-                    color = MaterialTheme.colorScheme.error,
-                    style = MaterialTheme.typography.labelSmall
-                )
+                Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall)
             }
 
+            uiState.errorMessage?.let {
+                Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+            }
 
             AuthButton(
-                text            = "Login",
+                text = "Login",
                 backgroundColor = green_primary,
-                contentColor    = Color.White,
-                enabled         = !isLoading,
-                isLoading       = isLoading,
-                modifier        = Modifier
+                contentColor = Color.White,
+                enabled = !uiState.isLoading,
+                isLoading = uiState.isLoading,
+                modifier = Modifier
                     .fillMaxWidth()
                     .height(45.dp)
                     .shadow(5.dp, RoundedCornerShape(25.dp)),
-                onButtonClick   = {
-
-                    emailError = null; passwordError = null
-
-
+                onButtonClick = {
+                    emailError = null
+                    passwordError = null
                     val results = validateLoginInput(email, password)
-
-
                     if (results.contains(LoginInputValidationType.EmptyField)) {
-                        if (email.isBlank())    emailError = "Required"
+                        if (email.isBlank()) emailError = "Required"
                         if (password.isBlank()) passwordError = "Required"
                     }
                     if (results.contains(LoginInputValidationType.NoEmail)) {
                         emailError = "Invalid email"
                     }
-
-
                     if (results.size == 1 && results.contains(LoginInputValidationType.Valid)) {
-                        isLoading = true
-                        onLoginClicked()
+                        viewModel.login(email, password)
                     }
                 }
             )
         }
 
-
         Row(
-            modifier           = Modifier
+            modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(16.dp),
             horizontalArrangement = Arrangement.Center
         ) {
-            Text(
-                "No account yet?",
-                style = MaterialTheme.typography.bodyMedium
-            )
-            Spacer(Modifier.width(4.dp))
+            Text("No account yet?", style = MaterialTheme.typography.bodyMedium)
+            Spacer(modifier = Modifier.width(4.dp))
             Text(
                 "Register",
-                modifier = Modifier.clickable { onRegisterClicked() },
-                color    = green_primary,
+                modifier = Modifier.clickable { onNavigateRegister() },
+                color = green_primary,
                 fontWeight = FontWeight.Bold,
-                style    = MaterialTheme.typography.bodyMedium
+                style = MaterialTheme.typography.bodyMedium
             )
         }
     }
