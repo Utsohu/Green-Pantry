@@ -76,7 +76,6 @@ class MainActivity : AppCompatActivity() {
             loadHome()
         }
 
-
         bottomNav.setOnItemSelectedListener {
             val frag = when (it.itemId) {
                 R.id.nav_home    -> com.example.greenpantry.ui.home.HomeFragment()
