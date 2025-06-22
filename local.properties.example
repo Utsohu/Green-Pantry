@@ -1,0 +1,8 @@
+# Example local.properties file
+# Copy this file to local.properties and add your API keys
+
+## Project Location
+sdk.dir=/Users/username/Library/Android/sdk
+
+## Gemini API Configuration
+GEMINI_API_KEY=AIzaSyBk09ZWvnqCBUrW7b3-3fGBDDXzVEOC38c
