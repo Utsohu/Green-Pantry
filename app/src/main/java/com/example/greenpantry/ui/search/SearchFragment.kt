@@ -52,11 +52,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         val db = PantryItemDatabase.getDatabase(requireContext())
         lifecycleScope.launch {
             //remove this block later, this is only for testing
-            val checkItems = db.PantryItemDao().getAllPantryItems()
+            val checkItems = db.pantryItemDao().getAllPantryItems()
             if(checkItems.isEmpty()){
-                db.PantryItemDao().insertAll(items)
+                db.pantryItemDao().insertAll(items)
             }
-            val pantry_items = db.PantryItemDao().getAllPantryItems()
+            val pantry_items = db.pantryItemDao().getAllPantryItems()
             for (item in pantry_items) {
                 val itemView =
                     LayoutInflater.from(context).inflate(R.layout.recipes_items, searchItems, false)
