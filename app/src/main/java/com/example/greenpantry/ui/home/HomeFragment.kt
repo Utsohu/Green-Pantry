@@ -10,15 +10,21 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.greenpantry.R
 import com.example.greenpantry.data.database.Recipe
 import com.example.greenpantry.data.database.RecipeDatabase
+import com.example.greenpantry.data.model.FoodCategory
 import com.example.greenpantry.ui.home.RecipeDetailFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
+    
+    private val viewModel: HomeViewModel by viewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -29,27 +35,32 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 .replace(R.id.fragment_container, NotificationsFragment())
                 .commit()
         }
-        // pantry overview - calculate based on pantry items
-        val vegeAmt = 10
-        val fruitAmt = 6
-        val proteinAmt = 3
-        val grainAmt = 2
-        val dairyAmt = 25
-        val otherAmt = 1
-
-        // change displayed values
+        
+        // Set up UI elements
         val vegeCount = view.findViewById<TextView>(R.id.vegetableCount)
-        vegeCount.text = vegeAmt.toString()
         val fruitCount = view.findViewById<TextView>(R.id.fruitCount)
-        fruitCount.text = fruitAmt.toString()
         val proteinCount = view.findViewById<TextView>(R.id.proteinCount)
-        proteinCount.text = proteinAmt.toString()
         val grainCount = view.findViewById<TextView>(R.id.grainCount)
-        grainCount.text = grainAmt.toString()
         val dairyCount = view.findViewById<TextView>(R.id.dairyCount)
-        dairyCount.text = dairyAmt.toString()
         val otherCount = view.findViewById<TextView>(R.id.otherCount)
-        otherCount.text = otherAmt.toString()
+        
+        // Observe category counts from ViewModel
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.categoryCounts.collect { counts ->
+                vegeCount.text = (counts[FoodCategory.VEGETABLE.name] ?: 0).toString()
+                fruitCount.text = (counts[FoodCategory.FRUIT.name] ?: 0).toString()
+                proteinCount.text = (counts[FoodCategory.PROTEIN.name] ?: 0).toString()
+                grainCount.text = (counts[FoodCategory.GRAIN.name] ?: 0).toString()
+                dairyCount.text = (counts[FoodCategory.DAIRY.name] ?: 0).toString()
+                
+                // Sum up all other categories (SNACK, BEVERAGE, CONDIMENT, OTHER)
+                val otherTotal = (counts[FoodCategory.SNACK.name] ?: 0) +
+                        (counts[FoodCategory.BEVERAGE.name] ?: 0) +
+                        (counts[FoodCategory.CONDIMENT.name] ?: 0) +
+                        (counts[FoodCategory.OTHER.name] ?: 0)
+                otherCount.text = otherTotal.toString()
+            }
+        }
 
         val button = view.findViewById<Button>(R.id.homeSeeFullPantryBtn)
         button.setOnClickListener {
