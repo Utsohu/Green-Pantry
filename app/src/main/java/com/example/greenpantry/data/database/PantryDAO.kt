@@ -1,6 +1,7 @@
 package com.example.greenpantry.data.database
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PantryItemDao {
@@ -16,6 +17,10 @@ interface PantryItemDao {
     // Get all pantry items
     @Query("SELECT * FROM pantryItems")
     suspend fun getAllPantryItems(): List<PantryItem>
+    
+    // Get all pantry items as Flow for real-time updates
+    @Query("SELECT * FROM pantryItems")
+    fun getAllPantryItemsFlow(): Flow<List<PantryItem>>
 
     // Get one pantry item by name
     @Query("SELECT * FROM pantryItems WHERE name = :name LIMIT 1")
