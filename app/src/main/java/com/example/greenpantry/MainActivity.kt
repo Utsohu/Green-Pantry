@@ -2,17 +2,30 @@ package com.example.greenpantry
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.core.view.isVisible
 import com.example.greenpantry.ui.login.LoginScreen
 import com.example.greenpantry.ui.login.RegisterScreen
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import kotlinx.coroutines.launch
+import androidx.lifecycle.lifecycleScope
+import com.example.greenpantry.domain.repositories.AuthRepository
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var authRepository: AuthRepository
 
     private var isLoggedIn = false
 
@@ -30,15 +43,37 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
+        // Check login state on startup
+        var checkedLoginState = false
+        var loggedInState by mutableStateOf(false)
+
+        lifecycleScope.launch {
+            // ------------------ NOTE ------------------
+            // set loggestInState to false to force app to always show login/register screen on load
+            loggedInState = authRepository.getLoginState()
+            // loggedInState = false
+            checkedLoginState = true
+        }
 
         composeView.setContent {
             var showingRegister by remember { mutableStateOf(false) }
+            val isLoggedInState = remember { mutableStateOf(loggedInState) }
 
-            if (!isLoggedIn) {
+            // Observe login state changes
+            LaunchedEffect(loggedInState) {
+                isLoggedInState.value = loggedInState
+            }
+
+            if (!checkedLoginState) {
+                // Show loading indicator while checking login state
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
+                }
+            } else if (!isLoggedInState.value) {
                 if (showingRegister) {
                     RegisterScreen(
                         onNavigateHome = {
-                            isLoggedIn = true
+                            isLoggedInState.value = true
                             composeView.isVisible       = false
                             fragmentContainer.isVisible = true
                             bottomNav.isVisible         = true
@@ -51,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     LoginScreen(
                         onNavigateHome = {
-                            isLoggedIn = true
+                            isLoggedInState.value = true
                             composeView.isVisible       = false
                             fragmentContainer.isVisible = true
                             bottomNav.isVisible         = true
@@ -65,15 +100,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        if (!isLoggedIn) {
-            composeView.isVisible       = true
-            fragmentContainer.isVisible = false
-            bottomNav.isVisible         = false
-        } else {
-            composeView.isVisible       = false
-            fragmentContainer.isVisible = true
-            bottomNav.isVisible         = true
-            loadHome()
+        // Update UI visibility based on login state
+        lifecycleScope.launch {
+            // Wait until login state is checked
+            while (!checkedLoginState) {
+                kotlinx.coroutines.delay(50)
+            }
+            if (!loggedInState) {
+                composeView.isVisible       = true
+                fragmentContainer.isVisible = false
+                bottomNav.isVisible         = false
+            } else {
+                composeView.isVisible       = false
+                fragmentContainer.isVisible = true
+                bottomNav.isVisible         = true
+                loadHome()
+            }
         }
 
         bottomNav.setOnItemSelectedListener {
