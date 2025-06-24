@@ -15,12 +15,24 @@ import com.example.greenpantry.R
 import com.example.greenpantry.data.database.PantryItem
 import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.database.RecipeDatabase
+import com.example.greenpantry.ui.home.ItemDetailFragment
+import com.example.greenpantry.ui.home.RecipeDetailFragment
 import com.example.greenpantry.ui.notifs.NotificationsFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // ensure search icon is on, instead of camera if it was redirected
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.menu.setGroupCheckable(0, true, false)
+        for (i in 0 until bottomNav.menu.size()) {
+            bottomNav.menu.getItem(i).isChecked = false
+        }
+        bottomNav.menu.getItem(2).isChecked = true // change search to on
+        bottomNav.menu.setGroupCheckable(0, true, true)
 
         val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
         notifBtn.setOnClickListener {
@@ -70,8 +82,19 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 descView.text = item.description
 
                 itemView.setOnClickListener {
-                    // go to recipe detail fragment
-                    Toast.makeText(context, "${item.name} clicked", Toast.LENGTH_SHORT).show()
+                    // go to item detail fragment
+                    //Toast.makeText(context, "${item.name} clicked", Toast.LENGTH_SHORT).show()
+
+                    // Create an instance of the new fragment, passing the recipe title
+                    val itemDetailFragment = ItemDetailFragment.newInstance(item.name)
+
+                    parentFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.fragment_container,
+                            itemDetailFragment
+                        ) // R.id.fragment_container is your main container
+                        .addToBackStack(null) // Allows users to navigate back
+                        .commit()
                 }
 
                 searchItems.addView(itemView)
