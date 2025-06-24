@@ -34,6 +34,7 @@
     <string name="noSuggestions2">"Add items to your pantry\nto get suggested recipes"</string>
     <string name="emptyPantry1">"Your pantry is empty"</string>
     <string name="emptyPantry2">"Add items to your pantry through\nthe camera or searching"</string>
+    <string name="edit">"Edit"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

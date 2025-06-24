@@ -168,7 +168,7 @@
             android:layout_weight="1"
             android:clipToPadding="false"
             android:padding="16dp"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="5dp"/>
 
 
 

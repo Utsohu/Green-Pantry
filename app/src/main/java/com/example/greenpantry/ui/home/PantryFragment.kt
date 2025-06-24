@@ -78,6 +78,8 @@ class DetailItemAdapter(private val items: List<String>) :
     class DetailViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val image: ImageView = view.findViewById<ImageView>(R.id.item_image)
         val label: TextView = view.findViewById<TextView>(R.id.item_label)
+        val amount: TextView = view.findViewById<TextView>(R.id.item_amount)
+        val editBtn: ImageButton = view.findViewById<ImageButton>(R.id.item_edit)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailViewHolder {
@@ -88,7 +90,14 @@ class DetailItemAdapter(private val items: List<String>) :
 
     override fun onBindViewHolder(holder: DetailViewHolder, position: Int) {
         holder.label.text = items[position]
+        val amt = 1 // change this later one
+        holder.amount.text = amt.toString()
+
         // Set image or listeners on buttons here if needed
+        holder.editBtn.setOnClickListener {
+            // item edit popup
+            Toast.makeText(holder.itemView.context, "item edit clicked", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int = items.size
