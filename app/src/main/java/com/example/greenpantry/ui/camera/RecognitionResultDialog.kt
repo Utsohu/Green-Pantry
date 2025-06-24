@@ -17,6 +17,7 @@ class RecognitionResultDialog : DialogFragment() {
     
     private var recognizedItem: RecognizedFoodItem? = null
     private var onSaveClickListener: ((RecognizedFoodItem, String) -> Unit)? = null
+    private var onCancelListener: (() -> Unit)? = null
     
     companion object {
         fun newInstance(item: RecognizedFoodItem): RecognitionResultDialog {
@@ -29,13 +30,21 @@ class RecognitionResultDialog : DialogFragment() {
     fun setOnSaveClickListener(listener: (RecognizedFoodItem, String) -> Unit) {
         onSaveClickListener = listener
     }
+
+    fun setOnCancelListener(listener: () -> Unit) {
+        onCancelListener = listener
+    }
+
+    fun setRecognizedItem(item: RecognizedFoodItem) {
+        this.recognizedItem = item
+    }
     
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val item = recognizedItem ?: run {
             dismiss()
             return super.onCreateDialog(savedInstanceState)
         }
-        
+
         val inflater = requireActivity().layoutInflater
         val view = inflater.inflate(R.layout.dialog_recognition_result, null)
         
@@ -59,15 +68,25 @@ class RecognitionResultDialog : DialogFragment() {
         }
         
         val etDescription = view.findViewById<EditText>(R.id.etDescription)
-        
+
         return MaterialAlertDialogBuilder(requireContext())
             .setTitle("Food Item Recognized")
             .setView(view)
             .setPositiveButton("Save to Pantry") { _, _ ->
-                val description = etDescription.text.toString()
+                val description = view.findViewById<EditText>(R.id.etDescription).text.toString()
                 onSaveClickListener?.invoke(item, description)
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton("Cancel", null) // Remove lambda, let dismiss handle it
             .create()
+    }
+
+    override fun onCancel(dialog: android.content.DialogInterface) {
+        super.onCancel(dialog)
+        // No-op, handled in onDismiss
+    }
+
+    override fun onDismiss(dialog: android.content.DialogInterface) {
+        super.onDismiss(dialog)
+        onCancelListener?.invoke()
     }
 }

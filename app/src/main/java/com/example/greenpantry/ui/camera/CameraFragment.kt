@@ -251,22 +251,38 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
             else -> {}
         }
     }
-    
+
     private fun showRecognitionResult(item: RecognizedFoodItem) {
-        val dialog = RecognitionResultDialog.newInstance(item)
+        val fragmentManager = childFragmentManager
+
+        // Force-remove any existing dialog with the same tag
+        val prevDialog = fragmentManager.findFragmentByTag("RecognitionResultDialog")
+        if (prevDialog != null) {
+            fragmentManager.beginTransaction().remove(prevDialog).commitNow()
+        }
+
+        // Create and show new dialog
+        val dialog = RecognitionResultDialog()
+        dialog.setRecognizedItem(item)
         dialog.setOnSaveClickListener { recognizedItem, description ->
             viewModel.saveRecognizedItem(recognizedItem, description)
             Toast.makeText(
-                context, 
-                "${recognizedItem.name} added to pantry!", 
+                context,
+                "${recognizedItem.name} added to pantry!",
                 Toast.LENGTH_SHORT
             ).show()
-            
-            // Navigate to home/pantry screen
+
             navigateToHome()
         }
-        dialog.show(childFragmentManager, "RecognitionResultDialog")
+
+        // Reset recognition state to Idle when dialog is cancelled/dismissed
+        dialog.setOnCancelListener {
+            viewModel.dismissRecognition()
+        }
+
+        dialog.show(fragmentManager, "RecognitionResultDialog")
     }
+
     
     private fun navigateToHome() {
         // Update bottom navigation selection
