@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.greenpantry.R
 import com.example.greenpantry.ui.notifs.NotificationsFragment
+import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 
 class DetailsFragment : Fragment(R.layout.fragment_pantry) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,13 +29,7 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
                 .commit()
         }
 
-        val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
-        notifBtn.setOnClickListener {
-            // go to notification fragment
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, NotificationsFragment())
-                .commit()
-        }
+        setupNotifBtn(view)
 
         // search text value
         val inputField = view.findViewById<EditText>(R.id.searchInput)

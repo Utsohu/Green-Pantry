@@ -18,6 +18,8 @@ import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.ui.home.ItemDetailFragment
 import com.example.greenpantry.ui.home.RecipeDetailFragment
 import com.example.greenpantry.ui.notifs.NotificationsFragment
+import com.example.greenpantry.ui.sharedcomponents.resetNav
+import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
@@ -26,21 +28,9 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
 
         // ensure search icon is on, instead of camera if it was redirected
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNav.menu.setGroupCheckable(0, true, false)
-        for (i in 0 until bottomNav.menu.size()) {
-            bottomNav.menu.getItem(i).isChecked = false
-        }
-        bottomNav.menu.getItem(2).isChecked = true // change search to on
-        bottomNav.menu.setGroupCheckable(0, true, true)
+        resetNav(view, 2)
 
-        val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
-        notifBtn.setOnClickListener {
-            // go to notification fragment
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, NotificationsFragment())
-                .commit()
-        }
+        setupNotifBtn(view)
 
         // search text value
         val inputField = view.findViewById<EditText>(R.id.searchInput)

@@ -20,6 +20,7 @@ import com.example.greenpantry.ui.home.RecipeDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.example.greenpantry.ui.notifs.NotificationsFragment
+import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -28,13 +29,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
-        notifBtn.setOnClickListener {
-            // go to notification fragment
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, NotificationsFragment())
-                .commit()
-        }
+        setupNotifBtn(view)
         
         // Set up UI elements
         val vegeCount = view.findViewById<TextView>(R.id.vegetableCount)

@@ -8,17 +8,12 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.example.greenpantry.R
 import com.example.greenpantry.ui.notifs.NotificationsFragment
+import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 
 class SettingFragment : Fragment(R.layout.fragment_setting) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
-        notifBtn.setOnClickListener {
-            // go to notification fragment
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, NotificationsFragment())
-                .commit()
-        }
+        setupNotifBtn(view)
     }
 }

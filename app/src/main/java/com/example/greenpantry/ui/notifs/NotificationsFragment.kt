@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.greenpantry.R
+import com.example.greenpantry.ui.sharedcomponents.resetNav
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NotificationsFragment : Fragment(R.layout.fragment_notif){
@@ -18,12 +19,7 @@ class NotificationsFragment : Fragment(R.layout.fragment_notif){
         super.onViewCreated(view, savedInstanceState)
 
         // turn off the selected nav icons
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNav.menu.setGroupCheckable(0, true, false)
-        for (i in 0 until bottomNav.menu.size()) {
-            bottomNav.menu.getItem(i).isChecked = false
-        }
-        bottomNav.menu.setGroupCheckable(0, true, true)
+        resetNav(view, -1)
 
         // notification list
         val notifItems = view.findViewById<LinearLayout>(R.id.notifList)
