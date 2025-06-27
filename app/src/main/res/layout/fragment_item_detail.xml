@@ -57,614 +57,630 @@
         app:layout_constraintTop_toBottomOf="@id/notificationButton"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/itemImage"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/ic_launcher_foreground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/itemDetailTitle" />
-
-            <TextView
-                android:id="@+id/nutritionTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nutritionTitle"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:fontFamily="@font/roboto_bold"
-                android:textSize="20sp"
-                android:layout_marginTop="16dp"
-                android:textColor="@color/dark_gray"
-                app:layout_constraintTop_toBottomOf="@id/itemImage"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <!-- serving size text -->
             <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/nutritionTitle"
-                app:layout_constraintStart_toStartOf="parent">
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/itemImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/ic_launcher_foreground"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/itemDetailTitle" />
 
                 <TextView
-                    android:id="@+id/servingSize"
+                    android:id="@+id/nutritionTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/serving"
+                    android:text="@string/nutritionTitle"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:textSize="13sp"
-                    android:textColor="@color/black"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="10dp"/>
+                    android:textSize="20sp"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/dark_gray"
+                    app:layout_constraintTop_toBottomOf="@id/itemImage"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-                <TextView
-                    android:id="@+id/servingAmt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/noVal"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textSize="13sp"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/gram"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/gram"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textSize="13sp"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <!-- nutrition data -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp">
-
-                <!-- column 1 -->
+                <!-- serving size text -->
                 <LinearLayout
-                    android:layout_width="180dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/nutritionTitle"
+                    app:layout_constraintStart_toStartOf="parent">
 
-                    <!-- calories -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/servingSize"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:text="@string/serving"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="10dp"/>
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/calories"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="13sp"
-                            android:textColor="@color/black" />
+                    <TextView
+                        android:id="@+id/servingAmt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/noVal"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="13sp"
+                        android:textColor="@color/black" />
 
+                    <TextView
+                        android:id="@+id/gram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gram"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="13sp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <!-- nutrition data -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp">
+
+                    <!-- column 1 -->
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- calories -->
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/calAmt"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="@string/noVal"
+                                android:layout_weight="1"
+                                android:text="@string/calories"
                                 android:fontFamily="@font/roboto_regular"
                                 android:textSize="13sp"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:text="@string/cal"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/calAmt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/noVal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/cal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
                         </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- totalFat -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/totFat"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="13sp"
+                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/totFatAmt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/noVal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/gram"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- Trans fat -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/transFat"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="13sp"
+                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/transFatAmt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/noVal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/gram"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- sodium -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/sodium"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="13sp"
+                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/sodiumAmt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/noVal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/gram"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- calcium -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/calcium"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="13sp"
+                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/calciumAmt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/noVal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/gram"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
                     </LinearLayout>
 
-                    <!-- divider -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/light_gray" />
 
-                    <!-- totalFat -->
+                    <!-- column 2 -->
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical"
+                        android:layout_marginStart="18dp">
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/totFat"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="13sp"
-                            android:textColor="@color/black" />
-
+                        <!-- fiber -->
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/totFatAmt"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="@string/noVal"
+                                android:layout_weight="1"
+                                android:text="@string/fiber"
                                 android:fontFamily="@font/roboto_regular"
                                 android:textSize="13sp"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:text="@string/gram"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
+                                android:layout_height="wrap_content">
 
+                                <TextView
+                                    android:id="@+id/fiberAmt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/noVal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/gram"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
                         </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- sugar -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/sugar"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="13sp"
+                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/sugarAmt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/noVal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/gram"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- protein -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/protein"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="13sp"
+                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/proteinAmt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/noVal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/gram"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- iron -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/iron"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="13sp"
+                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/ironAmt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/noVal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/gram"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- vitamin d -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/vitaminD"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="13sp"
+                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/vitDAmt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/noVal"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/gram"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
                     </LinearLayout>
 
-                    <!-- divider -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/light_gray" />
-
-                    <!-- Trans fat -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/transFat"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="13sp"
-                            android:textColor="@color/black" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/transFatAmt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/noVal"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:text="@string/gram"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- divider -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/light_gray" />
-
-                    <!-- sodium -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/sodium"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="13sp"
-                            android:textColor="@color/black" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/sodiumAmt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/noVal"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:text="@string/gram"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- divider -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/light_gray" />
-
-                    <!-- calcium -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/calcium"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="13sp"
-                            android:textColor="@color/black" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/calciumAmt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/noVal"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:text="@string/gram"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- divider -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/light_gray" />
 
                 </LinearLayout>
 
+                <!-- item recipes -->
+                <TextView
+                    android:id="@+id/itemRecipeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recipe"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="20sp"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/dark_gray"
+                    app:layout_constraintTop_toBottomOf="@id/servingSize"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-                <!-- column 2 -->
                 <LinearLayout
-                    android:layout_width="180dp"
+                    android:id="@+id/ItemRecipesList"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="18dp">
-
-                    <!-- fiber -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/fiber"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="13sp"
-                            android:textColor="@color/black" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/fiberAmt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/noVal"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:text="@string/gram"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- divider -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/light_gray" />
-
-                    <!-- sugar -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/sugar"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="13sp"
-                            android:textColor="@color/black" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/sugarAmt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/noVal"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:text="@string/gram"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- divider -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/light_gray" />
-
-                    <!-- protein -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/protein"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="13sp"
-                            android:textColor="@color/black" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/proteinAmt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/noVal"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:text="@string/gram"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- divider -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/light_gray" />
-
-                    <!-- iron -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/iron"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="13sp"
-                            android:textColor="@color/black" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/ironAmt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/noVal"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:text="@string/gram"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- divider -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/light_gray" />
-
-                    <!-- vitamin d -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/vitaminD"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="13sp"
-                            android:textColor="@color/black" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/vitDAmt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/noVal"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:text="@string/gram"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"/>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- divider -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/light_gray" />
-
-                </LinearLayout>
-
+                    android:paddingBottom="100dp"
+                    app:layout_constraintTop_toBottomOf="@id/itemRecipeTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"/>
 
             </LinearLayout>
+        </ScrollView>
 
-            <!-- item recipes -->
-            <TextView
-                android:id="@+id/itemRecipeTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/recipe"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:fontFamily="@font/roboto_bold"
-                android:textSize="20sp"
-                android:layout_marginTop="16dp"
-                android:textColor="@color/dark_gray"
-                app:layout_constraintTop_toBottomOf="@id/servingSize"
-                app:layout_constraintStart_toStartOf="parent"/>
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/semiround_rectangle"/>
 
-            <LinearLayout
-                android:id="@+id/ItemRecipesList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/itemRecipeTitle"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"/>
-
-        </LinearLayout>
-    </ScrollView>
-
-
+    </FrameLayout>
 </LinearLayout>

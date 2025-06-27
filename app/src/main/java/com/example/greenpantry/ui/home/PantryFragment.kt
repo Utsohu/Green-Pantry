@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.greenpantry.R
 import com.example.greenpantry.ui.notifs.NotificationsFragment
+import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 
 class DetailsFragment : Fragment(R.layout.fragment_pantry) {
@@ -23,12 +24,7 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         super.onViewCreated(view, savedInstanceState)
 
         val backText: TextView = view.findViewById(R.id.pantryBack)
-        backText.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment())
-                .commit()
-        }
-
+        popBack(backText)
         setupNotifBtn(view)
 
         // search text value
@@ -45,7 +41,7 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.pantryGrid)
         val emptyPantry = view.findViewById<LinearLayout>(R.id.emptyPantry)
 
-        val itemWidthDp = 180
+        val itemWidthDp = 135
         val displayMetrics = resources.displayMetrics
         val itemWidthPx = (itemWidthDp * displayMetrics.density).toInt()
 

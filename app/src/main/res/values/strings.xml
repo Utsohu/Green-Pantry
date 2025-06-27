@@ -50,6 +50,15 @@
     <string name="protein">"Protein:"</string>
     <string name="iron">"Iron:"</string>
     <string name="vitaminD">"Vitamin D:"</string>
+    <string name="add">"ADD TO PANTRY"</string>
+    <string name="time">"Time:"</string>
+    <string name="difficulty">"Difficulty:"</string>
+    <string name="numServing">"Number of servings:"</string>
+    <string name="minute">"min"</string>
+    <string name="ten">"/10"</string>
+    <string name="ingredients">"Ingredients"</string>
+    <string name="Instructions">"Instructions"</string>
+    <string name="period">"."</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

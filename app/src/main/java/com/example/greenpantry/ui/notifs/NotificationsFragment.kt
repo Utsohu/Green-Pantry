@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.greenpantry.R
+import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.resetNav
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -20,6 +21,10 @@ class NotificationsFragment : Fragment(R.layout.fragment_notif){
 
         // turn off the selected nav icons
         resetNav(view, -1)
+
+        // back button
+        val backText: TextView = view.findViewById(R.id.back)
+        popBack(backText)
 
         // notification list
         val notifItems = view.findViewById<LinearLayout>(R.id.notifList)

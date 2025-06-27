@@ -9,21 +9,20 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <!-- Notification Button -->
-        <ImageButton
-            android:id="@+id/notificationButton"
+        <!-- Back Button -->
+        <TextView
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_notif"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/Notifications"
+            android:text="@string/pantryBack"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginTop="30dp"
-            android:scaleX="1.2"
-            android:scaleY="1.2"
-            android:padding="2dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Notification Title -->
         <TextView
@@ -34,7 +33,7 @@
             android:textSize="35sp"
             android:fontFamily="@font/roboto_bold"
             android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/notificationButton"
+            app:layout_constraintTop_toBottomOf="@id/back"
             app:layout_constraintStart_toStartOf="parent"
             android:textColor="@color/black"/>
 

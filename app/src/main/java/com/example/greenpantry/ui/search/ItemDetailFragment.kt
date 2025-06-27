@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -14,7 +15,9 @@ import androidx.lifecycle.lifecycleScope
 import com.example.greenpantry.R
 import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.ui.search.SearchFragment
+import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
+import com.example.greenpantry.ui.sharedcomponents.setNutrition
 import kotlinx.coroutines.launch
 
 class ItemDetailFragment : Fragment() {
@@ -37,11 +40,7 @@ class ItemDetailFragment : Fragment() {
 
         // set the back and notif button
         val backText: TextView = view.findViewById(R.id.itemBack)
-        backText.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, SearchFragment())
-                .commit()
-        }
+        popBack(backText)
         setupNotifBtn(view)
 
         // Retrieve the recipe name passed as an argument
@@ -66,37 +65,17 @@ class ItemDetailFragment : Fragment() {
         // dummy nutrition info
         val calAmt = 165
         val fiberAmt = 1
-        val totFatAmt = 3.6
+        val totFatAmt = 4
         val sugarsAmt = 1
         val transFatAmt = 1
         val protAmt = 31
-        val sodiumAmt = 0.1
+        val sodiumAmt = 0
         val ironAmt = 1
         val calciumAmt = 1
         val vitDAmt = 1
 
-        val calories = view.findViewById<TextView>(R.id.calAmt)
-        val fiber = view.findViewById<TextView>(R.id.fiberAmt)
-        val totFat = view.findViewById<TextView>(R.id.totFatAmt)
-        val sugars = view.findViewById<TextView>(R.id.sugarAmt)
-        val transFat = view.findViewById<TextView>(R.id.transFatAmt)
-        val protein = view.findViewById<TextView>(R.id.proteinAmt)
-        val sodium = view.findViewById<TextView>(R.id.sodiumAmt)
-        val iron = view.findViewById<TextView>(R.id.ironAmt)
-        val calcium = view.findViewById<TextView>(R.id.calciumAmt)
-        val vitaminD = view.findViewById<TextView>(R.id.vitDAmt)
-
-        calories.text = calAmt.toString()
-        fiber.text = fiberAmt.toString()
-        totFat.text = totFatAmt.toString()
-        sugars.text = sugarsAmt.toString()
-        transFat.text = transFatAmt.toString()
-        protein.text = protAmt.toString()
-        sodium.text = sodiumAmt.toString()
-        iron.text = ironAmt.toString()
-        calcium.text = calciumAmt.toString()
-        vitaminD.text = vitDAmt.toString()
-
+        setNutrition(view, calAmt, fiberAmt, totFatAmt, sugarsAmt, transFatAmt,
+            protAmt, sodiumAmt, ironAmt, calciumAmt, vitDAmt)
 
         // dummy recipe list
         data class Recipe(
@@ -151,6 +130,13 @@ class ItemDetailFragment : Fragment() {
 
                recipeItems.addView(recipeView)
             }
+        }
+
+        // add to pantry button
+        val addBtn = view.findViewById<Button>(R.id.addBtn)
+        addBtn.setOnClickListener {
+            // open popup for adding to pantry
+            Toast.makeText(view.context, "add item clicked", Toast.LENGTH_SHORT).show()
         }
 
         return view
