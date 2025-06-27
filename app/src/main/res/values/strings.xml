@@ -35,6 +35,21 @@
     <string name="emptyPantry1">"Your pantry is empty"</string>
     <string name="emptyPantry2">"Add items to your pantry through\nthe camera or searching"</string>
     <string name="edit">"Edit"</string>
+    <string name="nutritionTitle">"Nutrition Information</string>
+    <string name="serving">"Serving Size:"</string>
+    <string name="gram">"g"</string>
+    <string name="recipe">"Recipes"</string>
+    <string name="calories">"Calories:"</string>
+    <string name="cal">"cal"</string>
+    <string name="fiber">"Fiber:"</string>
+    <string name="totFat">"Total Fat:"</string>
+    <string name="transFat">"Trans Fat:"</string>
+    <string name="sodium">"Sodium:"</string>
+    <string name="calcium">"Calcium:"</string>
+    <string name="sugar">"Sugars:"</string>
+    <string name="protein">"Protein:"</string>
+    <string name="iron">"Iron:"</string>
+    <string name="vitaminD">"Vitamin D:"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
