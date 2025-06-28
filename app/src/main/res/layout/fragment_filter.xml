@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="550dp"
+    android:orientation="vertical"
+    android:background="@drawable/round_rectangle"
+    android:backgroundTint="@color/white"
+    android:layout_gravity="bottom"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/filter"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="35sp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/black"/>
+
+    <!-- vegetables -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/Vegetables"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="13sp"
+            android:gravity="center_vertical"/>
+
+        <CheckBox
+            android:id="@+id/vegeCheck"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:checked="false"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/light_gray" />
+
+    <!-- fruit -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/Fruits"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="13sp"
+            android:gravity="center_vertical"/>
+
+        <CheckBox
+            android:id="@+id/fruitCheck"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:checked="false"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/light_gray" />
+
+    <!-- protein -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/protein"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="13sp"
+            android:gravity="center_vertical"/>
+
+        <CheckBox
+            android:id="@+id/protCheck"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:checked="false"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/light_gray" />
+
+    <!-- grain -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/Grains"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="13sp"
+            android:gravity="center_vertical"/>
+
+        <CheckBox
+            android:id="@+id/grainCheck"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:checked="false"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/light_gray" />
+
+    <!-- dairy -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/Dairy"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="13sp"
+            android:gravity="center_vertical"/>
+
+        <CheckBox
+            android:id="@+id/dairyCheck"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:checked="false"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/light_gray" />
+
+    <!-- other -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/Other"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="13sp"
+            android:gravity="center_vertical"/>
+
+        <CheckBox
+            android:id="@+id/otherCheck"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:checked="false"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/light_gray" />
+
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/semiround_rectangle"/>
+
+</LinearLayout>

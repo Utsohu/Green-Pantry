@@ -12,6 +12,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.greenpantry.R
@@ -35,7 +36,7 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         val filterBtn = view.findViewById<ImageButton>(R.id.filterButton)
         filterBtn.setOnClickListener {
             // filter popup
-            Toast.makeText(context, "filter clicked", Toast.LENGTH_SHORT).show()
+            FilterFragment().show(parentFragmentManager, "custom_dialog")
         }
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.pantryGrid)
@@ -48,6 +49,8 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         val spanCount = (displayMetrics.widthPixels / itemWidthPx).coerceAtLeast(1)
 
         recyclerView.layoutManager = GridLayoutManager(requireContext(), spanCount)
+
+        // filter the list using values in FilterViewModel
         val dummyItems = List(20) { "Item ${it + 1}" }
 
         // display empty message if no items
@@ -57,13 +60,26 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         } else {
             recyclerView.visibility = View.VISIBLE
             emptyPantry.visibility = View.GONE
-            recyclerView.adapter = DetailItemAdapter(dummyItems)
+            recyclerView.adapter = DetailItemAdapter(dummyItems, this)
         }
-        recyclerView.adapter = DetailItemAdapter(dummyItems)
+        recyclerView.adapter = DetailItemAdapter(dummyItems, this)
+    }
+
+    // reset the filters to off when view is closed
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        val viewModel: FilterViewModel by activityViewModels()
+        viewModel.vege.value = false
+        viewModel.fruit.value = false
+        viewModel.prot.value = false
+        viewModel.dairy.value = false
+        viewModel.grain.value = false
+        viewModel.oth.value = false
     }
 }
 
-class DetailItemAdapter(private val items: List<String>) :
+class DetailItemAdapter(private val items: List<String>, private val fragment: Fragment) :
     RecyclerView.Adapter<DetailItemAdapter.DetailViewHolder>() {
 
     class DetailViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -85,9 +101,10 @@ class DetailItemAdapter(private val items: List<String>) :
         holder.amount.text = amt.toString()
 
         // Set image or listeners on buttons here if needed
+        val itemName = holder.label.text
         holder.editBtn.setOnClickListener {
             // item edit popup
-            Toast.makeText(holder.itemView.context, "item edit clicked", Toast.LENGTH_SHORT).show()
+            EditItemFragment.newInstance(itemName.toString(),"UPDATE").show(fragment.parentFragmentManager, "custom_dialog")
         }
     }
 

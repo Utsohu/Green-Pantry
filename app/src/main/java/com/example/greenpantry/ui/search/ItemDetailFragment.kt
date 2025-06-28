@@ -136,7 +136,7 @@ class ItemDetailFragment : Fragment() {
         val addBtn = view.findViewById<Button>(R.id.addBtn)
         addBtn.setOnClickListener {
             // open popup for adding to pantry
-            Toast.makeText(view.context, "add item clicked", Toast.LENGTH_SHORT).show()
+            EditItemFragment.newInstance(itemName.toString(),"ADD TO PANTRY").show(parentFragmentManager, "custom_dialog")
         }
 
         return view
