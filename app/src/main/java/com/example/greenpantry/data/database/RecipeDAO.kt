@@ -40,4 +40,8 @@ interface RecipeDao {
     // Search for recipes by partial title match
     @Query("SELECT * FROM recipes WHERE name LIKE '%' || :query || '%'")
     suspend fun searchRecipesByTitle(query: String): List<Recipe>
+
+    //return a list of recipes using a particular ingredient
+    @Query("SELECT * FROM recipes WHERE ingredients LIKE '%' || :ingredient || '%'")
+    suspend fun getRecipesByIngredient(ingredient: String): List<Recipe>
 }

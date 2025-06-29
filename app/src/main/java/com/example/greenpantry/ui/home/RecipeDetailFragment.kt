@@ -10,24 +10,30 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.compose.ui.semantics.text
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.greenpantry.R
+import com.example.greenpantry.data.database.PantryItemDatabase
+import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.ui.search.SearchFragment
 import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setNutrition
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
+import kotlinx.coroutines.launch
 
 class RecipeDetailFragment : Fragment() {
 
     private var recipeName: String? = null
+    private lateinit var recipeDB : RecipeDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             recipeName = it.getString(ARG_RECIPE_NAME)
         }
+        recipeDB = RecipeDatabase.getDatabase(requireContext())
     }
 
     override fun onCreateView(
@@ -56,48 +62,59 @@ class RecipeDetailFragment : Fragment() {
         val newImage = R.drawable.ic_launcher_background // replace with the image of item
         itemImage.setImageResource(newImage)
 
-        // update recipe overvie text
         val time = view.findViewById<TextView>(R.id.timeAmt)
         val difficulty = view.findViewById<TextView>(R.id.diffAmt)
         val servings = view.findViewById<TextView>(R.id.numServings)
-        val timeAmt = 30
-        val diffAmt = 4
-        val numServing = 1
-        time.text = timeAmt.toString()
-        difficulty.text = diffAmt.toString()
-        servings.text = numServing.toString()
+        recipeName?.let { name ->
+            viewLifecycleOwner.lifecycleScope.launch {
+                val item = recipeDB.recipeDao().getRecipeByTitle(name)
+                if(item != null){
+                    time.text = item.time.toString()
+                    difficulty.text = item.difficulty.toString()
+                    servings.text = item.NOS.toString()
+                    setNutrition(view, item.calories, item.fiber, item.totalFat,
+                        item.sugars, item.transFat, item.protein,
+                        item.sodium, item.iron, item.calcium, item.vitaminD)
 
-        // dummy nutrition info
-        val calAmt = 165
-        val fiberAmt = 1
-        val totFatAmt = 4
-        val sugarsAmt = 1
-        val transFatAmt = 1
-        val protAmt = 31
-        val sodiumAmt = 0
-        val ironAmt = 1
-        val calciumAmt = 1
-        val vitDAmt = 1
+                    val ingredientView = view.findViewById<RecyclerView>(R.id.ingredientGrid)
+                    val ingredientList = item.ingredients
+                    ingredientView.layoutManager = object : LinearLayoutManager(requireContext()) {
+                        override fun canScrollVertically(): Boolean = false // turn off nested scroll
+                    }
+                    ingredientView.adapter = IngredientAdapter(ingredientList)
 
-        setNutrition(view, calAmt, fiberAmt, totFatAmt, sugarsAmt, transFatAmt,
-            protAmt, sodiumAmt, ironAmt, calciumAmt, vitDAmt)
-
-        // ingredients
-        val ingredientView = view.findViewById<RecyclerView>(R.id.ingredientGrid)
-        val ingredientList = List(4) { "Item ${it + 1}" } // dummy vals
-        ingredientView.layoutManager = object : LinearLayoutManager(requireContext()) {
-            override fun canScrollVertically(): Boolean = false // turn off nested scroll
+                    // instructions
+                    val instructionView = view.findViewById<RecyclerView>(R.id.instructionGrid)
+                    val instructionList = item.setUpInstructions
+                    instructionView.layoutManager = object : LinearLayoutManager(requireContext()) {
+                        override fun canScrollVertically(): Boolean = false // turn off nested scroll
+                    }
+                    instructionView.adapter = InstructionAdapter(instructionList)
+                }else {
+                    val timeAmt = 30
+                    val diffAmt = 4
+                    val numServing = 1
+                    time.text = timeAmt.toString()
+                    difficulty.text = diffAmt.toString()
+                    servings.text = numServing.toString()
+                    // fallback dummy values
+                    setNutrition(view, 165, 1, 4,
+                        1, 1, 31,
+                        0, 1, 1, 1)
+                }
+            }
+        }?: run {
+            val timeAmt = 30
+            val diffAmt = 4
+            val numServing = 1
+            time.text = timeAmt.toString()
+            difficulty.text = diffAmt.toString()
+            servings.text = numServing.toString()
+            // itemName is null or not a valid string
+            setNutrition(view, 165, 1, 4,
+                1, 1, 31, 0,
+                1, 1, 1)
         }
-        ingredientView.adapter = IngredientAdapter(ingredientList)
-
-        // instructions
-        val instructionView = view.findViewById<RecyclerView>(R.id.instructionGrid)
-        val instructionList = List(4) { "${it + 1}" } // dummy vals
-        instructionView.layoutManager = object : LinearLayoutManager(requireContext()) {
-            override fun canScrollVertically(): Boolean = false // turn off nested scroll
-        }
-        instructionView.adapter = InstructionAdapter(instructionList)
-
 
         return view
     }
@@ -160,8 +177,8 @@ class InstructionAdapter(private val items: List<String>) :
 
     override fun onBindViewHolder(holder: InstructionHolder, position: Int) {
         val itemImg = R.drawable.ic_launcher_background // change this too
-        holder.count.text = items[position]
-        val info = "Random instructions" // change this too
+        holder.count.text = (position+1).toString()
+        val info = items[position] // change this too
         holder.line.text = info
     }
 

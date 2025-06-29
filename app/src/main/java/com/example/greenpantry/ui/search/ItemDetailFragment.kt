@@ -25,6 +25,7 @@ class ItemDetailFragment : Fragment() {
 
     private var itemName: String? = null
     private lateinit var pantryDB : PantryItemDatabase
+    private lateinit var recipeDB : RecipeDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +33,7 @@ class ItemDetailFragment : Fragment() {
             itemName = it.getString(ARG_ITEM_NAME)
         }
         pantryDB = PantryItemDatabase.getDatabase(requireContext())
+        recipeDB = RecipeDatabase.getDatabase(requireContext())
     }
 
     override fun onCreateView(
@@ -94,27 +96,10 @@ class ItemDetailFragment : Fragment() {
             val imageResId: Int
         )
 
-        val items = listOf(
-            Recipe(
-                name = "Avocado Toast",
-                description = "A healthy breakfast",
-                imageResId = R.drawable.ic_launcher_foreground
-            ),
-            Recipe(
-                name = "Quinoa Salad",
-                description = "Protein-rich lunch",
-                imageResId = R.drawable.ic_launcher_foreground
-            ),
-            Recipe(
-                name = "Smoothie Bowl",
-                description = "Energizing snack",
-                imageResId = R.drawable.ic_launcher_foreground
-            )
-        )
-
         val recipeItems = view.findViewById<LinearLayout>(R.id.ItemRecipesList)
         lifecycleScope.launch {
             // recipe display
+           val items = recipeDB.recipeDao().getRecipesByIngredient(itemName?:"")
            for (recipe in items) {
                val recipeView = LayoutInflater.from(context)
                    .inflate(R.layout.recipes_items, recipeItems, false)
