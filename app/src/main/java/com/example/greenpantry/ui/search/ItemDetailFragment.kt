@@ -13,6 +13,7 @@ import androidx.compose.ui.semantics.text
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.greenpantry.R
+import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.ui.search.SearchFragment
 import com.example.greenpantry.ui.sharedcomponents.popBack
@@ -23,12 +24,14 @@ import kotlinx.coroutines.launch
 class ItemDetailFragment : Fragment() {
 
     private var itemName: String? = null
+    private lateinit var pantryDB : PantryItemDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             itemName = it.getString(ARG_ITEM_NAME)
         }
+        pantryDB = PantryItemDatabase.getDatabase(requireContext())
     }
 
     override fun onCreateView(
@@ -62,20 +65,27 @@ class ItemDetailFragment : Fragment() {
         val size = 100 // dummy val for now
         servingAmt.text = size.toString()
 
-        // dummy nutrition info
-        val calAmt = 165
-        val fiberAmt = 1
-        val totFatAmt = 4
-        val sugarsAmt = 1
-        val transFatAmt = 1
-        val protAmt = 31
-        val sodiumAmt = 0
-        val ironAmt = 1
-        val calciumAmt = 1
-        val vitDAmt = 1
 
-        setNutrition(view, calAmt, fiberAmt, totFatAmt, sugarsAmt, transFatAmt,
-            protAmt, sodiumAmt, ironAmt, calciumAmt, vitDAmt)
+        itemName?.let { name ->
+            viewLifecycleOwner.lifecycleScope.launch {
+                val item = pantryDB.pantryItemDao().getPantryItemByName(name)
+                if(item != null){
+                    setNutrition(view, item.calories, item.fiber, item.totalFat,
+                        item.sugars, item.transFat, item.protein,
+                        item.sodium, item.iron, item.calcium, item.vitaminD)
+                }else {
+                    // fallback dummy values
+                    setNutrition(view, 165, 1, 4,
+                        1, 1, 31,
+                        0, 1, 1, 1)
+                }
+            }
+        }?: run {
+            // itemName is null or not a valid string
+            setNutrition(view, 165, 1, 4,
+                1, 1, 31, 0,
+                1, 1, 1)
+        }
 
         // dummy recipe list
         data class Recipe(

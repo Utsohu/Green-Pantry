@@ -15,5 +15,15 @@ data class PantryItem(
     val quantity: String? = null,
     val recognitionConfidence: Float? = null,
     val imageUri: String? = null,
-    val dateAdded: Long = System.currentTimeMillis()
+    val dateAdded: Long = System.currentTimeMillis(),
+    val calories: Int = 0,
+    val fiber: Int = 0,
+    val totalFat: Int = 0,
+    val sugars: Int = 0,
+    val transFat: Int = 0,
+    val protein: Int = 0,
+    val sodium: Int = 0,
+    val iron: Int = 0,
+    val calcium: Int = 0,
+    val vitaminD: Int = 0
 )
