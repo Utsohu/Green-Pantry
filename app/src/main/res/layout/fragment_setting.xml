@@ -16,7 +16,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_notif"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/Notifications"
             android:scaleX="1.2"
             android:scaleY="1.2"
             android:padding="2dp"
@@ -30,7 +29,7 @@
             android:id="@+id/SettingTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Setting"
+            android:text="Settings"
             android:textSize="35sp"
             android:fontFamily="@font/roboto_bold"
             android:layout_marginTop="10dp"
@@ -123,7 +122,7 @@
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/usernameValue"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="106dp"/>
+            android:layout_marginTop="86dp"/>
 
         <!-- Notification Switches -->
 
@@ -178,6 +177,63 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="22dp"/>
 
+        <!-- Notification Frequency Selection -->
+
+        <TextView
+            android:id="@+id/frequencyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Frequency"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/remindersSwitch"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/frequencyRadioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/frequencyLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/radio_daily"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daily" />
+
+            <RadioButton
+                android:id="@+id/radio_three_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 times a week" />
+
+            <RadioButton
+                android:id="@+id/radio_weekly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weekly" />
+
+            <RadioButton
+                android:id="@+id/radio_biweekly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Biweekly" />
+
+            <RadioButton
+                android:id="@+id/radio_monthly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monthly" />
+        </RadioGroup>
+
+
+
         <!-- Logout Button -->
         <Button
             android:id="@+id/logoutButton"
@@ -186,9 +242,9 @@
             android:text="Logout"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/red"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="0dp"
             android:layout_marginHorizontal="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/remindersSwitch"
+            app:layout_constraintTop_toBottomOf="@+id/frequencyRadioGroup"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintWidth_default="spread" />

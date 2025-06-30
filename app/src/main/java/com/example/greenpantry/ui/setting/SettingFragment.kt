@@ -17,6 +17,8 @@ import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import android.widget.RadioGroup
+
 
 @AndroidEntryPoint
 class SettingFragment : Fragment(R.layout.fragment_setting) {
@@ -28,16 +30,19 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
 
         setupNotifBtn(view)
 
+        // switch for turning notifications on when ingredients are low
         val switchIngredientLow = view.findViewById<Switch>(R.id.switchIngredientLow)
         switchIngredientLow.setOnCheckedChangeListener { _, isChecked: Boolean ->
             // Use isChecked safely
         }
 
+        // switch for turning notifications on for recipes
         val switchRecipesNotif = view.findViewById<Switch>(R.id.switchRecipes)
         switchRecipesNotif.setOnCheckedChangeListener { _, isChecked: Boolean ->
             // Use isChecked safely
         }
 
+        // switch for turning notifications on for reminders
         val switchReminders = view.findViewById<Switch>(R.id.remindersSwitch)
         switchReminders.setOnCheckedChangeListener { _, isChecked: Boolean ->
             // Use isChecked safely
@@ -47,6 +52,19 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
         logoutButton.setOnClickListener {
             // Call logout method from AuthViewModel
             authViewModel.logout()
+        }
+
+        // Notification frequency radio buttons
+        val radioGroup = view.findViewById<RadioGroup>(R.id.frequencyRadioGroup)
+
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.radio_daily -> {/* handle daily */}
+                R.id.radio_three_times -> {/* handle 3 times a week */}
+                R.id.radio_weekly -> {/* handle weekly */}
+                R.id.radio_biweekly -> {/* handle biweekly */}
+                R.id.radio_monthly -> {/* handle monthly */}
+            }
         }
 
         // Observe logout success
