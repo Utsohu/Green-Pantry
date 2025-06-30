@@ -25,5 +25,6 @@ data class PantryItem(
     val sodium: Int = 0,
     val iron: Int = 0,
     val calcium: Int = 0,
-    val vitaminD: Int = 0
+    val vitaminD: Int = 0,
+    val curNum: Int = 0
 )

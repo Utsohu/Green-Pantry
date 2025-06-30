@@ -45,4 +45,9 @@ interface PantryItemDao {
     // Search items by partial name match
     @Query("SELECT * FROM pantryItems WHERE name LIKE '%' || :query || '%'")
     suspend fun searchItemsByName(query: String): List<PantryItem>
+
+    // Get all items with nonzero quantity
+    @Query("SELECT * FROM pantryItems WHERE curNum > 0")
+    suspend fun getAllItemsWithNonZeroQuantity(): List<PantryItem>
+
 }

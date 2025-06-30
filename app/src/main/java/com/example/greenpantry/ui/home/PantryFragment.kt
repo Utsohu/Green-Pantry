@@ -13,16 +13,26 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.greenpantry.R
+import com.example.greenpantry.data.database.PantryItem
+import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
+import kotlinx.coroutines.launch
+import android.text.TextWatcher
+import android.text.Editable
+
 
 class DetailsFragment : Fragment(R.layout.fragment_pantry) {
+    private lateinit var allItems: List<PantryItem>
+    private lateinit var pantryDB : PantryItemDatabase
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pantryDB = PantryItemDatabase.getDatabase(requireContext())
 
         val backText: TextView = view.findViewById(R.id.pantryBack)
         popBack(backText)
@@ -42,6 +52,15 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.pantryGrid)
         val emptyPantry = view.findViewById<LinearLayout>(R.id.emptyPantry)
 
+        inputField.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filterAndDisplayItems(s.toString(), recyclerView, emptyPantry)
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
         val itemWidthDp = 135
         val displayMetrics = resources.displayMetrics
         val itemWidthPx = (itemWidthDp * displayMetrics.density).toInt()
@@ -50,19 +69,10 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
 
         recyclerView.layoutManager = GridLayoutManager(requireContext(), spanCount)
 
-        // filter the list using values in FilterViewModel
-        val dummyItems = List(20) { "Item ${it + 1}" }
-
-        // display empty message if no items
-        if (dummyItems.isEmpty()) {
-            recyclerView.visibility = View.INVISIBLE
-            emptyPantry.visibility = View.VISIBLE
-        } else {
-            recyclerView.visibility = View.VISIBLE
-            emptyPantry.visibility = View.GONE
-            recyclerView.adapter = DetailItemAdapter(dummyItems, this)
+        viewLifecycleOwner.lifecycleScope.launch {
+            allItems = pantryDB.pantryItemDao().getAllItemsWithNonZeroQuantity()
+            filterAndDisplayItems(inputField.text.toString(), recyclerView, emptyPantry)
         }
-        recyclerView.adapter = DetailItemAdapter(dummyItems, this)
     }
 
     // reset the filters to off when view is closed
@@ -77,9 +87,28 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         viewModel.grain.value = false
         viewModel.oth.value = false
     }
+
+    private fun filterAndDisplayItems(
+        query: String,
+        recyclerView: RecyclerView,
+        emptyPantry: LinearLayout
+    ) {
+        val filteredItems = allItems.filter {
+            it.name.contains(query, ignoreCase = true)
+        }
+
+        if (filteredItems.isEmpty()) {
+            recyclerView.visibility = View.INVISIBLE
+            emptyPantry.visibility = View.VISIBLE
+        } else {
+            recyclerView.visibility = View.VISIBLE
+            emptyPantry.visibility = View.GONE
+            recyclerView.adapter = DetailItemAdapter(filteredItems, this@DetailsFragment)
+        }
+    }
 }
 
-class DetailItemAdapter(private val items: List<String>, private val fragment: Fragment) :
+class DetailItemAdapter(private val items: List<PantryItem>, private val fragment: Fragment) :
     RecyclerView.Adapter<DetailItemAdapter.DetailViewHolder>() {
 
     class DetailViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -96,9 +125,8 @@ class DetailItemAdapter(private val items: List<String>, private val fragment: F
     }
 
     override fun onBindViewHolder(holder: DetailViewHolder, position: Int) {
-        holder.label.text = items[position]
-        val amt = 1 // change this later one
-        holder.amount.text = amt.toString()
+        holder.label.text = items[position].name
+        holder.amount.text = items[position].curNum.toString()
 
         // Set image or listeners on buttons here if needed
         val itemName = holder.label.text
