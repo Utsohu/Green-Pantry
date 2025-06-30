@@ -38,5 +38,103 @@
             app:layout_constraintStart_toStartOf="parent"
             android:textColor="@color/black"/>
 
+        <!-- Account Information Header -->
+        <TextView
+            android:id="@+id/accountInfoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account Information"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/SettingTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Edit Button -->
+        <ImageButton
+            android:id="@+id/editButton"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_edit"
+            android:background="@drawable/edit_button_background"
+            app:layout_constraintTop_toTopOf="@+id/accountInfoTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="8dp"
+            android:layout_marginTop="5dp"/>
+
+        <!-- Username Label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"/>
+        <TextView
+            android:id="@+id/usernameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lorem"
+            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <!-- TextViews for Password -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="46dp"/>
+        <TextView
+            android:id="@+id/passwordValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="**********"
+            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="46dp"/>
+
+        <!-- TextViews for Email -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="76dp"/>
+        <TextView
+            android:id="@+id/emailValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="lorem@email"
+            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="76dp"/>
+
+        <!-- Notifications Header -->
+        <TextView
+            android:id="@+id/notificationsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notifications"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/usernameValue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="106dp"/>
+
+        <!-- Notification Switches -->
+        <Switch
+            android:id="@+id/switchIngredient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingredient Low"
+            app:layout_constraintTop_toBottomOf="@+id/notificationsTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="22dp"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
