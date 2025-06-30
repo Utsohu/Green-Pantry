@@ -93,6 +93,7 @@ class FirebaseAuthRepository @Inject constructor(
     override suspend fun logout(): Boolean =
         try {
             auth.signOut()
+            authStateManager.disableAuthBypass() // Clear any auth bypass state
             true
         } catch (e: Exception) {
             false

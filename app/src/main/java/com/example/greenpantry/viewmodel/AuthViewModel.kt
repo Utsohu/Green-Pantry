@@ -35,11 +35,22 @@ class AuthViewModel @Inject constructor(
             errorMessage     = if (!ok) "Registration failed" else null
         )
     }
+
+    fun logout() = viewModelScope.launch {
+        uiState.value = uiState.value.copy(isLoading = true, errorMessage = null)
+        val ok = repo.logout()
+        uiState.value = uiState.value.copy(
+            isLoading = false,
+            logoutSuccess = ok,
+            errorMessage = if (!ok) "Logout failed" else null
+        )
+    }
 }
 
 data class AuthUiState(
     val isLoading: Boolean = false,
     val loginSuccess: Boolean = false,
     val registerSuccess: Boolean = false,
+    val logoutSuccess: Boolean = false,
     val errorMessage: String? = null
 )
