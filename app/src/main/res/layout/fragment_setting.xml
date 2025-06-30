@@ -126,14 +126,58 @@
             android:layout_marginTop="106dp"/>
 
         <!-- Notification Switches -->
-        <Switch
-            android:id="@+id/switchIngredient"
+
+        <!-- Ingredient Low Switch -->
+        <TextView
+            android:id="@+id/ingredientLowText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ingredient Low"
             app:layout_constraintTop_toBottomOf="@+id/notificationsTitle"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="22dp"/>
+        <Switch
+            android:id="@+id/switchIngredientLow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/notificationsTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="22dp"/>
+
+        <!-- Recipes Switch -->
+        <TextView
+            android:id="@+id/recipeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recipes"
+            app:layout_constraintTop_toBottomOf="@+id/ingredientLowText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="22dp"/>
+        <Switch
+            android:id="@+id/switchRecipes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/ingredientLowText"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="22dp"/>
+
+        <!-- Reminders Switch -->
+        <TextView
+            android:id="@+id/remindersText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reminders"
+            app:layout_constraintTop_toBottomOf="@+id/recipeText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="22dp"/>
+        <Switch
+            android:id="@+id/remindersSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/recipeText"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="22dp"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

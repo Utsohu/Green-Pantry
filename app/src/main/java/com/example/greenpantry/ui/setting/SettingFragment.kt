@@ -17,8 +17,18 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
 
         setupNotifBtn(view)
 
-        val switchIngredient = view.findViewById<Switch>(R.id.switchIngredient)
-        switchIngredient.setOnCheckedChangeListener { _, isChecked: Boolean ->
+        val switchIngredientLow = view.findViewById<Switch>(R.id.switchIngredientLow)
+        switchIngredientLow.setOnCheckedChangeListener { _, isChecked: Boolean ->
+            // Use isChecked safely
+        }
+
+        val switchRecipesNotif = view.findViewById<Switch>(R.id.switchRecipes)
+        switchRecipesNotif.setOnCheckedChangeListener { _, isChecked: Boolean ->
+            // Use isChecked safely
+        }
+
+        val switchReminders = view.findViewById<Switch>(R.id.remindersSwitch)
+        switchReminders.setOnCheckedChangeListener { _, isChecked: Boolean ->
             // Use isChecked safely
         }
 
