@@ -14,13 +14,16 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.greenpantry.R
+import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.ui.home.ItemDetailFragment.Companion
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
+import kotlinx.coroutines.launch
 
 class EditItemFragment : DialogFragment() {
 
@@ -68,16 +71,31 @@ class EditItemFragment : DialogFragment() {
             val amountInput = amountDisplay.text.toString()
             val unitInput = unitDisplay.text.toString()
 
-            /* Update the stored amount and unit to the new input
-                if the text is update, change to new value,
-                if its add to pantry then add to the current amount
-                unit wil always change to the input*/
-            if (addBtn.text == "UPDATE") {
-            } else {
+            val addAmount = amountInput.toIntOrNull()
+            if (addAmount == null || addAmount <= 0) {
+                Toast.makeText(view.context, "Please enter a valid amount", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
 
-            Toast.makeText(view.context, "add item clicked", Toast.LENGTH_SHORT).show()
-            dismiss() // close fragment
+            val pantryDB = PantryItemDatabase.getDatabase(requireContext())
+            if (itemName != null) {
+                viewLifecycleOwner.lifecycleScope.launch {
+                    val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
+                    if (item != null) {
+                        val updatedItem = item.copy(curNum = item.curNum + addAmount, quantity = "$addAmount $unitInput")
+                        pantryDB.pantryItemDao().updatePantryItem(updatedItem)
+                        Toast.makeText(requireContext(), "Added to pantry", Toast.LENGTH_SHORT).show()
+                        parentFragmentManager.setFragmentResult("edit_item_result", Bundle().apply {
+                            putBoolean("updated", true)
+                        })
+                        dismiss()
+                    } else {
+                        Toast.makeText(requireContext(), "Item not found in database", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                Toast.makeText(requireContext(), "Missing item reference", Toast.LENGTH_SHORT).show()
+            }
         }
 
         return view

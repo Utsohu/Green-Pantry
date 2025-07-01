@@ -43,6 +43,13 @@ class ItemDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_item_detail, container, false)
 
+        parentFragmentManager.setFragmentResultListener("edit_item_result", this) { _, bundle ->
+            val updated = bundle.getBoolean("updated", false)
+            if (updated) {
+                refreshItemDetails()
+            }
+        }
+
         // set the back and notif button
         val backText: TextView = view.findViewById(R.id.itemBack)
         popBack(backText)
@@ -148,4 +155,22 @@ class ItemDetailFragment : Fragment() {
                 }
             }
     }
+
+    private fun refreshItemDetails() {
+        val view = view ?: return
+        itemName?.let { name ->
+            viewLifecycleOwner.lifecycleScope.launch {
+                val item = pantryDB.pantryItemDao().getPantryItemByName(name)
+                if (item != null) {
+                    setNutrition(view, item.calories, item.fiber, item.totalFat,
+                        item.sugars, item.transFat, item.protein,
+                        item.sodium, item.iron, item.calcium, item.vitaminD)
+
+                    val servingAmt = view.findViewById<TextView>(R.id.servingAmt)
+                    servingAmt.text = item.curNum.toString() // or any updated display
+                }
+            }
+        }
+    }
+
 }
