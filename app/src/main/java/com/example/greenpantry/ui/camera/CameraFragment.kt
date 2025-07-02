@@ -217,6 +217,16 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
             if (bitmap != null) {
                 Log.d("CameraFragment", "Bitmap loaded: ${bitmap.width}x${bitmap.height}")
                 viewModel.recognizeImage(bitmap)
+                
+                // Clean up the temporary photo file after processing
+                try {
+                    if (photoFile.exists()) {
+                        photoFile.delete()
+                        Log.d("CameraFragment", "Temporary photo file deleted")
+                    }
+                } catch (e: Exception) {
+                    Log.w("CameraFragment", "Failed to delete temporary photo file", e)
+                }
             } else {
                 Log.e("CameraFragment", "Failed to decode bitmap from file")
                 Toast.makeText(context, "Failed to load image", Toast.LENGTH_SHORT).show()
@@ -302,6 +312,11 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
     override fun onDestroy() {
         super.onDestroy()
         Log.d("CameraFragment", "onDestroy called")
+        
+        // Properly release camera resources
+        cameraProvider?.unbindAll()
+        cameraProvider = null
+        
         cameraExecutor.shutdown()
     }
 }
