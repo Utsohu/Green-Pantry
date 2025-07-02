@@ -20,11 +20,21 @@ class ImagePreprocessor @Inject constructor() {
     
     fun preprocessImage(imageFile: File): Bitmap {
         val bitmap = loadBitmapWithCorrectOrientation(imageFile)
-        return resizeBitmap(bitmap)
+        val resizedBitmap = resizeBitmap(bitmap)
+        // If a new bitmap was created during resizing, recycle the original
+        if (resizedBitmap !== bitmap && !bitmap.isRecycled) {
+            bitmap.recycle()
+        }
+        return resizedBitmap
     }
     
     fun preprocessImage(bitmap: Bitmap): Bitmap {
-        return resizeBitmap(bitmap)
+        val resizedBitmap = resizeBitmap(bitmap)
+        // Only recycle the original if a new bitmap was created and it's not the same reference
+        if (resizedBitmap !== bitmap && !bitmap.isRecycled) {
+            bitmap.recycle()
+        }
+        return resizedBitmap
     }
     
     private fun loadBitmapWithCorrectOrientation(imageFile: File): Bitmap {
@@ -45,7 +55,12 @@ class ImagePreprocessor @Inject constructor() {
     
     private fun rotateBitmap(bitmap: Bitmap, degrees: Float): Bitmap {
         val matrix = Matrix().apply { postRotate(degrees) }
-        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+        val rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+        // Recycle the original if a new bitmap was created
+        if (rotatedBitmap !== bitmap && !bitmap.isRecycled) {
+            bitmap.recycle()
+        }
+        return rotatedBitmap
     }
     
     private fun resizeBitmap(bitmap: Bitmap): Bitmap {
