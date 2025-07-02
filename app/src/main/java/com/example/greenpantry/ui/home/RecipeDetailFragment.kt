@@ -42,6 +42,11 @@ class RecipeDetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_recipe_detail_fragement, container, false)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // set the back and notif button
         val backText: TextView = view.findViewById(R.id.recipeBack)
@@ -115,8 +120,6 @@ class RecipeDetailFragment : Fragment() {
                 1, 1, 31, 0,
                 1, 1, 1)
         }
-
-        return view
     }
 
     companion object {

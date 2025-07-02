@@ -34,12 +34,17 @@ class EditItemFragment : DialogFragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             itemName = it.getString(ARG_ITEM_NAME)
-            btnText = it.getString(ARG_BUTTON_TEXT)
+            btnText = it.getString(ARG_BUTTON_TEXT) // "UPDATE" or "ADD TO PANTRY"
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_edit_item, container, false)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // Retrieve name passed as an argument
         val itemName = arguments?.getString(ARG_ITEM_NAME)
@@ -56,12 +61,22 @@ class EditItemFragment : DialogFragment() {
         val addBtn = view.findViewById<Button>(R.id.addBtn)
 
         // get the current img, amount and unit from database
-        val newImg = R.drawable.ic_launcher_background // replace with the image of item
-        itemImg.setImageResource(newImg)
-        val curAmt = 1
-        val curUnit = "per 100 grams"
-        amountDisplay.hint = curAmt.toString()
-        unitDisplay.hint = curUnit
+        val pantryDB = PantryItemDatabase.getDatabase(requireContext())
+
+        if (itemName != null) {
+            viewLifecycleOwner.lifecycleScope.launch {
+                val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
+                if (item != null) {
+                    // Set image, amount and unit hints using current data
+                    itemImg.setImageResource(R.drawable.ic_launcher_background) // Replace with actual image
+                    amountDisplay.hint = item.curNum.toString()
+                    unitDisplay.hint = item.quantity
+                } else {
+                    Toast.makeText(requireContext(), "Item not found in database", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
 
         // update button text
         addBtn.text = btnText
@@ -71,9 +86,15 @@ class EditItemFragment : DialogFragment() {
             val amountInput = amountDisplay.text.toString()
             val unitInput = unitDisplay.text.toString()
 
-            val newAmount = amountInput.toIntOrNull()
-            if (newAmount == null || newAmount <= 0) {
+            val addAmount = amountInput.toIntOrNull()
+            if (addAmount == null || addAmount <= 0) {
                 Toast.makeText(view.context, "Please enter a valid amount", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val newUnit = unitInput
+            if (newUnit.isBlank()) {
+                Toast.makeText(view.context, "Please enter a unit", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -82,7 +103,12 @@ class EditItemFragment : DialogFragment() {
                 viewLifecycleOwner.lifecycleScope.launch {
                     val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
                     if (item != null) {
-                        val updatedItem = item.copy(curNum = newAmount, quantity = "$newAmount $unitInput")
+                        // update based on which fragment called it
+                        val updatedItem = if (btnText == "UPDATE") {
+                            item.copy(curNum = addAmount, quantity = newUnit)
+                        } else { // ADD TO PANTRY
+                            item.copy(curNum = item.curNum + addAmount, quantity = newUnit)
+                        }
                         pantryDB.pantryItemDao().updatePantryItem(updatedItem)
                         Toast.makeText(requireContext(), "Added to pantry", Toast.LENGTH_SHORT).show()
                         parentFragmentManager.setFragmentResult("edit_item_result", Bundle().apply {
@@ -97,10 +123,8 @@ class EditItemFragment : DialogFragment() {
                 Toast.makeText(requireContext(), "Missing item reference", Toast.LENGTH_SHORT).show()
             }
         }
-
-        return view
     }
-    
+
     // adjust the layout of the fragment since it doesn't take from the parent linearlayout
     override fun onStart() {
         super.onStart()

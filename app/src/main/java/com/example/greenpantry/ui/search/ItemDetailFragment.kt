@@ -42,6 +42,11 @@ class ItemDetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_item_detail, container, false)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         parentFragmentManager.setFragmentResultListener("edit_item_result", this) { _, bundle ->
             val updated = bundle.getBoolean("updated", false)
@@ -106,31 +111,31 @@ class ItemDetailFragment : Fragment() {
         val recipeItems = view.findViewById<LinearLayout>(R.id.ItemRecipesList)
         lifecycleScope.launch {
             // recipe display
-           val items = recipeDB.recipeDao().getRecipesByIngredient(itemName?:"")
-           for (recipe in items) {
-               val recipeView = LayoutInflater.from(context)
-                   .inflate(R.layout.recipes_items, recipeItems, false)
+            val items = recipeDB.recipeDao().getRecipesByIngredient(itemName?:"")
+            for (recipe in items) {
+                val recipeView = LayoutInflater.from(context)
+                    .inflate(R.layout.recipes_items, recipeItems, false)
 
-               val imageView = recipeView.findViewById<ImageView>(R.id.itemImage)
-               val titleView = recipeView.findViewById<TextView>(R.id.itemTitle)
-               val descView = recipeView.findViewById<TextView>(R.id.itemDescription)
+                val imageView = recipeView.findViewById<ImageView>(R.id.itemImage)
+                val titleView = recipeView.findViewById<TextView>(R.id.itemTitle)
+                val descView = recipeView.findViewById<TextView>(R.id.itemDescription)
 
-               imageView.setImageResource(recipe.imageResId)
-               titleView.text = recipe.name
-               descView.text = recipe.description
+                imageView.setImageResource(recipe.imageResId)
+                titleView.text = recipe.name
+                descView.text = recipe.description
 
-               recipeView.setOnClickListener {
-                   val recipeDetailFragment = RecipeDetailFragment.newInstance(recipe.name)
-                   parentFragmentManager.beginTransaction()
-                       .replace(
-                           R.id.fragment_container,
-                           recipeDetailFragment
-                       ) // R.id.fragment_container is your main container
-                       .addToBackStack(null) // Allows users to navigate back
-                       .commit()
-               }
+                recipeView.setOnClickListener {
+                    val recipeDetailFragment = RecipeDetailFragment.newInstance(recipe.name)
+                    parentFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.fragment_container,
+                            recipeDetailFragment
+                        ) // R.id.fragment_container is your main container
+                        .addToBackStack(null) // Allows users to navigate back
+                        .commit()
+                }
 
-               recipeItems.addView(recipeView)
+                recipeItems.addView(recipeView)
             }
         }
 
@@ -140,8 +145,6 @@ class ItemDetailFragment : Fragment() {
             // open popup for adding to pantry
             EditItemFragment.newInstance(itemName.toString(),"ADD TO PANTRY").show(parentFragmentManager, "custom_dialog")
         }
-
-        return view
     }
 
     companion object {
