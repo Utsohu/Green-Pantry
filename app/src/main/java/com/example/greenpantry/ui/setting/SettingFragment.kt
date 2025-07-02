@@ -18,6 +18,10 @@ import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import android.widget.RadioGroup
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import android.widget.EditText
+
+
 
 
 @AndroidEntryPoint
@@ -67,6 +71,41 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
             }
         }
 
+        val editButton = view.findViewById<ImageButton>(R.id.editButton)
+        editButton.setOnClickListener {
+            val dialogView = layoutInflater.inflate(R.layout.edit_account_bottom_sheet, null)
+
+            val bottomSheetDialog = BottomSheetDialog(requireContext())
+            bottomSheetDialog.setContentView(dialogView)
+            bottomSheetDialog.show()
+
+            val updateButton = dialogView.findViewById<Button>(R.id.updateButton)
+            val usernameField = dialogView.findViewById<EditText>(R.id.editUsername)
+            val emailField = dialogView.findViewById<EditText>(R.id.editEmail)
+            val passwordField = dialogView.findViewById<EditText>(R.id.editPassword)
+
+            updateButton.setOnClickListener {
+                val newUsername = usernameField.text.toString()
+                val newEmail = emailField.text.toString()
+                val newPassword = passwordField.text.toString()
+
+                // Handle update logic
+                if (newUsername.isNotBlank()) {
+                  //  authViewModel.updateUsername(newUsername)
+                }
+                if (newEmail.isNotBlank()) {
+                  //  authViewModel.updateEmail(newEmail)
+                }
+                if (newPassword.isNotBlank()) {
+                  //  authViewModel.updatePassword(newPassword)
+                }
+
+                Toast.makeText(requireContext(), "Account updated", Toast.LENGTH_SHORT).show()
+                bottomSheetDialog.dismiss()
+            }
+        }
+
+
         // Observe logout success
         viewLifecycleOwner.lifecycleScope.launch {
             while (true) {
@@ -89,6 +128,9 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
                 }
                 kotlinx.coroutines.delay(100) // Check state every 100ms
             }
+
+
+
         }
     }
 }
