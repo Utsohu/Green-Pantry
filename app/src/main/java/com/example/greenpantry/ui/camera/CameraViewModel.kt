@@ -31,6 +31,12 @@ class CameraViewModel @Inject constructor(
     val savedItems: StateFlow<List<RecognizedFoodItem>> = _savedItems.asStateFlow()
     
     fun recognizeImage(bitmap: Bitmap) {
+        // Prevent multiple simultaneous recognition requests
+        if (_recognitionState.value is RecognitionState.Processing) {
+            Log.w(TAG, "Recognition already in progress, ignoring new request")
+            return
+        }
+        
         viewModelScope.launch {
             Log.d(TAG, "Starting image recognition")
             _recognitionState.value = RecognitionState.Processing
@@ -79,10 +85,6 @@ class CameraViewModel @Inject constructor(
     }
     
     fun dismissRecognition() {
-        _recognitionState.value = RecognitionState.Idle
-    }
-    
-    fun resetState() {
         _recognitionState.value = RecognitionState.Idle
     }
 }

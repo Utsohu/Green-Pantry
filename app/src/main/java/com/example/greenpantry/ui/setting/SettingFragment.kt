@@ -124,7 +124,7 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
 
         // Observe logout success
         viewLifecycleOwner.lifecycleScope.launch {
-            while (true) {
+            while (!isDetached) {
                 val state = authViewModel.uiState.value
                 if (state.logoutSuccess) {
                     Toast.makeText(context, "Logged out successfully", Toast.LENGTH_SHORT).show()
@@ -142,11 +142,8 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
                     Toast.makeText(context, state.errorMessage, Toast.LENGTH_LONG).show()
                     break
                 }
-                kotlinx.coroutines.delay(100) // Check state every 100ms
+                kotlinx.coroutines.delay(100) // Check every 100ms
             }
-
-
-
         }
     }
 }

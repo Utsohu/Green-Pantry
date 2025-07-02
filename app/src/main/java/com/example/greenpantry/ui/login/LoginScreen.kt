@@ -9,6 +9,8 @@ import androidx.compose.material3.*
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -114,7 +116,7 @@ fun LoginScreen(
                 },
                 textColor = Color.Gray,
                 cursorColor = green_primary,
-                trailingIcon = Icons.Default.Email,
+                trailingIcon = if (isPasswordShown) Icons.Filled.Visibility else Icons.Filled.VisibilityOff,
                 onTrailingIconClick = { isPasswordShown = !isPasswordShown },
                 visualTransformation = if (isPasswordShown) VisualTransformation.None else PasswordVisualTransformation(),
                 keyboardType = KeyboardType.Password
