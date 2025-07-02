@@ -82,27 +82,43 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
             val updateButton = dialogView.findViewById<Button>(R.id.updateButton)
             val usernameField = dialogView.findViewById<EditText>(R.id.editUsername)
             val emailField = dialogView.findViewById<EditText>(R.id.editEmail)
-            val passwordField = dialogView.findViewById<EditText>(R.id.editPassword)
+            val newPasswordField = dialogView.findViewById<EditText>(R.id.editPassword)
+            val confirmPasswordField = dialogView.findViewById<EditText>(R.id.confirmPassword)
+            val originalPasswordField = dialogView.findViewById<EditText>(R.id.originalPassword)
 
             updateButton.setOnClickListener {
                 val newUsername = usernameField.text.toString()
                 val newEmail = emailField.text.toString()
-                val newPassword = passwordField.text.toString()
+                val newPassword = newPasswordField.text.toString()
+                val confirmPassword = confirmPasswordField.text.toString()
+                val originalPassword = originalPasswordField.text.toString()
 
-                // Handle update logic
+                if (newPassword.isNotBlank() && newPassword != confirmPassword) {
+                    // TODO: Show error message
+//                    confirmPasswordField.error = "Passwords do not match"
+//                    return@setOnClickListener
+                }
+
+                // Reauthenticate if updating email/password
+                if (originalPassword.isNotBlank() && (newEmail.isNotBlank() || newPassword.isNotBlank())) {
+                    // TODO: create functions to handle updating email/password
+//                    authViewModel.reauthenticateUser(originalPassword) {
+//                        // Callback after successful reauthentication
+//                        if (newEmail.isNotBlank()) authViewModel.updateEmail(newEmail)
+//                        if (newPassword.isNotBlank()) authViewModel.updatePassword(newPassword)
+//                    }
+                }
+
                 if (newUsername.isNotBlank()) {
+                    // TODO: create function to handle username update
                   //  authViewModel.updateUsername(newUsername)
-                }
-                if (newEmail.isNotBlank()) {
-                  //  authViewModel.updateEmail(newEmail)
-                }
-                if (newPassword.isNotBlank()) {
-                  //  authViewModel.updatePassword(newPassword)
                 }
 
                 Toast.makeText(requireContext(), "Account updated", Toast.LENGTH_SHORT).show()
                 bottomSheetDialog.dismiss()
             }
+
+
         }
 
 
