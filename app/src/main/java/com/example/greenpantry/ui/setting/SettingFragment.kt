@@ -18,6 +18,10 @@ import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import android.widget.RadioGroup
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import android.widget.EditText
+
+
 
 
 @AndroidEntryPoint
@@ -67,6 +71,27 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
             }
         }
 
+        val editButton = view.findViewById<ImageButton>(R.id.editButton)
+        editButton.setOnClickListener {
+            val dialogView = layoutInflater.inflate(R.layout.edit_account_bottom_sheet, null)
+
+            val bottomSheetDialog = BottomSheetDialog(requireContext())
+            bottomSheetDialog.setContentView(dialogView)
+            bottomSheetDialog.show()
+
+            val updateButton = dialogView.findViewById<Button>(R.id.updateButton)
+            val usernameField = dialogView.findViewById<EditText>(R.id.editUsername)
+            val passwordField = dialogView.findViewById<EditText>(R.id.editPassword)
+
+            updateButton.setOnClickListener {
+                val newUsername = usernameField.text.toString()
+                val password = passwordField.text.toString()
+
+                // TODO: validate and save
+                bottomSheetDialog.dismiss()
+            }
+        }
+
         // Observe logout success
         viewLifecycleOwner.lifecycleScope.launch {
             while (true) {
@@ -89,6 +114,9 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
                 }
                 kotlinx.coroutines.delay(100) // Check state every 100ms
             }
+
+
+
         }
     }
 }
