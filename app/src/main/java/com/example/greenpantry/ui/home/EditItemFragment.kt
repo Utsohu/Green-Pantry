@@ -71,8 +71,8 @@ class EditItemFragment : DialogFragment() {
             val amountInput = amountDisplay.text.toString()
             val unitInput = unitDisplay.text.toString()
 
-            val addAmount = amountInput.toIntOrNull()
-            if (addAmount == null || addAmount <= 0) {
+            val newAmount = amountInput.toIntOrNull()
+            if (newAmount == null || newAmount <= 0) {
                 Toast.makeText(view.context, "Please enter a valid amount", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -82,7 +82,7 @@ class EditItemFragment : DialogFragment() {
                 viewLifecycleOwner.lifecycleScope.launch {
                     val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
                     if (item != null) {
-                        val updatedItem = item.copy(curNum = item.curNum + addAmount, quantity = "$addAmount $unitInput")
+                        val updatedItem = item.copy(curNum = newAmount, quantity = "$newAmount $unitInput")
                         pantryDB.pantryItemDao().updatePantryItem(updatedItem)
                         Toast.makeText(requireContext(), "Added to pantry", Toast.LENGTH_SHORT).show()
                         parentFragmentManager.setFragmentResult("edit_item_result", Bundle().apply {
