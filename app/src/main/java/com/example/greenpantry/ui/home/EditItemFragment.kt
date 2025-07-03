@@ -25,6 +25,7 @@ import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
 import android.util.Log
+import com.example.greenpantry.data.database.PantryItemDao
 
 class EditItemFragment : DialogFragment() {
 
@@ -39,7 +40,11 @@ class EditItemFragment : DialogFragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_edit_item, container, false)
         return view
     }
@@ -72,15 +77,9 @@ class EditItemFragment : DialogFragment() {
                     itemImg.setImageResource(R.drawable.ic_launcher_background) // Replace with actual image
                     amountDisplay.hint = item.curNum.toString()
                     unitDisplay.hint = item.quantity
-
-                    // checking to ensure correct data item
-                    Log.d("EditItemFragment", "Fetched ${item.id}, '$itemName' from DB: curNum=${item.curNum}, quantity=${item.quantity}")
-                } else { // not in pantry
-                    Toast.makeText(requireContext(), "Item not found in database", Toast.LENGTH_SHORT).show()
                 }
             }
         }
-
 
         // update button text
         addBtn.text = btnText
@@ -92,7 +91,8 @@ class EditItemFragment : DialogFragment() {
 
             val addAmount = amountInput.toIntOrNull()
             if (addAmount == null || addAmount <= 0) {
-                Toast.makeText(view.context, "Please enter a valid amount", Toast.LENGTH_SHORT).show()
+                Toast.makeText(view.context, "Please enter a valid amount", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             } // add a case when it is 0, remove it from the pantry
 
@@ -102,7 +102,6 @@ class EditItemFragment : DialogFragment() {
                 return@setOnClickListener
             }
 
-            val pantryDB = PantryItemDatabase.getDatabase(requireContext())
             if (itemName != null) {
                 viewLifecycleOwner.lifecycleScope.launch {
                     val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
@@ -110,7 +109,11 @@ class EditItemFragment : DialogFragment() {
                         // update based on which fragment called it
                         val updatedItem = when (btnText) {
                             "UPDATE" -> item.copy(curNum = addAmount, quantity = newUnit)
-                            "ADD TO PANTRY" -> item.copy(curNum = item.curNum + addAmount, quantity = newUnit)
+                            "ADD TO PANTRY" -> item.copy(
+                                curNum = item.curNum + addAmount,
+                                quantity = newUnit
+                            )
+
                             else -> {
                                 Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
                                 null
@@ -119,17 +122,23 @@ class EditItemFragment : DialogFragment() {
                         updatedItem?.let { // ensure not null
                             pantryDB.pantryItemDao().updatePantryItem(it)
                         }
-                        Toast.makeText(requireContext(), "Added to pantry", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Added to pantry", Toast.LENGTH_SHORT)
+                            .show()
                         parentFragmentManager.setFragmentResult("edit_item_result", Bundle().apply {
                             putBoolean("updated", true)
                         })
                         dismiss()
                     } else {
-                        Toast.makeText(requireContext(), "Item not found in database", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            requireContext(),
+                            "Item not found in database",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             } else {
-                Toast.makeText(requireContext(), "Missing item reference", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Missing item reference", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
@@ -163,5 +172,3 @@ class EditItemFragment : DialogFragment() {
             }
     }
 }
-
-

@@ -25,6 +25,7 @@ import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
 import android.text.TextWatcher
 import android.text.Editable
+import android.util.Log
 
 
 class DetailsFragment : Fragment(R.layout.fragment_pantry) {
@@ -69,9 +70,16 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
 
         recyclerView.layoutManager = GridLayoutManager(requireContext(), spanCount)
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            allItems = pantryDB.pantryItemDao().getAllItemsWithNonZeroQuantity()
-            filterAndDisplayItems(inputField.text.toString(), recyclerView, emptyPantry)
+        // first load
+        refreshPantry(inputField,recyclerView,emptyPantry)
+
+        // if updated, reload
+        parentFragmentManager.setFragmentResultListener("edit_item_result", viewLifecycleOwner) { _, bundle ->
+            val wasUpdated = bundle.getBoolean("updated", false)
+            if (wasUpdated) {
+                Log.d("PantryFragment","updating")
+                refreshPantry(inputField,recyclerView,emptyPantry)
+            }
         }
     }
 
@@ -104,6 +112,13 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
             recyclerView.visibility = View.VISIBLE
             emptyPantry.visibility = View.GONE
             recyclerView.adapter = DetailItemAdapter(filteredItems, this@DetailsFragment)
+        }
+    }
+
+    private fun refreshPantry(inputField: EditText, recyclerView: RecyclerView, emptyPantry: LinearLayout) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            allItems = pantryDB.pantryItemDao().getAllItemsWithNonZeroQuantity()
+            filterAndDisplayItems(inputField.text.toString(), recyclerView, emptyPantry)
         }
     }
 }

@@ -12,9 +12,8 @@ data class RecognizedFoodItem(
     val imageUri: Uri? = null,
     val timestamp: Long = System.currentTimeMillis()
 ) {
-    fun toPantryItem(id: Int = 0, description: String = "", imageResId: Int = 0): com.example.greenpantry.data.database.PantryItem {
+    fun toPantryItem(description: String = "", imageResId: Int = 0): com.example.greenpantry.data.database.PantryItem {
         return com.example.greenpantry.data.database.PantryItem(
-            id = id,
             name = name,
             description = description,
             imageResId = imageResId,

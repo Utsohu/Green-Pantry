@@ -44,29 +44,16 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         // search list
         searchItemsContainer = view.findViewById(R.id.searchList)
 
-        // this list should be scrollable with all the items available in the app
-        val items =  mutableListOf<PantryItem>(
-            PantryItem(name="Romaine Lettuce", description="Serving Size: 200g", imageResId=R.drawable.ic_launcher_background, calories = 1234, fiber = 123, totalFat = 434, sugars = 123, transFat = 777, protein = 32, sodium = 23, iron = 2, calcium = 2, vitaminD = 2, curNum = 100),
-            PantryItem(name="Iceberg Lettuce", description="Serving Size: 180g", imageResId=R.drawable.ic_launcher_background, curNum = 20),
-            PantryItem(name="Butter Lettuce", description="Serving Size: 140g", imageResId=R.drawable.ic_launcher_background, curNum = 30),
-            PantryItem(name="Kale", description="Serving Size: 200g", imageResId=R.drawable.ic_launcher_background, curNum = 50),
-            PantryItem(name="Spinach", description="Serving Size: 250g", imageResId=R.drawable.ic_launcher_background, curNum = 78),
-            PantryItem(name="Cabbage", description="Serving Size: 140g", imageResId=R.drawable.ic_launcher_background),
-            PantryItem(name="Yu Choy", description="Serving Size: 220g", imageResId=R.drawable.ic_launcher_background),
-            PantryItem(name="Bok Choy", description="Serving Size: 1800g", imageResId=R.drawable.ic_launcher_background)
-        )
 
         val db = PantryItemDatabase.getDatabase(requireContext())
+
         lifecycleScope.launch {
             //REMOVE THIS BLOCK WHEN ALL THE WORKS ARE DONE
-            db.pantryItemDao().deleteAllPantryItems()
+            //db.pantryItemDao().deleteAllPantryItems()
             //remove this block later, this is only for testing
-            val checkItems = db.pantryItemDao().getAllPantryItems()
-            if(checkItems.isEmpty()){
-                db.pantryItemDao().insertAll(items)
-            }
-            allItems = db.pantryItemDao().getAllPantryItems()
+            //val checkItems = db.pantryItemDao().getAllPantryItems()
 
+            allItems = db.pantryItemDao().getAllPantryItems() // this should be change to item database
             filterAndDisplayItems(inputField.text.toString(), allItems, searchItemsContainer)
 
             inputField.addTextChangedListener(object : TextWatcher {

@@ -36,7 +36,6 @@ class FirebasePantryRepository @Inject constructor(
                 "recognitionConfidence" to item.recognitionConfidence,
                 "imageUri" to item.imageUri,
                 "dateAdded" to item.dateAdded,
-                "localId" to item.id
             )
             
             firestore.collection(USERS_COLLECTION)
@@ -66,7 +65,6 @@ class FirebasePantryRepository @Inject constructor(
             val items = snapshot.documents.mapNotNull { doc ->
                 try {
                     PantryItem(
-                        id = doc.getLong("localId")?.toInt() ?: 0,
                         name = doc.getString("name") ?: "",
                         description = doc.getString("description") ?: "",
                         imageResId = 0,
