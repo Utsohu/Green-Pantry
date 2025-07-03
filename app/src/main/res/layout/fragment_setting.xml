@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginTop="46dp">
 
         <!-- Notification Button -->
         <ImageButton
@@ -19,9 +22,9 @@
             android:scaleX="1.2"
             android:scaleY="1.2"
             android:padding="2dp"
-            android:layout_marginTop="30dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <!-- Setting Title -->
@@ -33,223 +36,362 @@
             android:textSize="35sp"
             android:fontFamily="@font/roboto_bold"
             android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintTop_toBottomOf="@id/notificationButton"
             app:layout_constraintStart_toStartOf="parent"
             android:textColor="@color/black"/>
 
-        <!-- Account Information Header -->
-        <TextView
-            android:id="@+id/accountInfoTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Account Information"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/SettingTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="24dp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
 
-        <!-- Edit Button -->
-        <ImageButton
-            android:id="@+id/editButton"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_edit"
-            android:background="@drawable/edit_button_background"
-            app:layout_constraintTop_toTopOf="@+id/accountInfoTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="8dp"
-            android:layout_marginTop="5dp"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <!-- Username Label -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Username"
-            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"/>
-        <TextView
-            android:id="@+id/usernameValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lorem"
-            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <!-- TextViews for Password -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password"
-            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="46dp"/>
-        <TextView
-            android:id="@+id/passwordValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="**********"
-            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="46dp"/>
+                    <!-- Account Information Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_vertical">
 
-        <!-- TextViews for Email -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="76dp"/>
-        <TextView
-            android:id="@+id/emailValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="lorem@email"
-            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="76dp"/>
+                        <TextView
+                            android:id="@+id/accountInfoTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Account Information"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintTop_toBottomOf="@+id/SettingTitle"
+                            app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Notifications Header -->
-        <TextView
-            android:id="@+id/notificationsTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Notifications"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/usernameValue"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="86dp"/>
-
-        <!-- Notification Switches -->
-
-        <!-- Ingredient Low Switch -->
-        <TextView
-            android:id="@+id/ingredientLowText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ingredient Low"
-            app:layout_constraintTop_toBottomOf="@+id/notificationsTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="22dp"/>
-        <Switch
-            android:id="@+id/switchIngredientLow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/notificationsTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="22dp"/>
-
-        <!-- Recipes Switch -->
-        <TextView
-            android:id="@+id/recipeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Recipes"
-            app:layout_constraintTop_toBottomOf="@+id/ingredientLowText"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="22dp"/>
-        <Switch
-            android:id="@+id/switchRecipes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/ingredientLowText"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="22dp"/>
-
-        <!-- Reminders Switch -->
-        <TextView
-            android:id="@+id/remindersText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reminders"
-            app:layout_constraintTop_toBottomOf="@+id/recipeText"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="22dp"/>
-        <Switch
-            android:id="@+id/remindersSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/recipeText"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="22dp"/>
-
-        <!-- Notification Frequency Selection -->
-
-        <TextView
-            android:id="@+id/frequencyLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Frequency"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/remindersSwitch"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <RadioGroup
-            android:id="@+id/frequencyRadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/frequencyLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/radio_daily"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Daily" />
-
-            <RadioButton
-                android:id="@+id/radio_three_times"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3 times a week" />
-
-            <RadioButton
-                android:id="@+id/radio_weekly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Weekly" />
-
-            <RadioButton
-                android:id="@+id/radio_biweekly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Biweekly" />
-
-            <RadioButton
-                android:id="@+id/radio_monthly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Monthly" />
-        </RadioGroup>
+                        <!-- Edit Button -->
+                        <ImageButton
+                            android:id="@+id/editButton"
+                            android:layout_width="60dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_edit"
+                            android:background="@drawable/edit_button_background"
+                            app:layout_constraintTop_toTopOf="@+id/accountInfoTitle"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:padding="8dp"
+                            android:layout_marginTop="5dp"/>
+                    </LinearLayout>
 
 
+                    <!-- Account info -->
+                    <LinearLayout
+                        android:id="@+id/accountInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle">
 
-        <!-- Logout Button -->
-        <Button
-            android:id="@+id/logoutButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@color/red"
-            android:layout_marginTop="0dp"
-            android:layout_marginHorizontal="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/frequencyRadioGroup"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_default="spread" />
+                        <!-- username -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Username"
+                            android:textColor="@color/gray"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/usernameValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Lorem"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- TextViews for Password -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Password"
+                            android:textColor="@color/gray"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/passwordValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="**********"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- TextViews for Email -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Email"
+                            android:textColor="@color/gray"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/emailValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="lorem@email"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                    </LinearLayout>
+
+                    <!-- Notifications Header -->
+                    <TextView
+                        android:id="@+id/notificationsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Notifications"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/roboto_bold"
+                        app:layout_constraintTop_toTopOf="@+id/accountInfo"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="25dp"
+                        app:layout_constraintTop_toBottomOf="@+id/notificationsTitle"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <!-- Notification Switches -->
+                    <LinearLayout
+                        android:id="@+id/notifBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Ingredient Low Switch -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:id="@+id/ingredientLowText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Ingredient Low"
+                                android:textSize="13sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                            <Switch
+                                android:id="@+id/switchIngredientLow"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- Recipes Switch -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:id="@+id/recipeText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Recipes"
+                                android:textSize="13sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                            <Switch
+                                android:id="@+id/switchRecipes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/light_gray" />
+
+                        <!-- Reminders Switch -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:id="@+id/remindersText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Reminders"
+                                android:textSize="13sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                            <Switch
+                                android:id="@+id/remindersSwitch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <!-- divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/light_gray" />
+                    </LinearLayout>
+
+                <!-- Notification Frequency Selection -->
+
+                <TextView
+                    android:id="@+id/frequencyLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Frequency"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/notifBox"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                    <RadioGroup
+                        android:id="@+id/frequencyRadioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/frequencyLabel"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <RadioButton
+                            android:id="@+id/radio_daily"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Daily"
+                            android:layoutDirection="rtl"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/light_gray" />
+
+                        <RadioButton
+                            android:id="@+id/radio_three_times"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="3 times a week"
+                            android:layoutDirection="rtl"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/light_gray" />
+
+                        <RadioButton
+                            android:id="@+id/radio_weekly"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Weekly"
+                            android:layoutDirection="rtl"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/light_gray" />
+
+                        <RadioButton
+                            android:id="@+id/radio_biweekly"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="biweekly"
+                            android:layoutDirection="rtl"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/light_gray" />
+
+                        <RadioButton
+                            android:id="@+id/radio_monthly"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Monthly"
+                            android:layoutDirection="rtl"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/light_gray" />
+                    </RadioGroup>
 
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+
+                <!-- Logout Button -->
+                <Button
+                    android:id="@+id/logoutButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LOG OUT"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@color/red"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintTop_toBottomOf="@+id/frequencyRadioGroup"
+                    app:layout_constraintStart_toStartOf="parent" />
+                </LinearLayout>
+            </ScrollView>
+        </FrameLayout>
+
+
+</LinearLayout>

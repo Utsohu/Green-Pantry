@@ -24,6 +24,7 @@ import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
+import android.util.Log
 
 class EditItemFragment : DialogFragment() {
 
@@ -66,12 +67,15 @@ class EditItemFragment : DialogFragment() {
         if (itemName != null) {
             viewLifecycleOwner.lifecycleScope.launch {
                 val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
-                if (item != null) {
+                if (item != null) { // in pantry
                     // Set image, amount and unit hints using current data
                     itemImg.setImageResource(R.drawable.ic_launcher_background) // Replace with actual image
                     amountDisplay.hint = item.curNum.toString()
                     unitDisplay.hint = item.quantity
-                } else {
+
+                    // checking to ensure correct data item
+                    Log.d("EditItemFragment", "Fetched ${item.id}, '$itemName' from DB: curNum=${item.curNum}, quantity=${item.quantity}")
+                } else { // not in pantry
                     Toast.makeText(requireContext(), "Item not found in database", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -90,7 +94,7 @@ class EditItemFragment : DialogFragment() {
             if (addAmount == null || addAmount <= 0) {
                 Toast.makeText(view.context, "Please enter a valid amount", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
-            }
+            } // add a case when it is 0, remove it from the pantry
 
             val newUnit = unitInput
             if (newUnit.isBlank()) {
@@ -104,12 +108,17 @@ class EditItemFragment : DialogFragment() {
                     val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
                     if (item != null) {
                         // update based on which fragment called it
-                        val updatedItem = if (btnText == "UPDATE") {
-                            item.copy(curNum = addAmount, quantity = newUnit)
-                        } else { // ADD TO PANTRY
-                            item.copy(curNum = item.curNum + addAmount, quantity = newUnit)
+                        val updatedItem = when (btnText) {
+                            "UPDATE" -> item.copy(curNum = addAmount, quantity = newUnit)
+                            "ADD TO PANTRY" -> item.copy(curNum = item.curNum + addAmount, quantity = newUnit)
+                            else -> {
+                                Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+                                null
+                            }
                         }
-                        pantryDB.pantryItemDao().updatePantryItem(updatedItem)
+                        updatedItem?.let { // ensure not null
+                            pantryDB.pantryItemDao().updatePantryItem(it)
+                        }
                         Toast.makeText(requireContext(), "Added to pantry", Toast.LENGTH_SHORT).show()
                         parentFragmentManager.setFragmentResult("edit_item_result", Bundle().apply {
                             putBoolean("updated", true)
