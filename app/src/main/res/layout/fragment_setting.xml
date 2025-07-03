@@ -71,19 +71,18 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintTop_toBottomOf="@+id/SettingTitle"
-                            app:layout_constraintStart_toStartOf="parent" />
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_gravity="center_vertical"/>
 
                         <!-- Edit Button -->
                         <ImageButton
                             android:id="@+id/editButton"
-                            android:layout_width="60dp"
-                            android:layout_height="20dp"
+                            android:layout_width="75dp"
+                            android:layout_height="match_parent"
                             android:src="@drawable/ic_edit"
                             android:background="@drawable/edit_button_background"
                             app:layout_constraintTop_toTopOf="@+id/accountInfoTitle"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:padding="8dp"
-                            android:layout_marginTop="5dp"/>
+                            app:layout_constraintEnd_toEndOf="parent"/>
                     </LinearLayout>
 
 
@@ -302,7 +301,7 @@
                     android:text="Frequency"
                     android:fontFamily="@font/roboto_bold"
                     android:textSize="16sp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintTop_toBottomOf="@+id/notifBox"
                     app:layout_constraintStart_toStartOf="parent" />
 
