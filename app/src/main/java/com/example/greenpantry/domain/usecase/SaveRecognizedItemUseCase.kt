@@ -13,10 +13,14 @@ class SaveRecognizedItemUseCase @Inject constructor(
         imageResId: Int = 0
     ): Result<Unit> {
         return try {
+            // Parse the amount from description, default to 1 if not a valid number
+            val amount = description.toIntOrNull() ?: 1
+            
             val pantryItem = recognizedItem.toPantryItem(
                 description = description,
                 imageResId = imageResId
-            )
+            ).copy(curNum = amount)
+            
             pantryItemDao.insertPantryItem(pantryItem)
             Result.success(Unit)
         } catch (e: Exception) {
