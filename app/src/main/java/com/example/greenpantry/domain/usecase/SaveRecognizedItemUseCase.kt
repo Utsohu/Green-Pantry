@@ -16,10 +16,19 @@ class SaveRecognizedItemUseCase @Inject constructor(
             // Parse the amount from description, default to 1 if not a valid number
             val amount = description.toIntOrNull() ?: 1
             
-            val pantryItem = recognizedItem.toPantryItem(
-                description = description,
-                imageResId = imageResId
-            ).copy(curNum = amount)
+            // Check if item already exists in pantry
+            val existingItem = pantryItemDao.getPantryItemByName(recognizedItem.name)
+            
+            val pantryItem = if (existingItem != null) {
+                // Add to existing quantity instead of replacing
+                existingItem.copy(curNum = existingItem.curNum + amount)
+            } else {
+                // Create new item
+                recognizedItem.toPantryItem(
+                    description = description,
+                    imageResId = imageResId
+                ).copy(curNum = amount)
+            }
             
             pantryItemDao.insertPantryItem(pantryItem)
             Result.success(Unit)

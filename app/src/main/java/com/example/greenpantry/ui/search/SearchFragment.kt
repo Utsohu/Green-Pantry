@@ -88,7 +88,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
             imageView.setImageResource(item.imageResId)
             titleView.text = item.name
-            descView.text = item.description
+            descView.text = "Quantity: ${item.curNum}"
 
             itemView.setOnClickListener {
                 val itemDetailFragment = ItemDetailFragment.newInstance(item.name)
