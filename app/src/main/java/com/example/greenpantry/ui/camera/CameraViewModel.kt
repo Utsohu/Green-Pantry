@@ -24,6 +24,11 @@ class CameraViewModel @Inject constructor(
         private const val TAG = "CameraViewModel"
     }
     
+    init {
+        // Log initialization
+        Log.d(TAG, "CameraViewModel initialized")
+    }
+    
     private val _recognitionState = MutableStateFlow<RecognitionState>(RecognitionState.Idle)
     val recognitionState: StateFlow<RecognitionState> = _recognitionState.asStateFlow()
     

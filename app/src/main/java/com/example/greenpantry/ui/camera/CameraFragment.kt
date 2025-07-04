@@ -47,6 +47,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
     private var progressBar: ProgressBar? = null
     private var cameraProvider: ProcessCameraProvider? = null
     
+    
     // Test mode flag - set to true to use test image instead of camera
     private val USE_TEST_MODE = BuildConfig.DEBUG
     
@@ -86,10 +87,12 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
             }
         }
         
+        
         // Observe recognition state
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.recognitionState.collect { state ->
                 handleRecognitionState(state)
+                
             }
         }
 
@@ -149,7 +152,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
             Log.d("CameraFragment", "Using test mode with sample image")
             
             // Create a simple test bitmap (red apple shape)
-            val bitmap = Bitmap.createBitmap(300, 300, Bitmap.Config.ARGB_8888).apply {
+            val originalBitmap = Bitmap.createBitmap(300, 300, Bitmap.Config.ARGB_8888).apply {
                 // Fill with white background
                 eraseColor(android.graphics.Color.WHITE)
                 
@@ -165,6 +168,9 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
                 paint.color = android.graphics.Color.GREEN
                 canvas.drawRect(145f, 40f, 155f, 60f, paint)
             }
+            
+            // Create a defensive copy to avoid recycling issues
+            val bitmap = originalBitmap.copy(originalBitmap.config ?: Bitmap.Config.ARGB_8888, false)
             
             Log.d("CameraFragment", "Test bitmap created: ${bitmap.width}x${bitmap.height}")
             viewModel.recognizeImage(bitmap)
@@ -308,6 +314,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         super.onResume()
         Log.d("CameraFragment", "onResume called")
     }
+    
     
     override fun onDestroy() {
         super.onDestroy()

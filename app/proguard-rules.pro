@@ -61,3 +61,20 @@
 
 # Gemini API models
 -keep class com.example.greenpantry.data.models.** { *; }
+-keep class com.example.greenpantry.data.model.** { *; }
+
+# Google AI SDK (Gemini)
+-keep class com.google.ai.client.** { *; }
+-keepclassmembers class com.google.ai.client.** { *; }
+-dontwarn com.google.ai.client.**
+
+# Kotlin Serialization
+-keepattributes *Annotation*, InnerClasses
+-dontnote kotlinx.serialization.AnnotationsKt
+-keep,includedescriptorclasses class com.example.greenpantry.**$$serializer { *; }
+-keepclassmembers class com.example.greenpantry.** {
+    *** Companion;
+}
+-keepclasseswithmembers class com.example.greenpantry.** {
+    kotlinx.serialization.KSerializer serializer(...);
+}

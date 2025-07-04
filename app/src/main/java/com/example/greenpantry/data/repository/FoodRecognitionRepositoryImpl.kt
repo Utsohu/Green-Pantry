@@ -27,8 +27,11 @@ class FoodRecognitionRepositoryImpl @Inject constructor(
     
     override suspend fun recognizeFoodItem(bitmap: Bitmap): Result<RecognizedFoodItem> {
         try {
+            // Create a defensive copy to avoid recycling issues
+            val safeBitmap = bitmap.copy(bitmap.config ?: Bitmap.Config.ARGB_8888, false)
+            
             // Preprocess the image
-            val processedBitmap = imagePreprocessor.preprocessImage(bitmap)
+            val processedBitmap = imagePreprocessor.preprocessImage(safeBitmap)
             val imageHash = generateImageHash(processedBitmap)
             
             // Check cache first
@@ -37,7 +40,7 @@ class FoodRecognitionRepositoryImpl @Inject constructor(
             }
             
             // Call Gemini API
-            val result = geminiApiClient.recognizeFoodItem(processedBitmap)
+            val result = geminiApiClient.recognizeFood(processedBitmap)
             
             return result.fold(
                 onSuccess = { responseText ->

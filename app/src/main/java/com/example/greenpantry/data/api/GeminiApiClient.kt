@@ -2,10 +2,13 @@ package com.example.greenpantry.data.api
 
 import android.graphics.Bitmap
 import android.util.Log
-import com.google.ai.client.generativeai.GenerativeModel
-import com.google.ai.client.generativeai.type.content
+import com.google.firebase.Firebase
+import com.google.firebase.vertexai.type.content
+import com.google.firebase.vertexai.type.generationConfig
+import com.google.firebase.vertexai.vertexAI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -15,36 +18,39 @@ class GeminiApiClient @Inject constructor(
 ) {
     companion object {
         private const val TAG = "GeminiApiClient"
+        private const val TIMEOUT_MS = 30_000L // 30 seconds timeout
     }
+    
     private val generativeModel by lazy {
-        GenerativeModel(
+        Firebase.vertexAI.generativeModel(
             modelName = config.model,
-            apiKey = config.apiKey
+            generationConfig = generationConfig {
+                temperature = config.temperature
+                maxOutputTokens = config.maxOutputTokens
+            }
         )
     }
     
-    suspend fun recognizeFoodItem(bitmap: Bitmap): Result<String> = withContext(Dispatchers.IO) {
+    suspend fun recognizeFood(bitmap: Bitmap): Result<String> = withContext(Dispatchers.IO) {
         try {
-            Log.d(TAG, "Starting Gemini API call for food recognition")
-            Log.d(TAG, "Bitmap size: ${bitmap.width}x${bitmap.height}")
-            
-            val inputContent = content {
-                image(bitmap)
-                text(config.foodRecognitionPrompt)
-            }
-            
-            Log.d(TAG, "Calling Gemini generateContent...")
-            val response = generativeModel.generateContent(inputContent)
-            
-            response.text?.let { responseText ->
-                Log.d(TAG, "Gemini API response received: ${responseText.take(100)}...")
+            withTimeout(TIMEOUT_MS) {
+                val response = generativeModel.generateContent(
+                    content {
+                        image(bitmap)
+                        text(config.foodRecognitionPrompt)
+                    }
+                )
+                
+                val responseText = response.text?.trim()
+                
+                if (responseText.isNullOrEmpty()) {
+                    throw Exception("Empty response from API")
+                }
+                
                 Result.success(responseText)
-            } ?: run {
-                Log.e(TAG, "No text in Gemini API response")
-                Result.failure(Exception("No response from Gemini API"))
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Gemini API call failed", e)
+            Log.e(TAG, "API call failed: ${e.message}")
             Result.failure(e)
         }
     }
