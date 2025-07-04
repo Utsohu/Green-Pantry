@@ -64,6 +64,9 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     passError.visibility = View.GONE
                 }
+            } else {
+                emailBlank = false
+                passError.visibility = View.GONE
             }
 
             if (results.contains(LoginInputValidationType.NoEmail) && !emailBlank) {

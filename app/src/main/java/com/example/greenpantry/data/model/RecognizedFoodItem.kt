@@ -7,7 +7,7 @@ data class RecognizedFoodItem(
     val category: FoodCategory,
     val isPackaged: Boolean,
     val brand: String? = null,
-    val quantity: String? = null,
+    var quantity: String? = null,
     val confidence: Float,
     val imageUri: Uri? = null,
     val timestamp: Long = System.currentTimeMillis()

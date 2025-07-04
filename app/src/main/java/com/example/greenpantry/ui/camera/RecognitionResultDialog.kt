@@ -50,34 +50,34 @@ class RecognitionResultDialog : DialogFragment() {
         
         // Set up views
         view.findViewById<TextView>(R.id.tvItemName).text = item.name
-        view.findViewById<TextView>(R.id.tvCategory).text = "Category: ${item.category.name}"
-        view.findViewById<TextView>(R.id.tvConfidence).text = "Confidence: ${(item.confidence * 100).toInt()}%"
+        view.findViewById<TextView>(R.id.tvCategory).text = item.category.name
+        view.findViewById<TextView>(R.id.tvConfidence).text = "${(item.confidence * 100).toInt()}%"
         
         item.brand?.let {
             view.findViewById<TextView>(R.id.tvBrand).apply {
                 text = "Brand: $it"
-                visibility = View.VISIBLE
             }
         }
         
-        item.quantity?.let {
-            view.findViewById<TextView>(R.id.tvQuantity).apply {
-                text = "Quantity: $it"
-                visibility = View.VISIBLE
-            }
-        }
-        
-        val etDescription = view.findViewById<EditText>(R.id.etDescription)
+        val amount = view.findViewById<EditText>(R.id.etDescription)
+        val cancel = view.findViewById<Button>(R.id.cancel)
+        val save = view.findViewById<Button>(R.id.save)
 
-        return MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Food Item Recognized")
+        val dialog = MaterialAlertDialogBuilder(requireContext())
             .setView(view)
-            .setPositiveButton("Save to Pantry") { _, _ ->
-                val description = view.findViewById<EditText>(R.id.etDescription).text.toString()
-                onSaveClickListener?.invoke(item, description)
-            }
-            .setNegativeButton("Cancel", null) // Remove lambda, let dismiss handle it
             .create()
+
+        save.setOnClickListener {
+            val amtInput = amount.text.toString().ifBlank { "1" }
+            onSaveClickListener?.invoke(item, amtInput)
+            dialog.dismiss()
+        }
+
+        cancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        return dialog
     }
 
     override fun onCancel(dialog: android.content.DialogInterface) {

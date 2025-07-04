@@ -3,7 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="25dp"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:fontFamily="@font/roboto_bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        android:text="Food Item Recognized"/>
 
     <TextView
         android:id="@+id/tvItemName"
@@ -12,52 +22,107 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:text="@string/Fruits"/>
 
-    <TextView
-        android:id="@+id/tvCategory"
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginBottom="4dp" />
+        android:columnCount="2"
+        android:rowCount="4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:text="Category:"
+            android:paddingRight="100dp"/>
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/noVal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:text="Confidence:"/>
+
+        <TextView
+            android:id="@+id/tvConfidence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/noVal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:text="Brand:"/>
+
+        <TextView
+            android:id="@+id/tvBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp" />
+
+    </GridLayout>
+
 
     <TextView
-        android:id="@+id/tvConfidence"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginBottom="4dp" />
-
-    <TextView
-        android:id="@+id/tvBrand"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginBottom="4dp"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/tvQuantity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginBottom="16dp"
-        android:visibility="gone" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add a description (optional):"
+        android:text="Amount:"
+        android:fontFamily="@font/roboto_bold"
         android:textSize="14sp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/etDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="e.g., Fresh red apple from the farmer's market"
-        android:inputType="textMultiLine"
-        android:minLines="2"
-        android:maxLines="4" />
+        android:hint="1"
+        android:background="@drawable/outlined_box"
+        android:padding="10dp"
+        android:inputType="number" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/gray"
+            android:text="Cancel"
+            android:padding="5dp"/>
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:text="Save"
+            android:padding="5dp"
+            android:layout_marginLeft="30dp"/>
+
+
+    </LinearLayout>
 
 </LinearLayout>

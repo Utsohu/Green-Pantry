@@ -68,13 +68,14 @@ class CameraViewModel @Inject constructor(
         }
     }
     
-    fun saveRecognizedItem(item: RecognizedFoodItem, description: String = "") {
+    fun saveRecognizedItem(item: RecognizedFoodItem, amount: String = "") {
         viewModelScope.launch {
             Log.d(TAG, "Saving recognized item: ${item.name}")
-            saveRecognizedItemUseCase(item, description).fold(
+            saveRecognizedItemUseCase(item, amount).fold(
                 onSuccess = {
                     Log.d(TAG, "Item saved successfully: ${item.name}")
                     // Add to saved items list
+                    item.quantity = amount
                     _savedItems.value = _savedItems.value + item
                     // Reset state to idle
                     _recognitionState.value = RecognitionState.Idle
