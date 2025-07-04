@@ -125,40 +125,40 @@ class RegisterScreen : AppCompatActivity() {
                 }
             }
 
-            if (errors.contains(RegisterInputValidationType.NoEmail)) {
+            if (errors.contains(RegisterInputValidationType.NoEmail) && !emailBlank) {
                 emailError.text = "Enter a valid email"
                 emailError.visibility = View.VISIBLE
             } else {
                 if (!emailBlank) emailError.visibility = View.GONE
             }
 
-            if (errors.contains(RegisterInputValidationType.UsernameTooShort)) {
+            if (errors.contains(RegisterInputValidationType.UsernameTooShort) && !nameBlank) {
                 nameError.text = "Too short"
                 nameError.visibility = View.VISIBLE
-            } else if (errors.contains(RegisterInputValidationType.UsernameTooLong)) {
+            } else if (errors.contains(RegisterInputValidationType.UsernameTooLong) && !nameBlank) {
                 nameError.text = "Too long"
                 nameError.visibility = View.VISIBLE
             } else {
                 if (!nameBlank) nameError.visibility = View.GONE
             }
 
-            if (errors.contains(RegisterInputValidationType.PasswordsDoNotMatch)) {
+            if (errors.contains(RegisterInputValidationType.PasswordsDoNotMatch) && !confirmBlank) {
                 mismatch.text = "Do not match"
                 mismatch.visibility = View.VISIBLE
             } else {
                 if (!confirmBlank) mismatch.visibility = View.GONE
             }
 
-            if (errors.contains(RegisterInputValidationType.PasswordTooShort)) {
+            if (errors.contains(RegisterInputValidationType.PasswordTooShort) && !passBlank) {
                 passError.text = "At least 8 chars"
                 passError.visibility = View.VISIBLE
-            } else if (errors.contains(RegisterInputValidationType.PasswordUpperCaseMissing))  {
+            } else if (errors.contains(RegisterInputValidationType.PasswordUpperCaseMissing) && !passBlank)  {
                 passError.text = "Needs uppercase"
                 passError.visibility = View.VISIBLE
-            } else if (errors.contains(RegisterInputValidationType.PasswordNumberMissing)) {
+            } else if (errors.contains(RegisterInputValidationType.PasswordNumberMissing) && !passBlank) {
                 passError.text = "Needs number"
                 passError.visibility = View.VISIBLE
-            } else if (errors.contains(RegisterInputValidationType.PasswordSpecialCharMissing)) {
+            } else if (errors.contains(RegisterInputValidationType.PasswordSpecialCharMissing) && !passBlank) {
                 passError.text = "Needs symbol"
                 passError.visibility = View.VISIBLE
             } else {

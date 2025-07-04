@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
 
-            if (results.contains(LoginInputValidationType.NoEmail)) {
+            if (results.contains(LoginInputValidationType.NoEmail) && !emailBlank) {
                 emailError.text = "Invalid email"
                 emailError.visibility = View.VISIBLE
             } else {
