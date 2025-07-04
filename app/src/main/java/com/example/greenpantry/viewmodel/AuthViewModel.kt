@@ -1,25 +1,37 @@
 package com.example.greenpantry.presentation.viewmodel
 
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.greenpantry.domain.repositories.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import androidx.lifecycle.map
+import androidx.lifecycle.distinctUntilChanged
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
     private val repo: AuthRepository
 ): ViewModel() {
 
-    var uiState = mutableStateOf(AuthUiState())
-        private set
+    private val _uiState = MutableLiveData<AuthUiState>()
+    val uiState: LiveData<AuthUiState> = _uiState
+
+    val loginSuccess: LiveData<Boolean> = uiState
+        .map { it.loginSuccess }
+        .distinctUntilChanged()
+
+    init {
+        _uiState.value = AuthUiState() // initial state
+    }
 
     fun login(email: String, password: String) = viewModelScope.launch {
-        uiState.value = uiState.value.copy(isLoading = true, errorMessage = null)
+        _uiState.value = _uiState.value?.copy(isLoading = true, errorMessage = null)
         val ok = repo.login(email, password)
-        uiState.value = uiState.value.copy(
+        _uiState.value = _uiState.value?.copy(
             isLoading    = false,
             loginSuccess = ok,
             errorMessage = if (!ok) "Login failed" else null
@@ -27,9 +39,9 @@ class AuthViewModel @Inject constructor(
     }
 
     fun register(email: String, username: String, password: String) = viewModelScope.launch {
-        uiState.value = uiState.value.copy(isLoading = true, errorMessage = null)
+        _uiState.value = _uiState.value?.copy(isLoading = true, errorMessage = null)
         val ok = repo.register(email, username, password)
-        uiState.value = uiState.value.copy(
+        _uiState.value = _uiState.value?.copy(
             isLoading        = false,
             registerSuccess  = ok,
             errorMessage     = if (!ok) "Registration failed" else null
@@ -37,9 +49,9 @@ class AuthViewModel @Inject constructor(
     }
 
     fun logout() = viewModelScope.launch {
-        uiState.value = uiState.value.copy(isLoading = true, errorMessage = null)
+        _uiState.value = _uiState.value?.copy(isLoading = true, errorMessage = null)
         val ok = repo.logout()
-        uiState.value = uiState.value.copy(
+        _uiState.value = _uiState.value?.copy(
             isLoading = false,
             logoutSuccess = ok,
             errorMessage = if (!ok) "Logout failed" else null

@@ -1,5 +1,6 @@
 package com.example.greenpantry
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -9,7 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.core.view.isVisible
-import com.example.greenpantry.ui.login.LoginScreen
 import com.example.greenpantry.ui.login.RegisterScreen
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,6 +20,7 @@ import com.example.greenpantry.domain.repositories.AuthRepository
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import com.example.greenpantry.ui.login.LoginActivity
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -71,31 +72,13 @@ class MainActivity : AppCompatActivity() {
                 }
             } else if (!isLoggedInState.value) {
                 if (showingRegister) {
-                    RegisterScreen(
-                        onNavigateHome = {
-                            isLoggedInState.value = true
-                            composeView.isVisible       = false
-                            fragmentContainer.isVisible = true
-                            bottomNav.isVisible         = true
-                            loadHome()
-                        },
-                        onNavigateLogin = {
-                            showingRegister = false
-                        }
-                    )
+                    val intent = Intent(this, RegisterScreen::class.java)
+                    startActivity(intent)
+                    finish()
                 } else {
-                    LoginScreen(
-                        onNavigateHome = {
-                            isLoggedInState.value = true
-                            composeView.isVisible       = false
-                            fragmentContainer.isVisible = true
-                            bottomNav.isVisible         = true
-                            loadHome()
-                        },
-                        onNavigateRegister = {
-                            showingRegister = true
-                        }
-                    )
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
             }
         }

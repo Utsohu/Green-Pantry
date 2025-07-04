@@ -1,6 +1,7 @@
 package com.example.greenpantry.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -10,91 +11,93 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
+import com.example.greenpantry.MainActivity
 import com.example.greenpantry.databinding.ActivityLoginBinding
 
 import com.example.greenpantry.R
+import com.example.greenpantry.domain.model.LoginInputValidationType
+import com.example.greenpantry.domain.model.validateLoginInput
+import com.example.greenpantry.presentation.viewmodel.AuthViewModel
+import com.example.greenpantry.ui.home.HomeFragment
+import com.google.android.material.textfield.TextInputEditText
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var loginViewModel: LoginViewModel
-    private lateinit var binding: ActivityLoginBinding
+    private val viewModel: AuthViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_login)
 
-        val username = binding.username
-        val password = binding.password
-        val login = binding.login
-        val loading = binding.loading
+        val username = findViewById<TextInputEditText>(R.id.username)
+        val password = findViewById<TextInputEditText>(R.id.password)
+        val login = findViewById<Button>(R.id.login)
+        val emailError = findViewById<TextView>(R.id.emailError)
+        val passError = findViewById<TextView>(R.id.passError)
+        val loginError = findViewById<TextView>(R.id.loginError)
 
-        loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
-            .get(LoginViewModel::class.java)
+        login.setOnClickListener {
+            // validation
+            val results = validateLoginInput(username.text.toString(), password.text.toString())
+            var emailBlank = false
 
-        loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
-            val loginState = it ?: return@Observer
-
-            // disable login button unless both username / password is valid
-            login.isEnabled = loginState.isDataValid
-
-            if (loginState.usernameError != null) {
-                username.error = getString(loginState.usernameError)
+            if (results.contains(LoginInputValidationType.EmptyField)) {
+                if (username.text.toString().isBlank()) {
+                    emailError.text = "Required"
+                    emailError.visibility = View.VISIBLE
+                    emailBlank = true
+                } else {
+                    emailError.visibility = View.GONE
+                    emailBlank = false
+                }
+                if (password.text.toString().isBlank()) {
+                    passError.text = "Required"
+                    passError.visibility = View.VISIBLE
+                } else {
+                    passError.visibility = View.GONE
+                }
             }
-            if (loginState.passwordError != null) {
-                password.error = getString(loginState.passwordError)
+
+            if (results.contains(LoginInputValidationType.NoEmail)) {
+                emailError.text = "Invalid email"
+                emailError.visibility = View.VISIBLE
+            } else {
+                if (!emailBlank) emailError.visibility = View.GONE
             }
-        })
 
-        loginViewModel.loginResult.observe(this@LoginActivity, Observer {
-            val loginResult = it ?: return@Observer
-
-            loading.visibility = View.GONE
-            if (loginResult.error != null) {
-                showLoginFailed(loginResult.error)
+            if (results.size == 1 && results.contains(LoginInputValidationType.Valid)) {
+                viewModel.login(username.text.toString(), password.text.toString())
             }
-            if (loginResult.success != null) {
-                updateUiWithUser(loginResult.success)
-            }
-            setResult(Activity.RESULT_OK)
-
-            //Complete and destroy login activity once successful
-            finish()
-        })
-
-        username.afterTextChanged {
-            loginViewModel.loginDataChanged(
-                username.text.toString(),
-                password.text.toString()
-            )
         }
 
-        password.apply {
-            afterTextChanged {
-                loginViewModel.loginDataChanged(
-                    username.text.toString(),
-                    password.text.toString()
-                )
+        viewModel.uiState.observe(this) { state ->
+            if (state.loginSuccess) {
+                // Navigate to main/home
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
+            state.errorMessage?.let {
+                loginError.visibility = View.VISIBLE
+                loginError.text = it
+            } ?: run {
+                loginError.visibility = View.GONE
+            }
+        }
 
-            setOnEditorActionListener { _, actionId, _ ->
-                when (actionId) {
-                    EditorInfo.IME_ACTION_DONE ->
-                        loginViewModel.login(
-                            username.text.toString(),
-                            password.text.toString()
-                        )
-                }
-                false
-            }
-
-            login.setOnClickListener {
-                loading.visibility = View.VISIBLE
-                loginViewModel.login(username.text.toString(), password.text.toString())
-            }
+        val signUp = findViewById<TextView>(R.id.signUp)
+        signUp.setOnClickListener {
+            val intent = Intent(this, RegisterScreen::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -117,14 +120,12 @@ class LoginActivity : AppCompatActivity() {
 /**
  * Extension function to simplify setting an afterTextChanged action to EditText components.
  */
-fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
+fun TextInputEditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
     this.addTextChangedListener(object : TextWatcher {
         override fun afterTextChanged(editable: Editable?) {
             afterTextChanged.invoke(editable.toString())
         }
-
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
     })
 }

@@ -1,5 +1,13 @@
 package com.example.greenpantry.ui.login
 
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -22,7 +30,10 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.greenpantry.MainActivity
 import com.example.greenpantry.R
+import com.example.greenpantry.databinding.ActivityLoginBinding
 import com.example.greenpantry.domain.model.RegisterInputValidationType
 import com.example.greenpantry.domain.model.validateRegisterInput
 import com.example.greenpantry.presentation.viewmodel.AuthViewModel
@@ -33,182 +44,139 @@ import com.example.greenpantry.ui.sharedcomponents.TextEntryModule
 import com.example.greenpantry.ui.theme.green_primary
 import com.example.greenpantry.ui.theme.light_green_background
 import com.example.greenpantry.ui.theme.logo_green
+import com.google.android.material.textfield.TextInputEditText
+import dagger.hilt.android.AndroidEntryPoint
 
-@Composable
-fun RegisterScreen(
-    onNavigateHome: () -> Unit,
-    onNavigateLogin: () -> Unit,
-    viewModel: AuthViewModel = hiltViewModel()
-) {
+@AndroidEntryPoint
+class RegisterScreen : AppCompatActivity() {
 
-    val uiState by viewModel.uiState
+    private val viewModel: AuthViewModel by viewModels()
 
-    var email by remember { mutableStateOf("") }
-    var username by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var confirmPassword by remember { mutableStateOf("") }
-    var isPasswordShown by remember { mutableStateOf(false) }
-    var isConfirmShown by remember { mutableStateOf(false) }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-    var emailError by remember { mutableStateOf<String?>(null) }
-    var usernameError by remember { mutableStateOf<String?>(null) }
-    var passwordError by remember { mutableStateOf<String?>(null) }
-    var confirmError by remember { mutableStateOf<String?>(null) }
+        setContentView(R.layout.activity_register)
 
-    LaunchedEffect(uiState.registerSuccess) {
-        if (uiState.registerSuccess) {
-            onNavigateHome()
-        }
-    }
+        val username = findViewById<TextInputEditText>(R.id.username)
+        val email = findViewById<TextInputEditText>(R.id.email)
+        val password = findViewById<TextInputEditText>(R.id.password)
+        val confirm = findViewById<TextInputEditText>(R.id.confirmPassword)
+        val login = findViewById<TextView>(R.id.login)
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
-    ) {
+        val register = findViewById<Button>(R.id.register)
 
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(180.dp),
-            contentAlignment = Alignment.BottomCenter
-        ) {
-            HeaderBackground(
-                leftColor = logo_green,
-                rightColor = logo_green,
-                modifier = Modifier.fillMaxSize()
-            )
-            Image(
-                painter = painterResource(R.drawable.logo),
-                contentDescription = "The Green Pantry Logo",
-                modifier = Modifier.size(220.dp)
-            )
+        val emailError = findViewById<TextView>(R.id.emailError)
+        val nameError = findViewById<TextView>(R.id.nameError)
+        val passError = findViewById<TextView>(R.id.passError)
+        val mismatch = findViewById<TextView>(R.id.mismatch)
+
+        viewModel.uiState.observe(this) { state ->
+            if (state.registerSuccess) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else if (state.errorMessage != null) {
+                Toast.makeText(this, state.errorMessage, Toast.LENGTH_SHORT).show()
+            }
         }
 
-        Column(
-            modifier = Modifier
-                .padding(top = 260.dp)
-                .fillMaxWidth(0.9f)
-                .shadow(5.dp, RoundedCornerShape(15.dp))
-                .background(light_green_background, RoundedCornerShape(15.dp))
-                .padding(16.dp)
-                .align(Alignment.TopCenter),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
+        register.setOnClickListener {
+            val errors = validateRegisterInput(email.text.toString(), username.text.toString(), password.text.toString(), confirm.text.toString())
+            var emailBlank = false
+            var nameBlank = false
+            var passBlank = false
+            var confirmBlank = false
 
-            TextEntryModule(
-                description = "Email address",
-                hint = "Enter valid email",
-                textValue = email,
-                onValueChanged = {
-                    email = it
-                    emailError = null
-                },
-                textColor = Color.Gray,
-                cursorColor = green_primary,
-                leadingIcon = Icons.Default.Email
-            )
-            emailError?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall) }
-
-            TextEntryModule(
-                description = "Username",
-                hint = "Choose a username",
-                textValue = username,
-                onValueChanged = {
-                    username = it
-                    usernameError = null
-                },
-                textColor = Color.Gray,
-                cursorColor = green_primary,
-                leadingIcon = Icons.Default.Add
-            )
-            usernameError?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall) }
-
-            TextEntryModule(
-                description = "Password",
-                hint = "Enter password",
-                textValue = password,
-                onValueChanged = {
-                    password = it
-                    passwordError = null
-                },
-                textColor = Color.Gray,
-                cursorColor = green_primary,
-                trailingIcon = Icons.Default.Add,
-                onTrailingIconClick = { isPasswordShown = !isPasswordShown },
-                visualTransformation = if (isPasswordShown) VisualTransformation.None else PasswordVisualTransformation(),
-                keyboardType = KeyboardType.Password
-            )
-            passwordError?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall) }
-
-            TextEntryModule(
-                description = "Confirm Password",
-                hint = "Repeat password",
-                textValue = confirmPassword,
-                onValueChanged = {
-                    confirmPassword = it
-                    confirmError = null
-                },
-                textColor = Color.Gray,
-                cursorColor = green_primary,
-                trailingIcon = Icons.Default.Add,
-                onTrailingIconClick = { isConfirmShown = !isConfirmShown },
-                visualTransformation = if (isConfirmShown) VisualTransformation.None else PasswordVisualTransformation(),
-                keyboardType = KeyboardType.Password
-            )
-            confirmError?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall) }
-
-            uiState.errorMessage?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall) }
-
-            AuthButton(
-                text = "Register",
-                backgroundColor = green_primary,
-                contentColor = Color.White,
-                enabled = !uiState.isLoading,
-                isLoading = uiState.isLoading,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(45.dp)
-                    .shadow(5.dp, RoundedCornerShape(25.dp)),
-                onButtonClick = {
-                    emailError = null; usernameError = null; passwordError = null; confirmError = null
-                    val errors = validateRegisterInput(email, username, password, confirmPassword)
-                    if (errors.contains(RegisterInputValidationType.EmptyField)) {
-                        if (email.isBlank()) emailError = "Required"
-                        if (username.isBlank()) usernameError = "Required"
-                        if (password.isBlank()) passwordError = "Required"
-                        if (confirmPassword.isBlank()) confirmError = "Required"
-                    }
-                    if (errors.contains(RegisterInputValidationType.NoEmail)) emailError = "Enter a valid email"
-                    if (errors.contains(RegisterInputValidationType.UsernameTooShort)) usernameError = "Too short"
-                    if (errors.contains(RegisterInputValidationType.UsernameTooLong)) usernameError = "Too long"
-                    if (errors.contains(RegisterInputValidationType.PasswordsDoNotMatch)) confirmError = "Do not match"
-                    if (errors.contains(RegisterInputValidationType.PasswordTooShort)) passwordError = "At least 8 chars"
-                    if (errors.contains(RegisterInputValidationType.PasswordUpperCaseMissing)) passwordError = "Needs uppercase"
-                    if (errors.contains(RegisterInputValidationType.PasswordNumberMissing)) passwordError = "Needs number"
-                    if (errors.contains(RegisterInputValidationType.PasswordSpecialCharMissing)) passwordError = "Needs symbol"
-                    if (errors.size == 1 && errors.contains(RegisterInputValidationType.Valid)) {
-                        viewModel.register(email, username, password)
-                    }
+            if (errors.contains(RegisterInputValidationType.EmptyField)) {
+                if (email.text.toString().isBlank()) {
+                    emailError.text = "Required"
+                    emailError.visibility = View.VISIBLE
+                    emailBlank = true
+                } else {
+                    emailError.visibility = View.GONE
+                    emailBlank = false
                 }
-            )
+
+                if (username.text.toString().isBlank()) {
+                    nameError.text = "Required"
+                    nameError.visibility = View.VISIBLE
+                    nameBlank = true
+                } else {
+                    nameError.visibility = View.GONE
+                    nameBlank = false
+                }
+
+                if (password.text.toString().isBlank()) {
+                    passError.text = "Required"
+                    passError.visibility = View.VISIBLE
+                    passBlank = true
+                } else {
+                    passError.visibility = View.GONE
+                    passBlank = false
+                }
+
+                if (confirm.text.toString().isBlank()) {
+                    mismatch.text = "Required"
+                    mismatch.visibility = View.VISIBLE
+                    confirmBlank = true
+                } else {
+                    mismatch.visibility = View.GONE
+                    confirmBlank = false
+                }
+            }
+
+            if (errors.contains(RegisterInputValidationType.NoEmail)) {
+                emailError.text = "Enter a valid email"
+                emailError.visibility = View.VISIBLE
+            } else {
+                if (!emailBlank) emailError.visibility = View.GONE
+            }
+
+            if (errors.contains(RegisterInputValidationType.UsernameTooShort)) {
+                nameError.text = "Too short"
+                nameError.visibility = View.VISIBLE
+            } else if (errors.contains(RegisterInputValidationType.UsernameTooLong)) {
+                nameError.text = "Too long"
+                nameError.visibility = View.VISIBLE
+            } else {
+                if (!nameBlank) nameError.visibility = View.GONE
+            }
+
+            if (errors.contains(RegisterInputValidationType.PasswordsDoNotMatch)) {
+                mismatch.text = "Do not match"
+                mismatch.visibility = View.VISIBLE
+            } else {
+                if (!confirmBlank) mismatch.visibility = View.GONE
+            }
+
+            if (errors.contains(RegisterInputValidationType.PasswordTooShort)) {
+                passError.text = "At least 8 chars"
+                passError.visibility = View.VISIBLE
+            } else if (errors.contains(RegisterInputValidationType.PasswordUpperCaseMissing))  {
+                passError.text = "Needs uppercase"
+                passError.visibility = View.VISIBLE
+            } else if (errors.contains(RegisterInputValidationType.PasswordNumberMissing)) {
+                passError.text = "Needs number"
+                passError.visibility = View.VISIBLE
+            } else if (errors.contains(RegisterInputValidationType.PasswordSpecialCharMissing)) {
+                passError.text = "Needs symbol"
+                passError.visibility = View.VISIBLE
+            } else {
+                if (!passBlank) passError.visibility = View.GONE
+            }
+
+            if (errors.size == 1 && errors.contains(RegisterInputValidationType.Valid)) {
+                viewModel.register(email.text.toString(), username.text.toString(), password.text.toString())
+            }
+
         }
 
-        Row(
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.Center
-        ) {
-            Text("Have an account?", style = MaterialTheme.typography.bodyMedium)
-            Spacer(Modifier.width(4.dp))
-            Text(
-                "Login",
-                modifier = Modifier.clickable { onNavigateLogin() },
-                color = green_primary,
-                fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.bodyMedium
-            )
+        login.setOnClickListener {
+            val intent = Intent(this@RegisterScreen, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
+
     }
 }
+
