@@ -1,7 +1,9 @@
 package com.example.greenpantry.data.database
 
+import android.net.Uri
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.greenpantry.data.model.FoodCategory
 
 @Entity(tableName = "pantryItems")
 data class PantryItem(
@@ -11,7 +13,7 @@ data class PantryItem(
     val category: String? = null,
     val isPackaged: Boolean = false,
     val brand: String? = null,
-    val quantity: String? = null,
+    var quantity: String? = null,
     val recognitionConfidence: Float? = null,
     val imageUri: String? = null,
     val dateAdded: Long = System.currentTimeMillis(),
@@ -25,5 +27,5 @@ data class PantryItem(
     val iron: Int = 0,
     val calcium: Int = 0,
     val vitaminD: Int = 0,
-    val curNum: Int = 0
+    var curNum: Int = 0
 )

@@ -1,6 +1,7 @@
 package com.example.greenpantry.data.database
 
 import android.content.Context
+import android.net.Uri
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -53,5 +54,15 @@ class Converters {
     fun toStringMutableList(value: String): MutableList<String> {
         val listType = object : TypeToken<MutableList<String>>() {}.type
         return Gson().fromJson(value, listType)
+    }
+
+    @TypeConverter
+    fun fromUri(uri: Uri?): String? {
+        return uri?.toString()
+    }
+
+    @TypeConverter
+    fun toUri(uriString: String?): Uri? {
+        return uriString?.let { Uri.parse(it) }
     }
 }

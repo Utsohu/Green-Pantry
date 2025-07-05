@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
-@Database(entities = [PantryItem::class], version = 4, exportSchema = false)
+@Database(entities = [PantryItem::class], version = 5, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class PantryItemDatabase : RoomDatabase() {
     abstract fun pantryItemDao(): PantryItemDao
 

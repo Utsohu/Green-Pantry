@@ -24,6 +24,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.greenpantry.BuildConfig
 import com.example.greenpantry.R
+import com.example.greenpantry.data.database.PantryItem
+import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.model.RecognizedFoodItem
 import com.example.greenpantry.ui.home.HomeFragment
 import com.example.greenpantry.ui.notifs.NotificationsFragment
@@ -277,6 +279,8 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         dialog.setRecognizedItem(item)
         dialog.setOnSaveClickListener { recognizedItem, description ->
             viewModel.saveRecognizedItem(recognizedItem, description)
+            //remove this line later
+            storeRecognizedItem(recognizedItem)
             Toast.makeText(
                 context,
                 "${recognizedItem.name} added to pantry!",
@@ -294,6 +298,21 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         dialog.show(fragmentManager, "RecognitionResultDialog")
     }
 
+    private fun storeRecognizedItem(item : RecognizedFoodItem){
+        val pantryDB = PantryItemDatabase.getDatabase(requireContext())
+        viewLifecycleOwner.lifecycleScope.launch {
+            var searchPantryItem = pantryDB.pantryItemDao().getPantryItemByName(item.name)
+            if (searchPantryItem != null) {
+                searchPantryItem.quantity += item.quantity?.toInt()
+                searchPantryItem.curNum += item.quantity?.toInt()?.times(100) ?: 0
+                pantryDB.pantryItemDao().updatePantryItem(searchPantryItem)
+            }
+            else{
+                searchPantryItem = item.toPantryItem()
+                pantryDB.pantryItemDao().insertPantryItem(searchPantryItem)
+            }
+        }
+    }
     
     private fun navigateToHome() {
         // Update bottom navigation selection
