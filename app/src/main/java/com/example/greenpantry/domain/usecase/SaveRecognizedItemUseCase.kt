@@ -1,11 +1,13 @@
 package com.example.greenpantry.domain.usecase
 
+import android.content.Context
 import com.example.greenpantry.data.database.PantryItemDao
+import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.model.RecognizedFoodItem
 import javax.inject.Inject
 
 class SaveRecognizedItemUseCase @Inject constructor(
-    private val pantryItemDao: PantryItemDao
+    private val pantryItemDAO: PantryItemDao
 ) {
     suspend operator fun invoke(
         recognizedItem: RecognizedFoodItem,
@@ -15,9 +17,8 @@ class SaveRecognizedItemUseCase @Inject constructor(
         return try {
             // Parse the amount from description, default to 1 if not a valid number
             val amount = description.toIntOrNull() ?: 1
-            
             // Check if item already exists in pantry
-            val existingItem = pantryItemDao.getPantryItemByName(recognizedItem.name)
+            val existingItem = pantryItemDAO.getPantryItemByName(recognizedItem.name)
             
             val pantryItem = if (existingItem != null) {
                 // Add to existing quantity instead of replacing
@@ -29,8 +30,8 @@ class SaveRecognizedItemUseCase @Inject constructor(
                     imageResId = imageResId
                 ).copy(curNum = amount)
             }
-            
-            pantryItemDao.insertPantryItem(pantryItem)
+
+            pantryItemDAO.insertPantryItem(pantryItem)
             Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)

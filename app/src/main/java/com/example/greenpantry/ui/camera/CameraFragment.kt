@@ -279,8 +279,6 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         dialog.setRecognizedItem(item)
         dialog.setOnSaveClickListener { recognizedItem, description ->
             viewModel.saveRecognizedItem(recognizedItem, description)
-            //remove this line later
-            storeRecognizedItem(recognizedItem)
             Toast.makeText(
                 context,
                 "${recognizedItem.name} added to pantry!",
@@ -296,22 +294,6 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         }
 
         dialog.show(fragmentManager, "RecognitionResultDialog")
-    }
-
-    private fun storeRecognizedItem(item : RecognizedFoodItem){
-        val pantryDB = PantryItemDatabase.getDatabase(requireContext())
-        viewLifecycleOwner.lifecycleScope.launch {
-            var searchPantryItem = pantryDB.pantryItemDao().getPantryItemByName(item.name)
-            if (searchPantryItem != null) {
-                searchPantryItem.quantity += item.quantity?.toInt()
-                searchPantryItem.curNum += item.quantity?.toInt()?.times(100) ?: 0
-                pantryDB.pantryItemDao().updatePantryItem(searchPantryItem)
-            }
-            else{
-                searchPantryItem = item.toPantryItem()
-                pantryDB.pantryItemDao().insertPantryItem(searchPantryItem)
-            }
-        }
     }
     
     private fun navigateToHome() {

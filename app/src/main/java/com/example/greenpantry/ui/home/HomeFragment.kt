@@ -78,12 +78,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 transFat = 5, protein = 2, sodium = 2, iron = 3,
                 calcium = 4, vitaminD = 1,
                 setUpInstructions = mutableListOf("Follow the instructions and try to make a good meal!","Go out to restaurant.", "Buy the food!"),
-                ingredients = mutableListOf("Romaine Lettuce", "Kale", "Yu Choy")
+                ingredients = mutableListOf("Romaine Lettuce", "Kale", "Yu Choy", "Apple")
             ),
             Recipe(
                 name = "Quinoa Salad",
                 description = "Protein-rich lunch",
-                imageResId = R.drawable.ic_launcher_foreground
+                imageResId = R.drawable.ic_launcher_foreground,
+                ingredients = mutableListOf("Yu Choy", "Apple", "Tomato")
             ),
             Recipe(
                 name = "Smoothie Bowl",
@@ -96,6 +97,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val noSuggestions = view.findViewById<LinearLayout>(R.id.noSuggestions)
         val db = RecipeDatabase.getDatabase(requireContext())
         lifecycleScope.launch {
+            //REMOVE THIS AFTER DEMO
+            db.recipeDao().deleteAllRecipes()
             if(db.recipeDao().getAllRecipes().isEmpty()){
                 db.recipeDao().insertAll(items)
             }
