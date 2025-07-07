@@ -68,40 +68,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val suggestedPantryRecipes =
             view.findViewById<LinearLayout>(R.id.homeSuggestedPantryRecipesList)
 
-        val items = listOf(
-            Recipe(
-                name = "Avocado Toast",
-                description = "A healthy breakfast",
-                imageResId = R.drawable.ic_launcher_foreground,
-                time = 50, difficulty = 7, NOS = 2,
-                calories = 120, fiber = 5, totalFat = 8, sugars = 2,
-                transFat = 5, protein = 2, sodium = 2, iron = 3,
-                calcium = 4, vitaminD = 1,
-                setUpInstructions = mutableListOf("Follow the instructions and try to make a good meal!","Go out to restaurant.", "Buy the food!"),
-                ingredients = mutableListOf("Romaine Lettuce", "Kale", "Yu Choy", "Apple")
-            ),
-            Recipe(
-                name = "Quinoa Salad",
-                description = "Protein-rich lunch",
-                imageResId = R.drawable.ic_launcher_foreground,
-                ingredients = mutableListOf("Yu Choy", "Apple", "Tomato")
-            ),
-            Recipe(
-                name = "Smoothie Bowl",
-                description = "Energizing snack",
-                imageResId = R.drawable.ic_launcher_foreground
-            )
-        )
-
         val recipeItems = view.findViewById<LinearLayout>(R.id.homeSuggestedPantryRecipesList)
         val noSuggestions = view.findViewById<LinearLayout>(R.id.noSuggestions)
         val db = RecipeDatabase.getDatabase(requireContext())
         lifecycleScope.launch {
-            //REMOVE THIS AFTER DEMO
-            db.recipeDao().deleteAllRecipes()
-            if(db.recipeDao().getAllRecipes().isEmpty()){
-                db.recipeDao().insertAll(items)
-            }
             val items = db.recipeDao().getAllRecipes()
             // recipe display
             if (items.isEmpty()) {  // display empty notif message
