@@ -353,7 +353,7 @@
                             android:id="@+id/radio_biweekly"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="biweekly"
+                            android:text="Biweekly"
                             android:layoutDirection="rtl"/>
 
                         <View

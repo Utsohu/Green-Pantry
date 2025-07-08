@@ -71,7 +71,7 @@ class ItemDetailFragment : Fragment() {
 
         // update image
         val itemImage = view.findViewById<ImageView>(R.id.itemImage)
-        val newImage = R.drawable.ic_launcher_background // replace with the image of item
+        val newImage = R.drawable.img_romaine_lettuce // replace with the image of item
         itemImage.setImageResource(newImage)
 
         // update serving size

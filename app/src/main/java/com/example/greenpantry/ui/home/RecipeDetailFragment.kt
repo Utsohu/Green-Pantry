@@ -64,7 +64,7 @@ class RecipeDetailFragment : Fragment() {
 
         // update image
         val itemImage = view.findViewById<ImageView>(R.id.recipeImage)
-        val newImage = R.drawable.ic_launcher_background // replace with the image of item
+        val newImage = R.drawable.img_avocado_toast // replace with the image of item
         itemImage.setImageResource(newImage)
 
         val time = view.findViewById<TextView>(R.id.timeAmt)
@@ -152,7 +152,7 @@ RecyclerView.Adapter<IngredientAdapter.IngredientHolder>() {
     }
 
     override fun onBindViewHolder(holder: IngredientHolder, position: Int) {
-        val itemImg = R.drawable.ic_launcher_background // change this too
+        val itemImg = R.drawable.logo // change this too
         holder.image.setImageResource(itemImg)
         holder.name.text = items[position]
         val amt = 1 // change this later one
