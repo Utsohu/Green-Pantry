@@ -69,8 +69,9 @@
 
                 <!-- vegetable container -->
                 <LinearLayout
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="65dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
                     android:padding="5dp"
                     android:background="@drawable/outlined_box"
@@ -102,8 +103,9 @@
 
                 <!-- fruit container -->
                 <LinearLayout
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="65dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
                     android:padding="5dp"
                     android:layout_marginLeft="10dp"
@@ -144,8 +146,9 @@
 
                 <!-- protein container -->
                 <LinearLayout
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="65dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
                     android:padding="5dp"
                     android:background="@drawable/outlined_box"
@@ -177,8 +180,9 @@
 
                 <!-- grain container -->
                 <LinearLayout
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="65dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
                     android:padding="5dp"
                     android:layout_marginLeft="10dp"
@@ -219,8 +223,9 @@
 
                 <!-- dairy container -->
                 <LinearLayout
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="65dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
                     android:padding="5dp"
                     android:background="@drawable/outlined_box"
@@ -252,8 +257,9 @@
 
                 <!-- other container -->
                 <LinearLayout
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="65dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
                     android:padding="5dp"
                     android:layout_marginLeft="10dp"
