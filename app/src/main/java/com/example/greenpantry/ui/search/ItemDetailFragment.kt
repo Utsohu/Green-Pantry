@@ -69,11 +69,6 @@ class ItemDetailFragment : Fragment() {
         // Set the text of this TextView
         titleTextView.text = itemName ?: "Item Details" // Provide a default if itemName is null
 
-        // update image
-        val itemImage = view.findViewById<ImageView>(R.id.itemImage)
-        val newImage = R.drawable.img_romaine_lettuce // replace with the image of item
-        itemImage.setImageResource(newImage)
-
         // update serving size
         val servingAmt = view.findViewById<TextView>(R.id.servingAmt)
         val size = 100 // dummy val for now
@@ -87,6 +82,12 @@ class ItemDetailFragment : Fragment() {
                     setNutrition(view, item.calories, item.fiber, item.totalFat,
                         item.sugars, item.transFat, item.protein,
                         item.sodium, item.iron, item.calcium, item.vitaminD)
+
+                    // update image
+                    val itemImage = view.findViewById<ImageView>(R.id.itemImage)
+                    val newImage = item.imageResId // replace with the image of item
+                    itemImage.setImageResource(newImage)
+
                 }else {
                     // fallback dummy values
                     setNutrition(view, 165, 1, 4,

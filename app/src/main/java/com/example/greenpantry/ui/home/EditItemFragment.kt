@@ -74,7 +74,7 @@ class EditItemFragment : DialogFragment() {
                 val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
                 if (item != null) { // in pantry
                     // Set image, amount and unit hints using current data
-                    itemImg.setImageResource(R.drawable.ic_launcher_background) // Replace with actual image
+                    itemImg.setImageResource(item.imageResId) // Replace with actual image
                     amountDisplay.hint = item.curNum.toString()
                     unitDisplay.hint = item.quantity
                 }

@@ -41,24 +41,24 @@ abstract class RecipeDatabase : RoomDatabase() {
                                         Recipe(
                                             name = "Avocado Toast",
                                             description = "A healthy breakfast",
-                                            imageResId = R.drawable.logo,
+                                            imageResId = R.drawable.img_avocado_toast,
                                             time = 50, difficulty = 7, NOS = 2,
                                             calories = 120, fiber = 5, totalFat = 8, sugars = 2,
                                             transFat = 5, protein = 2, sodium = 2, iron = 3,
                                             calcium = 4, vitaminD = 1,
                                             setUpInstructions = mutableListOf("Follow the instructions and try to make a good meal!","Go out to restaurant.", "Buy the food!"),
-                                            ingredients = mutableListOf("Romaine Lettuce", "Kale", "Yu Choy", "Apple")
+                                            ingredients = mutableListOf("Romaine Lettuce", "Kale", "Yu Choy", "Apple") // need to change this to list of items
                                         ),
                                         Recipe(
                                             name = "Quinoa Salad",
                                             description = "Protein-rich lunch",
-                                            imageResId = R.drawable.logo,
+                                            imageResId = R.drawable.img_quinoasalad,
                                             ingredients = mutableListOf("Yu Choy", "Apple", "Tomato")
                                         ),
                                         Recipe(
                                             name = "Smoothie Bowl",
                                             description = "Energizing snack",
-                                            imageResId = R.drawable.logo
+                                            imageResId = R.drawable.img_smoothiebowl
                                         ),
                                         Recipe(
                                             name = "Kale Smoothie",

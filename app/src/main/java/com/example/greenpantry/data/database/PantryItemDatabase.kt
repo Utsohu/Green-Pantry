@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.greenpantry.R
+import com.example.greenpantry.data.model.FoodCategory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -46,34 +47,39 @@ abstract class PantryItemDatabase : RoomDatabase() {
                                             quantity = "5",
                                             curNum = 500,
                                             description = "Romaine Lettuce!!!",
-                                            imageResId = R.drawable.logo),
+                                            imageResId = R.drawable.img_romaine_lettuce,
+                                            category = "VEGETABLE"),
                                         PantryItem(
                                             name = "Banana",
                                             quantity = "3",
                                             curNum = 300,
                                             description = "Fresh bananas",
-                                            imageResId = R.drawable.logo
+                                            imageResId = R.drawable.img_banana,
+                                            category = "FRUIT"
                                         ),
                                         PantryItem(
                                             name = "Carrot",
                                             quantity = "6",
                                             curNum = 600,
                                             description = "Organic carrots",
-                                            imageResId = R.drawable.logo
+                                            imageResId = R.drawable.img_carrot,
+                                            category = "VEGETABLE"
                                         ),
                                         PantryItem(
                                             name = "Kale",
                                             quantity = "2",
                                             curNum = 200,
                                             description = "Dark green leafy kale",
-                                            imageResId = R.drawable.logo
+                                            imageResId = R.drawable.img_kale,
+                                            category = "VEGETABLE"
                                         ),
                                         PantryItem(
                                             name = "Yu Choy",
                                             quantity = "3",
                                             curNum = 300,
                                             description = "Tender Asian greens",
-                                            imageResId = R.drawable.logo
+                                            imageResId = R.drawable.img_yuchoy,
+                                            category = "VEGETABLE"
                                         )
                                     ))
 

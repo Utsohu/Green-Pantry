@@ -31,8 +31,8 @@ class NotificationsFragment : Fragment(R.layout.fragment_notif){
         val noNotifs = view.findViewById<LinearLayout>(R.id.noNotifs)
 
         val items = mutableListOf<Triple<String, String, Int>>(
-            Triple("June 11", "Running low on chicken breast!\nYou have 1 remaining.", R.drawable.ic_launcher_background),
-            Triple("June 12", "Running low on chicken breast!\nYou have 1 remaining.", R.drawable.ic_launcher_background)
+            Triple("June 11", "Running low on romaine lettuce!\nYou have 1 remaining.", R.drawable.img_romaine_lettuce),
+            Triple("June 12", "Running low on romaine lettuce!\nYou have 1 remaining.", R.drawable.img_romaine_lettuce)
         )
 
         // notif list view

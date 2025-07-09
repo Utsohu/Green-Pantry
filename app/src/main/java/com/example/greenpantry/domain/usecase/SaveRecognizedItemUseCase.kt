@@ -1,6 +1,7 @@
 package com.example.greenpantry.domain.usecase
 
 import android.content.Context
+import com.example.greenpantry.R
 import com.example.greenpantry.data.database.PantryItemDao
 import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.model.RecognizedFoodItem
@@ -27,7 +28,7 @@ class SaveRecognizedItemUseCase @Inject constructor(
                 // Create new item
                 recognizedItem.toPantryItem(
                     description = description,
-                    imageResId = imageResId
+                    imageResId =  R.drawable.img_apple //imageResId
                 ).copy(curNum = amount)
             }
 

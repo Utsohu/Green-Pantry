@@ -142,6 +142,7 @@ class DetailItemAdapter(private val items: List<PantryItem>, private val fragmen
     override fun onBindViewHolder(holder: DetailViewHolder, position: Int) {
         holder.label.text = items[position].name
         holder.amount.text = items[position].curNum.toString()
+        holder.image.setImageResource(items[position].imageResId)
 
         // Set image or listeners on buttons here if needed
         val itemName = holder.label.text

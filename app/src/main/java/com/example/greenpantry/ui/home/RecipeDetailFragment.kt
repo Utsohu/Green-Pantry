@@ -62,10 +62,6 @@ class RecipeDetailFragment : Fragment() {
         // Set the text of this TextView
         titleTextView.text = recipeName ?: "Recipe Details" // Provide a default if recipeName is null
 
-        // update image
-        val itemImage = view.findViewById<ImageView>(R.id.recipeImage)
-        val newImage = R.drawable.img_avocado_toast // replace with the image of item
-        itemImage.setImageResource(newImage)
 
         val time = view.findViewById<TextView>(R.id.timeAmt)
         val difficulty = view.findViewById<TextView>(R.id.diffAmt)
@@ -80,6 +76,11 @@ class RecipeDetailFragment : Fragment() {
                     setNutrition(view, item.calories, item.fiber, item.totalFat,
                         item.sugars, item.transFat, item.protein,
                         item.sodium, item.iron, item.calcium, item.vitaminD)
+
+                    // update image
+                    val itemImage = view.findViewById<ImageView>(R.id.recipeImage)
+                    val newImage = item.imageResId // replace with the image of item
+                    itemImage.setImageResource(newImage)
 
                     val ingredientView = view.findViewById<RecyclerView>(R.id.ingredientGrid)
                     val ingredientList = item.ingredients
