@@ -75,24 +75,17 @@
 
 
         <!-- Notif List -->
-        <ScrollView
-            android:id="@+id/notifScroll"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notifRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fillViewport="true"
             app:layout_constraintTop_toBottomOf="@id/NotifTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <LinearLayout
-                android:id="@+id/notifList"
-                android:visibility="invisible"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"/>
-
-        </ScrollView>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            android:scrollbars="vertical"
+            android:scrollbarStyle="outsideOverlay"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -14,23 +14,30 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.greenpantry.R
 import com.example.greenpantry.data.database.PantryItem
 import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.ui.notifs.NotificationsFragment
+import com.example.greenpantry.ui.utils.ListOptimizations
 import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
 import android.text.TextWatcher
 import android.text.Editable
 import android.util.Log
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 
 
 class DetailsFragment : Fragment(R.layout.fragment_pantry) {
-    private lateinit var allItems: List<PantryItem>
+    private var allItems: List<PantryItem> = emptyList()
     private lateinit var pantryDB : PantryItemDatabase
+    private var searchJob: Job? = null
+    private var hasLoadedData = false
+    
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pantryDB = PantryItemDatabase.getDatabase(requireContext())
@@ -41,7 +48,6 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
 
         // search text value
         val inputField = view.findViewById<EditText>(R.id.searchInput)
-        val userInput = inputField.text.toString()
 
         // filter button
         val filterBtn = view.findViewById<ImageButton>(R.id.filterButton)
@@ -53,32 +59,89 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.pantryGrid)
         val emptyPantry = view.findViewById<LinearLayout>(R.id.emptyPantry)
 
+        setupRecyclerView(recyclerView)
+        loadInitialData(inputField, recyclerView, emptyPantry)
+        setupSearchFunctionality(inputField, recyclerView, emptyPantry)
+        setupFragmentResultListener(inputField, recyclerView, emptyPantry)
+    }
+    
+    private fun setupRecyclerView(recyclerView: RecyclerView) {
+        val itemWidthDp = 135
+        val displayMetrics = resources.displayMetrics
+        val itemWidthPx = (itemWidthDp * displayMetrics.density).toInt()
+        val spanCount = (displayMetrics.widthPixels / itemWidthPx).coerceAtLeast(1)
+
+        val layoutManager = GridLayoutManager(requireContext(), spanCount).apply {
+            isItemPrefetchEnabled = true
+            initialPrefetchItemCount = 4
+        }
+        
+        recyclerView.apply {
+            setLayoutManager(layoutManager)
+            setHasFixedSize(true)
+            setItemViewCacheSize(30)
+            recycledViewPool.setMaxRecycledViews(0, 40)
+            isNestedScrollingEnabled = true
+            
+            // Add item animator optimizations
+            itemAnimator?.apply {
+                addDuration = 0
+                changeDuration = 0
+                moveDuration = 0
+                removeDuration = 0
+            }
+            
+            // Apply performance optimizations
+            ListOptimizations.optimizeList(this)
+        }
+    }
+    
+    private fun loadInitialData(inputField: EditText, recyclerView: RecyclerView, emptyPantry: LinearLayout) {
+        // Only load data once to avoid repeated database calls
+        if (hasLoadedData) {
+            filterAndDisplayItems(inputField.text.toString(), recyclerView, emptyPantry)
+            return
+        }
+        
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                allItems = pantryDB.pantryItemDao().getAllItemsWithNonZeroQuantity()
+                hasLoadedData = true
+                filterAndDisplayItems(inputField.text.toString(), recyclerView, emptyPantry)
+            } catch (e: Exception) {
+                // Handle error case
+                allItems = emptyList()
+                hasLoadedData = true
+                filterAndDisplayItems("", recyclerView, emptyPantry)
+            }
+        }
+    }
+    
+    private fun setupSearchFunctionality(inputField: EditText, recyclerView: RecyclerView, emptyPantry: LinearLayout) {
         inputField.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                filterAndDisplayItems(s.toString(), recyclerView, emptyPantry)
+                // Debounce search to avoid excessive filtering
+                searchJob?.cancel()
+                searchJob = viewLifecycleOwner.lifecycleScope.launch {
+                    delay(150) // Wait 150ms before executing search
+                    filterAndDisplayItems(s.toString(), recyclerView, emptyPantry)
+                }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable?) {}
         })
-
-        val itemWidthDp = 135
-        val displayMetrics = resources.displayMetrics
-        val itemWidthPx = (itemWidthDp * displayMetrics.density).toInt()
-
-        val spanCount = (displayMetrics.widthPixels / itemWidthPx).coerceAtLeast(1)
-
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), spanCount)
-
-        // first load
-        refreshPantry(inputField,recyclerView,emptyPantry)
-
+    }
+    
+    private fun setupFragmentResultListener(inputField: EditText, recyclerView: RecyclerView, emptyPantry: LinearLayout) {
         // if updated, reload
         parentFragmentManager.setFragmentResultListener("edit_item_result", viewLifecycleOwner) { _, bundle ->
             val wasUpdated = bundle.getBoolean("updated", false)
             if (wasUpdated) {
                 Log.d("PantryFragment","updating")
-                refreshPantry(inputField,recyclerView,emptyPantry)
+                // Force reload data from database
+                hasLoadedData = false
+                loadInitialData(inputField, recyclerView, emptyPantry)
             }
         }
     }
@@ -111,19 +174,25 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         } else {
             recyclerView.visibility = View.VISIBLE
             emptyPantry.visibility = View.GONE
-            recyclerView.adapter = DetailItemAdapter(filteredItems, this@DetailsFragment)
+            
+            // Check if adapter exists and update, otherwise create new one
+            val adapter = recyclerView.adapter as? DetailItemAdapter
+            if (adapter != null) {
+                adapter.updateItems(filteredItems)
+            } else {
+                recyclerView.adapter = DetailItemAdapter(filteredItems, this@DetailsFragment)
+            }
         }
     }
 
     private fun refreshPantry(inputField: EditText, recyclerView: RecyclerView, emptyPantry: LinearLayout) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            allItems = pantryDB.pantryItemDao().getAllItemsWithNonZeroQuantity()
-            filterAndDisplayItems(inputField.text.toString(), recyclerView, emptyPantry)
-        }
+        // This method is now handled by loadInitialData with caching
+        hasLoadedData = false
+        loadInitialData(inputField, recyclerView, emptyPantry)
     }
 }
 
-class DetailItemAdapter(private val items: List<PantryItem>, private val fragment: Fragment) :
+class DetailItemAdapter(private var items: List<PantryItem>, private val fragment: Fragment) :
     RecyclerView.Adapter<DetailItemAdapter.DetailViewHolder>() {
 
     class DetailViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -140,19 +209,50 @@ class DetailItemAdapter(private val items: List<PantryItem>, private val fragmen
     }
 
     override fun onBindViewHolder(holder: DetailViewHolder, position: Int) {
-        holder.label.text = items[position].name
-        holder.amount.text = items[position].curNum.toString()
-        holder.image.setImageResource(items[position].imageResId)
-
-        // Set image or listeners on buttons here if needed
-        val itemName = holder.label.text
-        holder.editBtn.setOnClickListener {
-            // item edit popup
-            EditItemFragment.newInstance(itemName.toString(),"UPDATE").show(fragment.parentFragmentManager, "custom_dialog")
+        val item = items[position]
+        
+        // Use direct property access for better performance
+        with(holder) {
+            label.text = item.name
+            amount.text = item.curNum.toString()
+            
+            // Optimize image loading to prevent memory issues
+            try {
+                image.setImageResource(item.imageResId)
+            } catch (e: Exception) {
+                // Fallback to default image if resource loading fails
+                image.setImageResource(R.drawable.ic_launcher_foreground)
+            }
+            
+            // Remove and re-set listener to avoid memory leaks
+            editBtn.setOnClickListener(null)
+            editBtn.setOnClickListener {
+                EditItemFragment.newInstance(item.name, "UPDATE")
+                    .show(fragment.parentFragmentManager, "custom_dialog")
+            }
         }
     }
 
     override fun getItemCount(): Int = items.size
+    
+    fun updateItems(newItems: List<PantryItem>) {
+        val diffCallback = object : DiffUtil.Callback() {
+            override fun getOldListSize(): Int = items.size
+            override fun getNewListSize(): Int = newItems.size
+
+            override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                return items[oldItemPosition].name == newItems[newItemPosition].name
+            }
+
+            override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                return items[oldItemPosition] == newItems[newItemPosition]
+            }
+        }
+
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        items = newItems
+        diffResult.dispatchUpdatesTo(this)
+    }
 }
 
 
