@@ -1,0 +1,1755 @@
+FoodID,FoodCode,FoodGroupID,FoodSourceID,FoodDescription,FoodDescriptionF,FoodDateOfEntry,FoodDateOfPublication,CountryCode,ScientificName
+6,6,18,20,Corn fritter,"Maïs, beignet",1981-01-01,,,
+14,14,2,0,White vinegar,"Vinaigre, distillé (blanc)",1981-01-01,,2053,
+18,18,1,3,Blue cheese,Fromage bleu,1981-01-01,,1004,
+20,20,1,0,Brie ,Fromage brie,1981-01-01,,1006,
+21,21,1,0,Camembert,Fromage camembert,1981-01-01,,1007,
+22,22,1,0,Caraway cheese,Fromage carvi,1981-01-01,,1008,
+23,23,1,0,Cheshire cheese,Fromage cheshire,1981-01-01,,1010,
+24,24,1,0,Colby cheese,Fromage colby,1981-01-01,,1011,
+28,28,1,3,Cream cheese,Fromage à la crème,1981-01-01,,1017,
+29,29,1,0,Edam,Fromage edam,1981-01-01,,1018,
+30,30,1,0,Fontina,Fromage fontina,1981-01-01,,1020,
+31,31,1,0,Gjetost,Fromage gjetost,1981-01-01,,1021,
+32,32,1,0,Gruyere ,Fromage gruyère,1981-01-01,,1023,
+33,33,1,3,Limburger,Fromage limburger (limbourg),1981-01-01,,1024,
+34,34,1,3,Monterey,Fromage monterey,1981-01-01,,1025,
+35,35,1,0,Mozzarella,"Fromage mozzarella (48%d'humidité, 25% M.G.)",1981-01-01,,1027,
+37,37,1,0,Muenster,Fromage muenster,1981-01-01,,1030,
+38,38,1,0,Neufchatel,Fromage neufchatel,1981-01-01,,1031,
+40,40,1,3,Parmesan,"Fromage parmesan, pâte dure",1981-01-01,,1033,
+41,41,1,0,Port salut,Fromage port-salut,1981-01-01,,1034,
+42,42,1,0,Provolone,Fromage provolone,1981-01-01,,1035,
+43,43,1,0,Ricotta,"Fromage ricotta, avec lait entier",1981-01-01,,1036,
+45,45,1,3,Romano,Fromage romano,1981-01-01,,1038,
+46,46,1,0,Roquefort,Fromage roquefort (bleu),1981-01-01,,1039,
+47,47,1,3,Swiss cheese,Fromage suisse (emmental),1981-01-01,,1040,
+48,48,1,3,Tilsit cheese,"Fromage tilsit, avec lait entier",1981-01-01,,1041,
+54,54,1,0,Whipped cream,"Crème, garniture fouettée, sous pression (bombe)",1981-01-01,,1054,
+55,55,1,0,Eggnog,"Lait de poule, 7% M.G., produit canadien, 4% à 8% M.G.",1981-01-01,,1057,
+56,56,1,0,Coffee whitener,"Colorant à café (non laitier), liquide",1981-01-01,,1067,
+61,61,1,0,2% milk,"Lait, partiellement écrémé, liquide, 2% M.G.",1981-01-01,,1079,
+63,63,1,0,1% milk,"Lait, liquide, partiellement écrémé, 1% M.G.",1989-01-01,,1082,
+68,68,1,3,Condensed milk,"Lait, concentré, sucré, conserve",1981-01-01,,1095,
+70,70,1,0,Chocolate milk,"Lait, liquide, chocolat, partiellement écrémé, 2% M.G.",1981-01-01,,1103,
+75,75,14,1,Chocolate milkshake,"Lait frappé, chocolat, épais",1981-01-01,,1110,
+76,76,14,1,Vanilla milkshake,"Lait frappé, vanille, épais",1981-01-01,,1111,
+80,80,1,0,Whey,"Lactoserum, sucré, poudre",1981-01-01,,1115,
+88,88,1,0,Duck egg,"Oeuf, canard, entier, frais, cru",1981-01-01,,1138,
+90,90,1,0,Quail egg,"Oeuf, caille, entier, frais, cru",1981-01-01,,1140,
+92,92,1,0,Unsalted butter,"Beurre, sans sel",1981-01-01,,1145,
+97,97,1,0,Goat cheese,"Fromage de chèvre, semi-mou, (35% à 55% eau, 30% M.G.)",1993-01-01,,1157,
+108,108,1,1,Feta,Fromage féta,1981-01-01,,1019,
+109,109,1,0,Gouda,Fromage gouda,1981-01-01,,1022,
+114,114,1,0,Skim milk,"Lait, liquide, écrémé",1981-01-01,,1085,
+118,118,1,3,Butter,"Beurre, salé",1981-01-01,,1001,
+119,119,1,3,Cheddar cheese,Fromage cheddar,1981-01-01,,1009,
+120,120,1,3,Cottage cheese,"Fromage cottage, (2% M.G.)",1981-01-01,,1015,
+123,123,1,0,Whole milk,"Lait, liquide, entier, agriculteur, 3.7% M.G.",1990-01-01,,1078,
+124,124,1,0,Buttermilk,"Babeurre, liquide, culture, 1% M.G.",1981-01-01,,1088,
+125,125,1,24,Egg,"Oeuf, poule, entier, frais ou congelé, cru",1989-01-01,1999-02-01,1123,
+126,126,1,23,Egg whites,"Oeuf, poule, blanc, frais ou congelé, cru",1989-01-01,1999-02-01,1124,
+136,136,1,24,Table cream,"Crème à café (crème de table), 18% M.G.",1985-01-01,,,
+138,138,1,24,Whipping cream,"Crème à fouetter, 35% M.G.",1985-01-01,,,
+139,139,1,0,Sour cream,"Crème sure, de culture, 14% M.G.",1981-01-01,,1178,
+140,140,1,1,Evaporated milk,"Lait, concentré, entier, conserve, non dilué, 7,8% M.G.",1981-01-01,,1096,
+150,150,1,24,Half and half cream,"Crème à céréales (moitié-moitié), 10% M.G.",1985-01-01,,,
+170,170,2,0,Anise seeds,"Épices, anis, graines",1990-01-01,,2002,Pimpinella anisum
+171,171,2,0,Dried basil,"Épices, basilic, déshydraté",1981-01-01,,2003,Ocimum basilicum
+172,172,2,0,Bay leaf,"Épices, laurier, feuilles",1981-01-01,,2004,Laurus nobilis
+173,173,2,0,Caraway seed,"Épices, carvi, graines",1993-01-01,,2005,Carum carvi
+174,174,2,0,Cardamom,"Épices, cardamome, moulue",1981-01-01,,2006,Elettaria cardamomum
+175,175,2,0,Celery seed,"Épices, céleri, graines",1981-01-01,,2007,Apium graveolens
+176,176,2,0,Dried chervil,"Épices, cerfeuil, déshydraté",1981-01-01,,2008,Anthriscus cerefolium
+177,177,2,0,Chili powder,"Épices, chili, poudre",1981-01-01,,2009,
+178,178,2,0,Ground cinnamon,"Épices, cannelle, moulue",1981-01-01,,2010,Cinnamomum verum & Cinnamomum aromaticum
+179,179,2,0,Ground cloves,"Épices, clou de girofle, moulu",1981-01-01,,2011,Syzyghum aromaticum
+180,180,2,0,Dried coriander,"Épices, coriandre (cilantro), feuilles, déshydraté",1990-01-01,,2012,Coriandrum sativum
+181,181,2,0,Coriander seed,"Épices, coriandre (cilantro), graines",1981-01-01,,2013,Coriandrum sativum
+182,182,2,0,Cumin seed,"Épices, cumin, graines",1981-01-01,,2014,Cuminum cyminum
+183,183,2,0,Curry powder,"Épices, cari, poudre",1981-01-01,,2015,
+184,184,2,0,Dill seed,"Épices, aneth, graines",1981-01-01,,2016,Anethum graveolens
+185,185,2,0,Dried dill,"Épices, aneth, déshydraté",1981-01-01,,2017,Anethum graveolens
+186,186,2,0,Fennel seed,"Épices, fenouil, graines",1981-01-01,,2018,Foeniculum vulgare
+187,187,2,0,Fenugreek seed,"Épices, fenugrec, graines",1981-01-01,,2019,Trigonella foenum-graecum
+188,188,2,0,Garlic powder,"Épices, ail, poudre",1981-01-01,,2020,Allium sativum
+189,189,2,0,Ground ginger,"Épices, gingembre, moulu",1981-01-01,,2021,Zingiber officinale
+190,190,2,0,Ground mace,"Épices, macis, moulu",1981-01-01,,2022,Myristica fragrans
+191,191,2,0,Dried marjoram,"Épices, marjolaine, déshydratée",1981-01-01,,2023,Origanum majorana
+192,192,2,0,Mustard seed,"Épices, graines de moutarde, jaunes",1981-01-01,,2024,Sinapis alba and Brassica juncea
+193,193,2,0,Ground nutmeg,"Épices, muscade, moulue",1981-01-01,,2025,Myristica fragrans
+194,194,2,0,Onion powder,"Épices, oignon, poudre",1981-01-01,,2026,Allium cepa
+195,195,2,0,Ground oregano,"Épices, origan, moulu",1981-01-01,,2027,Origanum vulgare
+196,196,2,0,Paprika,"Épices, paprika",1981-01-01,,2028,Capsicum annuum
+197,197,2,0,Dried parsley,"Épices, persil, déshydraté",1981-01-01,,2029,Petroselinum crispum
+198,198,2,0,Black pepper,"Épices, poivre, noir",1981-01-01,,2030,Piper nigrum
+199,199,2,0,Cayenne pepper,"Épices, piment rouge ou de cayenne",1981-01-01,,2031,Capsicum frutescens or Capsicum annuum
+201,201,2,0,Poppy seed,"Épices, pavot, graines",1981-01-01,,2033,Papaver somniferum
+204,204,2,0,Dried rosemary,"Épices, romarin, déshydraté",1981-01-01,,2036,Rosmarinus officinalis
+205,205,2,0,Saffron,"Épices, safran",1981-01-01,,2037,Crocus sativus
+206,206,2,0,Ground sage,"Épices, sauge, moulue",1981-01-01,,2038,Salvia officinalis
+207,207,2,0,Ground savory,"Épices, sarriette, moulue",1981-01-01,,2039,Satureja hortensis
+209,209,2,0,Dried tarragon,"Épices, estragon, déshydraté",1981-01-01,,2041,Artemisia dracunculus
+210,210,2,0,Dried thyme,"Épices, thym, déshydraté",1981-01-01,,2042,Thymus vulgaris
+211,211,2,0,Ground tumeric,"Épices, curcuma, moulu",1981-01-01,,2043,Curcuma domestica (C longa)
+212,212,2,0,Basil,"Basilic, frais",1993-01-01,,2044,Ocimum basilicum
+213,213,2,0,Dill,"Épices, aneth, frais",1993-01-01,,2045,Anethum graveolens
+214,214,2,0,Table salt,"Sel, table",1995-01-01,,2047,
+215,215,2,0,Thyme,"Épices, thym, frais",1995-01-01,,2049,Thymus vulgaris
+217,217,2,0,Artificial vanilla extract,"Vanille, extrait, imitation, avec alcool",1995-01-01,,2051,
+414,414,4,0,Beef tallow,"Gras animal, suif de boeuf (gras de boeuf)",1981-01-01,,4001,
+415,415,4,0,Relish,"Tartinade pour sandwich, avec cornichons hachés, ordinaire, huile non spécifiée",1981-01-01,,4030,
+418,418,4,0,Peanut oil,"Huile végétale, arachide",1981-01-01,,4042,
+419,419,4,0,Soybean oil,"Huile végétale, soya",1981-01-01,,4044,
+420,420,4,0,Coconut oil,"Huile végétale, noix de coco",1993-01-01,,4047,
+422,422,4,0,Olive oil,"Huile végétale, olive",1981-01-01,,4053,
+423,423,4,0,Palm oil,"Huile végétale, palme",1981-01-01,,4055,
+424,424,4,0,Sesame oil,"Huile végétale, sésame",1981-01-01,,4058,
+429,429,4,0,Cocoa butter,"Huile végétale, beurre de cacao",1981-01-01,,4501,
+437,437,4,0,Corn oil,"Huile végétale, maïs",1981-01-01,,4518,
+446,446,4,0,Shortening,"Shortening, domestique, huile de soya (hydrogénée) et palme",1995-01-01,,4559,
+450,450,4,0,Avocado oil,"Huile végétale, avocat",1989-01-01,,4581,
+451,451,4,0,Canola oil,"Huile végétale, canola (colza)",1989-01-01,,4582,
+453,453,4,0,Sunflower oil,"Huile végétale, tournesol, acide oléique (70% et plus)",1990-01-01,,4584,
+464,464,4,3,Lard,"Gras animal, saindoux (porc)",1981-01-01,,4002,
+526,526,4,0,Thousand island dressing,"Vinaigrette, mille îles, commerciale, régulière",1981-01-01,,4017,
+531,531,4,0,Mayonnaise,"Vinaigrette, mayonnaise, commerciale, régulière",1985-01-01,,4025,
+532,532,4,0,Italian dressing,"Vinaigrette, italienne, commerciale, régulière",1981-01-01,,4114,
+550,550,4,23,Margarine,"Tartinade, mélange, 20% beurre / 80% canola oil",1991-01-01,,,
+571,571,5,0,Chicken giblets,"Poulet à griller, abats, cru",1981-01-01,,5020,Gallus gallus
+574,574,5,0,Chicken gizzard,"Poulet à griller, gésier, cru",1981-01-01,,5023,Gallus gallus
+576,576,5,0,Chicken heart,"Poulet à griller, coeur, cru",1981-01-01,,5025,Gallus gallus
+578,578,5,0,Chicken liver,"Poulet à griller, foie, cru",1981-01-01,,5027,Gallus gallus
+607,607,5,0,Chicken leg,"Poulet à griller, cuisse, viande et peau, cru",1981-01-01,,5075,Gallus gallus
+616,616,5,0,Chicken neck,"Poulet à griller, cou, viande et peau, cru",1981-01-01,,5084,Gallus gallus
+626,626,5,0,Chicken wing,"Poulet à griller, aile, viande et peau, cru",1981-01-01,,5100,Gallus gallus
+662,662,5,0,Duck,"Canard domestiqué, viande et peau, crues",1981-01-01,,5139,Anas platyrhynchos
+666,666,5,0,Duck liver,"Canard domestiqué, foie, cru",1981-01-01,,5143,Anas platyrhynchos
+668,668,5,28,Duck breast,"Canard sauvage, autochtone, poitrine, viande seulement, cru",1981-01-01,,5145,
+669,669,5,0,Goose,"Oie domestiquée, viande et peau, crues",1981-01-01,,5146,Anser anser
+674,674,5,0,Guinea,"Pintade, viande et peau, crues",1981-01-01,,5151,Numida meleagris
+676,676,5,0,Pheasant,"Faisant, viande et peau, crues",1981-01-01,,5153,Phasianus colchicus
+678,678,5,0,Pheasant breast,"Faisan, poitrine, viande seulement, cru",1981-01-01,,5155,Phasianus colchicus
+679,679,5,0,Pheasant leg,"Faisan, cuisse, viande seulement, cru",1981-01-01,,5156,Phasianus colchicus
+680,680,5,0,Quail,"Caille, viande et peau, crue",1981-01-01,,5157,Coturnix spp. and Colinus spp
+682,682,5,0,Quail breast,"Caille, poitrine, viande seulement, crue",1981-01-01,,5159,Coturnix spp. and Colinus spp
+683,683,5,0,Pigeon,"Pigeonneaux (pigeon), viander et peau, crues",1981-01-01,,5160,Columba spp.
+685,685,5,0,Pigeon breast,"Pigeonneaux (pigeon), poitrine, viande seulement, cru",1981-01-01,,5162,Columba spp.
+688,688,5,38,Turkey,"Dinde, toutes catégories, viande et peau, crue",1981-01-01,,5165,Meleagris gallopavo
+694,694,5,0,Turkey giblets,"Dinde, toutes catégories, abats, crus",1981-01-01,,5171,Meleagris gallopavo
+696,696,5,0,Turkey gizzard,"Dinde, toutes catégories, gésier, cru",1981-01-01,,5173,Meleagris gallopavo
+698,698,5,0,Turkey heart,"Dinde, toutes catégories, coeur, cru",1981-01-01,,5175,Meleagris gallopavo
+700,700,5,0,Turkey liver,"Dinde, toutes catégories, foie, cru",1981-01-01,,5177,Meleagris gallopavo
+702,702,5,0,Turkey neck,"Dinde, toutes catégories, cou, viande seulement, crue",1981-01-01,,5179,Meleagris gallopavo
+712,712,5,38,Turkey back,"Dinde, toutes catégories, dos, viande et peau, crue",1981-01-01,,,Meleagris gallopavo
+714,714,5,38,Turkey breast,"Dinde, toutes catégories, poitrine, viande et peau, crue",1981-01-01,,5191,Meleagris gallopavo
+716,716,5,38,Turkey leg,"Dinde, toutes catégories, cuisse, viande et peau, crue",1981-01-01,,5193,Meleagris gallopavo
+718,718,5,38,Turkey wing,"Dinde, toutes catégories, aile, viande et peau, crue",1981-01-01,,5195,Meleagris gallopavo
+815,815,5,38,Ground turkey,"Dinde, toutes catégories, hachée, crue",1993-01-01,,5305,
+817,817,5,0,Cornish game hen,"Poulet, poulet de courouailles, viande et peau, crues",1994-01-01,,5307,
+832,832,5,0,Chicken back,"Poulet à griller, dos, viande et peau, cru",1996-01-01,,5048,Gallus gallus
+838,838,5,0,Chicken breast,"Poulet à griller, poitrine, viande et peau, cru",1996-01-01,,5057,Gallus gallus
+844,844,5,0,Chicken drumsick,"Poulet à griller, pilon, viande et peau, cru",1996-01-01,,5066,Gallus gallus
+850,850,5,0,Chicken thigh,"Poulet à griller, haut de cuisse, viande et peau, cru",1996-01-01,,5091,Gallus gallus
+886,886,5,23,Canned chicken,"Volaille, produit: poulet, conserve, flocons",1996-01-01,,,
+887,887,5,0,Canned turkey,"Volaille, produit: dinde, conserve, flocons",1996-01-01,,,
+918,918,5,0,Lean ground chicken,"Poulet, haché, maigre, cru",1996-01-01,,5332,
+927,927,6,38,Beef broth,"Soupe, bouillon, boeuf, prête-à-servir",1983-01-01,,6008,
+928,928,6,0,Beef noodle soup,"Soupe, boeuf et nouilles, conserve, condensée",1981-01-01,,6009,
+930,930,6,38,Cheddar cheese soup,"Soupe, fromage cheddar, conserve, condensée",1983-01-01,,6011,
+931,931,6,38,Chicken broth,"Soupe, bouillon, poulet, conserve, condensée",1981-01-01,,6013,
+932,932,6,38,Chicken chowder,"Soupe, chaudrée de poulet, (à la king), prête-à-servir",1983-01-01,,6015,
+933,933,6,38,Cream chicken soup,"Soupe, crème, poulet, conserve, condensée",1981-01-01,,6016,
+936,936,6,38,Chicken noodle soup,"Soupe, poulet et nouilles, conserve, condensée",1981-01-01,,6019,
+947,947,6,0,Minestrone soup,"Soupe, minestrone, conserve, condensée",1981-01-01,,6040,
+949,949,6,0,Cream mushroom soup,"Soupe, crème, champignons, conserve, condensée",1981-01-01,,6043,
+950,950,6,0,Onion soup,"Soupe, oignon, conserve, condensée",1981-01-01,,6045,
+967,967,6,0,Beef broth powder,"Soupe, bouillon, boeuf, déshydratée",1990-01-01,,6075,
+968,968,6,0,Beef broth cubed,"Soupe, bouillon, boeuf, cube, déshydratée",1983-01-01,,6076,
+969,969,6,30,Beef noodle soup powder,"Soupe, boeuf et nouilles, déshydratée",1981-01-01,,6077,
+970,970,6,0,Cauliflower soup powder,"Soupe, chou-fleur, déshydratée",1983-01-01,,6078,
+972,972,6,0,Chicken broth powder,"Soupe, bouillon, poulet, déshydratée",1983-01-01,,6080,
+973,973,6,0,Chicken broth cubed,"Soupe, bouillon, poulet, cube, déshydratée",1983-01-01,,6081,
+974,974,6,0,Cream chicken soup powder,"Soupe, crème, poulet, déshydratée",1983-01-01,,,
+981,981,6,0,Minestrone soup powder,"Soupe, minestrone, déshydratée",1983-01-01,,6092,
+982,982,6,0,Mushroom soup powder,"Soupe, champignons, déshydratée",1983-01-01,,6093,
+983,983,6,0,Oxtail soup powder,"Soupe, queue de boeuf, déshydratée",1983-01-01,,6095,
+984,984,6,0,Pea soup powder,"Soupe, pois verts ou cassés, déshydratée",1981-01-01,,6096,
+985,985,6,0,Tomatao soup powder,"Soupe, tomates, déshydratée",1983-01-01,,6098,
+997,997,6,0,Teriyaki sauce,"Sauce, teriyaki, prête-à-servir",1983-01-01,,6112,
+1001,1001,6,0,Beef gravy,"Sauce, boeuf, conserve",1990-01-01,,6116,
+1002,1002,6,0,Beef gravy powder,"Sauce, boeuf, déshydratée",1990-01-01,,6118,
+1003,1003,6,0,Chicken gravy,"Sauce, poulet, conserve",1983-01-01,,6119,
+1004,1004,6,0,Chicken gravy powder,"Sauce, poulet, déshydratée",1983-01-01,,6120,
+1005,1005,6,0,Mushroom gravy,"Sauce, champignons, conserve",1983-01-01,,6121,
+1006,1006,6,0,Mushroom gravy powder,"Sauce, champignons, déshydratée",1983-01-01,,6122,
+1007,1007,6,0,Onion gravy powder,"Sauce, oignon, déshydratée",1983-01-01,,6123,
+1008,1008,6,0,Prok gravy powder,"Sauce, porc, déshydratée",1983-01-01,,6124,
+1009,1009,6,0,Turkey gravy,"Sauce, dinde, conserve",1983-01-01,,6125,
+1010,1010,6,0,Turkey gravy powder,"Sauce, dinde, déshydratée",1983-01-01,,6126,
+1011,1011,6,0,Gravy powder,"Sauce, non spécifiée, déshydratée",1983-01-01,,6127,
+1012,1012,6,0,Chicken noodle soup powder,"Soupe, poulet et nouilles, déshydratée",1981-01-01,,6128,
+1017,1017,6,0,Barbecue sauce,"Sauce, barbecue, prête-à-servir",1981-01-01,,6150,
+1025,1025,6,0,Salsa,"Sauce, salsa, prête-à-servir",1995-01-01,,6164,
+1029,1029,6,0,Hot sauce,"Sauce, piments forts, prête-à-servir",1995-01-01,,6168,
+1030,1030,6,0,Tabasco,"Sauce, piments, TABASCO, prête-à-servir",1995-01-01,,6169,
+1116,1116,6,3,Pea soup,"soupe, pois verts, conserve, condensée",1981-01-01,,6049,
+1120,1120,6,3,Onion soup powder,"Soupe, oignon, déshydratée",1981-01-01,,6094,
+1121,1121,6,38,Tomato soup,"Soupe, tomates, conserve, condensée",1981-01-01,,6159,
+1130,1130,6,0,Steak sauce,"Sauce, bifteck, HP ou A1, prête-à-servir",1981-01-01,,27048,
+1131,1131,6,0,Tartar sauce,"Sauce, tartare, prête-à-servir",1981-01-01,,27049,
+1133,1133,6,0,Worcestershire,"Sauce, worcestershire, prête-à-servir",1988-01-01,,6971,
+1135,1135,6,20,Mustard,"Sauce, moutarde, brune, prête-à-servir",1981-01-01,,,
+1139,1139,7,0,Bierwurst,"Saucisse, saucisson de bière, porc",1983-01-01,,7003,
+1140,1140,7,0,Bockwurst,"Saucisse, Bockwurst, porc/veau, lait/oeufs, crue",1983-01-01,,7006,
+1142,1142,7,0,Bratwurst,"Saucisse, Brotwurst, porc, boeuf, avec lait écrémé en poudre",1983-01-01,,7015,
+1143,1143,7,38,Cheese sausage,"Saucisse fumée, fromage, porc, boeuf",1983-01-01,,7016,
+1147,1147,7,38,Turkey sausage,"Saucisse fumée, dinde",1981-01-01,,7025,
+1148,1148,7,38,Sliced ham,"Charcuterie, jambon, cuit, tranché",1983-01-01,,7028,
+1152,1152,7,38,Pork sausage,"Saucisse italienne, porc, crue",1983-01-01,,7036,
+1154,1154,7,38,Sliced roast beef,"Charcuterie, boeuf, cuit, tranché",1983-01-01,,7043,
+1157,1157,7,0,Olive loaf,"Charcuterie, pain de viande aux olives, porc",1983-01-01,,7051,
+1158,1158,7,0,Pastrami,"Charcuterie, pastrami, dinde, tranché",1983-01-01,,7052,
+1159,1159,7,0,Chicken liver pate,"Pâté de foie de poulet, conserve",1983-01-01,,7053,
+1160,1160,7,0,Foie gras pate,"Pâté de foie gras, foie d'oie, fumé, conserve",1983-01-01,,7054,
+1161,1161,7,0,Liver pate,"Pâté de foie, non spécifié, conserve",1983-01-01,,7055,
+1172,1172,7,38,Sliced turkey breast,"Charcuterie, poitrine de dinde, cuite, tranchée",1983-01-01,,7081,
+1174,1174,7,0,Vienna sausage,"Saucisse,  Vienne (cocktail), conserve, poulet, boeuf et porc",1981-01-01,,7083,
+1178,1178,7,38,Blood pudding,"Saucisse, boudin, cru",1996-01-01,,7005,
+1179,1179,7,38,Bologna,"Charcuterie, bologne, boeuf",1996-01-01,,7007,
+1184,1184,7,23,Dutch loaf,"Pain de viande hollandais, à l'ancienne, porc et boeuf",1996-01-01,,,
+1185,1185,7,38,Beef sausage,"Saucisse fumée, boeuf",1996-01-01,,7022,
+1187,1187,7,38,Chicken sausage,"Saucisse fumée, poulet",1996-01-01,,7024,
+1190,1190,7,0,Headcheese,"Charcuterie, tête fromagée, porc",1996-01-01,,7034,
+1192,1192,7,0,Liverwurst,"Saucisson de foie (liverwurst), porc",1996-01-01,,7041,
+1200,1200,7,38,Beef salami,"Charcuterie, salami, cuit, boeuf",1996-01-01,,7068,
+1202,1202,7,0,Turkey salami,"Charcuterie, salami, cuit, dinde",1996-01-01,,7070,
+1207,1207,7,38,Chicken salami,"Charcuterie, poulet, cuit, tranché",1996-01-01,,7017,
+1216,1216,7,38,Chicken bologna,"Charcuterie, bologne, poulet",1996-01-01,,7952,
+1222,1222,8,0,Granola,"Céreale, prête-à-manger, granola, fait maison",1984-01-01,,8037,
+1223,1223,20,3,Wheat germ,"Grains céréaliers, germe de blé, grillé",1990-01-01,,8084,
+1228,1228,8,0,Corn grits,"Céréale, chaude, maïs (jaune), sèche",1994-01-01,,8090,
+1230,1230,8,26,Weetabix,"Céréale, prête-à-manger, alpen (muesli), Weetabix",1996-01-01,,,
+1231,1231,8,38,Alpha-Bits,"Céréale, prête-a-manger, Alpha-bits, Post",1996-01-01,2011-02-17,,
+1232,1232,8,38,All-Bran,"Céréale, prête-à-manger, 'All Bran' bran flakes, Kellogg's",1996-01-01,2011-02-17,,
+1235,1235,8,26,Count Chocula,"Céréale, prête-à-manger, Count Chocula, General Mills",1996-01-01,,,
+1236,1236,8,26,Crispix,"Céréale, prête-à-manger, Crispix, Kellogg's",1996-01-01,,,
+1238,1238,8,26,Selects blueberry almond crunch,"Céréale, prête-à-manger, Selects: bleuets sauvages et amandes croquantes, Post",1996-01-01,,,
+1239,1239,8,26,Selects date and eaisin pecan crunch,"Céréale, prête-à-manger, Selects: dattes, raisins secs et pacanes croquantes, Post",1996-01-01,,,
+1240,1240,8,38,Original Harvest Crunch,"Céréale, prête-à-manger, Croque Nature: original, Quaker",1996-01-01,2011-02-17,,
+1242,1242,8,38,Kellogg's corn flakes,"Céréale, prête-à-manger, flocons de maïs, Kellogg's",1996-01-01,2011-02-17,,
+1244,1244,8,26,Muffets,"Céréale, prête-à-manger, Muffets: blé filamenté, Quaker",1996-01-01,,,
+1247,1247,8,38,Shreddies,"Céréale, prête-à-manger, Shreddies, Post",1996-01-01,2011-02-17,,
+1248,1248,8,38,Froot Loops,"Céréale, prête-à-manger, Froot Loops, Kellogg's",1996-01-01,2011-02-17,,
+1251,1251,8,38,Golden Grahams,"Céréale, prête-à-manger, Golden Grahams, General Mills",1996-01-01,2011-02-17,,
+1253,1253,8,26,Grape-nuts,"Céréale, prête-à-manger, Grape-nuts, Post",1996-01-01,,,
+1256,1256,8,38,Honey Nut Cheerios,"Céréale, prête-à-manger, cheerios, miel et noix, General Mills",1996-01-01,2011-02-17,,
+1257,1257,8,38,Honeycomb,"Céréale, prête-à-manger, Honeycomb, Post",1996-01-01,2011-02-17,,
+1258,1258,8,38,Quaker Life,"Céréale, prête-à-manger, Life, Quaker",1996-01-01,2011-02-17,,
+1259,1259,8,38,Lucky Charms,"Céréale, prête-à-manger, Lucky Charms, General Mills",1996-01-01,2011-02-17,,
+1260,1260,8,26,100% Bran,"Céréale, prête-à-manger, son de blé 100%, Post",1996-01-01,,,
+1262,1262,8,38,Cinnamon Toast Crunch,"Céréale, prête-à-manger, Croc-en-cannelle, General Mills",1996-01-01,2011-02-17,,
+1263,1263,8,38,Fibre 1 cereal,"Céréale, prête-à-manger, Fibre 1, General Mills",1996-01-01,2011-02-17,,
+1264,1264,8,38, Just Right,"Céréale, prête-à-manger, Just Right, Kellogg's",1996-01-01,2011-02-17,,
+1265,1265,8,38,Rice Krispies cereal,"Céréale, prête-à-manger, Rice Krispies, Kellogg's",1996-01-01,2011-02-17,,
+1266,1266,8,26,Quaker Puffed Rice,"Céréale, prête-à-manger, riz soufflé, non-sucré, Quaker",1996-01-01,,,
+1267,1267,8,38,Special K,"Céréale, prête-à-manger, Spécial K, Kellogg's",1996-01-01,2011-02-17,,
+1268,1268,8,38,Corn Pops,"Céréale, prête-à-manger, Corn Pops, Kellogg's",1996-01-01,2011-02-17,,
+1269,1269,8,38,Frosted Flakes,"Céréale, prête-à-manger, Frosted Flakes, Kellogg's",1996-01-01,2011-02-17,,
+1270,1270,8,38,Sugar Crisp,"Céréale, prête-à-manger, Sugar Crisp, Post",1996-01-01,2011-02-17,,
+1271,1271,8,38,Life Multigrains cereal,"Céréale, prête-à-manger, Life Multigrains, Quaker",1996-01-01,2011-02-17,,
+1275,1275,8,38,Oatmeal Squares cereal,"Céréale, prête-à-manger, Croque Avoine, Quaker",1996-01-01,2011-02-17,,
+1278,1278,8,26,Puffed Wheat cereal,"Céréale, prête-à-manger, blé soufflé, Quaker",1996-01-01,,,
+1279,1279,8,38,Shredded Wheat cereal,"Céréale, prête-à-manger, blé filamenté, Post",1996-01-01,2011-02-17,,
+1293,1293,8,38,Apple Cinnamon Cheerios,"Céréale, prête-à-manger, cheerios: pommes cannelle, General Mills",1996-01-01,2011-02-17,,
+1295,1295,8,38,Multigrain Cheerios,"Céréale, prête-à-manger, cheerios: multigrains, General Mills",1996-01-01,2011-02-17,,
+1301,1301,8,26,PC corn flakes,"Céréale, prête-à-manger, flocons de maïs, Choix du Président",1996-01-01,,,
+1303,1303,8,26,Nature's Path fruit juice sweetened corn flakes,"Céréale, prête-à-manger, flocons de maïs: sucrés au jus de fruits, Nature's Path",1996-01-01,,,
+1305,1305,8,38,Nature's Path honey corn flakes,"Céréale, prête-à-manger, flocons de maïs au miel, Nature's Path",1996-01-01,2011-02-17,,
+1314,1314,8,38,Honey Bunches of Oats,"Céréale, prête-à-manger, bouchées d'avoine au miel (grillées au miel), Post",1996-01-01,2011-02-17,,
+1317,1317,8,26,PC Blue Menu fibre first multibran,"Céréale, prête-à-manger, fibre en premier: multison, Menu Bleu, Choix du Président",1996-01-01,,,
+1325,1325,8,26,Nature's Path flax plus red berry crunch,"Céréale, prête-à-manger, Flax Plus: baie rouges croustillantes, Nature's Path",1996-01-01,,,
+1326,1326,8,26,Rogers blueberry granola,"Céréale, prête-à-manger, granola: bleuets, légère, Rogers",1996-01-01,,,
+1327,1327,8,26,Rogers maple raisin granola,"Céréale, prête-à-manger, granola: raisins érable, légère, Rogers",1996-01-01,,,
+1328,1328,8,26,Rogers raspberry almond  granola,"Céréale, prête-à-manger, granola: framboises et amandes, légère, Rogers",1996-01-01,,,
+1331,1331,8,38,Nature's Path flax plus pumpkin raisin crunch,"Céréale, prête-à-manger, croustillantes avec graines de citrouilles et raisins, Nature's Path",1996-01-01,2011-02-17,,
+1332,1332,8,26,Rogers apple cinnamon granola,"Céréale, prête-à-manger, granola: pommes et cannelle, Rogers",1996-01-01,,,
+1333,1333,8,26,Rogers raisin granola,"Céréale, prête-à-manger, granola: avec raisins secs, Rogers",1996-01-01,,,
+1334,1334,8,26,Rogers almond granola,"Céréale, prête-à-manger, granola: avec amandes, Rogers",1996-01-01,,,
+1335,1335,8,38,Honey Harvest Crunch,"Céréale, prête-à-manger, Croque Nature: original, faible en gras, Quaker",1996-01-01,2011-02-17,,
+1337,1337,8,26,Raisins and almonds Harvest Crunch,"Céréale, prête-à-manger, Croque Nature: raisins secs et amandes, Quaker",1996-01-01,,,
+1338,1338,8,38,Heritage Flakes,"Céréale, prête-à-manger, Heritage Flakes, Nature's Path",1996-01-01,2011-02-17,,
+1339,1339,8,38,Heritage O's,"Céréale, prête-à-manger, Heritage O's, Nature's Path",1996-01-01,2011-02-17,,
+1344,1344,8,38,Honey Bunches of Oats with almonds,"Céréale, prête-à-manger, bouchées d'avoine au miel avec amandes, Post",1996-01-01,2011-02-17,,
+1348,1348,8,26,Puffed Kashi,"Céréale, prête-à-manger, Kashi: soufflée, Kashi",1996-01-01,,,
+1350,1350,8,26,Nature's Path blueberry muesli with almonds,"Céréale, prête-à-manger, muesli: bleuets et amandes, Nature's Path",1996-01-01,,,
+1353,1353,8,26,Heritage Muesli,"Céréale, prête-à-manger, Muesli: Héritage, Nature's Path",1996-01-01,,,
+1360,1360,8,38,Muslix,"Céréale, prête-à-manger, muesli: saveurs variées, Kellogg's",1996-01-01,2011-02-17,,
+1367,1367,8,38,Oatmeal Crisp,"Céréale, prête-à-manger, avoine croquante, saveurs variées, (amandes, érable et noix, rasins sec, baies, amandes vanilles),  General Mills",1996-01-01,2011-02-17,,
+1372,1372,8,38,Raisin Bran,"Céréale, prête-à-manger, Raisin Bran, Kellogg's",1996-01-01,2011-02-17,,
+1378,1378,8,38,Reese Puffs,"Céréale, prête-à-manger, Reese Puffs (Beurre d'arachide), General Mills",1996-01-01,2011-02-17,,
+1380,1380,8,26,Shredded Spoonfuls,"Céréale, prête-à-manger, bouchées de blé filamenté, Barbara' Bakery",1996-01-01,,,
+1382,1382,8,38,Honey Shreddies,"Céréale, prête-à-manger, Shreddies, miel, Post",1996-01-01,2011-02-17,,
+1383,1383,8,26,Smart Bran Psyllium,"Céréale, prête-à-manger, Smart Bran avec psyllium, Nature's Path",1996-01-01,,,
+1386,1386,8,26,Toasted O's,"Céréale, prête-à-manger, O's grillés, Choix du Président",1996-01-01,,,
+1387,1387,8,26,Toasted Oat O's,"Céréale, prête-à-manger, avoine grillée en O, Choix du Président",1996-01-01,,,
+1391,1391,8,26,Puffins,"Céréale, prête-à-manger, Puffins: original, Barbara's Bakery",1996-01-01,,,
+1393,1393,8,26,Millet Rice,"Céréale, prête-à-manger, Millet Rice (riz), Nature's Path",1996-01-01,,,
+1413,1413,8,26,Instant oats,"Céréale, chaude, avoine (gruau), instantanée: nature, sèche",1996-01-01,,,
+1415,1415,8,26,Quaker apple and cinnamon instant oats,"Céréale, chaude, avoine (gruau), instantanée: pommes et cannelle, sèche, Quaker",1996-01-01,,,
+1419,1419,8,26,Quaker cinnamon and spice instant oats,"Céréale, chaude, avoine (gruau), instantanée: cannelle et épices, sèche, Quaker",1996-01-01,,,
+1421,1421,8,26,Quaker maple and brown sugar instant oats,"Céréale, chaude, avoine (gruau), instantanée: érable et cassonade, sèche, Quaker",1996-01-01,,,
+1423,1423,8,26,Quaker raisins and spice instant oats,"Céréale, chaude, avoine (gruau), instantanée: raisins et épices, sèche, Quaker",1996-01-01,,,
+1435,1435,8,26,Quaker peaches 'n cream instant oats,"Céréale, chaude, avoine (gruau), instantanée: pêches et crème, sèche, Quaker",1996-01-01,,,
+1437,1437,8,26,Quaker one minute oats,"Céréale, chaude, avoine (gruau), une minute, sèche, Quaker",1996-01-01,,,
+1439,1439,8,26,Quaker quick oats,"Céréale, chaude, avoine (gruau), rapide, sèche, Quaker",1996-01-01,,,
+1443,1443,8,26,Robin Hood miute oats,"Céréale, chaude, avoine (gruau), minute, sèche, Robin Hood",1996-01-01,,,
+1462,1462,8,26,Rogers large flake oats,"Céréale, chaude, avoine (gruau), gros flocons, sèche, Rogers",1996-01-01,,,
+1464,1464,8,26,Quaker large flake oats,"Céréale, chaude, avoine (gruau), gros flocons, sèche, Quaker",1996-01-01,,,
+1484,1484,9,0,Acerola,"Azerole, crue",1984-01-01,,9001,Malpighia punicifolia
+1487,1487,9,0,Canned apple,"Pomme, conserve, sucrée, tranchée, chauffée",1984-01-01,,9008,
+1490,1490,9,0,Dried apple,"Pomme, séchée, sulfurée, non cuite",1984-01-01,,9011,
+1493,1493,9,0,Frozen apple,"Pomme, congelée, tranchée, non sucrée, non chauffée",1984-01-01,,9014,
+1495,1495,9,0,Apple juice,"Pomme, jus, conserve ou bouteille, sans vitamine C ajoutée",1984-01-01,,9016,
+1498,1498,9,0,Apricot,"Abricot, cru",1984-01-01,,9021,Prunus armeniaca
+1499,1499,9,0,Canned apricot,"Abricot, moitié avec pelure, conserve, dans l'eau, solides et liquide",1984-01-01,,9022,
+1507,1507,9,0,Dried apricot,"Abricot, séché, sulfuré, non cuit",1984-01-01,,9032,
+1510,1510,9,0,Frozen apricot,"Abricot, congélé, sucré",1984-01-01,,9035,
+1511,1511,9,0,Avocado,"Avocat, cru, toutes variétés commerciales",1984-01-01,,9037,Persea americana
+1515,1515,9,0,Blackberry,"Mûre, crue",1984-01-01,,9042,Rubus spp
+1516,1516,9,0,Canned blackberry,"Mûre, conserve, sirop épais, solides et liquide",1984-01-01,,9046,
+1517,1517,9,0,Frozen blackberry,"Mûre, congélée, non sucrée",1984-01-01,,9048,
+1520,1520,9,0,Canned boysenberry,"Mûre de boysen, conserve, sirop épais, solides et liquide",1984-01-01,,9056,Rubus ursinus var. loganobaccus
+1521,1521,9,0,Frozen boysenberry,"Mûre de boysen, congélée, non sucrée",1984-01-01,,9057,
+1522,1522,9,0,Breadfruit,"Fruit à pain, cru",1984-01-01,,9059,Artocarpus altilis
+1523,1523,9,0,Star fruit,"Carambole (fruit étoile), cru",1984-01-01,,9060,Averrhoa carambola
+1524,1524,9,0,Carissa,"Carissa, cru",1984-01-01,,9061,Carissa macrocarpa
+1525,1525,9,0,Cherimoya,"Chérimole, crue",1984-01-01,,9062,Annona cherimola
+1531,1531,9,0,Cherry,"Cerise sucrée (guigne), crue",1984-01-01,,9070,Prunus avium
+1534,1534,9,0,Canned cherry,"Cerise sucrée (guigne), conserve, dans du sirop épais",1984-01-01,,9074,
+1536,1536,9,0,Frozen cherry,"Cerise sucrée (guigne), congélée, sucrée",1984-01-01,,9076,
+1537,1537,9,0,Crabapple,"Pommette, crue",1984-01-01,,9077,Malus spp.
+1538,1538,9,0,Cranberry,"Canneberge, crue",1984-01-01,,9078,Vaccinium macrocarpon
+1539,1539,9,0,Cranberry sauce,"Sauce, canneberges, conserve, sucrée",1984-01-01,,9081,
+1541,1541,9,0,Currant,"Cassis, noir européen, cru",1984-01-01,,9083,Ribes nigrum
+1542,1542,9,0,Dried currant,"Raisins de corinthe (zante), secs",1984-01-01,,9085,Vitis vinifera
+1543,1543,9,0,Custard-apple,"Anone reticulée, anone coeur de boeuf, crue",1984-01-01,,9086,Annona reticulata
+1544,1544,9,0,Elderberry,"Sureau, baie, crue",1984-01-01,,9088,Sambucus spp
+1547,1547,9,0,Canned fig,"Figue, conserve, dans du sirop épais, solides et liquide",1984-01-01,,9092,
+1549,1549,9,0,Dried Fig,"Figue, séchée, non cuite",1984-01-01,,9094,
+1554,1554,9,0,Fruit cocktail,"Fruits, cocktail (pêches, poires, abricots, ananas, cerises, raisins), conserve, dans du sirop léger, solides et liquide",1984-01-01,,9099,
+1560,1560,9,0,Gooseberry,"Groseille à maquereau, crue",1984-01-01,,9107,Ribes spp.
+1561,1561,9,0,Canned gooseberry,"Groseille à maquereau, conserve, dans du sirop léger, solides et liquide",1984-01-01,,9109,
+1562,1562,9,0,Grapefruit,"Pamplemousse, rose ou rouge, toutes régions, cru",1984-01-01,,9112,Citrus paradisi
+1569,1569,9,0,Canned grapefruit,"Pamplemousse, conserve, dans du sirop léger, solides et liquide",1984-01-01,,9121,
+1570,1570,9,0,Grapefruit juice,"Pamplemousse, jus, conserve, sucré",1984-01-01,,9124,
+1573,1573,9,0,Grape,"Raisin, type Nord-Américain, peau non-adhérente, cru",1984-01-01,,9131,Vitis spp.
+1576,1576,9,0,Grape juice,"Raisin, jus, conserve ou bouteille, sans vitamine C ajoutée",1984-01-01,,9135,
+1577,1577,9,0,Groundcherry,"Cerise de terre, crue",1984-01-01,,9138,Physalis spp
+1578,1578,9,0,Guava,"Goyave, ordinaire, crue",1984-01-01,,9139,Psidium guajava
+1580,1580,9,0,Guava sauce,"Goyave, sauce aux, cuite",1984-01-01,,9143,
+1581,1581,9,0,Jackfruit,"Jaquier, cru",1984-01-01,,9144,Artocarpus heterophyllus
+1582,1582,9,0,Java-plum,"Prune de java, crue",1984-01-01,,9145,Syzygium cumini
+1583,1583,9,0,Jujube,"Jujube (datte chinoise), cru",1984-01-01,,9146,Ziziphus jujuba
+1584,1584,9,0,Dried jujube,"Jujube (datte chinoise), sec",1984-01-01,,9147,
+1585,1585,9,0,Kiwi,"Kiwi, cru",1984-01-01,,9148,Actinidia deliciosa
+1586,1586,9,0,Kumquat,"Kumquat, cru",1984-01-01,,9149,Fortunella spp
+1587,1587,9,0,Lemon,"Citron, cru, sans pelure",1984-01-01,,9150,Citrus limon
+1589,1589,9,0,Lemon juice,"Citron, jus, frais",1984-01-01,,9152,
+1593,1593,9,0,Lime,"Lime, crue",1984-01-01,,9159,Citrus aurantifollia
+1594,1594,9,0,Lime juice,"Lime, jus, frais",1984-01-01,,9160,
+1596,1596,9,0,Lychee,"Litchi, cru",1984-01-01,,9164,Litchi chinensis
+1597,1597,9,0,Dried lychee,"Litchi, séché",1984-01-01,,9165,
+1598,1598,9,0,Frozen loganberry,"Mûre de logan, congelée",1984-01-01,,9167,Rubus ursinus bar. loganobaccus
+1599,1599,9,0,Longan,"Longan, cru",1984-01-01,,9172,Dimocarpus longan
+1600,1600,9,0,Dried longan,"Longan, séché",1984-01-01,,9173,
+1601,1601,9,0,Loquat,"Nèfle du japon, cru",1984-01-01,,9174,Eriobotrya japonica
+1602,1602,9,0,Mammy-apple,"Abricots de St-Dominique (des Antilles), crus",1984-01-01,,9175,Mammea americana
+1603,1603,9,0,Mango,"Mangue, crue",1984-01-01,,9176,Mangifera indica
+1604,1604,9,0,Casaba,"Melon, casaba, cru",1984-01-01,,9183,Cucumis melo
+1605,1605,9,0,Honeydew,"Melon, miel (honeydew), cru",1984-01-01,,9184,Cucumis melo
+1610,1610,9,0,Mulberry,"Mûres blanche, crue",1984-01-01,,9190,Morus nigra
+1611,1611,9,0,Nectarine,"Nectarine, crue",1984-01-01,,9191,Prunus persica var. nectarina
+1612,1612,9,0,Oheloberry,"Oheloberry, cru",1984-01-01,,9192,Vaccinium reticulatum
+1613,1613,9,0,Olive,"Olive, mûre, conserve, petite à extra large",1990-01-01,,9193,Olea europaea
+1618,1618,9,0,Orange,"Orange, avec pelure, crue",1984-01-01,,9205,Citrus sinensis
+1619,1619,9,0,Orange juice,"Orange, jus, frais",1984-01-01,,9206,
+1623,1623,9,0,Tangerine,"Tangerine (mandarine), crue",1984-01-01,,9218,Citrus reticulata
+1628,1628,9,0,Papaya,"Papaye, crue",1984-01-01,,9226,Carica papaya
+1630,1630,9,0,Passion fruit,"Grenadille (fruit de la passion), crue",1984-01-01,,9231,Passiflora edulis
+1634,1634,9,0,Canned peach,"Pêche, moitié ou tranchées, conserve, dans du sirop extra léger, solides et liquide",1984-01-01,,9239,
+1640,1640,9,0,Dried peach,"Pêche, moitié, séchée, sulfurée, non cuite",1984-01-01,,9246,
+1643,1643,9,0,Frozen peach,"Pêche, congelée, tranchée, sucrée",1984-01-01,,9250,
+1646,1646,9,0,Canned pear,"Poire, moitié, conserve, dans du sirop extra léger, solides et liquide",1984-01-01,,9255,
+1649,1649,9,0,Dried pear,"Poire, moitié, séchée, sulfurée, non cuite",1984-01-01,,9259,
+1653,1653,9,0,Persimmon,"Kaki (diospyros kaki), cru",1984-01-01,,9263,Diospyros kaki
+1654,1654,9,0,Dried persimmon,"Kaki, séché",1984-01-01,,9264,
+1656,1656,9,0,Frozen pineapple,"Ananas, en morceaux, congelés, sucrés",1984-01-01,,9272,
+1657,1657,9,0,Pineapple juice,"Ananas, jus, conserve, vitamine C ajoutée",1984-01-01,,9409,
+1660,1660,9,0,Pitanga,"Pitanga, (cerise de surinam), crue",1984-01-01,,9276,Eugenia uniflora
+1661,1661,9,0,Plantain,"Plantain (banane des antilles), cru",1984-01-01,,9277,Musa X paradisiaca
+1664,1664,9,0,Canned plum,"Prune, pourpre, conserve, dans du jus, solides et liquide",1984-01-01,,9282,
+1667,1667,9,0,Pomegranate,"Grenade, crue",1984-01-01,,9286,Punica granatum
+1668,1668,9,0,Prickly pear,"Figue de Barbarie, crue",1984-01-01,,9287,Opuntia spp.
+1672,1672,9,0,Dried prune,"Pruneau, séché, cuit, sucre ajouté",1984-01-01,,9293,
+1673,1673,9,0,Prune juice,"Pruneau, jus, conserve",1984-01-01,,9294,
+1674,1674,9,0,"Pummelo,","Pomélo, cru",1984-01-01,,9295,Citrus grandis
+1675,1675,9,0,Quince,"Coing, cru",1984-01-01,,9296,Cydonia oblonga
+1676,1676,9,0,Canned raspberry,"Framboise, conserve, dans du sirop épais, solides et liquide",1984-01-01,,9304,
+1677,1677,9,0,Frozen raspberry,"Framboise, congelée, sucrée",1984-01-01,,9306,
+1678,1678,9,0,Frozen rhubarb,"Rhubarbe, congelée, non cuite",1984-01-01,,9309,
+1680,1680,9,0,Roselle,"Roselle, cru",1984-01-01,,9311,Hibiscus sabdariffa
+1681,1681,9,0,Rose-apple,"Jambose (pommes de rose), crue",1984-01-01,,9312,Syzygium jambos
+1682,1682,9,0,Sapodilla,"Sapotille, crue",1984-01-01,,9313,Manilkara zapota
+1683,1683,9,0,Sapote,"Sapote, mamey, cru",1984-01-01,,9314,Pouteria sapota
+1684,1684,9,0,Soursop,"Cachiman épineux, (corrossol épineux), cru",1984-01-01,,9315,Annona muricata
+1685,1685,9,0,Canned strawberry,"Fraise, conserve, dans du sirop épais, solides et liquide",1984-01-01,,9317,
+1686,1686,9,0,Frozen strawberry,"Fraise, congelée, sucrée, entière",1984-01-01,,9319,
+1688,1688,9,0,Sugar-apple,"Pomme cannelle, crue",1984-01-01,,9321,Annona squamosa
+1689,1689,9,0,Tamarind,"Tamarin, cru",1984-01-01,,9322,Tamarindus indica
+1691,1691,9,0,Watermelon,"Melon d'eau (pasteque), cru",1984-01-01,,9326,Citrullus lanatus
+1692,1692,9,0,Feijoa,"Feijoa, cru",1990-01-01,,9334,Feijoa sellowiana (O. Berg)
+1693,1693,9,0,Asian pear,"Poire, asiatique, crue",1990-01-01,,9340,Pyrus pyrifolia (Burman f.) Nakai
+1696,1696,9,3,Apple,"Pomme, crue, avec pelure",1984-01-01,,9003,Malus sylvestris
+1701,1701,9,3,Applesauce,"Pomme, en purée, conserve, sucrée",1984-01-01,,9020,
+1704,1704,9,3,Banana,"Banane, crue",1984-01-01,,9040,Musa X paradisiaca
+1705,1705,9,3,Blueberry,"Bleuet, cru",1984-01-01,,9050,Vaccinium spp.
+1706,1706,9,3,Frozen blueberry,"Bleuet, congelé, non sucré",1984-01-01,,9054,
+1710,1710,9,3,Dried date,"Datte, domestique, naturelle et séchée",1984-01-01,,9087,Phoenix dactylifera
+1711,1711,9,3,Fig,"Figue, crue",1984-01-01,,9089,Ficus carica
+1721,1721,9,3,Cantaloupe,"Melon, cantaloup, cru",1984-01-01,,9181,Cucumis melo
+1728,1728,9,3,Peach,"Pêche, crue",1984-01-01,,9236,Prunus persica
+1731,1731,9,3,Pear,"Poire, crue, avec pelure",1984-01-01,,9252,Pyrus communis
+1733,1733,9,3,Canned pear,"Poire, moitié, conserve, dans du sirop léger, solides et liquide",1984-01-01,,9256,
+1734,1734,9,3,Pineapple,"Ananas, cru",1984-01-01,,9266,Ananus comosus
+1737,1737,9,3,Canned pineapple,"Ananas, conserve, dans du sirop léger, solides et liquide",1984-01-01,,9269,
+1740,1740,9,3,Plum,"Prune, crue",1984-01-01,,9279,Prunus spp.
+1741,1741,9,3,Canned plum,"Prune, pourpre, conserve, dans du sirop léger, solides et liquide",1984-01-01,,9283,
+1742,1742,9,3,Dried prune,"Pruneau, séché, non cuit",1984-01-01,,9291,
+1745,1745,9,3,Raisin,"Raisins secs, sans pépin (sultana)",1984-01-01,,9298,Vitis vinifera
+1747,1747,9,3,Raspberry,"Framboise, crue",1984-01-01,,9302,Rubus spp.
+1748,1748,9,3,Rhubarb,"Rhubarbe, crue",1984-01-01,,9307,Rheum rhabarbarum
+1749,1749,9,3,Strawberry,"Fraise, crue",1984-01-01,,9316,Fragaria X ananassa
+1755,1755,10,0,Pork carcass,"Porc, carcasse, maigre et gras, crue",1995-01-01,,10001,Suidae domesticus
+1757,1757,10,0,Pork backfat,"Porc, morceau de gros, gras de dos, cru",1995-01-01,,10004,
+1758,1758,10,0,Pork belly,"Porc, morceau de gros, flanc, cru",1995-01-01,,10005,
+1761,1761,10,0,Pork leg,"Porc, cuisse, entière, maigre et gras, cru",1995-01-01,,10008,
+1765,1765,10,0,Pork butt,"Porc, fesse, bout croupe, maigre et gras, cru",1995-01-01,,10012,
+1769,1769,10,0,Pork shank,"Porc, fesse, bout jarret, maigre et gras, cru",1995-01-01,,10016,
+1773,1773,10,0,Pork loin,"Porc, longe, entière, maigre et gras, cru",1995-01-01,,10020,
+1789,1789,10,0,Pork rib,"Porc, longe, côtelette bout côte, avec os, maigre et gras, cru",1995-01-01,,10044,
+1797,1797,10,0,Pork sirloin,"Porc, longe, côtelette surlonge, avec os, maigre et gras, cru",1995-01-01,,10052,
+1813,1813,10,0,Pork shoulder,"Porc, épaule, entière, maigre et gras, cru",1995-01-01,,10070,
+1832,1832,10,0,Pork brain,"Porc, cervelle, crue",1990-01-01,,10096,
+1834,1834,10,0,Pork intestine,"Porc, intestin (andouilles), cru",1985-01-01,,10098,
+1836,1836,10,0,Frozen pork ears,"Porc, oreilles, congelées, crues",1985-01-01,,10100,
+1838,1838,10,0,Pork feet,"Porc, pieds, crus",1985-01-01,,10102,
+1839,1839,10,0,Pork heart,"Porc, coeur, cru",1985-01-01,,10103,
+1841,1841,10,0,Pork jowl,"Porc, bajoue, crue",1985-01-01,,10105,
+1844,1844,10,3,Pork liver,"Porc, foie, cru",1985-01-01,,10110,
+1846,1846,10,0,Pork lungs,"Porc, poumons, crus",1985-01-01,,10112,
+1849,1849,10,0,Pork pancreas,"Porc, pancréas, cru",1985-01-01,,10115,
+1851,1851,10,0,Pork spleen,"Porc, rate, crue",1985-01-01,,10117,
+1853,1853,10,0,Pork stomach,"Porc, estomac, cru",1990-01-01,,10119,
+1854,1854,10,0,Pork tongue,"Porc, langue, crue",1985-01-01,,10121,
+1880,1880,10,0,Pork tail,"Porc, queue, crue",1985-01-01,,10174,
+1931,1931,10,23,Pork tenderloin,"Porc, longe, filet, maigre, cru",1995-01-01,2006-02-15,10060,
+1935,1935,10,0,Pork kidney,"Porc, rognon, cru",1985-01-01,,10106,
+1936,1936,10,0,Bacon,"Porc, salé, bacon, cru",1996-01-01,,10123,
+1963,1963,10,23,Pork leg,"Porc, fesse, intérieur, désossé, maigre et gras, cru",1995-01-01,2006-02-15,10008,
+1979,1979,10,23,Bacon bits,"Porc, salé, bacon en miettes, grillé",1996-01-01,,,
+1982,1982,11,0,Alfalfa seeds,"Luzerne, graines germées, crues",1985-01-01,,11001,Medicago sativa
+1984,1984,11,0,Amaranth leaves,"Amarante, feuilles, fraîches",1985-01-01,,11003,Amaranthus spp.
+1986,1986,11,0,Arrowhead,"Sagittaire, crue",1985-01-01,,11005,Sagittaria latifolia
+1988,1988,11,0,Frozen artichoke,"Artichaut, congelé, non préparé",1985-01-01,,11009,
+1990,1990,11,0,Asparagus,"Asperge, crue",1990-01-01,,11011,Asparagus officinalis
+1992,1992,11,0,Canned asparagus,"Asperge, conserve, solides et liquide",1985-01-01,,11013,
+1993,1993,11,0,Frozen asparagus,"Asperge, congelée, non préparée",1985-01-01,,11018,
+1995,1995,11,0,Bittermelon,"Margose, feuilles tendres, crues",1985-01-01,,11022,Momordica charantia
+1999,1999,11,0,Bamboo shoots,"Bambou, pousses, crues",1985-01-01,,11026,Phyllostachys spp.
+2001,2001,11,0,Kidney beans,"Haricots communs, secs, germés, crus",1985-01-01,,11029,Phaseolus vulgaris
+2003,2003,11,0,Lima beans,"Haricots, lima, crus",1985-01-01,,11031,Phaseollus lunatus
+2005,2005,11,0,Canned lima beans,"Haricots, lima, conserve, solides et liquide",1985-01-01,,11033,
+2008,2008,11,0,Mung beans,"Haricots, mungo, secs, germés, germes de haricot, crus",1985-01-01,,11043,Vigna radiata
+2011,2011,11,0,Navy beans,"Haricots, petits blancs, secs, germés, crus",1985-01-01,,11046,Phaseolus vulgaris
+2013,2013,11,0,Pinto beans,"Haricots, pinto, grains immatures, congelés, non préparés",1985-01-01,,11048,
+2014,2014,11,0,Frozen pinto beans,"Haricots, pinto, congelés, bouillis, égouttés",1985-01-01,,11049,
+2015,2015,11,0,Canned shellie beans,"Haricots, shellie, conserve, solides et liquide",1985-01-01,,11050,
+2016,2016,11,0,Canned snap beans,"Haricots italiens, jaunes ou verts, conserve, solides et liquide",1985-01-01,,11054,
+2018,2018,11,0,Frozen snap beans,"Haricots italiens, verts ou jaunes, congelés, non préparés",1985-01-01,,11060,
+2020,2020,11,0,Canned beets,"Betteraves, conserve, solides et liquide",1985-01-01,,11082,
+2021,2021,11,0,Beet greens,"Betterave, feuilles, crues",1985-01-01,,11086,Beta vulgaris
+2023,2023,11,0,Fava beans,"Gourganes (fèves des marais, fava), fraîches, crues",1985-01-01,,11088,Vicia faba
+2025,2025,11,0,Frozen broccoli,"Brocoli, congelé, tiges et têtes, non préparées",1985-01-01,,11094,
+2027,2027,11,0,Frozen brussels sprouts,"Choux de Bruxelles, congelés, non préparés",1985-01-01,,11100,
+2029,2029,11,0,Burdock root,"Bardane (glouteron), racine, crue",1985-01-01,,11104,Arctium lappa
+2031,2031,11,0,Fuki,"Pétasite commun, cru",1985-01-01,,11106,Petasites japonicus
+2034,2034,11,0,Red cabbage,"Chou rouge, cru",1985-01-01,,11112,Brassica oleracea (Capitata Group)
+2036,2036,11,0,Cabbage,"Chou de Milan (Savoie), cru",1985-01-01,,11114,Brassica oleracea (Capitata Group)
+2038,2038,11,0,Bok choy,"Bok choy, pak-choi, cru",1985-01-01,,11116,Brassica rapa (Chinensis Group)
+2040,2040,11,0,Pe-tsai,"Chou de Chine (pe-tsai), cru",1985-01-01,,11119,Brassica rapa (Pekinensis Group)
+2042,2042,11,0,Cardoon,"Cardon, cru",1985-01-01,,11122,Cynara cardunculus
+2044,2044,11,0,Canned carrot,"Carotte, conserve, solides et liquide",1985-01-01,,11126,
+2045,2045,11,0,Cassava,"Manioc, cru",1985-01-01,,11134,Manihot esculenta
+2047,2047,11,0,Frozen cauliflower,"Chou-fleur, congelé, non préparé",1985-01-01,,11137,
+2049,2049,11,0,Celeriac,"Céleri-rave, cru",1985-01-01,,11141,Apium graveolens
+2051,2051,11,0,Celtuce,"Laitue-tige, crue",1985-01-01,,11145,Lactuca sativa
+2052,2052,11,0,Chard,"Bette à carde, crue",1985-01-01,,11147,Beta vulgaris (Cicla Group)
+2054,2054,11,0,Chayote,"Chayotte, fruit, cru",1985-01-01,,11149,Sechium edule
+2056,2056,11,0,Belgium endive,"Endive de Belgique (chicorée de bruxelles ou witloof), crue",1993-01-01,,11151,Cichorium intybus
+2057,2057,11,0,Chicory greens,"Chicorée, feuilles (cichorium intybus), crue",1985-01-01,,11152,Cichorium intybus
+2058,2058,11,0,Chicory roots,"Chicorée, racine (cichorium intybus), crue",1985-01-01,,11154,Cichorium intybus
+2059,2059,11,0,Chives,"Ciboulette, crue",1990-01-01,,11156,Allium schoenoprasum
+2060,2060,11,0,Chrysanthemum,"Chrysanthème des jardins, cru",1985-01-01,,11157,Chrysanthemum coronarium
+2062,2062,11,0,Coleslaw,"Chou, salade, avec vinaigrette, faite maison",1985-01-01,,11159,
+2063,2063,11,0,Collards,"Chou cavalier (collards), cru",1990-01-01,,11161,Brassica oleracea (Acephala Group)
+2065,2065,11,0,Frozen collards,"Chou cavalier (collards), congelé, non préparé",1985-01-01,,11163,
+2067,2067,11,0,Coriander,"Coriandre (cilantro), crue",1985-01-01,,11165,Coriandrum sativum
+2069,2069,11,0,Canned corn,"Maïs sucré, conserve, saumure, solides et liquide",1985-01-01,,11170,
+2071,2071,11,0,Frozen corn,"Maïs sucré, congelé, épi, bouilli, égoutté",1985-01-01,,11181,
+2073,2073,11,0,Cornsalad,"Mâche commune, crue",1985-01-01,,11190,Valerianella locusta
+2074,2074,11,0,Black-eyed peas,"Doliques à oeil noir, grains immatures, crus",1990-01-01,,11191,Vigna unguiculata
+2080,2080,11,0,Yardlong beans,"Haricots asperge (dolique), crus",1985-01-01,,11199,Vigna unguiculata
+2084,2084,11,0,Garden cress,"Cresson alénois, cru",1985-01-01,,11203,Lepidium sativum
+2086,2086,11,0,Dandelion greens,"Pissenlit, feuilles, crues",1985-01-01,,11207,Taraxacum officinale
+2088,2088,11,0,Eggplant,"Aubergine, crue",1994-01-01,,11209,Solanum malongena
+2090,2090,11,0,Endive,"Scarole ou endive (cichorium endivia), crue",1985-01-01,,11213,Cichorium endivia
+2091,2091,11,0,Ginger root,"Gingembre, racine, crue",1985-01-01,,11216,Zingiber officinale
+2092,2092,11,0,Calabash gourd,"Calebasse, crue",1985-01-01,,11218,Lagenaria siceraria
+2094,2094,11,0,Towelgourd,"Courge torchon (towelgourd), crue",1985-01-01,,11220,Luffa aegyptiaca
+2096,2096,11,0,Horseradish-tree leaves,"Cassier (ben oléifère), feuilles, crues",1985-01-01,,11222,Moringa oleifera
+2098,2098,11,0,Hyacinth,"Doliques d'Égypte, crus",1985-01-01,,11224,Dolichos lablab
+2100,2100,11,0,Sunchoke,"Topinambour, cru",1985-01-01,,11226,Helianthus tuberosus
+2101,2101,11,0,Pepeao,"Oreilles de Judas, crues",1985-01-01,,11228,Auricularia polytricha
+2103,2103,11,0,Potherb,"Jute tossa, cru",1985-01-01,,11231,Corchorus olitorius
+2106,2106,11,0,Frozen kale,"Chou vert frisé, congelé, non préparé",1985-01-01,,11235,
+2108,2108,11,0,Kanpyo,Kanpyo (tranches de courge séchées),1985-01-01,,11237,
+2109,2109,11,0,Kohlrabi,"Chou-rave, cru",1985-01-01,,11241,Brassica oleracea (Gongylodes Group)
+2111,2111,11,0,Lambsquarters,"Chou gras (chenopodes blancs), cru",1985-01-01,,11244,Chenopodium album
+2113,2113,11,0,Lentils,"Lentilles, germées, crues",1985-01-01,,11248,Lens culinaris
+2115,2115,11,0,Butterhead lettuce,Laitue butterhead (Boston),1985-01-01,,11250,Lactuca sativa
+2116,2116,11,0,Romaine lettuce,Laitue romaine,1985-01-01,,11251,Lactuca sativa
+2117,2117,11,0,Looseleaf lettuce,Laitue frisée,1985-01-01,,11253,Lactuca sativa var. crispa
+2118,2118,11,0,Lotus root,"Lotus, racine, crue",1985-01-01,,11254,Nelumbo nucifera
+2124,2124,11,0,Dried shiitake,"Champignon shiitake, séché",1985-01-01,,11268,
+2126,2126,11,0,Mustard greens,"Moutarde, feuilles, crues",1985-01-01,,11270,Brassica juncea
+2128,2128,11,0,Frozen mustard greens,"Moutarde, feuilles, congelées, non préparées",1985-01-01,,11272,
+2130,2130,11,0,Mustard spinach,"Moutarde joncée, crue",1985-01-01,,11274,Brassica rapa (Perviridis Group)
+2132,2132,11,0,New Zealand spinach,"Épinards de la Nouvelle-Zélande, crus",1985-01-01,,11276,Tetragonia tetragonioides
+2134,2134,11,0,Okra,"Okra (gombo), cru",1985-01-01,,11278,Abelmoschus esculentus
+2140,2140,11,0,Frozen onion,"Oignon, congelé, haché, non préparé",1985-01-01,,11287,
+2144,2144,11,0,Spring onion,"Oignon, vert (inclus le bout et le bulbe), cru",1989-01-01,,11291,Allium cepa or Allium fistulosum
+2145,2145,11,0,Onion,"Oignon vert (ciboule), cru",1985-01-01,,11293,Allium fistulosum
+2147,2147,11,0,Frozen snow peas,"Pois mange-tout, congelés, non préparés",1985-01-01,,11302,
+2149,2149,11,0,Canned peas,"Pois, petits (verts), conserve, solides et liquide",1985-01-01,,11306,
+2151,2151,11,0,Frozen green peas,"Pois, petits (verts), congelés, non préparés",1985-01-01,,11312,
+2155,2155,11,0,Frozen peas and carrots,"Pois et carottes, congelés, non préparés",1985-01-01,,11322,
+2160,2160,11,0,Canned pepper,"Piment, fort du Chili, rouge ou vert, conserve, solides et liquide",1990-01-01,,11329,
+2164,2164,11,0,Poi,Poi,1985-01-01,,11349,
+2165,2165,11,0,Pokeberry shoots,"Phytolaque d'Amérique, pousses, crues",1985-01-01,,11350,Phytolacca americana
+2172,2172,11,0,Canned potato,"Pomme de terre, conserve, solides et liquide",1985-01-01,,11374,
+2179,2179,11,0,Frozen hashed brown,"Pomme de terre, rissolée, congelée, avec sauce au beurre, non préparée",1985-01-01,,11392,
+2183,2183,11,0,Frozen potato,"Pomme de terre, entière, pelée, congelée, non préparée",1985-01-01,,11400,
+2186,2186,11,0,Frozen french fries,"Pomme de terre, frite, congelée, extrudée, non préparée",1985-01-01,,11408,
+2188,2188,11,0,Pumpkin flowers,"Citrouille, fleurs, crues",1985-01-01,,11416,Cucurbita spp.
+2190,2190,11,0,Pumpkin leaves,"Citrouille, feuilles, crues",1985-01-01,,11418,Cucurbita spp.
+2192,2192,11,0,Canned pumpkin,"Citrouille, conserve",1985-01-01,,11424,
+2194,2194,11,0,Purslane,"Pourpier, cru",1985-01-01,,11427,Portulaca oleracea
+2196,2196,11,0,Daikon radish,"Radis, orientaux (daikon), crus",1985-01-01,,11430,Raphanus sativus (Longipinratus Group)
+2199,2199,11,0,Salsify,"Salsifis, cru",1985-01-01,,11437,Tragopogon porrifolius
+2201,2201,11,0,Canned sauerkraut,"Choucroute, conserve, solides et liquide",1985-01-01,,11439,
+2202,2202,11,0,Agar seaweed,"Algue, agar, crue",1985-01-01,,11442,Eucheuma spp.
+2203,2203,11,0,Irishmoss seaweed,"Algue, mousse d'Irlande, crue",1985-01-01,,11444,Chondrus crispus
+2204,2204,11,0,Kelp seaweed,"Algue, varech (kelp, kombu, tangle), crue",1985-01-01,,11445,Laminaria spp.
+2205,2205,11,0,Laver Seaweed,"Algue, rhodyménie palmé (main de mere, nori), crue",1985-01-01,,11446,Porphyra laciniata
+2206,2206,11,0,Sesbania flowers,"Fagotier, fleurs, crues",1984-01-01,,11447,Sesbania spp.
+2208,2208,11,0,Edamame,"Fèves, soya frais (edamame), crues",1994-01-01,,11450,Glycine max
+2210,2210,11,0,Soybeans,"Fèves, soya, sèches, germées, germes de haricot, crues",1994-01-01,,11452,Glycine max
+2213,2213,11,0,Spinach,"Épinard, cru",1985-01-01,,11457,Spinacia oleracea
+2216,2216,11,0,Frozen spinach,"Épinard, congelé, non préparé",1985-01-01,,11463,
+2218,2218,11,0,Crookneck squash,"Courge d'été, musquée, crue",1985-01-01,,11467,Cucurbita spp.
+2223,2223,11,0,Scallop squash,"Courge d'été, pâtisson, cru",1985-01-01,,11475,Cucurbita spp.
+2225,2225,11,0,Zucchini,"Courge d'été, courgette (zucchini), crue",1985-01-01,,11477,Cucurbita spp.
+2230,2230,11,0,Succotash,"Succotash, cru",1985-01-01,,11495,
+2234,2234,11,0,Frozen succotash,"Succotash, congelé, non préparé",1985-01-01,,11501,
+2236,2236,11,0,Swamp cabbage,"Patate aquatique, crue",1985-01-01,,11503,Ipomoea aquatica
+2238,2238,11,0,Sweet potato leaves,"Patate douce, feuilles, crues",1985-01-01,,11505,Ipomoea batatas
+2240,2240,11,0,Sweet potato,"Patate douce, crue",1985-01-01,,11507,Ipomoea batatas
+2245,2245,11,0,Frozen sweet potato,"Patate douce, congelée, non préparée",1985-01-01,,11516,
+2247,2247,11,0,Taro,"Taro, cru",1985-01-01,,11518,Colocasia essculenta
+2249,2249,11,0,Taro leaves,"Taro, feuilles, crues",1985-01-01,,11520,Colocasia esculenta
+2251,2251,11,0,Taro shoots,"Taro, pousses, crues",1985-01-01,,11522,Colocasia esculenta
+2255,2255,11,0,Tomato,"Tomate, verte, crue",1985-01-01,,11527,Solanum Lycopersicum
+2257,2257,11,0,Canned tomato,"Tomate, rouge, mûre, conserve avec piments verts",1985-01-01,,11537,
+2258,2258,11,0,Tomato paste,"Produits à base de tomates, pâte, conserve, sans sel ajouté",1985-01-01,,11546,
+2259,2259,11,0,Tomato puree,"Produits à base de tomates, conserve, purée, sans sel ajouté",1985-01-01,,11547,
+2260,2260,11,0,Tomato powder,"Tomate, poudre",1985-01-01,,11548,
+2263,2263,11,0,Turnip greens,"Navet, feuilles, crues",1985-01-01,,11568,Brassica rapa (Rapifera Group)
+2266,2266,11,0,Frozen turnip greens,"Navet, feuilles, congelées, non préparées",1985-01-01,,11574,
+2273,2273,11,0,Vine spinach,"Baselle, crue",1985-01-01,,11587,Basella alba
+2274,2274,11,0,Waterchestnuts,"Châtaignes d'eau, chinoises, crues",1985-01-01,,11588,Eleocharis dulcis
+2275,2275,11,0,Canned waterchestnuts,"Châtaignes d'eau, chinoises, conserve, solides et liquide",1985-01-01,,11590,
+2276,2276,11,0,Watercress,"Cresson de fontaine, cru",1985-01-01,,11591,Nasturtium officinale
+2277,2277,11,0,Waxgourd,"Waxgourd (melon d'eau chinois), cru",1985-01-01,,11593,Benincasa hispida
+2279,2279,11,0,Winged beans,"Pois carrés, verts, crus",1985-01-01,,11595,Psophocarpus tetragonolobus
+2281,2281,11,0,Winged beans leaves,"Pois carrés, feuilles, crues",1985-01-01,,11597,Psophocarpus tetragon
+2283,2283,11,0,Yam,"Igname, crue",1985-01-01,,11601,Dioscorea spp.
+2285,2285,11,0,Yambean,"Doliques bulbeux, crus",1994-01-01,,11603,Pachyrhizus spp.
+2287,2287,11,0,Borage,"Bourrache, crue",1985-01-01,,11613,Borago officinalis
+2292,2292,11,0,Eppaw,"Eppaw de l'Oregon, cru",1985-01-01,,11618,Perideridia oregana
+2293,2293,11,0,Horseradish-tree,"Cassier (ben oléifère), gousses, crues",1985-01-01,,11620,Moringa oleifera
+2295,2295,11,0,Kale,"Chou à feuilles, non pommé, cru",1985-01-01,,11622,Brassica napus (Pabularia Group)
+2301,2301,11,0,White icicle radish,"Radis, ""white icicle"", cru",1989-01-01,,11637,Raphanus sativus
+2322,2322,11,0,Hot chili,"Piment, fort du Chili, rouge ou verts, cru",1985-01-01,,11670,Capsicum frutescens
+2325,2325,11,0,Radish seeds,"Radis, graines, germées, avec graines, crues",1985-01-01,,11676,Raphanus sativus
+2326,2326,11,0,Shallot,"Échalote, crue",1985-01-01,,11677,Allium ascalonicum
+2338,2338,11,0,Pickles,"Marinades, cornichons sûrs",1989-01-01,,11941,
+2343,2343,11,0,Enoki mushroom,"Champignon, enoki, cru",1990-01-01,,11950,"Flammulina veluptipes
+
+"
+2344,2344,11,0,Yellow bellpepper,"Poivron jaune, cru",1994-01-01,,11951,Capsicum annuum
+2345,2345,11,0,Radicchio,"Radicchio, cru",1994-01-01,,11952,Cichorium intybus
+2347,2347,11,0,Tomatillo,"Tomatille, crue",1994-01-01,,11954,Physalis philadelphica
+2350,2350,11,0,Fennel,"Fenouil, bulbe, cru",1990-01-01,,11957,Foeniculum vulgare
+2352,2352,11,0,Arugula,"Roquette (arugula), crue",1993-01-01,,11959,Eruca sativa
+2353,2353,11,0,Baby carrot,"Carotte, petite, crue",1990-01-01,,11960,Daucus carota
+2354,2354,11,0,Canned hearts of palm,"Palmiers, coeurs, conserve",1995-01-01,,11961,
+2363,2363,11,3,Cucumber,"Concombre, cru",1994-01-01,,11205,Cucumis sativus
+2364,2364,11,3,Artichoke,"Artichaut, cru",1989-01-01,,11007,Cynara scolymus
+2367,2367,11,3,Canned bamboo shoots,"Bambou, pousses, conserve, égouttées",1985-01-01,,11028,
+2374,2374,11,3,Broccoli,"Brocoli, cru",1985-01-01,,11090,
+2378,2378,11,3,Brussels sprouts,"Choux de Bruxelles, crus",1985-01-01,,11098,Brassica oleracea (Gemmifera Group)
+2380,2380,11,3,Carrot,"Carotte, crue",1985-01-01,,11124,Daucus carota
+2385,2385,11,3,Cauliflower,"Chou-fleur, cru",1994-01-01,,11135,Brassica oleracea (Botrytis Group)
+2386,2386,11,3,Celery,"Céleri, cru",1989-01-01,,11143,Apium graveolens
+2388,2388,11,3,Corn,"Maïs sucré, jaune, cru",1985-01-01,,11167,Zea mays
+2394,2394,11,3,Garlic,"Ail, cru",1985-01-01,,11215,Allium sativum
+2395,2395,11,3,Kale,"Chou vert frisé, cru",1985-01-01,,11233,Brassica oleracea (Acephala Group)
+2396,2396,11,3,Leeks,"Poireaux (bulbe et portion inférieure), crus",1985-01-01,,11246,Allium ampeloprasum
+2398,2398,11,3,Iceberg lettuce,Laitue iceberg (pommée),1985-01-01,,11252,Lactuca sativa
+2399,2399,11,3,White mushroom,"Champignon, blanc, cru",1985-01-01,,11260,Agaricus bisporus
+2401,2401,11,3,Onion,"Oignon, cru",1990-01-01,,11282,Allium cepa
+2405,2405,11,3,Parsley,"Persil, frais",1994-01-01,,11297,Petroselinum crispum
+2406,2406,11,3,Parsnip,"Panais, cru",1985-01-01,,11298,Pastinaca sativa
+2409,2409,11,3,Green peas,"Pois, petits (verts), crus",1989-01-01,,11304,Pisum sativum
+2413,2413,11,3,Green bellpepper,"Poivron vert, cru",1989-01-01,,11333,Capsicum annuum
+2440,2440,11,3,Potato flour,"Pomme de terre, farine",1985-01-01,,11413,
+2441,2441,11,3,Pumpkin,"Citrouille, crue",1985-01-01,,11422,Cucurbita spp.
+2444,2444,11,3,Rutabaga,"Rutabaga (chou-navet),  cru",1985-01-01,,11435,Brassica napus (Napobrassica Group)
+2465,2465,6,3,Tomato sauce,"Produits à base de tomates, conserve, sauce",1985-01-01,,11549,
+2466,2466,6,3,Mushroom tomato sauce,"Produits à base de tomates, conserve, sauce avec champignons",1985-01-01,,11551,
+2467,2467,6,3,Herb and cheese tomato sauce,"Produits à base de tomates, conserve, sauce avec fines herbes et fromage",1985-01-01,,11555,
+2470,2470,11,3,Turnip,"Navet, cru",1985-01-01,,11564,Brassica rapa (Rapifera Group)
+2471,2471,11,3,Frozen turnip,"Navet, congelé, non préparé",1985-01-01,,11566,
+2477,2477,11,3,Canned jalapeno,"Piment jalapeno, conserve, solides et liquide",1985-01-01,,11632,
+2484,2484,11,3,Red bellpepper,"Poivron rouge, cru",1990-01-01,,11821,Capsicum annuum
+2494,2494,6,3,Ketchup,"Tomates, ketchup (catsup)",1989-01-01,,11935,
+2500,2500,11,3,Beets,"Betteraves, crues",1994-01-01,,11080,Beta vulgaris
+2502,2502,11,3,"rozen, unprepared","Crosses de fougères (têtes de violon), congelées, non préparées",1988-01-01,,11996,
+2505,2505,11,0,Frozen ferns,"Pomme de terre, chair et pelure, crue",1989-01-01,,11352,Solanum tuberosum
+2507,2507,12,0,Breadfruit seeds,"Graines, fruits à pain, graines, crues",1985-01-01,,12001,Artocarpus altilis
+2509,2509,12,0,Breadnuttree seeds,"Graines, noix-pain (brosimum dicastrum), graines, crues",1985-01-01,,12004,Brosimum alicastrum
+2510,2510,12,0,Dried breadnuttree seeds,"Graines, noix-pain (brosimum alicastrum), graines, déshydratées",1985-01-01,,12005,
+2511,2511,12,0,Dried chia seeds,"Graines de chia, déshydratées",1985-01-01,,12006,Salvia hispanica
+2515,2515,12,0,Dried lotus seeds,"Graines, lotus, graines, déshydratées",1985-01-01,,12013,
+2518,2518,12,0,Dried safflower seed kernels,"Graines, carthame, graines, déshydratées",1985-01-01,,12021,Carthamus tinctorius
+2521,2521,12,0,Sesame seeds,"Graines, sésame, graines, entières, rôties et grillées",1985-01-01,,12024,
+2523,2523,12,0,Sesame flour,"Graines, farine de sésame, partiellement dégraissées",1985-01-01,,12032,
+2526,2526,12,0,Dried sunflower seed,"Graines, tournesol, graines, déshydratées",1985-01-01,,12036,Helianthus annuus
+2527,2527,12,0,Roasted sunflower seed,"Graines, tournesol, graines, rôties à sec",1985-01-01,,12037,
+2530,2530,12,0,Sunflower seed flour,"Graines, tournesol, farine, partiellement dégraissée",1985-01-01,,12041,
+2531,2531,12,0,Acorns,"Noix, balanes (glands), crues",1985-01-01,,12058,Quercus spp.
+2533,2533,12,0,Acorn flour,"Noix, farine de balanes (glands), non dégraissée",1985-01-01,,12060,
+2534,2534,12,0,Dried almonds,"Noix, amandes, séchées, non blanchies, non rôties",1985-01-01,,12061,Prunus dulcis
+2536,2536,12,0,Roasted almonds,"Noix, amandes, rôties à sec, non blanchies",1985-01-01,,12063,
+2543,2543,12,0,Dried beechnuts,"Noix, faines, séchées",1985-01-01,,12077,Fagus spp.
+2544,2544,12,0,Dried  brazilnuts,"Noix, noix de Brésil, séchées, non blanchies",1985-01-01,,12078,Bertholletia excelsa
+2546,2546,12,0,Roasted cashew,"Noix, noix d'acajou (cajous, anacardes), rôties à sec",1985-01-01,,12085,Anacardium occidentale
+2549,2549,12,0,Chestnuts,"Noix, châtaignes chinoises, crues",1985-01-01,,12093,Castanea mollissima
+2552,2552,12,0,Roasted chestnuts,"Noix, châtaignes chinoises, rôties",1985-01-01,,12096,
+2558,2558,12,0,Coconut meat,"Noix, noix de coco, crue",1985-01-01,,12104,Cocos nucifera
+2563,2563,12,0,Coconut cream,"Noix, crème de noix de coco (liquide de la noix râpée), crue",1985-01-01,,12115,
+2565,2565,12,0,Coconut milk,"Noix, lait de noix de coco (liquide de la noix râpée et eau), conserve",1985-01-01,,12118,
+2566,2566,12,0,Coconut water,"Noix, eau de noix de coco (liquide de la noix)",1985-01-01,,12119,
+2567,2567,12,0,Dried hazelnuts,"Noix, noisettes, avelines ou coudres, séchées",1985-01-01,,12120,Corylus spp.
+2569,2569,12,0,Roasted hazelnuts,"Noix, noisettes, avelines ou coudres, rôties à sec, non blanchies",1985-01-01,,12122,
+2571,2571,12,0,Ginkgo nuts,"Noix, fruits de ginkgo, crues",1985-01-01,,12127,Ginko biloba
+2572,2572,12,0,Dried ginkgo nuts,"Noix, fruits de ginkgo, séchées",1985-01-01,,12128,
+2574,2574,12,0,Dried hickory nuts,"Noix, noix de caryers, séchées",1985-01-01,,12130,Carya spp.
+2575,2575,12,0,Macadamia nuts,"Noix, macadamia (queensland), crues",1985-01-01,,12131,"Macadamia integrifolia, M. tetraphylla"
+2576,2576,12,30,Roasted macadamia,"Noix, macadamia (queensland), rôties dans l'huile",1985-01-01,,,
+2582,2582,12,0,Dried pecans,"Noix, pacanes, séchées",1985-01-01,,12142,Carya illinoensis
+2583,2583,12,0,Roasted pecans,"Noix, pacanes, rôties à sec",1985-01-01,,12143,
+2586,2586,12,0,Dried pine nuts,"Noix, noix de pins, pignons (pignes), séchées",1985-01-01,,12147,Pinus pinea
+2588,2588,12,0,Roasted pistachio,"Noix, pistaches, rôties à sec",1985-01-01,,12152,
+2589,2589,12,0,Dried walnuts,"Noix, noix de noyer noir, séchées",1985-01-01,,12154,Juglans nigra
+2591,2591,12,0,Roasted breadfruit seeds,"Graines, graines de fruits à pain, rôties",1985-01-01,,12158,
+2592,2592,12,0,Roasted cottonseed,"Graines, coton, graines, rôties",1985-01-01,,12160,Gossypium spp.
+2599,2599,12,0,Dried watermelon seed,"Graines, melon d'eau (pastèque), graines, déshydratées",1985-01-01,,12174,Citrullus lanatus
+2605,2605,12,0,Almond butter,"Noix, beurre d'amandes, nature",1985-01-01,,12195,
+2615,2615,12,0,Lotus seeds,"Graines, lotus, graines, crues",1985-01-01,,12205,Nelumbo spp.
+2620,2620,12,0,"Roasted, salted sunflower seeds","Graines, tournesol, graines, rôties à sec, salées",1985-01-01,,12537,
+2635,2635,12,0,"Roasted, salted pecans","Noix, pacanes, rôties à sec, salées",1985-01-01,,12643,
+2637,2637,12,0,"Roasted, salted pistachio","Noix, pistaches, rôties à sec, salées",1985-01-01,,12652,
+2644,2644,12,3,Pistachio,"Noix, pistaches, crues",1985-01-01,,12151,Pistacia vera
+2645,2645,12,3,Roasted pumpkin seeds,"Graines, citrouille et courge, graines, entières, rôties",1985-01-01,,12163,Cucurbita spp.
+2650,2650,13,0,Beef brain,"Boeuf, cervelle, crue",1988-01-01,,13318,
+2653,2653,13,0,Beef heart,"Boeuf, coeur, cru",1988-01-01,,13321,
+2658,2658,13,0,Beef lungs,"Boeuf, poumon, cru",1988-01-01,,13328,
+2661,2661,13,0,Beef pancreas,"Boeuf, pancréas, cru",1988-01-01,,13331,
+2663,2663,13,0,Beef spleen,"Boeuf, rate, cru",1988-01-01,,13333,
+2665,2665,13,0,Beef suet,"Boeuf, graisse de rognons (suif), cru",1988-01-01,,13335,
+2666,2666,13,0,Beef thymus,"Boeuf, thymus, cru",1988-01-01,,13337,
+2668,2668,13,0,Beef tongue,"Boeuf, langue, cru",1988-01-01,,13339,
+2670,2670,13,0,Beef tripe,"Boeuf, tripe, cru",1988-01-01,,13341,
+2676,2676,13,0,Beef brisket,"Boeuf, pointe de poitrine, maigre, 0mm (0"") paré, cru",1990-01-01,,13023,
+2683,2683,13,1,Lean ground beef,"Boeuf, haché, maigre, cru",1988-01-01,1999-03-01,13295,
+2690,2690,13,1,Medium ground beef,"Boeuf, haché, mi-maigre, cru",1988-01-01,1999-03-01,23572,
+2698,2698,13,1,Ground beef,"Boeuf, haché, régulier",1988-01-01,,23581,
+2707,2707,13,0,Cured beef,"Boeuf, salé, boeuf déshydraté",1988-01-01,,13350,
+2708,2708,7,1,"Deli meat, beef, cured, jellied","Viande froide, boeuf, salé, en gelée",1990-01-01,,13353,
+2787,2787,13,0,Beef kidneys,"Boeuf, rognon de, cru",1988-01-01,,13323,
+2788,2788,13,0,Beef liver,"Boeuf, foie de, cru",1990-01-01,,13325,
+2792,2792,7,23,Beef pastrami,"Charcuterie, pastrami, boeuf, tranché",1996-01-01,,13355,
+2835,2835,14,0,Beer,"Alcoolisé, bière, légère (4% alcool par volume)",1988-01-01,,14006,
+2843,2843,14,0,Crème de menthe,"Alcoolisé, liqueur, crème de menthe (36% alcool par volume)",1988-01-01,,14034,
+2844,2844,14,0,Whisky,"Alcoolisé, whisky (40% alcool par volume)",1988-01-01,,14037,
+2845,2845,14,0,Rum,"Alcoolisé, rhum  (40% alcool par volume)",1988-01-01,,14050,
+2846,2846,14,0,Vodka,"Alcoolisé, vodka  (40% alcool par volume)",1988-01-01,,14051,
+2850,2850,14,0,Red wine,"Alcoolisé, vin de table, rouge (11,5% alcool par volume)",1988-01-01,,14096,
+2852,2852,14,0,White wine,"Alcoolisé, vin de table, blanc (11,5% alcool par volume)",1988-01-01,,14106,
+2853,2853,14,0,Club soda,"Boissons gazeuses, soda nature (club soda)",1988-01-01,,14121,
+2854,2854,14,0,Cream soda,"Boissons gazeuses, soda mousse",1988-01-01,,14130,
+2855,2855,14,0,Ginger ale,"Boissons gazeuses, soda au gingembre",1988-01-01,,14136,
+2856,2856,14,0,Ggrape soda,"Boissons gazeuses, soda au raisin",1988-01-01,,14142,
+2857,2857,14,0,Lemon-lime soda,"Boissons gazeuses, soda au citron et à la lime",1988-01-01,,14145,
+2858,2858,14,1,Orange soda,"Boissons gazeuses, soda à l'orange",1988-01-01,,14150,
+2860,2860,14,0,Tonic water,"Boissons gazeuses, soda tonique (quinine)",1988-01-01,,14155,
+2861,2861,14,0,Root beer,"Boissons gazeuses, soda racinette",1988-01-01,,14157,
+2866,2866,19,0,Chocolate syrup,"Chocolat, sirop, consistance claire",1988-01-01,,14181,
+2869,2869,14,0,Hot chocolate mix,"Chocolat chaud, mélange sec",1988-01-01,,14192,
+2874,2874,14,0,Instant coffee,"Café instantané, régulier, poudre",1988-01-01,,14214,
+2876,2876,14,0,Instant decaffeinated coffee,"Café instantané, décaféiné, poudre",1988-01-01,,14218,
+2880,2880,14,0,Instant mocha,"Café instantané, avec sucre, saveur moka, poudre",1988-01-01,,14224,
+2881,2881,14,30,Instant cappucino,"Café instantané, avec sucre, saveur cappucino, poudre",1988-01-01,,14228,
+2882,2882,14,30,Instant french vanilla,"Café instantané, avec sucre, saveur Française, poudre",1988-01-01,,14229,
+2892,2892,14,0,Frozen lemonade,"Limonade, blanche, concentré congelé",1988-01-01,,14292,
+2894,2894,14,0,Frozen Limeade,"Lime, boisson (limeade), concentré congelé",1988-01-01,,14302,
+2898,2898,14,0,Malted milk powder,"Lait malté, saveur naturelle, poudre",1988-01-01,,14311,
+2902,2902,14,0,Chocolate malted milk powder,"Lait malté, saveur chocolat, poudre",1988-01-01,,14317,
+2909,2909,14,0,Tea,Thé infusé,1988-01-01,,14355,
+2918,2918,14,0,Sparkling water,"Eau minérale, gazéifiée, bouteille",1988-01-01,,14075,
+2919,2919,14,0,Poland springs water,"Eau de source, ""POLAND SPRINGS"", bouteille",1988-01-01,,14385,
+2920,2920,14,0,Cola,"Boissons gazeuses, cola, restaurant-minute",1988-01-01,,14400,
+2921,2921,14,0,Frozen fruit punch,"Boisson au jus, punch aux fruits, concentré congelé",1988-01-01,,14405,
+2933,2933,14,0,Water,Eau municipale,1988-01-01,,14429,
+2934,2934,14,0,Whisky,"Alcoolisé, whisky (47% alcool par volume)",1988-01-01,,14532,
+2939,2939,14,0,Frozen pink lemonade,"Limonade rose, concentré congelé",1988-01-01,,14542,
+2942,2942,14,0,Chamomile tea,"Thé infusé, chamomile",1988-01-01,,14545,
+2952,2952,14,1,Gin,"Alcoolisé, gin (40% alcool par volume)",1988-01-01,,14049,
+2954,2954,14,1,Cranberry-apple juice,"Boisson au jus, canneberges et pommes, vitamine C ajoutée, bouteille",1988-01-01,,14238,
+2955,2955,14,1,Cranberry-grape juice,"Boisson au jus, canneberges et raisins, vitamine C ajoutée, bouteille",1988-01-01,,14241,
+2956,2956,14,1,Cranberry juice,"Jus, cocktail, canneberges, vitamine C ajoutée, bouteille",1988-01-01,,14242,
+2959,2959,14,1,Fruit punch,"Boisson, punch aux fruits, vitamine C ajoutée, prête à boire",1988-01-01,,14264,
+2984,2984,15,3,Anchovy,"Poisson, anchois, eueropéen, cru",1989-01-01,,15001,Engraulis encrasichholus (L)
+2986,2986,15,0,Fresh water bass,"Poisson, bar, d'eau douce, espèces diverses, crues",1989-01-01,,15003,Percichthyidae and Centrarchidae
+2987,2987,15,0,Striped bass,"Poisson, bar, d'amérique, cru",1989-01-01,,15004,Morone saxatilis (Walbaum)
+2988,2988,15,0,Bluefish,"Poisson, tassergal, cru",1989-01-01,,15005,Pomatomus saltatrix (L)
+2989,2989,15,28,Burbot,"Poisson, lotte (loche), autochtone, crue",1989-01-01,,,Lota lota (L)
+2990,2990,15,0,Butterfish,"Poisson, stromatée à fossettes, crue",1989-01-01,,15007,Peprilus triacanthus (Peck)
+2991,2991,15,0,Carp,"Poisson, carpe, crue",1989-01-01,,15008,Cyprinus carpio
+2993,2993,15,0,Catfish,"Poisson, barbue de rivière, sauvage, crue",1994-01-01,,15010,Ictalurus punctatus (Rafinesque)
+2995,2995,15,3,Caviar,"Poisson, caviar, noir et rouge, granuleux",1989-01-01,,15012,
+2996,2996,15,28,Cisco,"Poisson, cisco (hareng de lac), autochtone, cru",1989-01-01,,15013,Coregonus autumnalis
+2998,2998,15,0, Canned atlantic cod,"Poisson, morue de l'atlantique, conserve, solides et liquide",1989-01-01,,15017,
+2999,2999,15,0,Dried atlantic cod,"Poisson, morue de l'atlantique, déshydratée et salée",1989-01-01,,15018,
+3000,3000,15,0,Atlantic croaker,"Poisson, tambour brésilien, cru",1989-01-01,,15020,Micropogonias undulatus (L)
+3002,3002,15,0,Dolphinfish,"Poisson, coryphène commune, crue",1989-01-01,,15023,Coryphaena hippurus (L)
+3003,3003,15,0,Freshwater drum,"Poisson, malachigan d'eau douce (drum), cru",1989-01-01,,15024,Aplodinotus grunniens (Rafinesque)
+3004,3004,15,0,Eel,"Poisson, anguille, espèces diverses, crues",1989-01-01,,15025,Anguilla spp.
+3006,3006,15,0,Frozen fish sticks,"Poisson, bâtonnets, congelés, préparés",1989-01-01,,15027,
+3009,3009,15,0,Grouper,"Poisson, merou, espèces diverses, crues",1989-01-01,,15031,Epinephelus spp.
+3013,3013,15,0,Halibut,"Poisson, flétan, Groenland (flétan noir), cru",1989-01-01,,15038,Reinhardtius hippoglossoides (Walbaum)
+3014,3014,15,3,Atlantic herring,"Poisson, hareng, atlantique, cru",1989-01-01,,15039,Clupea harengus harengus (L)
+3018,3018,15,0,Pacific herring,"Poisson, hareng, pacifique, cru",1989-01-01,,15043,Clupea harengus pallasi Valenciennes
+3019,3019,15,0,Ling,"Poisson, lingue, cru",1989-01-01,,15044,Molva molva (L)
+3020,3020,15,0,Lingcod,"Poisson, morue lingue, crue",1989-01-01,,15045,Ophiodon elongatus Girard
+3021,3021,15,3,Atlantic mackerel,"Poisson maquereau bleu, cru",1989-01-01,,15046,Scomber scombrus L
+3024,3024,15,0,King mackerel,"Poisson, thazard bané (maquereau royal), cru",1989-01-01,,15049,Scombermorus cavalla (Cuvier)
+3025,3025,15,0,Pacific mackerel,"Poisson, maquereau espagnol et chinchard, espèces diverses, crues",1994-01-01,,15050,Scomber spp and Trachurus spp.
+3028,3028,15,0,Milkfish,"Poisson, chanide, cru",1989-01-01,,15053,Chanos chanon (Forskaal)
+3029,3029,15,0,Striped mullet,"Poisson, mulet cabot (muge cabot), cru",1989-01-01,,15055,Mugil  cephalus L.
+3031,3031,15,0,Ocean perch,"Poisson, sebaste, atlantique, cru",1989-01-01,,15057,Sebastes marinus L.
+3033,3033,15,0,Pout,"Poisson, loquette d'amérique, crue",1989-01-01,,15059,Macrozoarces americanus (Schneider)
+3034,3034,15,0,Perch,"Poisson, perchaude, espèces diverses, crues",1989-01-01,,15060,Morone americana Gmelin and Perca flavescens (Mitchill)
+3036,3036,15,28,Pike,"Poisson, grand brochet, autochtone, cru",1989-01-01,,15062,Esox lucius L.
+3038,3038,15,0,Atlantic pollock,"Poisson, goberge, atlantique (merlan, lieu noir), crue",1989-01-01,,15065,Pollachius virens L.
+3039,3039,15,3,Alaska pollock,"Poisson, morue, pacifique occidental, crue",1989-01-01,,15066,Theragra chalcogramma (Pallas)
+3041,3041,15,0,Pompano,"Poisson, pompano, floride, cru",1989-01-01,,15068,Trachinotus carolinus (L.)
+3043,3043,15,0,Rockfish,"Poisson, sébaste, pacifique, espèces diverses, crues",1989-01-01,,15070,Sebastes spp.
+3045,3045,15,0,Roe,"Poisson, rogue (oeufs de poisson), espèces diverses, crues",1989-01-01,,15072,
+3046,3046,15,0,Orange roughy,"Poisson, hoplostète orange (""orange roughy""), cru",1994-01-01,,15073,Hoplostethus atlanticus
+3047,3047,15,0,Sablefish,"Poisson, morue charbonnière, crue",1989-01-01,,15074,Anoplopoma fimbria (Pallas)
+3049,3049,15,3,Salmon,"Poisson, saumon, atlantique, sauvage, cru",1989-01-01,,15076,Salmo salar L.
+3054,3054,15,0,Canned sardine with tomato,"Poisson, sardines, Pacifique, conserve, avec sauce tomate, égouttées, avec arêtes",1989-01-01,,15089,Sardinops spp
+3055,3055,15,0,Scup,"Poisson, spare doré, cru",1989-01-01,,15090,Stenotomus chrysops L.
+3056,3056,15,0,Sea bass,"Poisson, bar commun (serran), espèces diverses, crues",1989-01-01,,15091,Centropristes striata L. and Lateolabrax japonicus (Cuvier)
+3058,3058,15,0,Seatrout,"Poisson, truite de mer, espèces diverses, crues",1989-01-01,,15093,Cynoscion spp.
+3059,3059,15,0,Shad,"Poisson, alose, crue",1989-01-01,,15094,Alosa sapidissima (Wilson)
+3060,3060,15,3,Shark,"Poisson, requin, (aiguillat), espèces diverses, crues",1989-01-01,,15095,Squaliformes
+3062,3062,15,0,Sheepshead,"Poisson, malachigan d'eau douce (""sheepshead""), cru",1989-01-01,,15097,Archosargus probatocephalus (Walbaum)
+3064,3064,15,0,Rainbow smelt,"Poisson, éperlan, arc-en-ciel (d'amérique), cru",1989-01-01,,15099,Osmerus mordax (Mitchill)
+3066,3066,15,0,Snapper,"Poisson, vivaneau, espèces diverses, crues",1989-01-01,,15101,Lutjanidae
+3068,3068,15,0,Spot,"Poisson, tambour croca, cru",1989-01-01,,15103,Leiostomus xanthuras Lacepede
+3069,3069,15,0,Sturgeon,"Poisson, esturgeon, espèces diverses, crues",1989-01-01,,15104,Acipenser spp.
+3072,3072,15,0,White mullet,"Poisson, meunier noir (carpe noire), cru",1989-01-01,,15107,Catostomus commersoni (Lacepede)
+3073,3073,15,0,Sunfish,"Poisson, crapet-soleil, cru",1989-01-01,,15108,Lepomis gibbosus (L.)
+3074,3074,15,0,Surimi,"Poisson, surimi",1989-01-01,,15109,
+3075,3075,15,0,Swordfish,"Poisson, espadon, cru",1989-01-01,,15110,Xiphias gladius L.
+3077,3077,15,0,Tilefish,"Poisson, tile, cru",1989-01-01,,15112,Lopholatilus chamaeleonticeps Goode and Bean
+3079,3079,15,0,Bluefin tuna,"Poisson, thon rouge, frais, cru",1989-01-01,,15117,Thunnus thynnus (L.)
+3081,3081,15,3,Canned light tuna,"Poisson, thon, chair pale, conserve, dans l'eau, égoutté, salé",1994-01-01,,15121,
+3082,3082,15,0,Skipjack tuna,"Poisson, bonite à ventre rayé, frais, cru",1989-01-01,,15123,Euthynnus pelamis (L.)
+3085,3085,15,3,Yellowfin tuna,"Poisson, thon à nageoires jaunes, frais, cru",1989-01-01,,15127,Thunnus albacares (Bonnaterre)
+3086,3086,15,0,Tuna salad,"Thon, salade",1989-01-01,,15128,
+3087,3087,15,0,Turbot,"Poisson, turbot, européen, cru",1989-01-01,,15129,Scophthalmus maximus (L.)
+3088,3088,15,28,Whitefish,"Poisson, corégone de lac, espèces diverses, autochtone, fumées",1989-01-01,,15131,Coregonus spp.
+3089,3089,15,0,Hake,"Poisson, merlu (colllin), espèces diverses, crues",1989-01-01,,15132,Gadidae
+3091,3091,15,0,Atlantic catfish,"Poisson, loup de l'atlantique (loup de mer), cru",1989-01-01,,15134,Anarhichas lupus (L.)
+3092,3092,15,0,Yellowtail,"Poisson, sériole, espèces diverses, crues",1989-01-01,,15135,Seriola spp.
+3093,3093,15,3,Alaska king crab,"Crustacés, crabe royal d'alaska, cru",1989-01-01,,15136,Paralithodes camtschatica (Tilesius)
+3095,3095,15,0,Imitation crab,"Crustacés, crabe royal d'alaska, imitation (fruits de mer surimi)",1989-01-01,,15138,
+3096,3096,15,0,Blue crab,"Crustacés, crabe, bleu, cru",1989-01-01,,15139,Callinectes sapidus Rathbun
+3100,3100,15,0,Dungeness crab,"Crustacés, crabe dormeur, pacifique, cru",1989-01-01,,15143,Cancer magister Dana
+3101,3101,15,0,Spider snow crab,"Crustacés, crabe des neiges (crabe-araignée), cru",1989-01-01,,15144,Chionoectes opilio (O. Fabricius)
+3102,3102,15,0,Crayfish,"Crustacés, écrevisse, espèces diverses, sauvage, crues",1994-01-01,,15145,"Astacus, Orconectes, and Procambarus spp."
+3106,3106,15,0,Lobster,"Crustacés, langouste, espèces diverses, crues",1989-01-01,,15154,Jasus spp. and Panulirus spp.
+3107,3107,15,0,Abalone,"Mollusques, ormeau, espèces diverses, crues",1989-01-01,,15155,Haliotis spp.
+3109,3109,15,3,Clam,"Mollusques, mye (palourde), espèces diverses, crues",1989-01-01,,15157,Lamellibranchia
+3113,3113,15,0,Canned clam,"Mollusques, mye (palourde), espèces diverses, conserve, liquide",1989-01-01,,15162,
+3114,3114,15,0,Cuttlefish,"Mollusques, seiche (seche, sépiole), espèces diverses, crues",1989-01-01,,15163,Sepiidae
+3115,3115,15,3,Mussel,"Mollusques, moule, bleue, crue",1989-01-01,,15164,Mytilus edulis L.
+3117,3117,15,0,Octopus,"Mollusques, poulpe (pieuvre), ordinaire, cru",1989-01-01,,15166,Octopus vulgaris Lamarck
+3118,3118,15,0,Oyster,"Mollusques, huître, atlantique, sauvage, crue",1994-01-01,,15167,Crassostrea virginica (Gmelin)
+3121,3121,15,0,Canned oyster,"Mollusques, huître, atlantique, sauvage, conserve, solides et liquide",1989-01-01,,15170,
+3124,3124,15,0,Imitation scallop,"Mollusques, pétoncle, espèces diverses, imitation (surimi)",1989-01-01,,15174,
+3125,3125,15,0,Squid,"Mollusques, calmar, espèces diverses, crues",1989-01-01,,15175,Loligoidae and Ommastrephidae
+3127,3127,15,0,Whelk,"Mollusques, buccin, non précisé, cru",1989-01-01,,15177,Buccinidae
+3186,3186,15,0,Rainbow trout,"Poisson, truite, arc-en-ciel, élevage, crue",1994-01-01,,15240,Salmo gairdneri Richardson
+3197,3197,15,0,Cusk,"Poisson, brosme, cru",1989-01-01,,15022,Brosme brosme (Muller)
+3198,3198,15,3,Haddock,"Poisson, aiglefin, cru",1989-01-01,,15033,Melanogrammus aeglefinus (L.)
+3201,3201,15,3,Monkfish,"Poisson, baudroie d'amérique, crue",1989-01-01,,15054,Lophius piscatorius L.
+3202,3202,15,3,Pickerel,"Poisson, doré (doré jaune ou blanc), cru",1989-01-01,,15064,Stizostedion vitreum vitreum (Mitchill)
+3203,3203,15,3,Canned sardine,"Poisson, sardine, Atlantique, conserve, dans l' huile, égoutté avec arêtes",1989-01-01,,15088,Clupea harengus harengus L.
+3211,3211,15,3,Shrimp,"Crustacés, crevette, espèces diverses, crues",1989-01-01,,15149,Penaeidae and Pandalidae
+3213,3213,15,3,Scallop,"Mollusques, pétoncle (coquille St Jacques), espèces diverses, cru",1989-01-01,,15172,Pectinidae
+3216,3216,15,3,Flatfish,"Poisson plat (plie ou flet ou sole), cru",1989-01-01,,15028,Bothidae and Pleuronectidae
+3217,3217,15,3,Chum salmon,"Poisson, saumon, kéta, cru",1989-01-01,,15079,Oncorhynchus keta (Walbaum)
+3219,3219,15,3,Coho salmon,"Poisson, saumon, coho, sauvage, cru",1994-01-01,,15081,Oncorhynchus kisutch (Walbaum)
+3221,3221,15,3,Humpback salmon,"Poisson, saumon, rose, cru",1989-01-01,,15083,Oncorhynchus gorbuscha (Walbaum)
+3230,3230,15,28,Arctic char,"Poisson, omble chevalier, autochtone, viande, cru",1990-01-01,,,Salvelinus alpinus (naresi)
+3233,3233,15,23,Goldeye,"Poisson, laquaiche aux yeux d'or, crues",1990-01-01,,,
+3234,3234,15,23,Inconnu,"Poisson, inconnu, cru",1990-01-01,,,
+3235,3235,15,23,Sauger,"Poisson, doré noir, cru",1990-01-01,,,
+3240,3240,15,20,Clam fritter,"Mye, beignet",1981-01-01,,,
+3241,3241,15,20,Eulachon,"Poisson, eulakane, cru",1981-01-01,,,
+3243,3243,16,0,Adzuki,"Haricots, adzuki, crus",1988-01-01,,16001,Vigna angularis
+3245,3245,16,0,Canned adzuki,"Haricots, adzuki, conserve, sucrés",1988-01-01,,16003,
+3248,3248,16,0,Baked beans,"Haricots au four (''fèves au lard''), conserve, nature ou végétarien",1988-01-01,,16006,
+3249,3249,16,0,Baked beans with beef,"Haricots au four (''fèves au lard''), conserve, avec boeuf",1988-01-01,,16007,
+3250,3250,16,0,Baked beans with weiners,"Haricots au four (''fèves au lard''), conserve, avec saucisses",1988-01-01,,16008,
+3251,3251,16,0,Baked beans with sweet sauce,"Haricots au four (''fèves au lard''), conserve, avec lard et sauce sucrée",1988-01-01,,16010,
+3252,3252,16,0,Black turtle seeds,"Haricots, ""black turtle"", grains mûrs, crus",1988-01-01,,16016,Phaseolus vulgaris
+3255,3255,16,0,Cranberry beans,"Haricots, canneberge (romain), crus",1988-01-01,,16019,Phaseolus vulgaris
+3257,3257,16,0,French beans,"Haricots verts, grains mûrs, crus",1988-01-01,,16022,Phaseolus vulgaris
+3259,3259,16,0,Great northern beans,"Haricots, ""great northern"", crus",1988-01-01,,16024,Phaseolus vulgaris
+3266,3266,16,0,Canned navy beans,"Haricots, petits blancs, conserve, solides et liquide",1988-01-01,,16039,
+3267,3267,16,0,Pink beans,"Haricots, roses, crus",1988-01-01,,16040,Phaseolus vulgaris
+3272,3272,16,0,Small white beans,"Haricots, blancs, petits, crus",1988-01-01,,16045,Phaseolus vulgaris
+3273,3273,16,0,"Beans, small white, boiled","Haricots, blancs, petits, bouillis",1988-01-01,,16046,
+3274,3274,16,0,Yellow beans,"Haricots, jaunes (fève), crus",1988-01-01,,16047,Phaseolus vulgaris
+3277,3277,16,0,Canned fava beans,"Gourganes (fèves des marais, fava), conserve, solides et liquide",1988-01-01,,16054,
+3278,3278,16,0,Carob flour,"Caroube, farine",1994-01-01,,16055,Ceratonia siliqua
+3279,3279,16,0,Canned chickpeas,"Pois chiches (garbanzo), conserve, solides et liquide",1988-01-01,,16058,
+3286,3286,16,0,Hyacinth beans,"Doliques d'Égypte, crus",1988-01-01,,16067,Dolichos purpureus
+3288,3288,16,0,Large lima beans,"Haricots, lima, secs, gros, crus",1988-01-01,,16071,Phaseolus lunatus
+3293,3293,16,0,Lupins,"Lupins, crus",1988-01-01,,16076,Lupinus albus
+3295,3295,16,0,Moth beans,"Haricots, mat (papillon), crus",1988-01-01,,16078,Vigna aconitifolia
+3300,3300,16,0,Mungo,"Haricots, mungo, crus",1988-01-01,,16083,Vigna mungo
+3302,3302,16,0,"Roasted, salted peanuts","Arachides, tous les types, rôties/sec, salées",1988-01-01,,16090,
+3303,3303,16,0,Peanuts,"Arachides, Espagnoles, crues",1988-01-01,,16091,Arachis hypogaea
+3309,3309,16,0,Peanut butter,"Beurre d'arachides croquant, gras, sucre et sel ajoutés",1988-01-01,,16097,
+3311,3311,16,0,Peanut flour,"Arachides, farine, faible en gras",1988-01-01,,16100,
+3312,3312,16,0,Red gram peas,"Pois, cajan, crus",1988-01-01,,16101,Cajanus cajan
+3314,3314,16,0,Refried beans,"Haricots, sautés (frigoles refrits), conserve",1995-01-01,,16103,
+3317,3317,16,0,"Roasted, salted soybeans","Haricots, soya, rôtis avec sel",1988-01-01,,16110,
+3318,3318,16,0,Roasted soybeans,"Haricots, soya, rôtis à sec",1988-01-01,,16111,
+3319,3319,16,0,Miso,"Soya, produits fermentés, miso",1988-01-01,,16112,
+3320,3320,16,0,Natto,"Soya, produits fermentés, natto",1988-01-01,,16113,
+3321,3321,16,0,Tempeh,"Soya, produits fermenté, tempeh (tempe)",1988-01-01,,16114,
+3322,3322,16,0,Soy flour,"Soya, farine, non dégraissée, nature",1988-01-01,,16115,
+3323,3323,16,0,Roasted soy flour,"Soya, farine, non dégraissée, rôtie",1988-01-01,,16116,
+3329,3329,16,0,Soy sauce,"Soya, sauce (fait de soya), tamari",1988-01-01,,16124,
+3332,3332,16,0,Okara,Okara,1988-01-01,,16130,
+3376,3376,16,3,Black beans,"Haricots, noirs, grains mûrs, crus",1988-01-01,,16014,
+3385,3385,16,3,White beans,"Haricots, blancs, crus",1988-01-01,,16049,Phaseolus vulgaris
+3387,3387,16,3,Broadbeans ,"Gourganes (fèves des marais, fava), déshydratées, crues",1988-01-01,,16052,Vicia faba
+3389,3389,16,3,Chickpeas,"Pois chiches (garbanzo), crus",1988-01-01,,16056,Cicer arietinum
+3392,3392,16,3,Lentils,"Lentilles, crues",1988-01-01,,16069,Lens culinaris
+3404,3404,16,3,Tofu,"Tofu, régulier, ferme ou extra ferme, nature (préparé avec sulfate de calcium et chlorure de magnésium)",1988-01-01,,16126,
+3422,3422,17,23,Lean lamb,"Agneau, canadien, coupes diverses, maigre, cru",1990-01-01,,17003,
+3423,3423,17,23,Fat lamb,"Agneau, canadien, coupes diverses, maigre, cuit",1990-01-01,,17004,
+3428,3428,17,23,Lamb foreshank,"Agneau, canadien, jarret, maigre, cru",1990-01-01,,,
+3432,3432,17,23,Lamb leg,"Agneau, canadien, gigot, entier, maigre, cru",1990-01-01,,,
+3445,3445,17,23,Lamb loin,"Agneau, canadien, longe, maigre, cru",1990-01-01,,,
+3451,3451,17,23,Lamb rib,"Agneau, canadien, côte, maigre, cru",1990-01-01,,,
+3458,3458,17,23,Lamb shoulder,"Agneau, canadien, épaule, entier, maigre, cru",1990-01-01,,,
+3478,3478,17,0,Cubed lamb,"Agneau, cubes à ragout ou brochette, maigre, cru",1990-01-01,,17059,
+3499,3499,17,0,Lamb rack,"Agneau, Nouvelle-Zélande, carré, côtes partiellement exposées, maigre et gras, cru",1990-01-01,,17080,
+3507,3507,17,0,Veal,"Veau, coupes diverses, maigre et gras, cru",1990-01-01,,17088,Bos taurus
+3513,3513,17,0,Veal leg,"Veau, cuisse (ronde), maigre et gras, cru",1990-01-01,,17094,
+3518,3518,17,23,Veal cutlets,"Veau de lait, escalopes (ronde d'intérieur), cru",1990-01-01,2000-01-08,,
+3523,3523,17,0,Veal loin,"Veau, longe, maigre et gras, cru",1990-01-01,,17104,
+3529,3529,17,23,Veal rib chop,"Veau de lait, côtelette, maigre et gras, cru",1990-01-01,,,
+3535,3535,17,23,Veal shoulder,"Veau de lait, rôti d'épaule, entier, maigre et gras, cru",1990-01-01,2000-01-08,,
+3541,3541,17,0,Veal shank,"Veau, épaule, jarret, maigre et gras, cru",1990-01-01,,17122,
+3547,3547,17,0,Veal shoulder blade,"Veau, épaule, palette, maigre et gras, cru",1990-01-01,,17128,
+3553,3553,17,0,Veal sirloin,"Veau, surlonge, maigre et gras, cru",1990-01-01,,17134,
+3559,3559,17,0,Cubed veal,"Veau, cubes à ragout (cuisse et épaule), maigre, cru",1990-01-01,,17140,
+3561,3561,17,0,Ground veal,"Veau, haché, cru",1990-01-01,,17142,
+3563,3563,17,0,Antelope,"Gibier, viande, antilope, crue",1990-01-01,,17144,"Antilocapra americana, Bosephalus tragocamelus"
+3565,3565,17,28,Bear,"Gibier, viande, autochtone, ours, cru",1990-01-01,,17146,"Ursus arctos, Euarctos spp."
+3567,3567,17,28,Beaver,"Gibier, viande, autochtone, castor, cru",1990-01-01,,,Castor canadensis
+3569,3569,17,0,Beefalo,"Gibier, viande, ""beefalo"", coupes diverses, cru",1990-01-01,,17152,
+3571,3571,17,0,Bison,"Gibier, viande, bison, cru",1990-01-01,,17156,Bison bison
+3573,3573,17,0,Boar,"Gibier, viande, sanglier, cru",1990-01-01,,17158,Sus scrofa
+3575,3575,17,0,Water buffalo,"Gibier, viande, buffle des Indes (arni), cru",1990-01-01,,17160,Bubalus bubalis
+3577,3577,17,28,Caribou,"Gibier, viande, autochtone, caribou, (renne), viande, crue",1990-01-01,,,Rangifer tarandus
+3579,3579,17,0,Deer,"Gibier, viande, chevreuil (venaison), cru",1990-01-01,,17164,Odocoileus spp.
+3581,3581,17,0,Elk,"Gibier, viande, wapiti (élan), cru",1990-01-01,,17166,Cervus elaphyus
+3583,3583,17,0,Goat,"Gibier, viande, chèvre, cru",1990-01-01,,17168,
+3585,3585,17,0,Horse,"Gibier, viande, cheval, cru",1990-01-01,,17170,Equus caballus
+3587,3587,17,28,Moose,"Gibier, viande, autochtone, orignal, cru",1990-01-01,,,Alces alces
+3589,3589,17,28,Muskrat,"Gibier, viande, autochtone, rat musqué, cru",1990-01-01,,,Ondatra zibethica
+3592,3592,17,0,Rabbit,"Gibier, viande, lapin domestique, coupes diverses, cru",1990-01-01,,17177,Oryctolagus spp.
+3598,3598,17,0,Squirrel,"Gibier, viande, écureuil, cru",1990-01-01,,17183,Sciuridae
+3600,3600,17,0,Lamb brain,"Agneau, cervelle, crue",1990-01-01,,17185,
+3603,3603,17,0,Veal brain,"Veau, cervelle, cru",1990-01-01,,17188,
+3606,3606,17,0,Lamb heart,"Agneau, coeur, cru",1990-01-01,,17191,
+3608,3608,17,0,Veal heart,"Veau, coeur, cru",1990-01-01,,17193,
+3610,3610,17,0,Lamb kidney,"Agneau, rognon, cru",1990-01-01,,17195,
+3612,3612,17,0,Veal kidney,"Veau, rognon, cru",1990-01-01,,17197,
+3614,3614,17,0,Lamb liver,"Agneau, foie, cru",1990-01-01,,17199,
+3617,3617,17,0,Veal liver,"Veau, foie, cru",1990-01-01,,17202,
+3620,3620,17,0,Lamb lungs,"Agneau, poumons, crus",1990-01-01,,17205,
+3622,3622,17,0,Veal lungs,"Veau, poumons, cru",1990-01-01,,17207,
+3625,3625,17,0,Lamb pancreas,"Agneau, pancréas, cru",1990-01-01,,17210,
+3627,3627,17,0,Veal pancreas,"Veau, pancréas, cru",1990-01-01,,17212,
+3629,3629,17,0,Lamb spleen,"Agneau, rate, crue",1990-01-01,,17214,
+3631,3631,17,0,Veal spleen,"Veau, rate, cru",1990-01-01,,17216,
+3633,3633,17,0,Veal thymus,"Veau, thymus, cru",1990-01-01,,17218,
+3635,3635,17,0,Lamb tongue,"Agneau, langue, crue",1990-01-01,,17220,
+3637,3637,17,0,Veal tongue,"Veau, langue, cru",1990-01-01,,17222,
+3639,3639,17,23,Ground lamb,"Agneau, canadien, haché, cru",1990-01-01,,,
+3641,3641,17,28,Caribou bone marrow,"Gibier, viande, autochtone, caribou (renne), moelle osseuse, crue",1981-01-01,,,Rangifer tarandus
+3642,3642,17,20,Frog legs,"Gibier, viande, grenouille, cuisses, crues",1981-01-01,,80200,
+3645,3645,17,20,Seal,"Gibier, viande, phoque du groenland, cru",1991-01-01,,,
+3647,3647,17,28,Walrus,"Gibier, viande, autochtone, morse, viande, crue",1981-01-01,,,Odobenus rosmarus
+3648,3648,17,20,Whale,"Gibier, viande, baleine, cru",1981-01-01,,,
+3652,3652,17,23,Veal loin chop,"Veau de grain, longe, maigre et gras, cru",1997-01-01,,,
+3660,3660,17,23,Veal shouder,"Veau de grain, rôti d'épaule, entier, maigre et gras, cru",1997-01-01,2000-01-08,,
+3664,3664,17,23,Veal shoulder shank,"Veau de grain, épaule, jarret, maigre et gras, cru",1997-01-01,,,
+3671,3671,18,0,Poppyseed bagel,"Bagel, nature (avec oignon, graines de pavot et/ou graines de sesame)",1995-01-01,,18001,
+3673,3673,18,0,Bagel,"Bagel, oeufs",1995-01-01,,18003,
+3675,3675,18,0,Cinnamon-raisin bagel,"Bagel, cannelle-raisins secs",1995-01-01,,18005,
+3677,3677,18,0,Oat bran bagel,"Bagel, son d'avoine",1995-01-01,,18007,
+3679,3679,18,0,Buttermilk biscuit,"Biscuit, poudre à pâte, nature/babeurre, mélange sec, non préparé",1995-01-01,,18010,
+3691,3691,18,0,Cornbread mix,"Pain, semoule de maïs (aussi préparation pour muffin), mélange sec, non préparé",1995-01-01,,18022,
+3695,3695,18,0,Egg bread,"Pain, oeufs (Challa)",1995-01-01,,18027,
+3700,3700,18,38,Italian bread,"Pain, italien",1995-01-01,,18033,
+3702,3702,18,38,Multigrain bread,"Pain, multigrains (aussi blé entier, sept grains)",1995-01-01,,18035,
+3708,3708,18,0,White pita bread,"Pain, pita, blanc",1995-01-01,,18041,
+3709,3709,18,0,Whole-wheat pita bread,"Pain, pita, blé entier",1995-01-01,,18042,
+3710,3710,18,0,Bread,"Pain, protéines (inclus au gluten)",1995-01-01,,18043,
+3711,3711,18,38,Pumpernickel bread,"Pain, seigle foncé (""pumpernickel"")",1995-01-01,,18044,
+3714,3714,18,38,Raisin bread,"Pain blanc aux raisins, commercial",1995-01-01,,18047,
+3725,3725,18,0,Glueten free ricebran bread,"Pain, son de riz, sans gluten",1995-01-01,,18059,
+3731,3731,18,0,Wheat germ bread,"Pain, germe de blé",1995-01-01,,18068,
+3739,3739,18,0,Bread stick,"Pain, bâtonnet, nature",1995-01-01,,18080,
+3740,3740,18,0,Stuffing mix,"Pain, préparation pour farce, mélange sec, préparé",1995-01-01,,18082,
+3744,3744,18,0,Angel cake,"Gâteau des anges, commercial",1995-01-01,,18086,
+3748,3748,18,0,Boston cream pie,"Gâteau Boston, commercial",1995-01-01,,18090,
+3750,3750,18,0,Carrot cake,"Mélange à gâteau, carottes, type pouding, sec, non préparé",1995-01-01,,18092,
+3754,3754,18,0,Chocolate cake,"Gâteau, chocolat, commercial avec glaçage chocolat, cuit en magasin",1995-01-01,,18096,
+3755,3755,18,0,Chocolate cake mix,"Mélange à gâteau, chocolat, type pouding, sec, non préparé",1995-01-01,,18097,
+3757,3757,18,30,Fudge chocolate cake,"Mélange à gâteau, chocolat (diablotin, fudge), ordinaire, sec, non préparé",1995-01-01,,18099,
+3762,3762,18,0,Coffee cake,"Gâteau café, cannelle avec garniture de miettes, commercial",1995-01-01,,18104,
+3767,3767,18,0,Fruitcake,"Gâteau, fruits, commercial",1995-01-01,,18110,
+3777,3777,18,0,Pound cake,"Gâteau, quatre-quarts, préparation commerciale, fait avec du beurre (inclus frais et congelé)",1995-01-01,,18120,
+3786,3786,18,0,Sponge cake,"Gâteau, éponge, commercial",1995-01-01,,18133,
+3800,3800,18,0,Cheesecake,"Gâteau, au fromage, commercial",1995-01-01,,18147,
+3803,3803,18,0,Animal crackers,"Biscuit, à la ménagerie (arrowroot, thé social)",1995-01-01,,18150,
+3804,3804,18,0,Brownie,"Biscuit, carré au chocolat, commercial",1995-01-01,,18151,
+3808,3808,18,0,Butter cookie,"Biscuit, beurre, commercial",1995-01-01,,18155,
+3809,3809,18,0,Fudge cookie,"Biscuit, fudge, type gâteau",1995-01-01,,18156,
+3810,3810,18,0,Chocolate wafer,"Biscuit, gaufrette au chocolat",1995-01-01,,18157,
+3813,3813,18,0,Chocolate chip cookie,"Biscuit, grains de chocolat, type moelleux, commercial",1995-01-01,,18160,
+3814,3814,18,0,Chocolate chip cookie mix,"Biscuits, grains de chocolat, mélange sec, non préparé",1995-01-01,,18161,
+3816,3816,18,0,Chocolate chip cookie dough,"Biscuit, grains de chocolat, pâte réfrigérée",1995-01-01,,18163,
+3822,3822,18,0,Coconut macaroon,"Biscuit, macaron",1995-01-01,,28309,
+3823,3823,18,0,Fig bar,"Biscuit, figues",1995-01-01,,18170,
+3824,3824,18,0,Fortune cookie,"Biscuit, petit four horoscope (fortune)",1995-01-01,,18171,
+3825,3825,18,0,Ginger snap,"Biscuit, gingembre",1995-01-01,,18172,
+3826,3826,18,0,Graham cracker,"Biscuit graham, nature ou miel (inclus cannelle)",1995-01-01,,18173,
+3828,3828,18,0,Ladyfinger,"Biscuit, doigt de dame (avec jus et zeste de citron)",1995-01-01,,18175,
+3831,3831,18,0,Oatmeal cookie,"Biscuit, avoine (avec ou sans raisins), commercial",1995-01-01,,18178,
+3838,3838,18,0,Peanut butter cookie,"Biscuit, beurre d'arachides, commercial",1995-01-01,,18185,
+3844,3844,18,0,Raisin cookie,"Biscuit, raisins secs, moelleux",1995-01-01,,18191,
+3845,3845,18,0,Shortbread,"Biscuit, sablé, nature, commercial",1995-01-01,,18192,
+3849,3849,18,0,Sugar cookie,"Biscuit, sucre, commercial",1995-01-01,,18204,
+3857,3857,18,0,Vanilla wafer,"Biscuit, gaufrette, vanille, 12 à 17% gras",1995-01-01,,18212,
+3859,3859,18,0,Cheese cracker,"Craquelin, fromage",1995-01-01,,18214,
+3861,3861,18,0,Rye cracker,"Craquelin, pain plat, seigle",1995-01-01,,18216,
+3862,3862,18,0,Matzo cracker,"Craquelin, matzo, nature",1995-01-01,,18217,
+3863,3863,18,0,Egg matzo cracker,"Craquelin, matzo, oeuf",1995-01-01,,18218,
+3864,3864,18,0,Whole-weat matzo cracker,"Craquelin, matzo, blé entier",1995-01-01,,18219,
+3865,3865,18,0,Rye melba toast cracker,"Craquelin, toast melba, seigle (inclus pumpernickel)",1995-01-01,,18221,
+3866,3866,18,0,Wheat melba toast cracker,"Craquelin,l toast melbe, blé",1995-01-01,,18222,
+3867,3867,18,0,Milk cracker,"Craquelin, lait",1995-01-01,,18223,
+3868,3868,18,0,Rusk toast cracker,"Craquelin, biscotte",1995-01-01,,18224,
+3872,3872,18,0,Saltine cracker,"Craquelin, salé (aussi huîtres, soda, soupe)",1995-01-01,,18228,
+3873,3873,18,0,Cheese cracker sandwhich,"Craquelin, type collation, sandwich avec fromage",1995-01-01,,18230,
+3874,3874,18,0,Peanut butter cracker sandwhich,"Craquelin, type collation, sandwich avec beurre d'arachides",1995-01-01,,18231,
+3875,3875,18,3,Wheat cracker,"Craquelin, blé",1995-01-01,,18232,
+3882,3882,18,0,Butter croissant,"Croissant, beurre, commercial",1995-01-01,,18239,
+3884,3884,18,0,Cheese croissant,"Croissant, fromage, commercial",1995-01-01,,18241,
+3885,3885,18,0,Croutons,"Croutons, nature",1995-01-01,,18242,
+3887,3887,18,0,Cinnamon danish pastry,"Pâtisserie, Danoise, cannelle",1995-01-01,,18244,
+3888,3888,18,0,Cheese danish pastry,"Pâtisserie, Danoise, fromage",1995-01-01,,18245,
+3889,3889,18,0,Fruit danish pastry,"Pâtisserie, Danoise, fruits (pommes, raisins, citron, framboises)",1995-01-01,,18246,
+3890,3890,18,0,Nut danish pastry,"Pâtisserie, Danoise, noix (amandes, raisins secs et noix, cannelle et noix)",1995-01-01,,18247,
+3891,3891,18,0,Old-fashioned donut,"Beigne, type gâteau, nature (inclus non sucré, à l'ancienne)",1995-01-01,,18248,
+3892,3892,18,0,Chocolate donut,"Beigne, type gâteau, nature, enrobé de chocolat ou glacé",1995-01-01,,18249,
+3893,3893,18,0,Glazed donut,"Beigne, type gâteau, nature, enrobage de sucre ou givré",1995-01-01,,18250,
+3895,3895,18,0,French cruller,"Beigne, roussette, givré",1995-01-01,,18253,
+3900,3900,18,0,English muffin,"Muffin anglais, nature (aussi levain)",1995-01-01,,18258,
+3902,3902,18,0,Multigrain english muffin,"Muffin anglais, multigrains (aussi granola)",1995-01-01,,18260,
+3904,3904,18,0, Raisin-cinnamon english muffin,"Muffin anglais, raisins secs-cannelle (pommes cannelle)",1995-01-01,,18262,
+3906,3906,18,0,Wheat english muffin,"Muffin anglais, blé",1995-01-01,,18264,
+3913,3913,18,0,Wafer cone,"Crème glacée, cornet, type gâteau ou gaufrette",1995-01-01,,18271,
+3914,3914,18,0,Sugar cone,"Crème glacée, cornet, sucre, type roulé",1995-01-01,,18272,
+3915,3915,18,0,Muffin,"Muffin, nature, fait maison, avec lait 2%",1995-01-01,,18273,
+3916,3916,18,0,Blueberry muffin,"Muffin, bleuets, commercial",1995-01-01,,18274,
+3921,3921,18,0,Corn muffin,"Muffin, semoule de maïs, commercial",1995-01-01,,18279,
+3925,3925,18,0,Oat bran muffin,"Muffin, son davoine (sans farine de blé)",1995-01-01,,18283,
+3931,3931,18,0,Pancake mix,"Crêpe, nature (inclut au babeurre), mélange sec complet, non préparé",1995-01-01,,18289,
+3935,3935,18,0,Pancake,"Crêpe, nature, faite maison",1995-01-01,,18293,
+3936,3936,18,0,Blueberry pancake,"Crêpe, bleuets, faite maison",1995-01-01,,18294,
+3941,3941,18,0,Apple pie,"Tarte, pommes, commerciale, 2 croûtes",1995-01-01,,18301,
+3945,3945,18,0,Blueberry pie,"Tarte, bleuets, faite maison, 2 croûtes",1995-01-01,,18306,
+3947,3947,18,0,Cherry pie,"Tarte, cerises, faite maison, 2 croûtes",1995-01-01,,18309,
+3948,3948,18,0,Chocolate cream pie,"Tarte, crème, chocolat, commerciale",1995-01-01,,18310,
+3951,3951,18,0,Coconut cream pie,"Tarte, crème, noix de coco, commerciale",1995-01-01,,18313,
+3954,3954,18,0,Coconut custard pie,"Tarte, flan, noix de coco, commerciale",1995-01-01,,18316,
+3955,3955,18,0,Egg custard pie,"Tarte, flan aux oeufs, commerciale",1995-01-01,,18317,
+3957,3957,18,0,Fruit pie,"Tarte, chausson, fruits (pommes, bleuets, pêches, fraises)",1995-01-01,,18319,
+3958,3958,18,0,Lemon meringue pie,"Tarte, citron, meringue, commerciale",1995-01-01,,18320,
+3961,3961,18,0,Pecan pie,"Tarte, pacanes, commerciale",1995-01-01,,18324,
+3974,3974,18,0,Phyllo dough,"Phyllo, pâte",1995-01-01,,18338,
+3979,3979,18,0,Egg dinner roll,"Pain mollet, petit, aux oeufs",1995-01-01,,18344,
+3980,3980,18,0,Oat bran dinner roll,"Pain mollet, petit, son d'avoine",1995-01-01,,18345,
+3981,3981,18,0,Rye dinner roll,"Pain mollet, petit, seigle",1995-01-01,,18346,
+3982,3982,18,0,Wheat dinner roll,"Pain mollet, petit, blé (60% farine de blé entier)",1995-01-01,,18347,
+3984,3984,18,0,French roll,"Pain mollet, français",1995-01-01,,18349,
+3985,3985,18,0,Hotdog bun,"Pain mollet, hambourgeois / à hot-dog, nature",1995-01-01,,18350,
+3989,3989,18,0,Apple strudel,"Strudel, pommes",1995-01-01,,18354,
+3994,3994,18,0,Taco shell,"Coquille à taco, cuite",1995-01-01,,18360,
+3998,3998,18,0,Waffle,"Gaufre, nature, congelée, prête-à-cuire",1995-01-01,,18365,
+4001,4001,18,0,Wonton wrapper,"Wonton, enveloppe (enveloppe à rouleaux impériaux)",1995-01-01,,18368,
+4002,4002,18,0,Baking powder,"Agent de levage, levure chimique, double action, sodium, aluminium sulfate",1995-01-01,,18369,
+4005,4005,18,0,Baking soda,"Agent de levage, bicarbonate de soude",1995-01-01,,18372,
+4006,4006,18,0,Cream of tartar,"Agent de levage, crème de tartre",1995-01-01,,18373,
+4007,4007,18,0,Yeast,"Agent de levage, levure, boulangerie, comprimée",1995-01-01,,18374,
+4046,4046,18,0,Lemon pie,"Tarte, chausson, citron",1995-01-01,,18445,
+4048,4048,18,0,Tortilla,"Tortilla, prêt-à-cuire /frire, maïs, sans sel",1995-01-01,,18449,
+4053,4053,18,1,Coffee cake,"Gâteau café, fourré à la crème, avec glaçage chocolat",1995-01-01,,18105,
+4057,4057,18,1,Peach pie,"Tarte, pêche, 2 croûtes",1995-01-01,,18323,
+4058,4058,18,1,Pumpkin pie,"Tarte, citrouille, commerciale",1995-01-01,,18326,
+4059,4059,18,1,Cheese sweet roll,"Brioche, fromage",1995-01-01,,18355,
+4060,4060,18,1,Seasoned bread crumbs,"Pain, chapelure, séché, émiettée, assaisonnée",1995-01-01,,18376,
+4063,4063,18,0,Sourdough bread,"Pain, français ou viennois (aussi levain)",1995-01-01,,18029,
+4065,4065,18,38,Rye beread,"Pain, seigle",1995-01-01,,18060,
+4066,4066,18,38,White bread,"Pain, blanc, commercial",1995-01-01,,18069,
+4067,4067,18,38,Whole wheat bread,"Pain, blé entier, commercial",1995-01-01,,18075,
+4069,4069,18,0,Bread crumbs,"Pain, chapelure, séchée, émiettée, nature",1995-01-01,,18079,
+4075,4075,18,23,Beef pie,"Pâté, de boeuf, commercial",1996-01-01,,,
+4076,4076,18,23,Pork pie,"Pâté, au porc, commercial",1996-01-01,,,
+4077,4077,18,23,Chicken pie,"Pâté, au poulet, commercial",1996-01-01,,,
+4078,4078,18,23,Turkey pie,"Pâté, à la dinde, commercial",1996-01-01,,,
+4079,4079,18,23,Streak pie,"Pâté, au bifteck, commercial",1996-01-01,,,
+4080,4080,18,23,Tourtiere pie,"Pâté, tourtière, commercial",1996-01-01,,,
+4082,4082,18,36,Bannock,Bannock,1981-01-01,,,
+4085,4085,18,20,Shake and bake,"Shake and bake, sec",1981-01-01,,,
+4086,4086,25,0,Beef jerky,"Grignotises, jerky de boeuf, haché et formé",1994-01-01,,19002,
+4087,4087,25,0,Potato chips,"Grignotises, base de maïs, extrudé, croustilles, nature",1994-01-01,,19003,
+4088,4088,25,0,Barbecue chips,"Grignotises, base de maïs, extrudé, croustilles, barbecue",1994-01-01,,19004,
+4092,4092,25,0,Cheese puffs,"Grignotises, base de maïs, extrudé, bouchées, fromage",1994-01-01,,19008,
+4094,4094,25,0,Chocolate chip crisped rice bar,"Grignotises, tablette de riz croustillant, grains de chocolat",1994-01-01,,19010,
+4095,4095,25,30,Fruit leather bar,"Grignotises, pâte de fruits déshydratée, tablette",1994-01-01,,,
+4097,4097,25,4,Fruit leather roll,"Grignotises, pâte de fruits déshydratée, rouleau",1994-01-01,,19014,
+4108,4108,25,0,Oriental snack mix,"Grignotises, mélange oriental, base de riz",1994-01-01,,19031,
+4111,4111,25,0,Popcorn,"Grignotises, maïs soufflé à l'huile au four à micro-ondes, saveur régulière, sans gras trans",1994-01-01,,19035,
+4114,4114,25,0,Caramel popcorn,"Grignotises, maïs soufflé, enrobage de caramel, sans arachides",1994-01-01,,19039,
+4115,4115,25,0,Cheese popcorn,"Grignotises, maïs soufflé, saveur de fromage",1994-01-01,,19040,
+4116,4116,25,0,Pork skin chips,"Grignotises, croustilles de porc, nature",1994-01-01,,19041,
+4118,4118,25,0,Sour cream and onion chips,"Grignotises, croustilles de pommes de terre, crème sure et oignon",1994-01-01,,19043,
+4123,4123,25,0,Pretzels,"Grignotises, bretzels, durs, blé entier, incluant salés et non salés",1994-01-01,,19050,
+4124,4124,25,0,Rice cake,"Grignotises, galettes de riz brun, nature",1994-01-01,,19051,
+4125,4125,25,0,Buckwheat rice cake,"Grignotises, galettes de riz brun, sarrasin",1994-01-01,,19052,
+4126,4126,25,0,Brownrice rice cake,"Grignotises, galettes de riz brun, graines de sésame",1992-01-01,,19053,
+4127,4127,25,0,Tortilla chips,"Grignotises, croustilles, tortilla, nature",1994-01-01,,19056,
+4128,4128,25,0,Nacho tortilla chips,"Grignotises, croustilles, tortilla, nacho",1994-01-01,,19057,
+4129,4129,25,0,Ranch tortilla chips,"Grignotises, croustilles, tortilla, ranch",1994-01-01,,19058,
+4130,4130,25,0,Trail mix,"Grignotises, mélange montagnard, régulier",1994-01-01,,19059,
+4132,4132,25,0,Tropical trail mix,"Grignotises, mélange montagnard, tropical",1994-01-01,,19061,
+4133,4133,25,0,Chocolate chip trial mix,"Grignotises, mélange montagnard, régulier avec grains de chocolat, noix et graines salées",1994-01-01,,19062,
+4135,4135,19,0,Almond Joy,"Bonbons, tablettes, Almond Joy",1995-01-01,,19065,
+4136,4136,19,0,Alpine White bar with almonds,"Bonbons, tablettes, Alpine White avec amandes",1995-01-01,,19066,
+4137,4137,19,0,Bit-O-Honey candy chews,"Bonbons, tablettes, Bit-O-Honey candy chews",1995-01-01,,19068,
+4138,4138,19,0,Butterfinger,"Bonbons, tablettes, Butterfinger",1994-01-01,,19069,
+4139,4139,19,0,Butterscotch,"Bonbons, caramel écossais",1994-01-01,,19070,
+4141,4141,19,30,Frozen chocolate pop,"Dessert, congelé, pop au pouding, chocolat",1994-01-01,,,
+4142,4142,19,30,Frozen vanilla pop,"Dessert. congelé, pop au pouding, vanille",1994-01-01,,,
+4143,4143,19,0,Caramel candy,"Bonbons, caramel",1994-01-01,,19074,
+4145,4145,19,0,Chocolate caramel roll,"Bonbons, carqamels, rouleau à saveur de chocolat",1994-01-01,,19076,
+4146,4146,19,0,Unsweetened chocolate,"Confiserie, chocolat amer, à cuire, liquide",1994-01-01,,19077,
+4148,4148,19,0,Semisweet chocolate,"Bonbons, carrés / grains, chocolat mi-sucré",1995-01-01,,19080,
+4149,4149,19,0,Sweet chocolate,"Bonbons, tablettes, chocolat sucré",1994-01-01,,19081,
+4152,4152,19,0,Golden Almond Solitaires,"Bonbons, Golden Almond Solitaires, chocolat avec amandes",1995-01-01,,19084,
+4153,4153,19,0,Butterscotch chips,"Confiserie, garniture /brisures, caramel écossais",1994-01-01,,19085,
+4154,4154,19,0,Peanut butter chips,"Confiserie, garniture / brisures, beurre d'arachides",1994-01-01,,19086,
+4155,4155,19,0,White chocolate chips,"Confiserie, garniture / grains, chocolat blanc",1994-01-01,,19087,
+4156,4156,19,0,Vanilla ice cream,"Dessert, congelé, crème glacée, légère, vanille",1994-01-01,,19088,
+4158,4158,19,0,French vanilla ice cream,"Dessert, congelé, crème glacée, vanille française, molle",1994-01-01,,19090,
+4159,4159,19,0,Peppermint ice cream,"Bonbons, à la menthe, enrobage de chocolat, saveur de menthe",1995-01-01,,19091,
+4161,4161,19,0,Symphony,"Bonbons, tablettes, Symphony",1995-01-01,,19093,
+4165,4165,19,0,Orange sherbet,"Dessert, congelé, sorbet, orange",1994-01-01,,19097,
+4166,4166,19,0,5th Avenue,"Bonbons, tablettes, 5th Avenue",1994-01-01,,19098,
+4168,4168,19,0,Chocolate fudge,"Bonbons, fudge, chocolat, fait maison",1994-01-01,,19100,
+4173,4173,19,0,Chocolate covered peanuts,"Bonbons, goobers, arachides, enrobage de chocolat",1995-01-01,,19105,
+4174,4174,19,0,Gumdrops,"Bonbons, jujubes",1994-01-01,,19106,
+4176,4176,19,0,Jellybeans,"Bonbons, fèves à la gelée (jellybean)",1994-01-01,,19108,
+4177,4177,19,0,Kit Kat,"Bonbons, tablettes, Kit Kat",1995-01-01,,19109,
+4178,4178,19,0,Krackel,"Bonbons, tablettes, Krackel",1995-01-01,,19110,
+4179,4179,19,0,Baby Ruth,"Bonbons, tablettes, Baby Ruth",1994-01-01,,19111,
+4180,4180,19,0,Twizzlers,"Bonbons, Twizzlers (réglisse), fraises",1994-01-01,,19112,
+4182,4182,19,0,Mars,"Bonbons, tablettes, Mars avec amandes",1994-01-01,,19115,
+4183,4183,19,0,Marshmallow,"Bonbons, guimauve",1994-01-01,,19116,
+4184,4184,19,0,Oh Henry!,"Bonbons, tablettes, Oh Henry!",1994-01-01,,19118,
+4185,4185,19,0,Chunky,"Bonbons, tablettes, Chunky",1995-01-01,,19119,
+4186,4186,19,0,Milk chocolate,"Bonbons, tablettes / grains (pépites), chocolat au lait, nature",1995-01-01,,19120,
+4191,4191,19,0,Milk chocolate coated raisins,"Bonbons, raisins secs, enrobage de chocolat au lait",1994-01-01,,19127,
+4194,4194,19,0,Golden Almond,"Bonbons, tablettes, Golden Almond",1995-01-01,,19130,
+4195,4195,19,0,Hershey's milk chocolate with almonds,"Bonbons, tablettes, Hershey's Chocolat au Lait avec amandes",1994-01-01,,19132,
+4196,4196,19,0,Milk chocolate with rice cereal,"Bonbons, tablettes, chocolat au lait avec céréale de riz",1994-01-01,,19134,
+4198,4198,19,0,Skor,"Bonbons, tablettes, Skor",1994-01-01,,19136,
+4201,4201,19,0,M&M peanut,"Bonbons, M&M's bonbons au chocolat et arachides",1994-01-01,,19140,
+4202,4202,19,0,M&M chocolate,"Bonbons, M&M's, bonbons au chocolat, nature",1994-01-01,,19141,
+4203,4203,19,0,Mounds,"Bonbons, tablettes, Mounds",1995-01-01,,19142,
+4204,4204,19,0,Mr Goodbar,"Bonbons, tablettes, Mr Goodbar",1995-01-01,,19143,
+4205,4205,19,0,100 Grand,"Bonbons, tablettes, 100 Grand",1995-01-01,,19144,
+4206,4206,19,0,Nestle Crunch,"Bonbons, tablettes, Nestle Crunch",1994-01-01,,19145,
+4209,4209,19,0,Reese's peanut butter cups,"Bonbons, Reese's moules au beurre d'arachides",1995-01-01,,19150,
+4210,4210,19,0,Reese's Pieces,"Bonbons, Reese's Pieces",1994-01-01,,19151,
+4211,4211,19,0,Rolo,"Bonbons, Rolo Caramels, enrobés de chocolat au lait",1994-01-01,,19152,
+4212,4212,19,0,After Eight,"Bonbons, After Eight, mini-menthes enrobées de chocolat",1994-01-01,,19153,
+4213,4213,19,0,Sesame crunch,"Bonbons, croquant aux graines de sesame",1994-01-01,,19154,
+4214,4214,19,0,Snickers,"Bonbons, tablettes, Snickers",1995-01-01,,19155,
+4215,4215,19,0,Starburst,"Bonbons, Starburst bouchées de fruits",1994-01-01,,19156,
+4217,4217,19,0,3 Musketeers,"Bonbons, tablettes, 3 Musketeers",1994-01-01,,19159,
+4218,4218,19,0,Twix caramel,"Bonbons, tablettes, Twix, biscuits au caramel",1995-01-01,,19160,
+4219,4219,19,0,Twix peanut butter,"Bonbons, tablettes, Twix, biscuits au beurre d'arachides",1994-01-01,,19161,
+4220,4220,19,0,Whatchamacallit,"Candies, taglettes, Whatchamacallit",1995-01-01,,19162,
+4221,4221,19,0,Chewing gum,"Bonbons, gomme à mâcher",1994-01-01,,19163,
+4222,4222,19,0,Special Dark,"Bonbons, tablettes, Special Dark",1994-01-01,,19164,
+4223,4223,19,0,Cocoa powder,"Confiseries, cacao, poudre, non sucré",1994-01-01,,19165,
+4229,4229,19,0,Gelatin,"Dessert, gélatine, mélange sec, non préparé",1994-01-01,,19172,
+4241,4241,19,0,Flan mix,"Dessert, flan au caramel, mélange sec, non préparé",1994-01-01,,19187,
+4242,4242,19,0,Chocolate pudding mix,"Dessert, pouding, chocolat, mélange sec, régulier, non préparé",1994-01-01,,19188,
+4247,4247,19,0,Rice pudding,"Dessert, pouding, riz, prêt-à-manger",1994-01-01,,19193,
+4254,4254,19,0,Vanilla pudding,"Dessert, pouding, vanille, prêt-à-manger",1994-01-01,,19201,
+4268,4268,19,30,Frozen gelatin pop,"Dessert, congelé, pop à la gélatine",1994-01-01,,19215,
+4279,4279,19,0,Flan,"Dessert, flan au caramel, mélange sec, préparé avec lait 2%",1994-01-01,,19231,
+4287,4287,19,0,Frozen fruit and juice bar,"Dessert, congelé, barre de fruits et jus",1994-01-01,,19263,
+4288,4288,19,0,Chocolate ice cream,"Dessert, congelé, crème glacée, chocolat",1994-01-01,,19270,
+4289,4289,19,0,Strawberry ice cream,"Dessert, congelé, crème glacée, fraises",1994-01-01,,19271,
+4290,4290,19,0,Lime water,"Dessert, congelé, glaces à l'eau, lime",1994-01-01,,19280,
+4291,4291,19,0,Ice pop,"Dessert, congelé, pop glacé",1994-01-01,,19283,
+4292,4292,19,0,Vanilla soft-serve,"Dessert, congelé, yogourt glacé, vanille, mou",1994-01-01,,19293,
+4293,4293,19,0,Apple butter,"Confiseries, beurre de fruits, pomme",1994-01-01,,19294,
+4294,4294,19,0,Honey,"Confiseries, miel, filtre ou extrait",1994-01-01,,19296,
+4295,4295,19,0,Jam,"Confiseries, confitures et conserves",1994-01-01,,19297,
+4296,4296,19,0,Jellies,"Confiseries, gelées",1994-01-01,,19300,
+4298,4298,19,0,Orange marmalade,"Confiseries, marmelade, orange",1994-01-01,,19303,
+4299,4299,19,0,Molasses,"Confiseries, mélasse de fantaisie",1994-01-01,,19304,
+4317,4317,19,0,Brown sugar,"Confiseries, sucre, brun (cassonade)",1994-01-01,,19334,
+4318,4318,19,0,Granulated sugar,"Confiseries, sucre, granulé",1994-01-01,,19335,
+4319,4319,19,0,Icing sugar,"Confiseries, sucre à glacer",1994-01-01,,19336,
+4320,4320,19,23,Hard maple sugar,"Confiseries, sucre d'érable, dur",1994-01-01,,19340,
+4321,4321,19,0,Chocolate syrup,"Confiseries, sirop, chocolat, type fudge",1994-01-01,,19348,
+4322,4322,19,0,Dark corn syrup,"Confiseries, sirop de maïs, foncé",1994-01-01,,19349,
+4323,4323,19,0,Light corn syrup,"Confiseries, sirop de maïs, clair",1994-01-01,,19350,
+4324,4324,19,0,High-fructose corn syrup,"Confiseries, sirop de maïs, élevé en fructose",1995-01-01,,19351,
+4325,4325,19,0,Malt,"Confiseries, sirop de malt",1994-01-01,,19352,
+4326,4326,19,23,Maple syrup,"Confiseries, sirop d'érable, en vrac",1994-01-01,,19353,
+4327,4327,19,0,Sorghum,"Confiseries, sirop de sorgho",1994-01-01,,19355,
+4328,4328,19,0,Panncake syrup,"Confiseries, sirop de table, crêpe, avec 2% érable",1994-01-01,,19360,
+4329,4329,19,0,Cane syrup,"Confiseries, sirop de table, canne et 15% érable",1994-01-01,,19361,
+4330,4330,19,0,Refiner syrup,"Confiseries, sirop de table, maïs, sirop de raffinerie et sucre",1994-01-01,,19362,
+4331,4331,19,0,Butterscotch spread,"Confiseries, garniture (tartinade), caramel",1994-01-01,,19364,
+4332,4332,19,0,Marshmallow cream,"Confiseries, garniture, crème de guimauve",1994-01-01,,19365,
+4335,4335,19,0,Skittles,"Bonbons, Skittles",1994-01-01,,19370,
+4336,4336,19,0,Vanilla frosting,"Glaçage, vanille (blanc), crémeux, mélange sec, préparé avec margarine",1994-01-01,,19371,
+4337,4337,19,0,Chocolate frosting,"Glaçage, chocolat, crémeux, mélange sec, préparé avec margarine",1994-01-01,,19372,
+4340,4340,19,0,Icing glaze,"Glaçage, fondant, fait maison",1994-01-01,,19375,
+4350,4350,19,0,Chocolate soft-serve,"Dessert, congelé, yogourt glacé, chocolat, mou",1994-01-01,,19393,
+4351,4351,25,0,Banana chips,"Grignotises, croustilles de bananes séchées",1994-01-01,,19400,
+4352,4352,25,0,barbecue corn nuts,"Grignotises, grignotises de maïs (corn nuts), barbecue",1994-01-01,,19401,
+4354,4354,25,0,Almond crisped rice bar,"Grignotises, barre de riz croustillant, amandes",1994-01-01,,19403,
+4358,4358,7,0,Beef meat sticks,"Bâtonnets de viande, non-réfrigérés, fumés",1994-01-01,,19407,
+4359,4359,25,0,barbecue pork skins,"Grignotises, croustilles de porc, barbecue",1994-01-01,,19408,
+4364,4364,25,0,Potato sticks,"Grignotises, bâtonnets de pommes de terre",1994-01-01,,19415,
+4372,4372,25,0,Taro chips,"Grignotises, croustilles de taro",1994-01-01,,19524,
+4375,4375,19,0,Coconut frosting,"Glaçage, noix de coco-noix, prêt-à-manger",1995-01-01,,19227,
+4376,4376,19,0,Cream cheese frosting,"Glaçage, saveur de fromage à la crème, prêt-à-manger",1994-01-01,,19228,
+4377,4377,19,30,Sour cream frosting,"Glaçage, saveur de crème sure, prêt-à-manger",1995-01-01,,,
+4379,4379,19,0,Apricot jam,"Confiseries, confitures et conserves, abricot",1994-01-01,,19719,
+4396,4396,19,20,Maraschino cherries,"Confits, cerises au marasquin, bocal, solides et liquide",1981-01-01,,,
+4397,4397,19,20,Candied cherries,"Confits, cerises",1981-01-01,,,
+4398,4398,19,20,Candied citron,"Confits, cédrat",1981-01-01,,,
+4400,4400,19,20,Candied ginger root,"Confits, gingembre, racine, cristallisée",1981-01-01,,,
+4401,4401,19,20,Candied grapefruit peel,"Confits, pamplemousse, pelure",1981-01-01,,,
+4402,4402,19,20,Candied lemon peel,"Confits, citron, pelure",1981-01-01,,,
+4403,4403,19,20,Candied orange peel,"Confits, orange, pelure",1981-01-01,,,
+4405,4405,19,20,Candied pineapple,"Confits, ananas",1981-01-01,,,
+4409,4409,20,0,Amaranth,"Grains céréaliers, amarante, cru",1990-01-01,,20001,amaranthus spp.
+4410,4410,20,0,Arrowroot flour,"Grains céréaliers, farine d'arrowroot",1990-01-01,,20003,
+4411,4411,20,0,Barley,"Grains céréaliers, orge, perlé, sec",1990-01-01,,20005,
+4412,4412,20,0,Buckwheat groats,"Grains céréaliers, gruau de sarrasin, rôti, sec",1990-01-01,,20009,
+4414,4414,20,0,Bulgur,"Grains céréaliers, bulgur, sec",1990-01-01,,20012,
+4415,4415,20,0,Dried corn,"Grains céréaliers, maïs, jaune, campagnard, sec",1990-01-01,,20014,Zea mays mays L.
+4416,4416,20,0,Corn bran,"Grains céréaliers, son de maïs, brut",1990-01-01,,20015,
+4417,4417,20,0,Whole-grain corn flour,"Grains céréaliers, farine de maïs, jaune, grain entier",1990-01-01,,20016,
+4418,4418,20,1,Whole-grain cornmeal,"Grains céréaliers, semoule de maïs (jaune), grain entier",1990-01-01,,20020,
+4419,4419,20,0,Cornstarch,"Grains céréaliers, fécule de maïs",1990-01-01,,20027,
+4420,4420,20,0,Couscous,"Grains céréaliers, couscous, sec",1990-01-01,,20028,
+4421,4421,20,0,Oats,"Grains céréaliers, avoine",1990-01-01,,20038,Avena sativa L.
+4422,4422,20,0,Medium-grain brown rice,"Grains céréaliers, riz brun, grain moyen, sec",1990-01-01,,20040,
+4424,4424,20,0,White glutinous rice,"Grains céréaliers, riz blanc, glutineux, sec",1990-01-01,,20054,
+4428,4428,20,0,Crude rice bran,"Grains céréaliers, son de riz, brut",1990-01-01,,20060,
+4429,4429,20,0,White rice flour,"Grains céréaliers, riz blanc, farine",1990-01-01,,20061,
+4430,4430,20,0,Medium rye flour,"Grains céréaliers, farine de seigle moyenne",1990-01-01,,20064,
+4431,4431,20,0,Light rye flour,"Grains céréaliers, farine de seigle pâle",1990-01-01,,20065,
+4432,4432,20,0,Sorghum,"Grains céréaliers, sorgho",1990-01-01,,20067,Sorghum spp.
+4433,4433,20,0,Tapioca pearl,"Grains céréaliers, tapioca, perlé, sec",1990-01-01,,20068,
+4434,4434,20,0,Triticale,"Grains céréaliers, triticale",1990-01-01,,20069,X Triticosecale rimpaui Wittm.
+4435,4435,20,0,Whole-grain triticale flour,"Grains céréaliers, farine de triticale, grain entier",1990-01-01,,20070,
+4439,4439,20,0,Hard white wheat,"Grains céréaliers, blé blanc dur",1990-01-01,,20074,Triticum aestivum L.
+4440,4440,20,0,Soft white wheat,"Grains céréaliers, blé blanc tendre",1990-01-01,,20075,Triticum aestivum L>
+4441,4441,20,0,Durum wheat,"Grains céréaliers, blé durum",1990-01-01,,20076,Triticum durum Desf.
+4442,4442,20,3,Crude wheat bran,"Grains céréaliers, son de blé, brut",1990-01-01,,20077,
+4443,4443,20,3,Crude wheat germ,"Grains céréaliers, germe de blé, brut",1990-01-01,,20078,
+4444,4444,20,1, Self-rising flour,"Grains céréaliers, farine de blé, blanche, avec levure",1990-01-01,,20082,
+4445,4445,20,38,Bread flour,"Grains céréaliers, farine de blé, blanche, farine à pain",1990-01-01,,,
+4446,4446,20,38,Cake flour,"Grains céréaliers, farine de blé, blanche, farine à gâteau",1990-01-01,,,
+4448,4448,20,0,Sprouted wheat,"Grains céréaliers, blé, germé",1990-01-01,,20087,
+4451,4451,20,0,Brown rice flour,"Grains céréaliers, farine de riz brun",1990-01-01,,20090,
+4452,4452,20,0,Corn pasta,"Pâtes, maïs, sèches",1990-01-01,,20091,
+4459,4459,20,0,Chow mein,"Pâtes, nouilles chinoises, chow mein",1996-01-01,,20113,
+4460,4460,20,0,Soba,"Pâtes, nouilles japonaises, soba, sèches",1990-01-01,,20114,
+4462,4462,20,0,Somen,"Pâtes, nouilles japonaises, somen, sèches",1990-01-01,,20116,
+4470,4470,20,1,Cornmeal,"Grains céréaliers, semoule de maïs (jaune), dégermée",1990-01-01,,20422,
+4471,4471,20,0,Long-grain white rice,"Grains céréaliers, riz blanc, grain long, ordinaire, sec",1990-01-01,,20444,
+4474,4474,20,0,Medium-grain white rice,"Grains céréaliers, riz blanc, grain moyen, sec",1990-01-01,,20450,
+4476,4476,20,0,Short-grain white rice,"Grains céréaliers, riz blanc, grain court, sec",1990-01-01,,20452,
+4478,4478,20,0,Semolina,"Grains céréaliers, semoule de blé dur",1990-01-01,,20466,
+4487,4487,20,3,Buckwheat,"Grains céréaliers, sarrasin",1990-01-01,,20008,Fagopyrum esculentum Moench
+4488,4488,20,3,Buckwheat flour,"Grains céréaliers, farine de sarrasin, gruau entier",1990-01-01,,20011,
+4491,4491,20,3,Millet,"Grains céréaliers, millet, sec",1990-01-01,,20031,Panicum miliaceum
+4493,4493,20,3,Oat bran,"Grains céréaliers, son d'avoine, sec",1990-01-01,,20033,
+4495,4495,20,3,Quinoa,"Grains céréaliers, quinoa, sec",1990-01-01,,20035,Chenopodium quinoa Willd.
+4496,4496,20,3,Long-grain brown rice,"Grains céréaliers, riz brun, grain long, sec",1990-01-01,,20036,Oryza sativa L.
+4498,4498,20,3,Rye,"Grains céréaliers, seigle",1990-01-01,,20062,Secale cereale L.
+4499,4499,20,3,Rye flour,"Grains céréaliers, farine de seigle foncée",1990-01-01,,20063,
+4500,4500,20,38,Whole-wheat flour,"Grains céréaliers, farine de blé entier",1990-01-01,,20080,
+4501,4501,20,38,All purpose white flour,"Grains céréaliers, farine de blé, blanche, tout usage, blanchie",1990-01-01,,,
+4502,4502,20,3,Plain pasta,"Pâtes, fraîches-réfrigérées, nature, telles qu'achetées",1990-01-01,,20093,
+4504,4504,20,3,Spinach pasta,"Pâtes, fraîches-réfrigérées, épinards, telles qu'achetées",1990-01-01,,20095,
+4506,4506,20,1,Elbow macaroni,"Pâtes, macaroni (coudes), enrichi, sec",1996-01-01,,20099,
+4510,4510,20,1,Spiral macaroni,"Pâtes, macaroni (spirales), légumes, enrichi, sec",1996-01-01,,20105,
+4512,4512,20,1,Egg noodles,"Pâtes, nouilles aux oeufs, enrichies, sèches",1996-01-01,,20109,
+4513,4513,20,1,Spinach egg noodles,"Pâtes, nouilles aux oeufs, épinards, enrichies, sèches",1996-01-01,,20111,
+4515,4515,20,1,Spaghetti,"Pâtes, spaghetti, enrichi, sec",1996-01-01,,20120,
+4516,4516,20,3,Whole-wheat spaghetti,"Pâtes, spaghetti, blé entier, sec",1996-01-01,,20124,
+4518,4518,20,1,Spinach spaghetti,"Pâtes, spaghetti, épinards, enrichi, sec",1996-01-01,,20126,
+4528,4528,12,23,Flaxseed,"Graines, lin, entières et moulues",1990-01-01,,12220,Linum usitatissimum
+4530,4530,20,26,High gluten wheat flour,"Grains céréaliers, farine de blé, blanche, teneur élevée en gluten",1996-01-01,,,
+4723,4723,2,0,Rosemary,"Épices, romarin, frais",2000-12-13,1997-04-01,2063,Rosmarinus officinalis
+4724,4724,2,0,Peppermint,"Menthe poivrée, fraîche",2000-12-13,1997-04-01,2064,Mentha X piperita nothossp. peperita
+4725,4725,2,0,Spearmint,"Épices, menthe verte, fraîche",2000-12-13,1997-04-01,2065,Mentha spicata
+4726,4726,2,0,Dried spearmint,"Épices, menthe verte, déshydratée",2000-12-13,1997-04-01,2066,
+4727,4727,6,0,Plum sauce,"Sauce, prunes, prête-à-servir",2000-12-13,1997-04-01,6151,
+4728,4728,6,0,Fish stock,"Soupe, bouillon, poisson, faite maison",2000-12-13,1997-04-01,6174,
+4729,4729,6,0,Hoisin sauce,"Sauce, hoisin, prête-à-servir",2000-12-13,1997-04-01,6175,
+4730,4730,6,0,Oyster sauce,"Sauce, huîtres, prête-à-servir",2000-12-13,1997-04-01,6176,
+4731,4731,6,0,Fish sauce,"Sauce, poisson, prête-à-servir",2000-12-13,1997-04-01,6179,
+4734,4734,6,0,Cheese sauce,"Sauce, fromage, prête-à-sevir",2000-12-13,1997-04-01,6930,
+4735,4735,6,0,Marinara sauce,"Sauce, pâtes, spaghetti ou marinara, prête-à-servir",2000-12-13,1997-04-01,6931,
+4736,4736,11,0,Canned crushed tomato,"Tomate, broyée, conserve",2000-12-13,1997-04-01,11693,
+4829,4829,19,0,Halavah,"Bonbons, halavah (halvah), nature",2000-12-13,1997-04-01,19117,
+4832,4832,19,0,M&M's mini milk chocolate,"Bonbons, M&M's, petits chocolats au lait",2000-12-13,1997-04-01,19157,
+4843,4843,7,0,Honey glazed chicken breast,"Charcuterie, poulet, poitrine (glacé au miel)",2000-12-20,1997-06-01,7209,
+4845,4845,9,0,Canned mangosteen,"Mangoustan,  conserve, sirop",2000-12-20,1997-06-01,9177,Garcinia mangostana
+4846,4846,9,0,Canned jackfruit,"Jaquier,  conserve, sirop",2000-12-20,1997-06-01,9420,Artocarpus heterophyllus
+4847,4847,9,0,Durian,"Durion, cru ou congelé",2000-12-20,1997-06-01,9422,Durio zibethinus
+4850,4850,11,0,Arrowroot,"Arrowroot, cru",2000-12-20,1997-06-01,11697,Maranta arundinacea
+4853,4853,11,0,Lemon grass,"Citronelle (lemon-grass), crue",2000-12-20,1997-06-01,11972,Collinsonia canadensis
+4854,4854,11,0,Broadbeans,"Gourganes (fèves des marais, fava), cosses, crues",2000-12-20,1997-06-01,11973,Vica faba
+4855,4855,11,0,Grape leaves,"Raisin, feuilles (feuilles de vigne), crues",2000-12-20,1997-06-01,11974,Vitis vinifera
+4857,4857,11,0,Banana pepper,"Piment, banane, cru",2000-12-20,1997-06-01,11976,
+4858,4858,11,0,Serrano pepper,"Piment, serrano, cru",2000-12-20,1997-06-01,11977,capsicum anuum
+4859,4859,11,0,Ancho pepper,"Piment, ancho, déshydraté",2000-12-20,1997-06-01,11978,
+4860,4860,11,0,Jalapeno,"Piment, jalapeno, cru",2000-12-20,1997-06-01,11979,
+4861,4861,11,0,Canned green chili pepper,"Piment, chili, vert, conserve",2000-12-20,1997-06-01,11980,
+4862,4862,11,0,Hungarian pepper,"Piment, hongrois, cru",2000-12-20,1997-06-01,11981,
+4863,4863,11,0,Dried pasilla pepper,"Piment, pasilla, déshydraté",2000-12-20,1997-06-01,11982,
+4864,4864,11,0,Epazote,"Anserine, crue",2000-12-20,1997-06-01,11984,Chenopodium ambrosiodes
+4865,4865,11,28,Fireweed,"Vergerette du Canada, autochtone, feuilles, crues",2000-12-20,1997-06-01,11985,Epilobium angustifolium
+4866,4866,11,0,Oyster mushroom,"Champignon, pleurote, cru",2000-12-20,1997-06-01,11987,pleurotus ostreatus
+4867,4867,11,0,Canned mushroom,"Champignon, paille de riz, conserve, égoutté",2000-12-20,1997-06-01,11989,
+4868,4868,11,0,Wasabi root,"Wasabi, racine, (raifort japonais), crue",2000-12-20,1997-06-01,11990,Wasabia japonica
+4870,4870,16,0,Hummus,"Hoummos (hommos, hummus), commercial",2000-12-20,1997-06-01,16158,
+4872,4872,20,0,Barley flour,"Grains céréaliers, farine ou semoule d'orge",2000-12-20,1997-06-01,20130,
+4873,4873,20,0,Malt flour,"Grains céréaliers, farine d'orge, malt",2000-12-20,1997-06-01,20131,
+4878,4878,9,0,Canned rambutan,"Ramboutan / litchi chevelu,  conserve, sirop",2000-12-20,1997-06-01,9301,Nephelium lappaceum
+4879,4879,9,0,Prune puree,"Pruneau, purée",2000-12-20,1997-06-01,9423,
+4881,4881,11,0,Chrysanthemum leaves,"Chrysantheme, feuilles, crues",2000-12-20,1997-06-01,11698,Chrysanthemum coronarium
+4884,4884,11,0,Dried cloud ears,"Champignon, Cloud ears, déshydratés",2000-12-20,1997-06-01,11988,
+4885,4885,11,0,Yautia,"Yautia (tannier, chou des Caraibes), cru",2000-12-20,1997-06-01,11991,Xanthosoma sagittifolium
+4886,4886,16,0,Chickpea flour,"Pois chiches, farine (Besan)",2000-12-20,1997-06-01,16157,
+4887,4887,25,0,Rice Krispies Squares,"Grignotises, RICE KRISPIES SQUARES",2000-12-20,1997-06-01,19438,
+4888,4888,20,0,Rice noodles,"Pâtes, nouilles de riz, sèches",2000-12-20,1997-06-01,20133,
+4890,4890,2,0,Canned capers,"Câpres, conserve",2000-12-22,1999-02-01,2054,Capparis spinosa
+4891,4891,2,0,Horseradish,"Raifort, préparé",2000-12-22,1999-02-01,2055,
+4903,4903,6,30,Oodles of noodles oriental flavoured ramen,"Soupe, NISSIN, OODLES OF NOODLES TOP RAMEN, nouilles ramen, saveur orientale, sèches",2000-12-22,1999-02-01,,
+4904,4904,6,30,Oodles of noodles chicken flavoured ramen,"Soupe, NISSIN, CUP NOODLES, nouilles ramen, saveur de poulet, sèches",2000-12-22,1999-02-01,,
+4905,4905,6,0,Alfredo sauce,"Sauce, Alfredo, déshydratée",2000-12-22,1999-02-01,6960,
+4906,4906,11,0,Fiddlehead greens,"Crosses de fougères (têtes de violon), crues",2000-12-22,1999-02-01,11995,Matteuccia struthioreris
+4908,4908,14,0,Iced tea lemon-flavour,"Thé glacé, saveur de citron, prêt-à-boire",2000-12-22,1999-02-01,14137,
+4910,4910,16,0,Soft silken tofu,"Tofu, soyeux, mou",2000-12-22,1999-02-01,16161,
+4911,4911,16,0,Firm silken tofu,"Tofu, soyeux, ferme",2000-12-22,1999-02-01,16162,
+4912,4912,16,0,Extra firm silken tofu,"Tofu, soyeux, extra ferme",2000-12-22,1999-02-01,16163,
+4973,4973,11,0,Portabella mushroom,"Champignon, portobella (portobello), cru",2000-12-28,2000-02-01,11265,
+4974,4974,11,0,Brown mushroom,"Champignon, bruns, italien (crimini), cru",2000-12-28,2000-02-01,11266,Agaricus bisporus
+4988,4988,17,0,Bison top soiloin,"Gibier, viande de, bison, haut de surlonge, maigre, cru",2000-12-28,2000-02-01,17267,Bison bison
+4989,4989,17,0,Bison rib eye,"Gibier, viande de, bison, faux-filet, maigre, cru",2000-12-28,2000-02-01,17268,Bison bison
+4993,4993,17,0,Bison shoulder,"Gibier, viande de, bison, épaule, maigre, cru",2000-12-28,2000-02-01,17269,Bison bison
+4996,4996,13,1,Extra lean ground beef,"Boeuf, haché, extra maigre, cru",2001-03-07,1999-03-01,23562,
+5001,5001,6,30,Nacho cheese sauce,"Sauce, sauce au fromage pour nacho, prête-à-servir",2001-03-16,1997-04-17,,
+5002,5002,7,38,Turkey breast,"Charcuterie, poitrine de dinde, cuite, sans gras, tranchée",2001-03-16,1997-06-01,7239,
+5067,5067,8,26,Chex,"Céréale, prête-à-manger, Chex: miel et noix, General Mills",2001-05-07,,,
+5069,5069,8,38,Nesquik,"Céréale, prête-à-manger, Nesquik, General Mills",2001-05-07,2011-02-17,,
+5114,5114,8,38,Kashi honey puffed,"Céréale, prête-à-manger, Kashi: soufflée au miel, Kashi",2001-05-07,2011-02-17,,
+5124,5124,8,38,Kashi high fibre flakes and granola,"Céréale, prête-à-manger, Kashi: élevée en fibre et granola, Kashi",2001-05-07,2011-02-17,,
+5132,5132,8,26,Morning Crisp strawberry,"Céréale, prête-à-manger, Morning Crisp: fraises, Jordans",2001-05-08,,,
+5133,5133,8,26,Morning Crisp chocolate,"Céréale, prête-à-manger, Morning Crisp: chocolat, Jordans",2001-05-08,,,
+5134,5134,8,26,Morning Crisp four nut,"Céréale, prête-à-manger, Morning Crisp: quatre noix, Jordans",2001-05-08,,,
+5135,5135,8,26,Muesli organic,"Céréale, prête-à-manger, Muesli: biologique, Jordans",2001-05-08,,,
+5136,5136,8,26,Muesli supreme,"Céréale, prête-à-manger, muesli: suprême, Jordans",2001-05-08,,,
+5137,5137,8,26,Shredded Wheat honey nut,"Céréale, prête-à-manger, Shredded Wheat: miel et noix, Post",2001-05-08,,,
+5139,5139,8,38,Selects cranberry almond crunch,"Céréale, prête-à-manger, Selects, Cranberry Almond Crunch, Post",2001-05-08,2011-02-17,,
+5143,5143,8,26,Robin Hood,"Céréale, chaude, avoine (gruau), Rapide: Robin Hood, sèche, Robin Hood",2001-05-09,,,
+5144,5144,8,26,Apple Cinnamon Hoops,"Céréale, prête-à-manger, 'O' pommes cannelles, Barbara's Bakery",2001-05-09,,,
+5145,5145,8,26,Puffins cinnamon,"Céréale, prête-à-manger, Puffins: cannelle, Barbara's Bakery",2001-05-09,,,
+5148,5148,8,26,Hole n' Oats honey nut,"Céréale, prête-à-manger, avoine en O miel et noix, Barbara's Bakery",2001-05-09,,,
+5153,5153,8,26,PC Corn Dunks,"Céréale, prête-à-manger, Dribble-O-Maïs, Choix du Président",2001-05-09,,,
+5161,5161,8,26,PC Frosted Flakes,"Céréale, prête-à-manger, flocons givrés légèrement grillés, Choix du Président",2001-05-10,,,
+5168,5168,8,26,PC Bran Flakes,"Céréale, prête-à-manger, flocons de son, bon au possible, Choix du Président",2001-05-10,,,
+5175,5175,5,38,Turkey drumstick,"Dindon, jeune, pilon, viande seulement, cru",2001-05-14,1998-02-01,5716,Meleagris gallopavo
+5176,5176,5,38,Turkey thigh,"Dindon, jeune, haut de cuisse, viande seulement, cru",2001-05-14,1998-02-01,5717,Meleagris gallopavo
+5178,5178,5,38,Turkey leg,"Dindon, jeune, cuisse, viande seulement, cru",2001-05-14,1998-02-01,5187,Meleagris gallopavo
+5179,5179,5,38,Turkey wing,"Dindon, jeune, aile, viande seulement, cru",2001-05-14,1998-02-01,5712,Meleagris gallopavo
+5203,5203,17,23,Veal blade steak,"Veau de grain, épaule, bifteck de palette, maigre et gras, cru",2001-06-11,2000-01-08,,
+5228,5228,5,28,Goose liver,"Bernache du canada (outarde), autochtone, foie, cru",2001-06-27,2000-04-01,,Branta canadensis
+5254,5254,6,24,Cup noodles chicken flavour,"Soupe, NISSIN, CUP NOODLES, nouilles ramen, saveur de poulet, sèches, eau ajoutée",2001-07-20,,,
+5282,5282,9,0,Abiyuch,"Abiyuch, cru",2002-08-30,,9427,Crateva religiosa
+5283,5283,9,0,Rowal,"Rowal, cru",2002-09-05,,9428,Pangium edule
+5284,5284,11,0,Russet potato,"Pomme de terre, Russet, chair et pelure, crue",2002-09-10,,11353,Solanum tuberosum
+5285,5285,11,0,White potato,"Pomme de terre, blanche, chair et pelure, crue",2002-09-11,,11354,Solanum tuberosum
+5286,5286,11,0,Red potato,"Pomme de terre, rouge, chair et pelure, crue",2002-09-11,,11355,
+5347,5347,6,0,Ramen noodles,"Soupe, nouilles ramen, toutes saveurs, sèche",2004-03-09,2003-08-01,6583,
+5371,5371,6,30,Adobo fresco,"Sauce, adobo fresco",2004-03-09,2003-08-01,6979,
+5373,5373,6,0,Bouillon cubes,"Soupe, bouillon ou consommé, en cube ou en granules, faible en sodium, sèche",2004-03-09,2003-08-01,6981,
+5389,5389,9,0,Blackberry juice,"Mûre sauvage, jus, conserve",2004-03-09,2003-08-01,9043,
+5394,5394,9,0,Pineapple juice,"Ananas, conserve, dans du jus, égouttés",2004-03-09,2003-08-01,9354,
+5400,5400,9,0,Tangerine juice,"Tangerine (mandarines), conserve, dans du sirop épais, égouttée",2004-03-09,2003-08-01,9383,
+5401,5401,9,0,Medjool,"Datte, variété Medjool",2004-03-09,2003-08-01,9421,Phoenix dactylifera
+5410,5410,11,0,Raab broccoli,"Rapini (brocoli raab), cru",2004-03-09,2003-08-01,11096,Brassica ruvo
+5412,5412,11,0,Red leaf lettuce,"Laitue, feuilles rouges",2004-03-09,2003-08-01,11257,
+5433,5433,19,0,Reesesticks,"Bonbons, REESESTICKS, gaufrettes, beurre d'arachide, chocolat au lait",2004-03-09,2003-08-01,19249,
+5438,5438,19,0,Dark chocolate coated coffee beans,"Bonbons, grain de café, enrobé de chocolat noir",2004-03-09,2003-08-01,19268,
+5439,5439,19,0,Milk chocolate coated coffee beans,"Bonbons, fève de café, enrobé de chocolat au lait",2004-03-09,2003-08-01,19279,
+5454,5454,20,0,Oat flour,"Grains céréaliers, farine d'avoine, partiellement décortiquée",2004-03-09,2003-08-01,20132,
+5455,5455,22,0,Tortellini with cheese filling,"Pâtes, fraîches-réfrigérées, tortellinis au fromage, tel qu'acheté",2004-03-09,2003-08-01,22901,
+5456,5456,19,35,Grenadine,"Confiseries, sirop, grenadine",2004-03-09,2003-08-01,42040,
+5459,5459,1,35,American cheese,"Fromage, imitation, cheddar, faible en cholestérol",2004-03-09,2003-08-01,42117,
+5466,5466,4,35,Peppercorn dressing,"Vinaigrette, grains de poivre, commerciale, régulière",2004-03-09,2003-08-01,42137,
+5472,5472,9,30,Orange-strawberry-banana juice,"Orange-fraise-banane, jus",2004-03-09,2003-08-01,42149,
+5473,5473,4,35,Roquefort cheese dressing,"Vinaigrette, fromage bleu ou roquefort, réduite en Calories",2004-03-09,2003-08-01,42153,
+5474,5474,1,35,Monterey cheese,"Fromage monterey, faible en gras",2004-03-09,2003-08-01,42155,
+5487,5487,1,35,Buttermilk,"Babeurre, liquide, culture, 2% M.G.",2004-03-09,2003-08-01,42189,
+5491,5491,19,35,Milky Way Dark Bar,"Bonbons, tablettes,  MILKY WAY, tablette foncée",2004-03-09,2003-08-01,42196,
+5492,5492,16,35,Papad,"Indien, papad (papadum)",2004-03-09,2003-08-01,42200,
+5496,5496,4,35,Coleslaw dressing,"Vinaigrette, salade de chou, teneur réduite en gras",2004-03-09,2003-08-01,42230,
+5497,5497,4,0,Flaxseed oil,"Huile végétale, graines de lin, pressée à froid",2004-03-09,2003-08-01,42231,
+5515,5515,4,35,Caesar dressing,"Vinaigrette, césar, régulière",2004-03-09,2003-08-01,43015,
+5516,5516,4,35,"Salad dressing, coleslaw","Vinaigrette, salade de chou",2004-03-09,2003-08-01,43016,
+5518,5518,4,35,"Salad dressing, buttermilk as main ingredient","Vinaigrette, à base de babeurre",2004-03-09,2003-08-01,43018,
+5525,5525,19,35,Nougat with almonds,"Bonbons, nougat, avec amandes",2004-03-09,2003-08-01,43046,
+5535,5535,16,35,Vermicelli,"Vermicelles de soya, sec",2004-03-09,2003-08-01,43114,
+5550,5550,11,35,Pickled eggplant,"Aubergine, marinée",2004-03-09,2003-08-01,43146,
+5551,5551,14,35,Cooking wine,"Alcoolisé, vin de cuisine",2004-03-09,2003-08-01,43154,
+5556,5556,4,35,Buttermilk dressing,"Vinaigrette, babeurre, légère",2004-03-09,2003-08-01,43215,
+5572,5572,16,35,Soybean curd cheese,"Fromage en grains, soya",2004-03-09,2003-08-01,43299,
+5582,5582,11,35,Canned sauerkraut,"Choucroute, conserve, faible en sodium",2004-03-09,2003-08-01,43350,
+5593,5593,9,35,Unsweetened cranberry juice,"Canneberge, jus, non sucré",2004-03-09,2003-08-01,43382,
+5595,5595,11,35,Canned turnip greens,"Navet, feuilles, conserve, sans sel",2004-03-09,2003-08-01,43387,
+5599,5599,11,35,Hearts of palm,"Coeurs de palmier, crus",2004-03-09,2003-08-01,43392,
+5607,5607,18,35,Pumpernickel roll,"Pain mollet, seigle foncé (""pumpernickel"")",2004-03-09,2003-08-01,43441,
+5612,5612,15,0,"Dried, salted jellyfish","Méduse, déshydratée, salée",2004-03-09,2003-08-01,43497,
+5633,5633,15,0,Salted mackerel,"Poisson, maquereau, salé",2004-03-09,2003-08-01,83110,
+5635,5635,15,35,Snail,"Mollusques, escargot, cru",2004-03-09,2003-08-01,90560,
+5638,5638,5,0,Ground emu,"Émeu, haché, cru",2004-03-09,2002-08-01,5621,Dromaius novaehollandiae
+5640,5640,5,0,Fan fillet emu,"Émeu, filet de l'éventail, cru",2004-03-09,2002-08-01,5623,Dromaius novaehollandiae
+5642,5642,5,0,Flat fillet emu,"Émeu, filet plat, cru",2004-03-09,2002-08-01,5625,Dromaius novaehollandiae
+5643,5643,5,0,Full rump emu,"Émeu, croupe, cru",2004-03-09,2002-08-01,5626,Dromaius novaehollandiae
+5645,5645,5,0,Inside drum emu,"Émeu, intérieur de pilon, cru",2004-03-09,2002-08-01,5628,Dromaius novaehollandiae
+5647,5647,5,0,Outside drum emu,"Émeu, extérieur de pilon, cru",2004-03-09,2002-08-01,5630,Dromaius novaehollandiae
+5648,5648,5,0,Emu oyster,"Émeu, sot-l'y-laisse, cru",2004-03-09,2002-08-01,5631,Dromaius novaehollandiae
+5650,5650,5,0,Ground Ostrich,"Autruche, hachée, crue",2004-03-09,2002-08-01,5641,Struthio camelus
+5652,5652,5,0,Fan ostrich,"Autruche, l'éventail, crue",2004-03-09,2002-08-01,5643,Struthio camelus
+5653,5653,5,0,Ostrich inside leg,"Autruche, intérieur de pilon, crue",2004-03-09,2002-08-01,5644,Struthio camelus
+5655,5655,5,0,Ostrich inside strip,"Autruche, intérieur de cuisse, crue",2004-03-09,2002-08-01,5646,Struthio camelus
+5657,5657,5,0,Ostrich outside leg,"Autruche, extérieur de pilon, cru",2004-03-09,2002-08-01,5648,Struthio camelus
+5658,5658,5,0,Ostrich  outside strip,"Autruche, extérieur de cuisse, crue",2004-03-09,2002-08-01,5649,Struthio camelus
+5660,5660,5,0,Ostrich oyster,"Autruche, sot-l'y-laisse, crue",2004-03-09,2002-08-01,5651,Struthio camelus
+5662,5662,5,0,Ostrich round,"Autruche, ronde, crue",2004-03-09,2002-08-01,5653,Struthio camelus
+5663,5663,5,0,Ostrich tenderloin,"Autruche, filet, cru",2004-03-09,2002-08-01,5654,Struthio camelus
+5664,5664,5,0,Ostrich tip trimmed,"Autruche, pointe de cuisse, crue",2004-03-09,2002-08-01,5655,Struthio camelus
+5666,5666,5,0,Ostrich top loin,"Autruche, haut de longe, cru",2004-03-09,2002-08-01,5657,Struthio camelus
+5669,5669,7,0,Liverwurst spread,"Saucisson de foie, tartinade",2004-03-09,2002-08-01,7911,
+5674,5674,7,38,Polish sausage,"Saucisse, saucisson polonais, porc et boeuf, fumé",2004-03-09,2002-08-01,7916,
+5715,5715,17,0,Ground bison,"Gibier, viande, bison, haché, cru",2004-03-09,2002-08-01,17330,Bison bison
+5719,5719,17,0,Bison chuck,"Gibier, viande, bison, épaule, rôti pointe d'épaule, maigre, cru",2004-03-09,2002-08-01,17334,Bison bison
+5722,5722,17,0,Bison top round,"Gibier, viande, bison, intérieur de ronde, maigre, bifteck, cru",2004-03-09,2002-08-01,17337,Bison bison
+5723,5723,17,0,Ground elk,"Gibier, viande, wapiti (élan) haché, cru",2004-03-09,2002-08-01,17338,Cervus elaphus
+5728,5728,17,0,Ground deer,"Gibier, viande de  chevreuil (venaison), haché, cru",2004-03-09,2002-08-01,17343,"Cervus elaphus, Dama dama"
+5734,5734,19,0,Twizzlers nibs cherry  bits,"Bonbons, TWIZZLERS NIBS CHERRY BITS",2004-03-09,2002-08-01,19092,
+5736,5736,19,0,Hazelnut spread,"Confiseries, garniture, tartinade au chocolat et noisettes",2004-03-09,2002-08-01,19125,
+5737,5737,19,0,York bites,"Bonbons, YORK BITES",2004-03-09,2002-08-01,19181,
+5743,5743,19,0,Milk chocolated covered almonds,"Bonbons, chocolat au lait avec amandes, bouchées",2004-03-09,2002-08-01,19236,
+5748,5748,19,0,Sugar-coated almonds,"Bonbons, amandes dragées",2004-03-09,2002-08-01,19858,
+5759,5759,17,28,Bearded seal meat,"Gibier, viande, autochtone, phoque barbu, viande, crue",2004-12-10,,,Erignathus barbatus
+5761,5761,17,28,Bearded seal meat intestine,"Gibier, viande, autochtone, phoque barbu, intestin, cru",2004-12-10,,,Erignathus barbatus
+5763,5763,17,28,Bearded seal blubber,"Gibier, viande, autochtone, phoque barbu, lard, cru",2004-12-10,,,Erignathus barbatus
+5764,5764,17,28,Beluga blubber,"Gibier, viande, autochtone, béluga, lard, cru",2004-12-13,,,Delphinapterus leucas
+5766,5766,17,28,Beluga skin,"Gibier, viande, autochtone, béluga, muktuk, cru",2004-12-13,,,Delphinapterus leucas
+5769,5769,17,28,Dried beluga,"Gibier, viande, autochtone, béluga, viande, déshydratée",2004-12-16,,,Delphinapterus leucas
+5770,5770,17,28,Aged narwhal flippers,"Gibier, viande, autochtone, narval, nageoires, vieillies",2004-12-16,,,Monodon monoceros
+5771,5771,17,28,Dried narwhal,"Gibier, viande, autochtone, narval, viande, déshydratée",2004-12-16,,,Monodon monoceros
+5772,5772,17,28,Narwhal blubber,"Gibier, viande, autochtone, narval, lard, cru",2004-12-16,,,Monodon monoceros
+5773,5773,17,28,Aged narwhal blubber,"Gibier, viande, autochtone, narval, lard, vieilli",2004-12-16,,,Monodon monoceros
+5775,5775,17,28,Narwhal skin,"Gibier, viande, autochtone, narval, peau (muktuk), crue",2004-12-17,,,Monodon monoceros
+5778,5778,17,28,Ringed seal blubber,"Gibier, viande, autochtone, phoque annelé, lard, cru",2004-12-17,,,Phoca hispida
+5782,5782,17,28,Ringed seal,"Gibier, viande, autochtone, phoque annelé, viande, crue",2004-12-20,,,Phoca hispida
+5785,5785,17,28,Ringed seal heart,"Gibier, viande, autochtone, phoque annelé, coeur, cru",2004-12-20,,,Phoca hispida
+5786,5786,17,28,Ringed seal brain,"Gibier, viande, autochtone, phoque annelé, cervelle, crue",2004-12-20,,,Phoca hispida
+5787,5787,17,28,Ringed seal eyes,"Gibier, viande, autochtone, phoque annelé, yeux, crus",2004-12-20,,,Phoca hispida
+5788,5788,17,28,Riinged seal liver,"Gibier, viande, autochtone, phoque annelé, foie, cru",2004-12-21,,,Phoca hispida
+5789,5789,17,28,Ringed seal pup,"Gibier, viande, autochtone, phoque annelé, bébé phoque, cru",2004-12-21,,,Phoca hispida
+5791,5791,17,28,Walrus blubber,"Gibier, viande, autochtone, morse, lard, cru",2004-12-21,,,Odobenus rosmarus
+5796,5796,17,28,Walrus skin,"Gibier, viande, autochtone, morse, peau (muktuk), crue",2004-12-21,,,Odobenus rosmarus
+5800,5800,17,28,Dried beaver,"Gibier, viande, autochtone, castor, viande, déshydratée",2004-12-22,,,Castor canadensis
+5803,5803,17,28,Beaver liver,"Gibier, viande, autochtone, castor, foie, cru",2004-12-22,,,Castor canadensis
+5806,5806,17,28,Dried caribou,"Gibier, viande, autochtone, caribou, (renne), viande, déshydratée",2004-12-23,,,Rangifer tarandus
+5807,5807,17,28,Aged caribou,"Gibier, viande, autochtone, caribou, (renne), viande, vieillie",2004-12-23,,,Rangifer tarandus
+5808,5808,17,28,Caribou brain,"Gibier, viande, autochtone, caribou, (renne), cervelle, crue",2004-12-30,,,Rangifer tarandus
+5810,5810,17,28,Caribou heart,"Gibier, viande, autochtone, caribou, (renne), coeur, cru",2004-12-30,,,Rangifer tarandus
+5812,5812,17,28,Caribou lungs,"Gibier, viande, autochtone, caribou, (renne), poumons, crus",2004-12-30,,,Rangifer tarandus
+5813,5813,17,28,Caribou stomach,"Gibier, viande, autochtone, caribou, (renne), estomac, cru",2004-12-30,,,Rangifer tarandus
+5815,5815,17,28,Caribou liver,"Gibier, viande, autochtone, caribou, (renne), foie, cru",2005-01-04,,,Rangifer tarandus
+5817,5817,17,28,Caribou tongue,"Gibier, viande, autochtone, caribou, (renne), langue, crue",2005-01-04,,,Rangifer tarandus
+5819,5819,17,28,Dried moose,"Gibier, viande, autochtone, orignal, déshydratée",2005-01-24,,,Alces alces
+5820,5820,17,28,Moose bone marrow,"Gibier, viande, autochtone, orignal, moelle osseuse, crue",2005-01-24,,,Alces alces
+5825,5825,17,28,Moose lung,"Gibier, viande, autochtone, orignal, poumons, crus",2005-01-25,,,Alces alces
+5827,5827,17,28,Moose kidney,"Gibier, viande, autochtone, orignal, rognon, cru",2005-01-25,,,Alces alces
+5828,5828,17,28,Moose liver,"Gibier, viande, autochtone, orignal, foie, cru",2005-01-25,,,Alces alces
+5830,5830,17,28,Moose blood,"Gibier, viande, autochtone, orignal, sang, cru",2005-01-25,,,Alces alces
+5831,5831,17,28,Muskox,"Gibier, viande, autochtone, boeuf musqué, cru",2005-01-25,,,Ovibos moschatus
+5833,5833,17,28,Polar bear,"Gibier, viande, autochtone, ours blanc (ours polaire), cru",2005-01-26,,,"Ursus maritimus, Thalarctos maritimus"
+5843,5843,15,28,Grayling,"Ombre, autochtone, cru",2005-02-10,,,Thymallus arcticus
+5845,5845,15,28,Inconnu,"Poisson, inconnu, autochtone, cru",2005-02-10,,,Stenodus leucichthys
+5849,5849,15,28,Burbot eggs,"Poisson, lotte (loche), autochtone, oeufs, crus",2005-02-11,,,Lota lota (L)
+5850,5850,15,28,Burbot liver,"Poisson, lotte (loche), autochtone, foie, cru",2005-02-11,,,Lota lota (L)
+5855,5855,6,0,Beef ramen noodles,"Soupe, nouilles ramen, saveur de boeuf, sèche",2005-03-04,2005-03-01,6982,
+5856,5856,6,0,Chicken ramen noodles,"Soupe, nouilles ramen, saveur de poulet, sèche",2005-03-04,2005-03-01,6983,
+5857,5857,19,0,Fudgesicle,"Dessert, congelé, barre FUDGESICLE, faible en gras",2005-03-04,2005-03-01,19872,
+5858,5858,19,0,Popsicle,"Dessert, congelé, POPSICLE pop (orange, cerise, raisin), sans sucre",2005-03-04,2005-03-01,19873,
+5875,5875,17,28,Beluga eyes,"Gibier, viande, autochtone, béluga, yeux, crus",2005-03-04,2005-03-01,35010,Delphinapterus leucas
+5876,5876,17,28,Beluga flipper,"Gibier, viande, autochtone, béluga, nageoire, crue",2005-03-04,2005-03-01,35012,Delphinapterus leucas
+5877,5877,17,28,Beluga liver,"Gibier, viande, autochtone, béluga, foie, cru",2005-03-04,2005-03-01,35013,Delphinapterus leucas
+5879,5879,15,28,Blackfish,"Poisson, bar noir (mérou noir), autochtone, entier",2005-03-04,2005-03-01,35016,Dallia pectoralis
+5882,5882,15,28,Devilfish,"Poisson, diable de mer (Mante), autochtone, viande",2005-03-04,2005-03-01,35034,Myoxocephalus
+5883,5883,11,28,Fireweed,"Épilobe à feuilles étroites, autochtone, feuilles tendres, crues",2005-03-04,2005-03-01,35038,Chamerion angustifolium
+5886,5886,15,28,Herring eggs,"Poisson, hareng, autochtone, oeufs, pacifique, crus",2005-03-04,2005-03-01,35041,Clupea harengus pallasi Valenciennes
+5888,5888,15,28,Lingcod liver,"Poisson, morue-lingue, autochtone, foie",2005-03-04,2005-03-01,35047,Ophiodon elongatus
+5889,5889,11,28,Mashu roots,"Sinfoin alpin, racines, autochtone, crues",2005-03-04,2005-03-01,35050,Hedysarum alpinum
+5892,5892,15,28,Tunicata,"Poisson, oopah (tunicata), autochtone, entier",2005-03-04,2005-03-01,35058,Tunicata
+5893,5893,17,28,Horned owl,"Gibier, viande, autochtone, hibou strié, cru",2005-03-04,2005-03-01,35059,Bubo virgimianus
+5894,5894,15,28,Pike liver,"Poisson, grand brochet, autochtone, foie",2005-03-04,2005-03-01,35060,Esox lucius
+5895,5895,15,28,Fermented salmon,"Poisson, saumon, autochtone, tipnuk, fermenté",2005-03-04,2005-03-01,35064,
+5899,5899,15,28,Salmon liver,"Poisson, saumon, autochtone, royal ou quinnat, foie",2005-03-04,2005-03-01,35068,Oncorhynchus tshawytscha
+5900,5900,11,28,Sourdock,"Rumex petite-oseille, autochtone, feuilles tendres",2005-03-04,2005-03-01,35074,Rumex articus
+5901,5901,17,28,Dry walrus,"Gibier, viande, autochtone, morse, déshydraté",2005-03-04,2005-03-01,35079,Odohenus rosmarus
+5902,5902,17,28,Deer,"Gibier, viande, autochtone, cerf de Sitka (venaison), cru",2005-03-04,2005-03-01,35080,Odocoileus spp
+5903,5903,17,28,Walrus liver,"Gibier, viande, autochtone, morse, foie, cru",2005-03-04,2005-03-01,35083,Odohenus rosmarus
+5905,5905,17,28,Bowhead bluffer,"Gibier, viande, autochtone, baleine boréale, lard",2005-03-04,2005-03-01,35085,Balaena mysticetus
+5906,5906,17,28,Bowhead skin,"Gibier, viande, autochtone, baleine boréale, muktuk",2005-03-04,2005-03-01,35086,Balaena mysticetus
+5919,5919,15,28,Sculpin,"Poisson, chabot, autochtone, cru",2005-04-21,,,Acanthocottus groenlandicus
+5928,5928,15,28,Salmon eggs,"Poisson, saumon, autochtone, oeufs, cru",2005-06-28,,,
+5932,5932,5,28,Ptarmigan,"Lagopède, autochtone, viande, crue",2005-06-29,,,Lagopus sp.
+5934,5934,5,28,Spruce grouse,"Tétras du Canada, autochtone, viande, crue",2005-06-29,,,Dendragus canadensis
+5936,5936,11,28,Netted willow leaves,"Saule réticulé, autochtone, feuilles, crus",2005-06-29,,,Salix reticulata
+5937,5937,11,28,Mountain sorre leaves,"Rumex petite-oseille, autochtone, feuilles, crus",2005-06-29,,,Oxyria digyna
+5938,5938,9,28,Black crowberry,"Camarine noire, autochtone",2005-06-29,,,Empetrum nigrum
+5939,5939,9,28,Cloudberry,"Chicouté, autochtone",2005-06-29,,,Rubus chamaemorus
+5940,5940,15,28,Sea cucumber,"Concombre de mer (holothurie), autochtone",2005-06-29,,,Cucumaria frondosa
+5956,5956,9,0,Clementine,"Clémentine, crue",2006-02-27,2005-08-01,9433,Citrus clementina hort. ex Tanaka
+5966,5966,15,0,Tilapia,"Poisson, tilapia, cru",2006-02-27,2005-08-01,15261,
+5981,5981,13,23,Beef chuck,"Boeuf, épaule, rôti de côtes croisées, désossé, maigre, cru",2006-03-01,,23513,
+5993,5993,13,23,Beef hip,"Boeuf, cuisse, rôti de noix de ronde, désossé, maigre, cru",2006-03-02,,23360,
+6022,6022,13,23,Beef flank steak,"Boeuf, flanc, bifteck de flanc, désossé, maigre, cru",2006-03-27,,23656,
+6028,6028,13,23,Beef inside round roast,"Boeuf, cuisse, ronde, rôti d'intérieur, désossé, maigre, cru",2006-03-28,,23357,
+6034,6034,13,23,Beef inside round steak,"Boeuf, cuisse, ronde, bifteck d'intérieur, désossé, maigre, cru",2006-03-28,,23354,
+6041,6041,13,23,Beef outside round roast,"Boeuf, cuisse, ronde, rôti d'extérieur, désossé, maigre, cru",2006-04-04,,,
+6045,6045,13,23,Beef outside round steak,"Boeuf, cuisse, ronde, bifteck d'extérieur, désossé, maigre et gras, 0mm (0"") paré, cru",2006-04-04,,23063,
+6062,6062,13,23,Beef rib eye roast,"Boeuf, côte, rôti de faux-filet, désossé, maigre, cru",2006-04-11,,23153,
+6068,6068,13,23,Beef rib eye steak,"Boeuf, côte, bifteck de faux-filet, désossé, maigre, cru",2006-04-11,,23175,
+6091,6091,13,23,Beef sirlooin top roast,"Boeuf, cuisse, rôti de pointe de surlonge, désossé, maigre, cru",2006-04-26,,13486,
+6109,6109,13,23,Beef strip loin steak,"Boeuf, longe, bifteck de contre-filet, désossé, maigre, cru",2006-05-03,,23369,
+6115,6115,13,23,Beef t-bone steak,"Boeuf, longe, bifteck d'aloyau (gros filet), maigre, cru",2006-05-09,,13478,
+6119,6119,10,23,Ground lean pork,"Porc, haché, maigre, cru",2006-05-17,2006-02-15,10972,
+6121,6121,10,23,Ground medium pork,"Porc, haché, mi-maigre, cru",2006-05-17,2006-02-15,10220,
+6125,6125,13,23,Beef tenderloin roast,"Boeuf, longe, filet, rôti, maigre, cru",2006-05-18,,23366,
+6131,6131,13,23,Beef tenderloin steak,"Boeuf, longe, filet, bifteck, maigre, cru",2006-05-18,,23372,
+6137,6137,13,23,Beef top sirloin roast,"Boeuf, longe, rôti de haut de surlonge, désossé, maigre, cru",2006-05-24,,23253,
+6143,6143,13,23,Beef top sirloin steak,"Boeuf, longe, bifteck de haut de surlonge,  désossé, maigre, cru",2006-05-24,,23611,
+6149,6149,13,23,Beef bottom tri-tip roast,"Boeuf, longe, rôti de triangle de bas de surlonge, désossé, maigre, cru",2006-05-29,,23646,
+6159,6159,10,23,Pork rib roast,"Porc, longe, rôti, bout côte, désossée, maigre et gras, cru",2006-07-07,2006-02-15,10194,
+6178,6178,19,23,Maple taffy,"Confiseries, tire d'érable",2006-09-05,,,
+6179,6179,5,26,Rhea,"Nandou (rhea), raw",2006-11-15,,,
+6180,6180,20,0,Amaranth,"Grains céréaliers, amarante, farine",2006-11-16,,,
+6181,6181,16,3,Black bean flour,"Haricots, noirs, farine",2006-11-16,,,
+6182,6182,16,3,White blean flour,"Haricots, blancs, farine",2006-11-16,,,
+6183,6183,16,3,Lentils flour,"Lentilles, farine",2006-11-16,,,
+6184,6184,11,0,Cassava flour,"Manioc, farine",2006-11-16,,,
+6186,6186,20,3,Millet flour,"Grains céréaliers, millet, farine",2006-11-17,,20647,
+6187,6187,20,3,Quinoa flour,"Grains céréaliers, quinoa, farine",2006-11-17,,,
+6188,6188,11,0,Yam flour,"Igname, farine",2006-11-17,,,
+6189,6189,11,0,Sweet potato flour,"Patate douce, farine",2006-11-17,,,
+6190,6190,20,0,Sorghum flour,"Grains céréaliers, sorgho, farine",2006-11-17,,20648,
+6192,6192,20,0,White glutinous rice flour,"Grains céréaliers, riz blanc, glutineux, farine",2006-11-20,,,
+6193,6193,20,0,Teff,"Grains céréaliers, teff, non cuit",2006-11-20,,20142,
+6195,6195,2,0,Red wine vinegar,"Vinaigre, vin rouge",2006-11-29,2006-11-01,2068,
+6196,6196,2,0,Balsamic vinegar,"Vinaigre, balsamique",2006-11-29,2006-11-01,2069,
+6204,6204,9,0,Canend gauva,"Goyave, nectar, en conserve",2006-11-29,2006-11-01,9435,
+6205,6205,9,0,Canned mango,"Mangue, nectar, en conserve",2006-11-29,2006-11-01,9436,
+6206,6206,10,0,Pickled pork hocks,"Porc, mariné, jarrets de porc",2006-11-29,2006-11-01,10898,
+6219,6219,11,0,Maitake mushroom,"Champignon, Maitake, cru",2006-11-29,2006-11-01,11993,Grifola frondosa
+6230,6230,19,0,Snickers,"Bonbons, Snickers, avec amandes",2006-11-29,2006-11-01,19302,
+6259,6259,9,0,Salmonberry,"Ronce élégante, crue",2006-11-29,2006-11-01,35154,Rubus spectabilis
+6260,6260,9,0,Chokecherry,"Cerise de Virginie, crue, dénoyautée (cerise à grappes)",2006-11-29,2006-11-01,35179,
+6261,6261,15,0,Dried steelhead trout,"Poisson, truite arc-en-ciel anadrome, viande, séchée",2006-11-29,2006-11-01,35180,
+6266,6266,11,0,Agave,"Agave, cru",2006-11-29,2006-11-01,35192,
+6278,6278,11,0,Broccoli flower,"Brocoli, fleurettes, crues",2007-05-23,,11740,
+6279,6279,11,0,Broccoli stalks,"Brocoli, tiges, crues",2007-05-23,,11741,
+6280,6280,11,0,Broccoli leaves,"Brocoli, feuilles, crues",2007-05-24,,11739,
+6291,6291,1,9,Kefir,"Kéfir, (2-3,9% M.G.)",2007-06-28,,,
+501098,6304,11,24,Napa cabbage,"Chou, napa, cru",2007-09-14,,,Brassica pekinensis
+501509,6312,2,0,Taco seasoning,"Assaisonnement, taco, mélange sec",2008-05-26,2007-09-01,2075,
+501510,6313,4,0,Honey mustard,"Vinaigrette, moutarde au miel, réduite en Calories",2008-05-26,2007-09-01,4686,
+501548,6351,11,28,Cattail,"Massette, pousses de feuilles étroites, autochotone",2008-05-26,2007-09-01,35195,
+501549,6352,9,28,Rose hips,"Églantier, fruits, autochtone",2008-05-26,2007-09-01,35203,
+501622,6404,15,0,Cockle,"Mollusques, coque, crue",2009-03-10,,35028,Clinocardium nuttallii
+501639,6421,1,0,Egg powder,"Oeuf, succédané, poudre",2009-03-10,,1144,
+501652,6434,15,0,Burbot,"Poisson, lotte (loche), crue",2009-03-11,,15006,lota lota (L.)
+501662,6444,9,0,Huckleberries,"Airelle myrtille, crue",2009-03-17,,35043,
+501683,6465,4,0,Cooking spray,"Huile, enduit à cuisson en vaporisateur",2009-03-17,,4679,
+501751,6530,9,0,Raspberry,"Framboise sauvage, crue",2009-03-17,,35202,
+501799,6577,16,0,Fried tofu,"Tofu, frit",2009-03-17,,16129,
+501819,6596,18,38,Granola bar,"Barre granola, croquante, nature",2009-04-30,,,
+501822,6599,18,38,Yogourt coated granola bar,"Barre granola, tendre, saveurs de fruits, enrobée de yogourt",2009-04-30,,,
+501823,6600,18,38,Chocolate coated granola bar,"Barre granola, tendre, enrobée de chocolat, toutes saveurs",2009-04-30,,,
+501824,6601,18,38,Chocolate chip granola bar,"Barre granola, tendre, grains de chocolat",2009-04-30,,,
+501829,6606,18,0,Naan,"Indien, pain naan",2009-05-05,,28307,
+501830,6607,18,36,Dumpling,"Dumpling, nature",2009-05-05,,,
+501839,6616,11,36,Spring mix,"Laitue, mélange mesclun",2009-05-08,,,
+501842,6619,18,36,Bread pudding with raisins,"Pouding au pain, avec raisins secs, fait maison",2009-05-08,,,
+501843,6620,18,36,Sugar pie,"Tarte au sucre, 1 croûte, faite maison",2009-05-08,,,
+501844,6621,18,36,Butter tart with raisins,"Tartelette au beurre, avec raisins secs, faite maison",2009-05-08,,,
+501851,6628,18,36,Cheesecake,"Gâteau au fromage, nature, avec garniture aux cerises, fait maison",2009-05-12,,,
+501854,6631,18,36,Carrot muffin,"Muffin, carottes, commercial",2009-05-13,,,
+501855,6632,18,36,Chocolate chip muffin,"Muffin, grains de chocolat, commercial",2009-05-13,,,
+501882,6659,9,0,Frozen blueberry,"Bleuet sauvage, congelé",2009-05-14,2009-05-14,9053,
+501884,6661,9,0,Pomegranate juice,"Jus de grenade, prêt-à-boire",2009-05-14,2009-05-14,9442,
+501885,6662,9,0,Apple and grape juice,"Jus, pommes et raisins, vitamine C ajoutée",2009-05-14,2009-05-14,9443,
+501891,6668,18,0,Graham cracker pie crust,"Croûte de tarte, type biscuit, graham, prête à servir",2009-05-14,2009-05-14,18942,
+501893,6670,19,0,45-59% Cacao,"Bonbons, chocolat noir, 45-59% solides de cacao",2009-05-14,2009-05-14,19902,
+501894,6671,19,0,60-69% Cacao,"Bonbons, chocolat noir, 60-69% solides de cacao",2009-05-14,2009-05-14,19903,
+501895,6672,19,0,70-85% Cacao,"Bonbons, chocolat noir, 70-85% solides de cacao",2009-05-14,2009-05-14,19904,
+501900,6677,25,0,Sunchips french onion,"Grignotises, SUNCHIPS, saveur d'oignon",2009-05-14,2009-05-14,25022,
+501901,6678,25,0,Sunchips harvest cheddar,"Grignotises, SUNCHIPS, saveur de fromage",2009-05-14,2009-05-14,25023,
+501902,6679,25,0,Plantain chips,"Grignotises, croustilles de plantain",2009-05-14,2009-05-14,25027,
+501906,6683,6,0,Wonton,"Soupe, wonton (won ton), préparée au restaurant",2009-05-14,2009-05-14,27002,
+501908,6685,17,28,Sea lion liver,"Gibier, viande, otarie de Steller, foie, cru",2009-05-14,2009-05-14,35226,
+501909,6686,17,28,Sea lion kidney,"Gibier, viande, otarie de Steller, rein, cru",2009-05-14,2009-05-14,35227,Eumetopias jubatus
+501910,6687,17,28,Sea lion heaert,"Gibier, viande, otarie de Steller, coeur, cru",2009-05-14,2009-05-14,35228,Eumetopias jubatus
+501911,6688,17,28,Sea lion,"Gibier, viande, otarie de Steller, viande, cru",2009-05-14,2009-05-14,35229,
+501929,6703,14,36,Chai latte,"Thé chaï, préparé avec lait entier",2009-05-19,,,
+501930,6704,14,36,Coffee latte,"Café au lait, préparé avec lait entier",2009-05-19,,,
+501932,6706,14,36,Margarita,"Acoolisé, cocktail, margarita",2009-05-20,,,
+501933,6707,14,36,Sangria,Sangria,2009-05-20,,,
+501934,6708,7,36,Cretons,Cretons,2009-05-27,,,
+501936,6710,15,36,Fish cake,"Poisson, beignet (fricadelle)",2009-05-27,,,
+502011,6785,18,0,Potato bread,Pain de pommes de terre (patates),2009-09-25,,18971,
+502012,6786,6,36,Cream cheese dip,Trempette à base de fromage à la crème,2009-09-28,,,
+502013,6787,6,36,Spinach source cream dip,"Trempette aux épinards, à base de crème sure",2009-09-28,,,
+502014,6788,6,36,Sour cream dip,Trempette à base de crème sure (et soupe à l'oignon déshydratée),2009-09-29,,,
+502015,6789,19,0,Dulce de leche,Dulce de leche (lait caramélisé),2009-10-13,,1225,
+502016,6790,9,0,Gold kiwi,"Kiwi jaune, cru",2009-10-13,,9445,
+502017,6791,11,0,Snap beans,"Haricots (italiens, jaunes ou verts), frais, cuits au four micro-ondes",2009-10-13,,11063,
+502019,6793,18,0,Chocolate chip waffle,"Gaufre, grains de chocolat, congelée, prête-à-cuire",2009-10-13,,18951,
+502033,6810,25,0,Vegetable chips,"Grignotises, croustilles aux légumes",2009-10-13,,25040,
+502034,6811,19,0,Yogourt covered candy,"Bonbons, morceaux de bonbons enrobés de yogourt",2009-10-13,,25043,
+502035,6812,25,0,Bagel chips,"Grignotises, croustilles de bagel",2009-10-13,,25046,
+502040,6818,19,0,Granulated brown sugar,"Édulcorant, sucre granulé brun",2009-10-27,,19909,
+502041,6821,1,0,Yogourt parfait,"Yogourt, parfait au yogourt, avec fruits et granola, yogourt à teneur réduite en gras",2009-10-27,,21463,
+502074,6856,5,38,Hen breast,"Dinde, jeune, poitrine, viande, crue",2010-01-14,,5710,Meleagris gallopavo
+502075,6857,5,38,Hen drumstick,"Dinde, jeune, pilon, viande, crue",2010-01-14,,5716,Meleagris gallopavo
+502076,6858,5,38,Hen thigh,"Dinde, jeune, haut de cuisse, viande, cru",2010-01-14,,5717,Meleagris gallopavo
+502077,6859,5,38,Hen leg,"Dinde, jeune, cuisse, viande, crue",2010-01-14,,,Meleagris gallopavo
+502078,6862,5,38,Hen wing,"Dinde, jeune, aile, viande, crue",2010-01-14,,5712,Meleagris gallopavo
+502110,6903,6,36,Hollandaise sauce,"Sauce, Hollandaise",2010-04-23,,,
+502112,6904,11,0,Shiitake mushroom,"Champignon, shiitake, cru",2011-02-02,,11238,
+502136,6928,11,0,Chanterelle mushroom,"Champignon, Chanterelle, cru",2011-07-28,,11239,Cantharellus californicus / cantharellus cibarius
+502137,6929,11,0,Morel mushroom,"Champignon, morille, cru",2011-07-28,,11240,Morchella spp.
+502142,6934,11,28,Turnip,"Navet des Prairies, autochtone, cru",2011-07-29,,35200,
+502148,6940,6,0,Black bean soup,"Soupe aux haricots noirs, prête-à-servir",2011-08-23,,36413,
+502157,6948,1,38,Plain yogourt,"Yogourt, nature, sans gras (0-0,5% M.G.)",2012-05-03,,,
+502158,6949,1,38,Fruit flavoure yogourt,"Yogourt, saveurs de fruits, sans gras (0-0,5% M.G.)",2012-05-07,,,
+502159,6950,1,38,Vanilla yogourt,"Yogourt, saveur de vanille, sans gras (0-0,5% M.G.)",2012-05-07,,,
+502174,6965,1,38,Coffee yogourt,"Yogourt, saveur de café (2-3,9% M.G.)",2012-05-07,,,
+502188,6979,1,38,Plain greek yogourt,"Yogourt, Grec, nature, sans gras (0-0,5% M.G.)",2012-05-07,,,
+502189,6980,1,38,Plain greek fruit yogourt,"Yogourt, Grec, saveur de fruits, sans gras (0-0,5% M.G.)",2012-05-07,,,
+502193,6984,1,38,Fibre yogourt,"Yogourt de chèvre, nature, fibres ajoutées",2012-05-07,,,
+502194,6985,1,38,Fruit fibre yogourt,"Yogourt de chèvre, saveurs de fruits, fibres ajoutées",2012-05-07,,,
+502195,6986,1,38,Vanilla fibre yogourt,"Yogourt de chèvre, saveur de vanille, fibres ajoutées",2012-05-07,,,
+502196,6987,1,38,Plain soy yogourt,"Yogourt, soya, nature",2012-05-07,,,
+502198,6989,1,38,Plain soy fruit yogourt,"Yogourt, soya, saveurs de fruits",2012-05-07,,,
+502208,6999,1,38,Kefir,"Kéfir, nature, faible en gras (0,5-1,9% M.G.)",2012-05-07,,,
+502209,7000,1,38,Kefir fruit,"Kéfir, saveurs de fruits, faible en gras (0,5-1,9% M.G.)",2012-05-07,,,
+502213,7005,1,38,Cheddar slices,"Produit de fromage fondu, cheddar, tranches",2012-08-07,,,
+502214,7006,1,38,Mozzarella slices,"Produit de fromage fondu, mozzarella, tranches",2012-08-07,,,
+502215,7007,1,38,Swiss slices,"Produit de fromage fondu, suisse, tranches",2012-08-07,,,
+502223,7017,9,0,Horned melon,Melon à cornes,2012-09-07,,9451,
+502232,7030,19,0,Ice cream sandwich,"Dessert, congelé, sandwich à la crème glacée",2012-10-02,,1238,
+502233,7031,19,0,Ice cream cookie sandwich,"Dessert congelé, sandwich à la crème glacée, biscuit",2012-10-04,,1239,
+502239,7037,25,0,Clif bar,"Grignotises, Clif bar, toutes saveurs",2012-10-05,,25051,
+502241,7039,6,38,Clam chowder,"Soupe, chaudrée de palourdes, Nouvelle-Angleterre, prête-à-servir",2012-10-15,,27042,
+502242,7040,19,0,Ice milk bar,"Dessert, congelé, lait glacé, barre, faible en gras",2012-10-15,,1244,
+502243,7041,1,0,Mexican cheese blend,"Fromage, mélange mexicain",2012-10-15,,1251,
+502253,7051,9,0,Orange pineapple juice,"Jus, orange ananas",2012-10-16,,9452,
+502259,7057,14,0,Hibiscus tea,Tisane à l'hibiscus,2012-10-22,,14649,
+502266,7068,18,0,Cream puff,"Chou à la crème, éclair, garni de crème pâtissière ou de crème, avec glaçage",2012-10-24,,18969,
+502269,7071,18,0,Cheese bread,Pain au fromage,2012-10-24,,18972,
+502270,7073,18,0,Focaccia,"Pain, Focaccia, pain plat italien, nature",2012-10-24,,18973,
+502271,7074,25,0,Honey sesame cracker,"Craquelin, sésame et miel",2012-10-24,,18974,
+502275,7077,18,0,Asiago cheese cracker,"Craquelin, fromage asiago",2012-10-24,,18977,
+502276,7079,18,0,Roasted vegetable cracker,"Craquelin, légumes grillés",2012-10-24,,18981,
+502281,7084,6,0,Cocktail sauce,"Sauce à cocktail, prête-à-servir",2012-10-25,,27051,
+502284,7087,18,0,Garlic bread,Pain à l'ail,2012-10-25,,18963,
+502285,7088,18,0,Cinnamon bun,"Brioche à la cannelle, avec glaçage (brioche au miel)",2012-10-25,,18964,
+502335,7118,1,38,Soy vanilla yogourt,"Yogourt, soya, saveur de vanille",2013-02-15,,,
+502336,7119,1,38,Fruit yogourt beverage,"Yogourt à boire, saveurs de fruits, vitamine D ajoutée",2013-02-15,,,
+502337,7120,1,38,Vanilla yogourt beverage,"Yogourt à boire, saveur de vanille, vitamine D ajoutée",2013-02-15,,,
+502338,7121,1,38,Plain goat yogourt,"Yogourt de chevre, nature",2013-03-19,,,
+502339,7122,1,38,Goat fruit yogourt,"Yogourt de chèvre, saveurs de fruits",2013-03-20,,,
+502340,7123,1,38,Goat vanilla yogourt,"Yogourt de chèvre, saveur de vanille",2013-03-20,,,
+502341,7125,9,0,Bartlett pear,"Poire, Bartlett, crue",2013-03-22,,9412,Pyrus communis
+502342,7126,9,0,Golden Delicious apple,"Pomme, Golden Delicious, crue, avec pelure",2013-03-25,,9501,
+502345,7129,19,0,Agave syrup,"Édulcorant, sirop d'agave",2013-03-26,,19912,
+502349,7133,6,0,Cheese and salsa sauce,"Sauces, fromage et salsa, moyenne",2013-04-03,,27053,
+502358,7142,19,0,Cane syrup,"Confiserie, sirop, canne à sucre",2013-04-04,,90480,
+502368,7151,7,38,Black forest ham,"Charcuterie, jambon Forêt Noire",2013-06-26,,7028,
+502372,7155,7,38,Sliced old fashioned smoked brisket,"Charcuterie, pointe de poitrine fumée à l'ancienne, tranchée",2013-06-26,,,
+502373,7156,7,38,Montreal smoked meat,"Charcuterie, viande fumée montréalaise, extra maigre",2013-06-26,,,
+502374,7157,7,38,Capicollo,"Charcuterie, capicollo",2013-06-26,,,
+502375,7158,7,38,Kielbasa sausage,Saucisse kielbasa (kolbassa),2013-06-26,,7037,
+502379,7162,7,38,Summer sausage,"Charcuterie, saucisson d'été",2013-06-26,,7078,
+502380,7163,7,38,Mortadella,"Charcuterie, mortadelle",2013-06-26,,7050,
+502381,7164,7,38,Pepperoni,"Charcuterie, pepperoni",2013-06-26,,7057,
+502391,7173,14,38,Coffee energy drink,"Boisson énergisante, saveur de café",2013-09-10,,,
+502393,7175,14,38,Energy drink,"Boisson énergisante, saveurs variées",2013-09-13,,,
+502397,7179,14,38,Caffeine free energy drink,"Boisson énergisante, sans caféine",2013-09-30,,,
+502398,7180,14,38,Tea energy drink,"Boisson énergisante, saveur de thé",2013-09-30,,,
+502401,7185,14,38,Vitamin water,"Eau vitaminée, toutes les saveurs, sucrée",2013-10-25,,,
+502406,7190,7,23,Canned ham,"Jambon, flocons, conserve",2013-11-08,,7026,
+502410,7191,4,0,Sunflower oil,"Huile végétale, tournesol, teneur moyenne en acide oléique",2014-01-06,,4642,
+502422,7203,2,0,Chili seasoning,"Assaisonnement, chili, mélange sec",2014-02-21,,2076,
+502430,7211,9,0,Red anjou pear,"Poire, anjou rouge, crue",2014-02-21,,9413,
+502431,7212,9,0,Bosc pear,"Poire, bosc, crue",2014-02-21,,9414,
+502432,7213,9,0,Green anjou pear,"Poire, anjou verte, crue",2014-02-24,,9415,
+502433,7214,9,0,Red Delicious apple,"Pomme, Red Delicious, crue, avec peau",2014-02-24,,9500,
+502434,7215,9,0,Granny smith apple,"Pomme, Granny Smith, crue, avec pelure",2014-02-24,,9502,
+502435,7216,9,0,Gala apple,"Pomme, Gala, crue avec pelure",2014-02-24,,9503,
+502436,7218,9,0,Fuji apple,"Pomme, Fuji, crue avec pelure",2014-02-24,,9504,
+502439,7221,12,0,Glazed walnuts,"Noix de Grenoble, givrées",2014-02-24,,12156,
+502445,7229,14,0,Whey protein powder,"Boisson, isolat de protéines de lactosérum, poudre",2014-03-03,,14058,
+502450,7234,15,0,Trouth,"Poisson, truite mouchetée, crue",2014-03-04,,15274,
+502458,7239,18,38,Spelt bread,"Pain, épeautre, commercial",2014-03-11,,,
+502468,7246,25,0,Brown rice chips,"Grignotises, croustilles de riz brun",2014-03-14,,25059,
+502469,7247,25,0,Chocolate coated pretzels,"Grignotises, bretzels, durs, enrobés de chocolat",2014-03-14,,25060,
+502472,7250,18,0,Whole-wheat roti,"Indien, pain, chapati ou roti, blé entier",2014-03-14,,28285,
+502473,7251,18,0,Whole-wheat paratha,"Indien, pain, paratha, blé entier",2014-03-14,,28286,
+502477,7252,18,0,Whole-wheat naan,"Indien, pain, naan, blé entier",2014-03-14,,28287,
+502479,7253,18,0,Roti,"Indien, pain, chapati ou roti, nature",2014-03-14,,28306,
+502481,7255,18,0,Multigrain cracker,"Craquelin, multigrains",2014-03-17,,28292,
+502525,7293,18,36,Fruit turnover,"Chausson aux fruits, (pommes, petits fruits, cerises, pêches)",2014-04-14,,,
+502551,7317,7,38,Chorizo,"Saucisse, chorizo, crue",2014-06-26,,,
+502557,7324,7,38,Dried chorizo,"Saucisse, chorizo, sèche",2014-07-03,,,
+502558,7326,7,38,Oktoberfest,"Saucisse Oktoberfest, crue",2014-07-03,,,
+502566,7334,7,38,Italian turkey sausage,"Saucisse italienne, dinde, crue",2014-07-03,,7927,
+502568,7336,7,38,Honey garlic pork sausage,"Saucisse, miel et ail, porc, crue",2014-07-03,,7063,
+502570,7338,7,38,Bratwurst pork sausage,"Saucisse Bratwurst, porc, crue",2014-07-04,,7013,
+502573,7342,7,38,Merguez lamb sausage,"Saucisse merguez, agneau, crue",2014-07-11,,,
+502576,7345,7,38,Beef meat stick,"Bâtonnet de viande, boeuf, réfrigéré",2014-07-11,,19407,
+502577,7346,7,38,Mixed meats meat stick,"Bâtonnet de viande, viandes mélangées, réfrigéré",2014-07-11,,19407,
+502578,7347,7,38,Chicken meat stick,"Bâtonnet de viande, poulet/dinde, réfrigéré",2014-07-14,,,
+502579,7348,7,38,Pepperoni meat stick,"Bâtonnet de viande, pepperoni, réfrigéré",2014-07-14,,19407,
+502591,7354,13,0,Beef short ribs,"Boeuf, épaule, bout-de-côte, maigre, 0 mm paré, cru",2014-07-15,,23068,
+502707,7433,17,0,Lam tenderloin,"Agneau, Nouvelle-Zélande, filet, maigre et gras, cru",2014-10-20,,17423,
+502758,7458,4,38,Canola margarine,"Margarine, dure, huile de canola et/ou soya",2014-12-17,,4610,
+502759,7459,4,38,Palm margarine,"Margarine, dure, huiles de palme et soya",2014-12-17,,4610,
+502776,7469,1,6,2% greek yogourt,"Yogourt, Grec, nature, 2% M.G.",2014-12-17,,1276,
+502778,7471,4,6,2% fruit greek yogourt,"Yogourt grec, saveur de fruits, 2% M.G.",2014-12-17,,1276,
+503362,7568,12,26,Hemp seeds,"Graines de chanvre, décortiquées",2015-02-18,,,

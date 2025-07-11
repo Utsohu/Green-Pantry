@@ -31,6 +31,8 @@ import android.util.Log
 class DetailsFragment : Fragment(R.layout.fragment_pantry) {
     private lateinit var allItems: List<PantryItem>
     private lateinit var pantryDB : PantryItemDatabase
+    private val filterViewModel: FilterViewModel by activityViewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pantryDB = PantryItemDatabase.getDatabase(requireContext())
@@ -81,6 +83,14 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
                 refreshPantry(inputField,recyclerView,emptyPantry)
             }
         }
+
+        // want to update visible items when a filter is changed
+        parentFragmentManager.setFragmentResultListener("filter_changed", viewLifecycleOwner) { _, bundle ->
+            val wasUpdated = bundle.getBoolean("updated", false)
+            if (wasUpdated) {
+                filterAndDisplayItems(inputField.text.toString(), recyclerView, emptyPantry)
+            }
+        }
     }
 
     // reset the filters to off when view is closed
@@ -101,8 +111,18 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
         recyclerView: RecyclerView,
         emptyPantry: LinearLayout
     ) {
+        val activeCategories = mutableSetOf<String>()
+        if (filterViewModel.vege.value == true) activeCategories.add("VEGETABLE")
+        if (filterViewModel.fruit.value == true) activeCategories.add("FRUIT")
+        if (filterViewModel.prot.value == true) activeCategories.add("PROTEIN")
+        if (filterViewModel.grain.value == true) activeCategories.add("GRAIN")
+        if (filterViewModel.dairy.value == true) activeCategories.add("DAIRY")
+        if (filterViewModel.oth.value == true) activeCategories.add("OTHER")
+
         val filteredItems = allItems.filter {
-            it.name.contains(query, ignoreCase = true)
+            val matchesQuery = it.name.contains(query, ignoreCase = true)
+            val matchesCategory = activeCategories.isEmpty() || activeCategories.contains(it.category)
+            matchesQuery && matchesCategory
         }
 
         if (filteredItems.isEmpty()) {

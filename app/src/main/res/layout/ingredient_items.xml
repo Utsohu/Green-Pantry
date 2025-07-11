@@ -25,7 +25,7 @@
                 android:id="@+id/item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/vitaminD"
+                android:text="@string/carbs"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="13sp"
                 android:textColor="@color/black"

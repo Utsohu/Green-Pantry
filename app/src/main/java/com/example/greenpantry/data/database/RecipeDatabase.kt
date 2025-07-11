@@ -45,7 +45,7 @@ abstract class RecipeDatabase : RoomDatabase() {
                                             time = 50, difficulty = 7, NOS = 2,
                                             calories = 120, fiber = 5, totalFat = 8, sugars = 2,
                                             transFat = 5, protein = 2, sodium = 2, iron = 3,
-                                            calcium = 4, vitaminD = 1,
+                                            calcium = 4, carbs = 1,
                                             setUpInstructions = mutableListOf("Follow the instructions and try to make a good meal!","Go out to restaurant.", "Buy the food!"),
                                             ingredients = mutableListOf("Romaine Lettuce", "Kale", "Yu Choy", "Apple") // need to change this to list of items
                                         ),

@@ -13,6 +13,7 @@ import androidx.compose.ui.semantics.text
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.greenpantry.R
+import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.ui.search.SearchFragment
@@ -24,7 +25,7 @@ import kotlinx.coroutines.launch
 class ItemDetailFragment : Fragment() {
 
     private var itemName: String? = null
-    private lateinit var pantryDB : PantryItemDatabase
+    private lateinit var foodDB : FoodItemDatabase
     private lateinit var recipeDB : RecipeDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,7 @@ class ItemDetailFragment : Fragment() {
         arguments?.let {
             itemName = it.getString(ARG_ITEM_NAME)
         }
-        pantryDB = PantryItemDatabase.getDatabase(requireContext())
+        foodDB = FoodItemDatabase.getDatabase(requireContext())
         recipeDB = RecipeDatabase.getDatabase(requireContext())
     }
 
@@ -48,12 +49,13 @@ class ItemDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /*
         parentFragmentManager.setFragmentResultListener("edit_item_result", this) { _, bundle ->
             val updated = bundle.getBoolean("updated", false)
             if (updated) {
                 refreshItemDetails()
             }
-        }
+        }*/
 
         // set the back and notif button
         val backText: TextView = view.findViewById(R.id.itemBack)
@@ -69,19 +71,18 @@ class ItemDetailFragment : Fragment() {
         // Set the text of this TextView
         titleTextView.text = itemName ?: "Item Details" // Provide a default if itemName is null
 
-        // update serving size
-        val servingAmt = view.findViewById<TextView>(R.id.servingAmt)
-        val size = 100 // dummy val for now
-        servingAmt.text = size.toString()
-
 
         itemName?.let { name ->
             viewLifecycleOwner.lifecycleScope.launch {
-                val item = pantryDB.pantryItemDao().getPantryItemByName(name)
+                val item = foodDB.foodItemDao().getFoodItemByName(name)
                 if(item != null){
-                    setNutrition(view, item.calories, item.fiber, item.totalFat,
+                    setNutrition(view, item.calories, item.fiber, item.totFat,
                         item.sugars, item.transFat, item.protein,
-                        item.sodium, item.iron, item.calcium, item.vitaminD)
+                        item.sodium, item.iron, item.calcium, item.carbs)
+
+                    // update serving size
+                    val servingAmt = view.findViewById<TextView>(R.id.servingAmt)
+                    servingAmt.text = item.servingSize
 
                     // update image
                     val itemImage = view.findViewById<ImageView>(R.id.itemImage)
@@ -160,21 +161,22 @@ class ItemDetailFragment : Fragment() {
             }
     }
 
+    /*
     private fun refreshItemDetails() {
         val view = view ?: return
         itemName?.let { name ->
             viewLifecycleOwner.lifecycleScope.launch {
                 val item = pantryDB.pantryItemDao().getPantryItemByName(name)
                 if (item != null) {
-                    setNutrition(view, item.calories, item.fiber, item.totalFat,
+                    setNutrition(view, item.calories, item.fiber, item.totFat,
                         item.sugars, item.transFat, item.protein,
-                        item.sodium, item.iron, item.calcium, item.vitaminD)
+                        item.sodium, item.iron, item.calcium, item.carbs)
 
                     val servingAmt = view.findViewById<TextView>(R.id.servingAmt)
                     servingAmt.text = item.curNum.toString() // or any updated display
                 }
             }
         }
-    }
+    }*/
 
 }

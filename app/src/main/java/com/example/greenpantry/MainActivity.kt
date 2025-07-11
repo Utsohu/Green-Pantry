@@ -20,6 +20,9 @@ import com.example.greenpantry.domain.repositories.AuthRepository
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.room.Room
+import com.example.greenpantry.data.database.FoodItemDatabase
+import com.example.greenpantry.data.database.CSVLoader
 import com.example.greenpantry.ui.login.LoginActivity
 
 @AndroidEntryPoint
@@ -47,6 +50,19 @@ class MainActivity : AppCompatActivity() {
         // Check login state on startup
         var checkedLoginState = false
         var loggedInState by mutableStateOf(false)
+
+        // item database initialization
+        val db = Room.databaseBuilder(
+            applicationContext,
+            FoodItemDatabase::class.java,
+            "foodItem_database"
+        ).build()
+
+        val foodItemDao = db.foodItemDao()
+        val loader = CSVLoader(applicationContext, foodItemDao)
+        lifecycleScope.launch {
+            loader.loadIfNeeded() // load the item database
+        }
 
         lifecycleScope.launch {
             // ------------------ NOTE ------------------

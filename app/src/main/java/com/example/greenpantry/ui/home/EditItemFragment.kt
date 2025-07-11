@@ -25,6 +25,8 @@ import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
 import android.util.Log
+import com.example.greenpantry.data.database.FoodItemDatabase
+import com.example.greenpantry.data.database.PantryItem
 import com.example.greenpantry.data.database.PantryItemDao
 
 class EditItemFragment : DialogFragment() {
@@ -68,15 +70,26 @@ class EditItemFragment : DialogFragment() {
 
         // get the current img, amount and unit from database
         val pantryDB = PantryItemDatabase.getDatabase(requireContext())
+        val foodDB = FoodItemDatabase.getDatabase(requireContext())
 
-        if (itemName != null) {
+        var inPantry = false
+        if (itemName != null) { // is in pantry
             viewLifecycleOwner.lifecycleScope.launch {
                 val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
                 if (item != null) { // in pantry
                     // Set image, amount and unit hints using current data
-                    itemImg.setImageResource(item.imageResId) // Replace with actual image
+                    inPantry = true
+                    itemImg.setImageResource(item.imageResId)
                     amountDisplay.hint = item.curNum.toString()
                     unitDisplay.hint = item.quantity
+                }
+                else { // not in pantry so retrieve from food db
+                    val food = foodDB.foodItemDao().getFoodItemByName(itemName)
+                    if (food != null) {
+                        itemImg.setImageResource(food.imageResId)
+                    }
+                    amountDisplay.hint = "0" // none in pantry
+                    unitDisplay.hint = "each" // default
                 }
             }
         }
@@ -90,22 +103,29 @@ class EditItemFragment : DialogFragment() {
             val unitInput = unitDisplay.text.toString()
 
             val addAmount = amountInput.toIntOrNull()
-            if (addAmount == null || addAmount <= 0) {
+            if (addAmount == null || addAmount < 0 || (addAmount == 0 && !inPantry)) {
                 Toast.makeText(view.context, "Please enter a valid amount", Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
-            } // add a case when it is 0, remove it from the pantry
-
-            val newUnit = unitInput
-            if (newUnit.isBlank()) {
-                Toast.makeText(view.context, "Please enter a unit", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
             }
+            if (addAmount == 0 && inPantry && itemName != null) { // remove from pantry
+                viewLifecycleOwner.lifecycleScope.launch {
+                    val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
+                    if (item != null) {
+                        pantryDB.pantryItemDao().deletePantryItem(item)
+                    }
+                }
+            }
+
+            var newUnit = unitInput
 
             if (itemName != null) {
                 viewLifecycleOwner.lifecycleScope.launch {
                     val item = pantryDB.pantryItemDao().getPantryItemByName(itemName)
-                    if (item != null) {
+                    if (item != null) { // item is in pantry
+                        if (newUnit.isBlank()) {
+                            newUnit = item.quantity.toString()
+                        }
                         // update based on which fragment called it
                         val updatedItem = when (btnText) {
                             "UPDATE" -> item.copy(curNum = addAmount, quantity = newUnit)
@@ -128,12 +148,35 @@ class EditItemFragment : DialogFragment() {
                             putBoolean("updated", true)
                         })
                         dismiss()
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            "Item not found in database",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                    } else { // item not in pantry
+                        val food = foodDB.foodItemDao().getFoodItemByName(itemName)
+                        if (newUnit.isBlank()) {
+                            newUnit = "each"
+                        }
+                        val newItem = food?.let { it1 ->
+                            PantryItem(
+                                name = itemName,
+                                description = "Newly added item",
+                                imageResId = it1.imageResId,
+                                category = it1.category,
+                                quantity = newUnit,
+                                calories = it1.calories,
+                                fiber = it1.fiber,
+                                totFat = it1.totFat,
+                                sugars = it1.sugars,
+                                transFat = it1.transFat,
+                                protein = it1.protein,
+                                sodium = it1.sodium,
+                                iron = it1.iron,
+                                calcium = it1.calcium,
+                                carbs = it1.carbs,
+                                curNum = addAmount
+                            )
+                        }
+                        if (newItem != null) {
+                            pantryDB.pantryItemDao().insertPantryItem(newItem)
+                        }
+                        // added new item to pantry
                     }
                 }
             } else {

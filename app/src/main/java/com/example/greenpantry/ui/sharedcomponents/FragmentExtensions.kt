@@ -34,7 +34,7 @@ fun Fragment.resetNav(view: View, pos: Int) {
 
 fun Fragment.setNutrition(view: View, calAmt: Int, fiberAmt: Int, totFatAmt: Int,
                           sugarsAmt: Int, transFatAmt: Int, protAmt: Int, sodiumAmt: Int,
-                          ironAmt: Int, calciumAmt: Int, vitDAmt: Int) {
+                          ironAmt: Int, calciumAmt: Int, carbAmt: Int) {
 
     val calories = view.findViewById<TextView>(R.id.calAmt)
     val fiber = view.findViewById<TextView>(R.id.fiberAmt)
@@ -45,7 +45,7 @@ fun Fragment.setNutrition(view: View, calAmt: Int, fiberAmt: Int, totFatAmt: Int
     val sodium = view.findViewById<TextView>(R.id.sodiumAmt)
     val iron = view.findViewById<TextView>(R.id.ironAmt)
     val calcium = view.findViewById<TextView>(R.id.calciumAmt)
-    val vitaminD = view.findViewById<TextView>(R.id.vitDAmt)
+    val carbs = view.findViewById<TextView>(R.id.carbAmt)
 
     calories.text = calAmt.toString()
     fiber.text = fiberAmt.toString()
@@ -56,7 +56,7 @@ fun Fragment.setNutrition(view: View, calAmt: Int, fiberAmt: Int, totFatAmt: Int
     sodium.text = sodiumAmt.toString()
     iron.text = ironAmt.toString()
     calcium.text = calciumAmt.toString()
-    vitaminD.text = vitDAmt.toString()
+    carbs.text = carbAmt.toString()
 }
 
 fun Fragment.popBack(backText: TextView){

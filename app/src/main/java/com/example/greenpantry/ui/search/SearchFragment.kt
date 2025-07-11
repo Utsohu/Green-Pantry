@@ -24,9 +24,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 import android.text.TextWatcher
 import android.text.Editable
+import android.util.Log
+import com.example.greenpantry.data.database.FoodItem
+import com.example.greenpantry.data.database.FoodItemDatabase
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
-    private lateinit var allItems: List<PantryItem>
+    private lateinit var allItems: List<FoodItem>
     private lateinit var searchItemsContainer: LinearLayout
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,15 +48,12 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         searchItemsContainer = view.findViewById(R.id.searchList)
 
 
-        val db = PantryItemDatabase.getDatabase(requireContext())
+        val db = FoodItemDatabase.getDatabase(requireContext())
 
         lifecycleScope.launch {
-            //REMOVE THIS BLOCK WHEN ALL THE WORKS ARE DONE
-            //db.pantryItemDao().deleteAllPantryItems()
-            //remove this block later, this is only for testing
-            //val checkItems = db.pantryItemDao().getAllPantryItems()
-
-            allItems = db.pantryItemDao().getAllPantryItems() // this should be change to item database
+            allItems = db.foodItemDao().getAllFoodItems()
+            Log.d("Item Database", "Get all: ${allItems.size}")
+            Log.d("Item Database", "In DB: ${db.foodItemDao().getItemCount()}")
             filterAndDisplayItems(inputField.text.toString(), allItems, searchItemsContainer)
 
             inputField.addTextChangedListener(object : TextWatcher {
@@ -68,15 +68,15 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private fun filterAndDisplayItems(
         query: String,
-        allItems: List<PantryItem>,
+        allItems: List<FoodItem>,
         container: LinearLayout
     ) {
         container.removeAllViews()
 
         val filteredItems = if (query.isEmpty()) {
-            allItems
+            allItems.take(50) // limit so nto all 2k items shown
         } else {
-            allItems.filter { it.name.contains(query, ignoreCase = true) }
+            allItems.filter { it.name.contains(query, ignoreCase = true) }.take(50)
         }
 
         for (item in filteredItems) {
@@ -88,7 +88,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
             imageView.setImageResource(item.imageResId)
             titleView.text = item.name
-            descView.text = "Quantity: ${item.curNum}"
+            descView.text = "Food Group: ${item.category}"
 
             itemView.setOnClickListener {
                 val itemDetailFragment = ItemDetailFragment.newInstance(item.name)

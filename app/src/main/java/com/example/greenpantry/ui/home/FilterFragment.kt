@@ -59,6 +59,9 @@ class FilterFragment : DialogFragment() {
             viewModel.dairy.value = dairyCheck.isChecked
             viewModel.oth.value = otherCheck.isChecked
 
+            parentFragmentManager.setFragmentResult("filter_changed", Bundle().apply {
+                putBoolean("updated", true)
+            })
             dismiss() // close fragment
         }
     }

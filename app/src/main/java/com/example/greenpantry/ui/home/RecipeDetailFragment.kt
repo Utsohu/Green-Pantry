@@ -75,7 +75,7 @@ class RecipeDetailFragment : Fragment() {
                     servings.text = item.NOS.toString()
                     setNutrition(view, item.calories, item.fiber, item.totalFat,
                         item.sugars, item.transFat, item.protein,
-                        item.sodium, item.iron, item.calcium, item.vitaminD)
+                        item.sodium, item.iron, item.calcium, item.carbs)
 
                     // update image
                     val itemImage = view.findViewById<ImageView>(R.id.recipeImage)
