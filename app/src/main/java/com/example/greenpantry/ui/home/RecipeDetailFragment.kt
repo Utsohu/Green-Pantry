@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.greenpantry.R
 import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.database.RecipeDatabase
+import com.example.greenpantry.ui.utils.ListOptimizations
 import com.example.greenpantry.ui.search.SearchFragment
 import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setNutrition
@@ -87,6 +88,11 @@ class RecipeDetailFragment : Fragment() {
                     ingredientView.layoutManager = object : LinearLayoutManager(requireContext()) {
                         override fun canScrollVertically(): Boolean = false // turn off nested scroll
                     }
+                    ingredientView.setHasFixedSize(true) // Performance optimization
+                    ingredientView.setItemViewCacheSize(20) // Cache more views
+                    ingredientView.isNestedScrollingEnabled = false // Disable nested scrolling
+                    // Apply additional performance optimizations
+                    ListOptimizations.optimizeList(ingredientView)
                     ingredientView.adapter = IngredientAdapter(ingredientList)
 
                     // instructions
@@ -95,6 +101,11 @@ class RecipeDetailFragment : Fragment() {
                     instructionView.layoutManager = object : LinearLayoutManager(requireContext()) {
                         override fun canScrollVertically(): Boolean = false // turn off nested scroll
                     }
+                    instructionView.setHasFixedSize(true) // Performance optimization
+                    instructionView.setItemViewCacheSize(20) // Cache more views
+                    instructionView.isNestedScrollingEnabled = false // Disable nested scrolling
+                    // Apply additional performance optimizations
+                    ListOptimizations.optimizeList(instructionView)
                     instructionView.adapter = InstructionAdapter(instructionList)
                 }else {
                     val timeAmt = 30

@@ -354,25 +354,19 @@
         </LinearLayout>
 
         <!-- Suggested Pantry Recipes List -->
-        <ScrollView
-            android:id="@+id/searchScroll"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeSuggestedPantryRecipesRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fillViewport="true"
             app:layout_constraintTop_toBottomOf="@id/homeSuggestedPantryRecipes"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
-
-            <LinearLayout
-                android:id="@+id/homeSuggestedPantryRecipesList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="invisible"/>
-
-    </ScrollView>
+            android:layout_marginTop="8dp"
+            android:visibility="invisible"
+            android:scrollbars="vertical"
+            android:scrollbarStyle="outsideOverlay"
+            android:nestedScrollingEnabled="true"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

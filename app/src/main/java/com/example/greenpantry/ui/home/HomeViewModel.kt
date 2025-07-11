@@ -23,15 +23,40 @@ class HomeViewModel @Inject constructor(
     private val _categoryCounts = MutableStateFlow<Map<String, Int>>(emptyMap())
     val categoryCounts: StateFlow<Map<String, Int>> = _categoryCounts.asStateFlow()
     
+    private var hasInitialized = false
+    
     init {
         loadPantryItems()
     }
     
     private fun loadPantryItems() {
+        // Prevent multiple initializations
+        if (hasInitialized) return
+        hasInitialized = true
+        
         viewModelScope.launch {
-            pantryItemDao.getAllPantryItemsFlow().collect { items ->
+            try {
+                // Use single database call instead of flow to reduce overhead
+                val items = pantryItemDao.getAllPantryItems()
                 _pantryItems.value = items
                 updateCategoryCounts(items)
+            } catch (e: Exception) {
+                // Handle error case
+                _pantryItems.value = emptyList()
+                _categoryCounts.value = emptyMap()
+            }
+        }
+    }
+    
+    fun refreshData() {
+        // Manual refresh method that can be called when data actually changes
+        viewModelScope.launch {
+            try {
+                val items = pantryItemDao.getAllPantryItems()
+                _pantryItems.value = items
+                updateCategoryCounts(items)
+            } catch (e: Exception) {
+                // Keep existing data on error
             }
         }
     }

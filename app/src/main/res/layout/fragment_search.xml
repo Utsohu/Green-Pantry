@@ -82,7 +82,6 @@
                 android:hint="@string/Search"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Search List -->
         <ScrollView
             android:id="@+id/searchScroll"
             android:layout_width="0dp"

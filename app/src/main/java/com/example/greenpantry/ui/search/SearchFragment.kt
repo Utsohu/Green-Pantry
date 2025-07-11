@@ -37,12 +37,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         // ensure search icon is on, instead of camera if it was redirected
         resetNav(view, 2)
-
         setupNotifBtn(view)
 
         // search text value
         val inputField = view.findViewById<EditText>(R.id.searchInput)
-        val userInput = inputField.text.toString()
+
 
         // search list
         searchItemsContainer = view.findViewById(R.id.searchList)
