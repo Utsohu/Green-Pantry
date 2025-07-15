@@ -27,6 +27,7 @@ import android.text.Editable
 import android.util.Log
 import com.example.greenpantry.data.database.FoodItem
 import com.example.greenpantry.data.database.FoodItemDatabase
+import com.bumptech.glide.Glide
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var allItems: List<FoodItem>
@@ -85,7 +86,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             val titleView = itemView.findViewById<TextView>(R.id.itemTitle)
             val descView = itemView.findViewById<TextView>(R.id.itemDescription)
 
-            imageView.setImageResource(item.imageResId)
+            Glide.with(imageView.context)
+                .load(item.imageURL)
+                .placeholder(R.drawable.logo)
+                .into(imageView)
+
             titleView.text = item.name
             descView.text = "Food Group: ${item.category}"
 

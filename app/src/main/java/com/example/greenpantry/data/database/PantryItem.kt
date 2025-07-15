@@ -9,7 +9,7 @@ import com.example.greenpantry.data.model.FoodCategory
 data class PantryItem(
     @PrimaryKey val name: String,
     val description: String,
-    val imageResId: Int,
+    val imageURL: String,
     val category: String? = null,
     val isPackaged: Boolean = false,
     val brand: String? = null,

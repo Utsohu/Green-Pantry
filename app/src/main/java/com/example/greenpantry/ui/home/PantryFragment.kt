@@ -30,7 +30,7 @@ import android.text.Editable
 import android.util.Log
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
-
+import com.bumptech.glide.Glide
 
 class DetailsFragment : Fragment(R.layout.fragment_pantry) {
     private var allItems: List<PantryItem> = emptyList()
@@ -237,7 +237,10 @@ class DetailItemAdapter(private var items: List<PantryItem>, private val fragmen
 
             // Optimize image loading to prevent memory issues
             try {
-                image.setImageResource(item.imageResId)
+                Glide.with(image.context)
+                    .load(item.imageURL)
+                    .placeholder(R.drawable.logo)
+                    .into(image)
             } catch (e: Exception) {
                 // Fallback to default image if resource loading fails
                 image.setImageResource(R.drawable.ic_launcher_foreground)

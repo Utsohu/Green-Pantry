@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.compose.ui.semantics.text
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.greenpantry.R
 import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.PantryItemDatabase
@@ -86,8 +87,10 @@ class ItemDetailFragment : Fragment() {
 
                     // update image
                     val itemImage = view.findViewById<ImageView>(R.id.itemImage)
-                    val newImage = item.imageResId // replace with the image of item
-                    itemImage.setImageResource(newImage)
+                    Glide.with(itemImage.context)
+                        .load(item.imageURL)
+                        .placeholder(R.drawable.logo)
+                        .into(itemImage)
 
                 }else {
                     // fallback dummy values

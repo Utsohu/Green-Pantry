@@ -29,6 +29,7 @@ class FirebasePantryRepository @Inject constructor(
             val itemData = hashMapOf(
                 "name" to item.name,
                 "description" to item.description,
+                "imageURL" to item.imageURL,
                 "category" to item.category,
                 "isPackaged" to item.isPackaged,
                 "brand" to item.brand,
@@ -67,7 +68,7 @@ class FirebasePantryRepository @Inject constructor(
                     PantryItem(
                         name = doc.getString("name") ?: "",
                         description = doc.getString("description") ?: "",
-                        imageResId = 0,
+                        imageURL = doc.getString("imageURL") ?: "",
                         category = doc.getString("category"),
                         isPackaged = doc.getBoolean("isPackaged") ?: false,
                         brand = doc.getString("brand"),

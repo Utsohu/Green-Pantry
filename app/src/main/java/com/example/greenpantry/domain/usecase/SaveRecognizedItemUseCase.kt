@@ -28,7 +28,7 @@ class SaveRecognizedItemUseCase @Inject constructor(
                 // Create new item
                 recognizedItem.toPantryItem(
                     description = description,
-                    imageResId =  R.drawable.img_apple //imageResId
+                    imageURL =  ""
                 ).copy(curNum = amount)
             }
 

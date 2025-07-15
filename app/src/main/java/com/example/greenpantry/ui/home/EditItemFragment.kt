@@ -25,6 +25,7 @@ import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
 import android.util.Log
+import com.bumptech.glide.Glide
 import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.PantryItem
 import com.example.greenpantry.data.database.PantryItemDao
@@ -79,14 +80,20 @@ class EditItemFragment : DialogFragment() {
                 if (item != null) { // in pantry
                     // Set image, amount and unit hints using current data
                     inPantry = true
-                    itemImg.setImageResource(item.imageResId)
+                    Glide.with(itemImg.context)
+                        .load(item.imageURL)
+                        .placeholder(R.drawable.logo)
+                        .into(itemImg)
                     amountDisplay.hint = item.curNum.toString()
                     unitDisplay.hint = item.quantity
                 }
                 else { // not in pantry so retrieve from food db
                     val food = foodDB.foodItemDao().getFoodItemByName(itemName)
                     if (food != null) {
-                        itemImg.setImageResource(food.imageResId)
+                        Glide.with(itemImg.context)
+                            .load(food.imageURL)
+                            .placeholder(R.drawable.logo)
+                            .into(itemImg)
                     }
                     amountDisplay.hint = "0" // none in pantry
                     unitDisplay.hint = "each" // default
@@ -157,7 +164,7 @@ class EditItemFragment : DialogFragment() {
                             PantryItem(
                                 name = itemName,
                                 description = "Newly added item",
-                                imageResId = it1.imageResId,
+                                imageURL = it1.imageURL,
                                 category = it1.category,
                                 quantity = newUnit,
                                 calories = it1.calories,

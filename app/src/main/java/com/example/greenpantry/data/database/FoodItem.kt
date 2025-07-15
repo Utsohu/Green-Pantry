@@ -10,7 +10,7 @@ data class FoodItem(
     @PrimaryKey val foodId: Int,           // from FOOD_NAME.csv, FoodId column
     val name: String,                       // from FOOD_NAME.csv, FoodDescription column
     val description: String? = null,
-    val imageResId: Int,                    // assign using image database
+    val imageURL: String,                  // assign using image database
     val category: String? = null,          // from FOOD_NAME.cvs, FoodGroup, but definitions in FOOD_GROUP.csv
     val servingSize: String,               // from MEASURE_NAME.csv, MeasureDescription
     val calories: Int = 0,                 // take from NUTRIENT_AMOUNT, use NUTRIENT_NAME TO HELP

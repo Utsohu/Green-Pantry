@@ -67,12 +67,12 @@ class CSVLoader(
             mapItem[nutrientId] = value.roundToInt()
         }
 
-
         for (row in readCSV("FOOD_NAME.csv")) {
             // want to create a food item and insert it into the database
             val foodID = row[0].toIntOrNull() ?: continue
             val foodGroup = row[2].toIntOrNull() ?: continue
             val foodName = row[4].trim()
+            val foodImage = row[10].trim()
 
             // set the category
             val foodCat = when (foodGroup) {
@@ -86,13 +86,12 @@ class CSVLoader(
             }
 
             val itemNutrients = nutrientMap.get(foodID)
-            val image = R.drawable.logo // replace with database later
 
             // setup food item
             val foodItem = FoodItem(
                 foodId = foodID,
                 name = foodName,
-                imageResId = image,
+                imageURL = foodImage,
                 category = foodCat,
                 servingSize = "100g", // this is what the nutrition data is based on
                 calories = itemNutrients?.get(calID) ?: 0,
