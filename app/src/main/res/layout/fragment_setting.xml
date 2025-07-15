@@ -325,13 +325,6 @@
                             android:layout_height="1dp"
                             android:background="@color/light_gray" />
 
-                        <RadioButton
-                            android:id="@+id/radio_three_times"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="3 times a week"
-                            android:layoutDirection="rtl"/>
-
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -361,13 +354,6 @@
                             android:layout_height="1dp"
                             android:background="@color/light_gray" />
 
-                        <RadioButton
-                            android:id="@+id/radio_monthly"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Monthly"
-                            android:layoutDirection="rtl"/>
-
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -385,7 +371,7 @@
                     android:text="LOG OUT"
                     android:textColor="@android:color/white"
                     android:backgroundTint="@color/red"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintTop_toBottomOf="@+id/frequencyRadioGroup"
                     app:layout_constraintStart_toStartOf="parent" />
                 </LinearLayout>

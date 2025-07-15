@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.example.greenpantry.presentation.viewmodel.AuthViewModel
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -25,9 +26,11 @@ import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
 import android.util.Log
+import androidx.fragment.app.viewModels
 import com.example.greenpantry.data.database.PantryItemDao
 
 class EditAccountFragment : DialogFragment() {
+    private val authViewModel: AuthViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,7 +43,6 @@ class EditAccountFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val updateButton = view.findViewById<Button>(R.id.updateButton)
         val usernameField = view.findViewById<EditText>(R.id.editUsername)
         val emailField = view.findViewById<EditText>(R.id.editEmail)
@@ -65,11 +67,11 @@ class EditAccountFragment : DialogFragment() {
             // Reauthenticate if updating email/password
             if (originalPassword.isNotBlank() && (newEmail.isNotBlank() || newPassword.isNotBlank())) {
                 // TODO: create functions to handle updating email/password
-//                    authViewModel.reauthenticateUser(originalPassword) {
-//                        // Callback after successful reauthentication
-//                        if (newEmail.isNotBlank()) authViewModel.updateEmail(newEmail)
-//                        if (newPassword.isNotBlank()) authViewModel.updatePassword(newPassword)
-//                    }
+                    authViewModel.reauthenticateUser(originalPassword) {
+                        // Callback after successful reauthentication
+                        if (newEmail.isNotBlank()) authViewModel.updateEmail(newEmail)
+                        if (newPassword.isNotBlank()) authViewModel.updatePassword(newPassword)
+                    }
             }
 
             if (newUsername.isNotBlank()) {

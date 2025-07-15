@@ -57,6 +57,25 @@ class AuthViewModel @Inject constructor(
             errorMessage = if (!ok) "Logout failed" else null
         )
     }
+
+    fun reauthenticateUser(password: String, onResult: (Boolean) -> Unit) = viewModelScope.launch {
+        val ok = repo.reauthenticate(password)
+        onResult(ok)
+    }
+
+    fun updateEmail(newEmail: String) = viewModelScope.launch {
+        val ok = repo.updateEmail(newEmail)
+        // optionally update UI state here
+    }
+
+    fun updatePassword(newPassword: String) = viewModelScope.launch {
+        val ok = repo.updatePassword(newPassword)
+    }
+
+    fun updateUsername(newUsername: String) = viewModelScope.launch {
+        val ok = repo.updateUsername(newUsername)
+    }
+
 }
 
 data class AuthUiState(

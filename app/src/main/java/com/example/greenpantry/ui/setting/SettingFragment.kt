@@ -20,7 +20,11 @@ import kotlinx.coroutines.launch
 import android.widget.RadioGroup
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import android.widget.EditText
+import android.widget.TextView
 import com.example.greenpantry.ui.home.EditItemFragment
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.tasks.await
+
 
 
 @AndroidEntryPoint
@@ -29,6 +33,16 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
     private val authViewModel: AuthViewModel by viewModels()
     
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val usernameText = view.findViewById<TextView>(R.id.usernameValue)
+        val emailText = view.findViewById<TextView>(R.id.emailValue)
+
+        val user = FirebaseAuth.getInstance().currentUser
+
+        if (user != null) {
+            usernameText.text = user.displayName ?: "Unknown"
+            emailText.text = user.email ?: "No email"
+        }
+
         super.onViewCreated(view, savedInstanceState)
 
         setupNotifBtn(view)
@@ -63,10 +77,8 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.radio_daily -> {/* handle daily */}
-                R.id.radio_three_times -> {/* handle 3 times a week */}
                 R.id.radio_weekly -> {/* handle weekly */}
                 R.id.radio_biweekly -> {/* handle biweekly */}
-                R.id.radio_monthly -> {/* handle monthly */}
             }
         }
 

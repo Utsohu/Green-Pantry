@@ -12,6 +12,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withTimeout
+import com.google.firebase.auth.EmailAuthProvider
 import javax.inject.Inject
 
 class FirebaseAuthRepository @Inject constructor(
@@ -116,4 +117,52 @@ class FirebaseAuthRepository @Inject constructor(
             DeleteAccountResult.Error(e.message ?: "Unknown error")
         }
     }
+
+    override suspend fun reauthenticate(password: String): Boolean {
+        val user = auth.currentUser ?: return false
+        val email = user.email ?: return false
+        val credential = EmailAuthProvider.getCredential(email, password)
+        return try {
+            user.reauthenticate(credential).await()
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    override suspend fun updateEmail(newEmail: String): Boolean {
+        val user = auth.currentUser ?: return false
+        return try {
+            user.updateEmail(newEmail).await()
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    override suspend fun updatePassword(newPassword: String): Boolean {
+        val user = auth.currentUser ?: return false
+        return try {
+            user.updatePassword(newPassword).await()
+
+            true
+        } catch (e: Exception) {
+
+            false
+        }
+    }
+
+    override suspend fun updateUsername(newUsername: String): Boolean {
+        val user = auth.currentUser ?: return false
+        val profileUpdates = userProfileChangeRequest { displayName = newUsername }
+        return try {
+            user.updateProfile(profileUpdates).await()
+            Log.d("UPDATE", "Username updated to $newUsername")
+            true
+        } catch (e: Exception) {
+            Log.e("UPDATE", "Username update failed", e)
+            false
+        }
+    }
+
 }
