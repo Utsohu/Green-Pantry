@@ -29,6 +29,7 @@ import com.bumptech.glide.Glide
 import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.PantryItem
 import com.example.greenpantry.data.database.PantryItemDao
+import com.example.greenpantry.ui.sharedcomponents.groupImg
 
 class EditItemFragment : DialogFragment() {
 
@@ -90,9 +91,13 @@ class EditItemFragment : DialogFragment() {
                 else { // not in pantry so retrieve from food db
                     val food = foodDB.foodItemDao().getFoodItemByName(itemName)
                     if (food != null) {
+                        var foodGroup = food.category?.let { groupImg(it) }
+                        if (foodGroup == null) {
+                            foodGroup = R.drawable.logo
+                        }
                         Glide.with(itemImg.context)
                             .load(food.imageURL)
-                            .placeholder(R.drawable.logo)
+                            .placeholder(foodGroup)
                             .into(itemImg)
                     }
                     amountDisplay.hint = "0" // none in pantry

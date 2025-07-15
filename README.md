@@ -1,5 +1,6 @@
 # Green-Pantry
 The Green Pantry App made for CS446 group project.
+Group members: Sabina Gorbachev, Cindy Phan, Sreekanth Ghatti, Sid Kundu, Andrei Hirdea, Boyue Yang
 
 ## Technical Specification: Gemini Inference Layer
 

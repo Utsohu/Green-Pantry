@@ -31,6 +31,7 @@ import android.util.Log
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import com.bumptech.glide.Glide
+import com.example.greenpantry.ui.sharedcomponents.groupImg
 
 class DetailsFragment : Fragment(R.layout.fragment_pantry) {
     private var allItems: List<PantryItem> = emptyList()
@@ -237,9 +238,13 @@ class DetailItemAdapter(private var items: List<PantryItem>, private val fragmen
 
             // Optimize image loading to prevent memory issues
             try {
+                var foodGroup = item.category?.let { groupImg(it) }
+                if (foodGroup == null) {
+                    foodGroup = R.drawable.logo
+                }
                 Glide.with(image.context)
                     .load(item.imageURL)
-                    .placeholder(R.drawable.logo)
+                    .placeholder(foodGroup)
                     .into(image)
             } catch (e: Exception) {
                 // Fallback to default image if resource loading fails

@@ -18,6 +18,7 @@ import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.ui.search.SearchFragment
+import com.example.greenpantry.ui.sharedcomponents.groupImg
 import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import com.example.greenpantry.ui.sharedcomponents.setNutrition
@@ -87,9 +88,13 @@ class ItemDetailFragment : Fragment() {
 
                     // update image
                     val itemImage = view.findViewById<ImageView>(R.id.itemImage)
+                    var foodGroup = item.category?.let { groupImg(it) }
+                    if (foodGroup == null) {
+                        foodGroup = R.drawable.logo
+                    }
                     Glide.with(itemImage.context)
                         .load(item.imageURL)
-                        .placeholder(R.drawable.logo)
+                        .placeholder(foodGroup)
                         .into(itemImage)
 
                 }else {

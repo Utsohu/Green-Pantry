@@ -5,6 +5,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.greenpantry.R
+import com.example.greenpantry.data.database.FoodItem
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -63,4 +64,24 @@ fun Fragment.popBack(backText: TextView){
     backText.setOnClickListener {
         parentFragmentManager.popBackStack()
     }
+}
+
+// used in fragment and bindviewholder
+fun groupImg(group: String): Int {
+    var newImg = R.drawable.logo
+    if (group == "VEGETABLE") {
+        newImg = R.drawable.vege_group
+    } else if (group == "FRUIT") {
+        newImg = R.drawable.fruit_group
+    } else if (group == "PROTEIN") {
+        newImg = R.drawable.protein_group
+    } else if (group == "GRAIN") {
+        newImg = R.drawable.grain_group
+    } else if (group == "DAIRY") {
+        newImg = R.drawable.dairy_group
+    } else { // other
+        newImg = R.drawable.other_group
+    }
+
+    return newImg
 }

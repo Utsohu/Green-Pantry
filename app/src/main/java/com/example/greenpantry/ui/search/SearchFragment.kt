@@ -28,6 +28,7 @@ import android.util.Log
 import com.example.greenpantry.data.database.FoodItem
 import com.example.greenpantry.data.database.FoodItemDatabase
 import com.bumptech.glide.Glide
+import com.example.greenpantry.ui.sharedcomponents.groupImg
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var allItems: List<FoodItem>
@@ -86,9 +87,13 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             val titleView = itemView.findViewById<TextView>(R.id.itemTitle)
             val descView = itemView.findViewById<TextView>(R.id.itemDescription)
 
+            var foodGroup = item.category?.let { groupImg(it) }
+            if (foodGroup == null) {
+                foodGroup = R.drawable.logo
+            }
             Glide.with(imageView.context)
                 .load(item.imageURL)
-                .placeholder(R.drawable.logo)
+                .placeholder(foodGroup)
                 .into(imageView)
 
             titleView.text = item.name
