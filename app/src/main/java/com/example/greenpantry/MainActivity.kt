@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.unit.dp
 import androidx.core.view.isVisible
 import com.example.greenpantry.ui.login.RegisterScreen
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -18,8 +19,13 @@ import kotlinx.coroutines.launch
 import androidx.lifecycle.lifecycleScope
 import com.example.greenpantry.domain.repositories.AuthRepository
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.room.Room
 import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.CSVLoader
@@ -50,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         // Check login state on startup
         var checkedLoginState = false
         var loggedInState by mutableStateOf(false)
+        var isLoadingDatabase by mutableStateOf(true)
 
         // item database initialization
         val db = Room.databaseBuilder(
@@ -62,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         val loader = CSVLoader(applicationContext, foodItemDao)
         lifecycleScope.launch {
             loader.loadIfNeeded() // load the item database
+            isLoadingDatabase = false // Database loading complete
         }
 
         lifecycleScope.launch {
@@ -81,10 +89,24 @@ class MainActivity : AppCompatActivity() {
                 isLoggedInState.value = loggedInState
             }
 
-            if (!checkedLoginState) {
-                // Show loading indicator while checking login state
+            if (!checkedLoginState || isLoadingDatabase) {
+                // Show loading indicator while checking login state or loading database
                 Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator()
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        CircularProgressIndicator()
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Text(
+                            text = if (!checkedLoginState) "Checking login..." else "Loading food database...",
+                            style = MaterialTheme.typography.bodyLarge
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = if (isLoadingDatabase) "This may take a moment on first launch" else "",
+                            style = MaterialTheme.typography.bodySmall
+                        )
+                    }
                 }
             } else if (!isLoggedInState.value) {
                 if (showingRegister) {
@@ -101,8 +123,8 @@ class MainActivity : AppCompatActivity() {
 
         // Update UI visibility based on login state
         lifecycleScope.launch {
-            // Wait until login state is checked
-            while (!checkedLoginState) {
+            // Wait until login state is checked AND database is loaded
+            while (!checkedLoginState || isLoadingDatabase) {
                 kotlinx.coroutines.delay(50)
             }
             if (!loggedInState) {

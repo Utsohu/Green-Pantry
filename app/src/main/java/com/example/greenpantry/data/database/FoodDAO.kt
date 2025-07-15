@@ -30,6 +30,19 @@ interface FoodItemDao {
     @Query("SELECT * FROM foodItems WHERE name LIKE '%' || :query || '%'")
     suspend fun searchFoodItemsByName(query: String): List<FoodItem>
 
+    // Search by category
+    @Query("SELECT * FROM foodItems WHERE category = :category ORDER BY name ASC")
+    suspend fun getFoodItemsByCategory(category: String): List<FoodItem>
+
+    // Search with name and category filter
+    @Query("""
+        SELECT * FROM foodItems 
+        WHERE (:query = '' OR name LIKE '%' || :query || '%')
+        AND (:category = '' OR category = :category)
+        ORDER BY name ASC
+    """)
+    suspend fun searchFoodItemsWithFilter(query: String, category: String): List<FoodItem>
+
     // Count of items
     @Query("SELECT COUNT(*) FROM foodItems")
     suspend fun getItemCount(): Int

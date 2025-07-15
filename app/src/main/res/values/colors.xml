@@ -2,6 +2,7 @@
 <resources>
     <color name="light_green">#61934A</color>
     <color name="dark_green">#173805</color>
+    <color name="green_primary">#61934A</color>
     <color name="gray">#7F7F7F</color>
     <color name="dark_gray">#404040</color>
     <color name="light_gray">#BEBEBE</color>
@@ -9,4 +10,12 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="red">#D32F2F</color>
+    
+    <!-- Category colors for food items -->
+    <color name="fruit_color">#FF9800</color>
+    <color name="vegetable_color">#4CAF50</color>
+    <color name="protein_color">#795548</color>
+    <color name="dairy_color">#2196F3</color>
+    <color name="grain_color">#FFC107</color>
+    <color name="other_color">#9E9E9E</color>
 </resources>

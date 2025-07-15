@@ -3,6 +3,8 @@ package com.example.greenpantry.di
 import android.content.Context
 import com.example.greenpantry.data.api.GeminiApiClient
 import com.example.greenpantry.data.api.GeminiConfig
+import com.example.greenpantry.data.database.FoodItemDao
+import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.PantryItemDao
 import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.imageprocessing.ImageEncoder
@@ -63,5 +65,17 @@ object AppModule {
     @Singleton
     fun providePantryItemDao(database: PantryItemDatabase): PantryItemDao {
         return database.pantryItemDao()
+    }
+    
+    @Provides
+    @Singleton
+    fun provideFoodItemDatabase(@ApplicationContext context: Context): FoodItemDatabase {
+        return FoodItemDatabase.getDatabase(context)
+    }
+    
+    @Provides
+    @Singleton
+    fun provideFoodItemDao(database: FoodItemDatabase): FoodItemDao {
+        return database.foodItemDao()
     }
 }

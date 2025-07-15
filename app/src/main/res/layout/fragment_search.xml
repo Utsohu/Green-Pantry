@@ -82,24 +82,75 @@
                 android:hint="@string/Search"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <ScrollView
-            android:id="@+id/searchScroll"
+        <!-- Category Filter Container -->
+        <LinearLayout
+            android:id="@+id/categoryFilterContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/searchInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category:"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/categorySpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/spinner_background" />
+
+        </LinearLayout>
+
+        <!-- Loading Indicator -->
+        <ProgressBar
+            android:id="@+id/searchLoadingIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/categoryFilterContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Empty State Text -->
+        <TextView
+            android:id="@+id/searchEmptyState"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="No items found. Try a different search term."
+            android:textAlignment="center"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="16sp"
+            android:textColor="@color/gray"
+            android:padding="32dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/categoryFilterContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchList"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fillViewport="true"
-            app:layout_constraintTop_toBottomOf="@id/searchInputLayout"
+            app:layout_constraintTop_toBottomOf="@id/categoryFilterContainer"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="25dp">
-
-            <LinearLayout
-                android:id="@+id/searchList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"/>
-
-        </ScrollView>
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:clipToPadding="false" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

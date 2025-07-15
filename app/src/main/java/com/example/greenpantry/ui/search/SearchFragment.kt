@@ -3,14 +3,23 @@ package com.example.greenpantry.ui.search
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.AdapterView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.example.greenpantry.R
 import com.example.greenpantry.data.database.PantryItem
 import com.example.greenpantry.data.database.PantryItemDatabase
@@ -29,10 +38,15 @@ import com.example.greenpantry.data.database.FoodItem
 import com.example.greenpantry.data.database.FoodItemDatabase
 import com.bumptech.glide.Glide
 import com.example.greenpantry.ui.sharedcomponents.groupImg
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search) {
-    private lateinit var allItems: List<FoodItem>
-    private lateinit var searchItemsContainer: LinearLayout
+    private val viewModel: SearchViewModel by viewModels()
+    private lateinit var searchRecyclerView: RecyclerView
+    private lateinit var inputField: EditText
+    private lateinit var categorySpinner: Spinner
+    private lateinit var searchAdapter: SearchAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,73 +55,130 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         resetNav(view, 2)
         setupNotifBtn(view)
 
-        // search text value
-        val inputField = view.findViewById<EditText>(R.id.searchInput)
+        initializeViews(view)
+        setupCategoryFilter()
+        setupSearchInput()
+        observeViewModel()
+    }
 
-
-        // search list
-        searchItemsContainer = view.findViewById(R.id.searchList)
-
-
-        val db = FoodItemDatabase.getDatabase(requireContext())
-
-        lifecycleScope.launch {
-            allItems = db.foodItemDao().getAllFoodItems()
-            Log.d("Item Database", "Get all: ${allItems.size}")
-            Log.d("Item Database", "In DB: ${db.foodItemDao().getItemCount()}")
-            filterAndDisplayItems(inputField.text.toString(), allItems, searchItemsContainer)
-
-            inputField.addTextChangedListener(object : TextWatcher {
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    filterAndDisplayItems(s.toString(), allItems, searchItemsContainer)
-                }
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-                override fun afterTextChanged(s: Editable?) {}
-            })
+    private fun initializeViews(view: View) {
+        inputField = view.findViewById(R.id.searchInput)
+        searchRecyclerView = view.findViewById(R.id.searchList)
+        
+        // Setup RecyclerView with adapter
+        searchAdapter = SearchAdapter { item ->
+            // Handle item click
+            val itemDetailFragment = ItemDetailFragment.newInstance(item.name)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, itemDetailFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+        
+        searchRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = searchAdapter
         }
     }
 
-    private fun filterAndDisplayItems(
-        query: String,
-        allItems: List<FoodItem>,
-        container: LinearLayout
-    ) {
-        container.removeAllViews()
+    private fun setupCategoryFilter() {
+        // Add category spinner if it exists in layout
+        val categoryContainer = view?.findViewById<LinearLayout>(R.id.categoryFilterContainer)
+        if (categoryContainer != null) {
+            categorySpinner = view?.findViewById(R.id.categorySpinner) 
+                ?: Spinner(requireContext()).apply {
+                    categoryContainer.addView(this)
+                }
+            
+            lifecycleScope.launch {
+                val categories = viewModel.getAvailableCategories()
+                val categoryNames = categories.map { 
+                    if (it.isEmpty()) "All Categories" else it.lowercase().replaceFirstChar { char -> char.uppercase() }
+                }
+                
+                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, categoryNames)
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                categorySpinner.adapter = adapter
+                
+                categorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                        val selectedCategory = if (position == 0) "" else categories[position]
+                        viewModel.setCategory(selectedCategory)
+                    }
+                    override fun onNothingSelected(parent: AdapterView<*>?) {}
+                }
+            }
+        }
+    }
 
-        val filteredItems = if (query.isEmpty()) {
-            allItems.take(50) // limit so nto all 2k items shown
-        } else {
-            allItems.filter { it.name.contains(query, ignoreCase = true) }.take(50)
+    private fun setupSearchInput() {
+        inputField.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                viewModel.search(s.toString())
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable?) {}
+        })
+    }
+
+    private fun observeViewModel() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.searchResults.collect { items ->
+                displaySearchResults(items)
+            }
+        }
+    }
+
+    private fun displaySearchResults(items: List<FoodItem>) {
+        searchAdapter.submitList(items)
+    }
+
+    // RecyclerView Adapter with DiffUtil for efficient updates and smooth scrolling
+    private class SearchAdapter(
+        private val onItemClick: (FoodItem) -> Unit
+    ) : ListAdapter<FoodItem, SearchAdapter.ViewHolder>(FoodItemDiffCallback()) {
+        
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.recipes_items, parent, false)
+            return ViewHolder(view)
+        }
+        
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.bind(getItem(position), onItemClick)
+        }
+        
+        class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            private val imageView: ImageView = itemView.findViewById(R.id.itemImage)
+            private val titleView: TextView = itemView.findViewById(R.id.itemTitle)
+            private val descView: TextView = itemView.findViewById(R.id.itemDescription)
+            
+            fun bind(item: FoodItem, onItemClick: (FoodItem) -> Unit) {
+                // Set image with proper category-based placeholder
+                val foodGroup = item.category?.let { groupImg(it) } ?: R.drawable.logo
+                Glide.with(imageView.context)
+                    .load(item.imageURL)
+                    .placeholder(foodGroup)
+                    .into(imageView)
+
+                titleView.text = item.name
+                descView.text = "Food Group: ${item.category}"
+
+                itemView.setOnClickListener {
+                    onItemClick(item)
+                }
+            }
+        }
+    }
+
+    // DiffUtil callback for efficient list updates
+    private class FoodItemDiffCallback : DiffUtil.ItemCallback<FoodItem>() {
+        override fun areItemsTheSame(oldItem: FoodItem, newItem: FoodItem): Boolean {
+            return oldItem.name == newItem.name
         }
 
-        for (item in filteredItems) {
-            val itemView = LayoutInflater.from(context).inflate(R.layout.recipes_items, container, false)
-
-            val imageView = itemView.findViewById<ImageView>(R.id.itemImage)
-            val titleView = itemView.findViewById<TextView>(R.id.itemTitle)
-            val descView = itemView.findViewById<TextView>(R.id.itemDescription)
-
-            var foodGroup = item.category?.let { groupImg(it) }
-            if (foodGroup == null) {
-                foodGroup = R.drawable.logo
-            }
-            Glide.with(imageView.context)
-                .load(item.imageURL)
-                .placeholder(foodGroup)
-                .into(imageView)
-
-            titleView.text = item.name
-            descView.text = "Food Group: ${item.category}"
-
-            itemView.setOnClickListener {
-                val itemDetailFragment = ItemDetailFragment.newInstance(item.name)
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, itemDetailFragment)
-                    .addToBackStack(null)
-                    .commit()
-            }
-
-            container.addView(itemView)
+        override fun areContentsTheSame(oldItem: FoodItem, newItem: FoodItem): Boolean {
+            return oldItem == newItem
         }
     }
 
