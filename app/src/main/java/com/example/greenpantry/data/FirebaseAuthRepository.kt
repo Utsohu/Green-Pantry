@@ -124,8 +124,10 @@ class FirebaseAuthRepository @Inject constructor(
         val credential = EmailAuthProvider.getCredential(email, password)
         return try {
             user.reauthenticate(credential).await()
+            Log.d("AUTH", "Reauth successful")
             true
         } catch (e: Exception) {
+            Log.e("AUTH", "Reauth failed", e)
             false
         }
     }

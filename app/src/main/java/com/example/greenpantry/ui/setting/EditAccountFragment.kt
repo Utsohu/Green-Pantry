@@ -51,6 +51,9 @@ class EditAccountFragment : DialogFragment() {
         val originalPasswordField = view.findViewById<EditText>(R.id.originalPassword)
 
         updateButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Update clicked", Toast.LENGTH_SHORT).show()
+
+
             val newUsername = usernameField.text.toString()
             val newEmail = emailField.text.toString()
             val originalPassword = originalPasswordField.text.toString()
@@ -60,27 +63,39 @@ class EditAccountFragment : DialogFragment() {
 
             if (newPassword.isNotBlank() && newPassword != confirmPassword) {
                 // TODO: Show error message
-//                    confirmPasswordField.error = "Passwords do not match"
-//                    return@setOnClickListener
+                confirmPasswordField.error = "Passwords do not match"
+                return@setOnClickListener
             }
 
-            // Reauthenticate if updating email/password
-            if (originalPassword.isNotBlank() && (newEmail.isNotBlank() || newPassword.isNotBlank())) {
-                // TODO: create functions to handle updating email/password
+            lifecycleScope.launch {
+                try {
+                // Reauthenticate if updating email/password
+                if (originalPassword.isNotBlank() && (newEmail.isNotBlank() || newPassword.isNotBlank())) {
                     authViewModel.reauthenticateUser(originalPassword) {
                         // Callback after successful reauthentication
                         if (newEmail.isNotBlank()) authViewModel.updateEmail(newEmail)
                         if (newPassword.isNotBlank()) authViewModel.updatePassword(newPassword)
                     }
-            }
+                }
 
-            if (newUsername.isNotBlank()) {
-                // TODO: create function to handle username update
-                //  authViewModel.updateUsername(newUsername)
-            }
+                if (newUsername.isNotBlank()) {
+                    try {
+                        val ok = authViewModel.updateUsername(newUsername)
+                        if (!ok) Toast.makeText(requireContext(), "Username update failed", Toast.LENGTH_SHORT).show()
+                    } catch (e: Exception) {
+                        Log.e("UPDATE", "Username update error: ${e.message}", e)
+                        Toast.makeText(requireContext(), "Failed to update username", Toast.LENGTH_SHORT).show()
+                    }
+                }
 
-            Toast.makeText(requireContext(), "Account updated", Toast.LENGTH_SHORT).show()
-            dismiss()
+                Toast.makeText(requireContext(), "Account updated", Toast.LENGTH_SHORT).show()
+                dismiss()
+            }
+                catch (e: Exception) {
+                    Log.e("UPDATE", "Crash during update: ${e.message}", e)
+                    Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_LONG).show()
+                }
+            }
         }
 
 

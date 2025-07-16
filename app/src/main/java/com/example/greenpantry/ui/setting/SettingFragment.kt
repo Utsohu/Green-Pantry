@@ -31,7 +31,6 @@ import kotlinx.coroutines.tasks.await
 class SettingFragment : Fragment(R.layout.fragment_setting) {
     
     private val authViewModel: AuthViewModel by viewModels()
-    
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val usernameText = view.findViewById<TextView>(R.id.usernameValue)
         val emailText = view.findViewById<TextView>(R.id.emailValue)
