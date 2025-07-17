@@ -7,10 +7,14 @@ import com.example.greenpantry.data.database.FoodItemDao
 import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.PantryItemDao
 import com.example.greenpantry.data.database.PantryItemDatabase
+import com.example.greenpantry.data.database.RecipeDao
+import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.data.imageprocessing.ImageEncoder
 import com.example.greenpantry.data.imageprocessing.ImagePreprocessor
 import com.example.greenpantry.data.repository.FoodRecognitionRepository
 import com.example.greenpantry.data.repository.FoodRecognitionRepositoryImpl
+import com.example.greenpantry.data.repository.RecipeGenerationRepository
+import com.example.greenpantry.data.repository.RecipeGenerationRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -77,5 +81,27 @@ object AppModule {
     @Singleton
     fun provideFoodItemDao(database: FoodItemDatabase): FoodItemDao {
         return database.foodItemDao()
+    }
+    
+    @Provides
+    @Singleton
+    fun provideRecipeDatabase(@ApplicationContext context: Context): RecipeDatabase {
+        return RecipeDatabase.getDatabase(context)
+    }
+    
+    @Provides
+    @Singleton
+    fun provideRecipeDao(database: RecipeDatabase): RecipeDao {
+        return database.recipeDao()
+    }
+    
+    @Provides
+    @Singleton
+    fun provideRecipeGenerationRepository(
+        geminiApiClient: GeminiApiClient,
+        pantryItemDao: PantryItemDao,
+        recipeDao: RecipeDao
+    ): RecipeGenerationRepository {
+        return RecipeGenerationRepositoryImpl(geminiApiClient, pantryItemDao, recipeDao)
     }
 }

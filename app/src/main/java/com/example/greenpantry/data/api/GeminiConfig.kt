@@ -32,4 +32,13 @@ class GeminiConfig @Inject constructor() {
             "confidence": float (0.0 to 1.0)
         }
     """.trimIndent()
+    
+    // Recipe generation prompt is now simplified since we use structured generation
+    val recipeGenerationPrompt = """
+        Based on the following pantry items, suggest exactly 3 unique and creative recipes.
+        Available items: {pantryItems}
+        
+        Make sure recipes are practical, use common cooking techniques, and prioritize using the available pantry items.
+        Include complete details for each recipe including ingredients with quantities and step-by-step instructions.
+    """.trimIndent()
 }

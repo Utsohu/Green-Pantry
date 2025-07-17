@@ -20,7 +20,9 @@ import com.example.greenpantry.data.database.Recipe
 import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.data.model.FoodCategory
 import com.example.greenpantry.ui.home.RecipeDetailFragment
+import com.example.greenpantry.ui.recipes.RecipeGenerationDialog
 import com.example.greenpantry.ui.utils.ListOptimizations
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.example.greenpantry.ui.notifs.NotificationsFragment
@@ -38,6 +40,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
 
         setupNotifBtn(view)
+        
+        // Set up FAB for AI recipe generation
+        val fabGenerateRecipes = view.findViewById<FloatingActionButton>(R.id.fabGenerateRecipes)
+        fabGenerateRecipes.setOnClickListener {
+            val dialog = RecipeGenerationDialog.newInstance()
+            dialog.show(parentFragmentManager, "recipe_generation")
+        }
         
         // Show loading state initially
         showLoadingState(view, true)

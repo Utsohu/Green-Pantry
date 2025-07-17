@@ -369,4 +369,17 @@
             android:nestedScrollingEnabled="true"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Floating Action Button for AI Recipe Generation -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabGenerateRecipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_auto_awesome"
+        android:contentDescription="Generate AI Recipes"
+        app:backgroundTint="@color/black"
+        app:tint="@android:color/white"/>
+
 </FrameLayout>
