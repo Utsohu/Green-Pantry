@@ -15,21 +15,23 @@
         android:layout_marginBottom="10dp"
         android:text="Food Item Recognized"/>
 
-    <TextView
-        android:id="@+id/tvItemName"
+    <EditText
+        android:id="@+id/etItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_marginBottom="8dp"
-        android:text="@string/Fruits"/>
+        android:background="@drawable/outlined_box"
+        android:padding="10dp"
+        android:hint="Item name"/>
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
-        android:rowCount="4">
+        android:rowCount="2">
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,21 +43,6 @@
 
         <TextView
             android:id="@+id/tvCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginBottom="4dp"
-            android:text="@string/noVal"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginBottom="4dp"
-            android:text="Confidence:"/>
-
-        <TextView
-            android:id="@+id/tvConfidence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"

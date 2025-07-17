@@ -49,9 +49,9 @@ class RecognitionResultDialog : DialogFragment() {
         val view = inflater.inflate(R.layout.dialog_recognition_result, null)
         
         // Set up views
-        view.findViewById<TextView>(R.id.tvItemName).text = item.name
+        val etItemName = view.findViewById<EditText>(R.id.etItemName)
+        etItemName.setText(item.name)
         view.findViewById<TextView>(R.id.tvCategory).text = item.category.name
-        view.findViewById<TextView>(R.id.tvConfidence).text = "${(item.confidence * 100).toInt()}%"
         
         item.brand?.let {
             view.findViewById<TextView>(R.id.tvBrand).apply {
@@ -69,7 +69,13 @@ class RecognitionResultDialog : DialogFragment() {
 
         save.setOnClickListener {
             val amtInput = amount.text.toString().ifBlank { "1" }
-            onSaveClickListener?.invoke(item, amtInput)
+            val updatedName = etItemName.text.toString().trim()
+            if (updatedName.isNotEmpty()) {
+                val updatedItem = item.copy(name = updatedName)
+                onSaveClickListener?.invoke(updatedItem, amtInput)
+            } else {
+                onSaveClickListener?.invoke(item, amtInput)
+            }
             dialog.dismiss()
         }
 
