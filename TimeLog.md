@@ -25,4 +25,4 @@
 | 2025/07/11 | 2      | 2     | 0         | 0   | 0      | 2     | D4: Architecture Style Examples                 |
 | 2025/07/14 | 0      | 6     | 0         | 0   | 0      | 0     | Partial Item Image DB Integration and Log setup |
 | 2025/07/14 | 0      | 0     | 0         | 7   | 0      | 0     | Search functionality, scrolling optimization    |
-| 2025/07/18 | 2      | ?     | ?         | 1   | ?      | 2     | D5: Design Pattern Examples                     |
+| 2025/07/18 | 2      | 1     | ?         | 1   | ?      | 2     | D5: Design Pattern Examples                     |
