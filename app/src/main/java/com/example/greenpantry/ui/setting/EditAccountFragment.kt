@@ -28,7 +28,11 @@ import kotlinx.coroutines.launch
 import android.util.Log
 import androidx.fragment.app.viewModels
 import com.example.greenpantry.data.database.PantryItemDao
+import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class EditAccountFragment : DialogFragment() {
     private val authViewModel: AuthViewModel by viewModels()
 
@@ -82,13 +86,17 @@ class EditAccountFragment : DialogFragment() {
                     try {
                         val ok = authViewModel.updateUsername(newUsername)
                         if (!ok) Toast.makeText(requireContext(), "Username update failed", Toast.LENGTH_SHORT).show()
+                        else {
+                            val updatedName = FirebaseAuth.getInstance().currentUser?.displayName
+                            Log.d("UPDATE", "New username: $updatedName")
+                        }
                     } catch (e: Exception) {
                         Log.e("UPDATE", "Username update error: ${e.message}", e)
                         Toast.makeText(requireContext(), "Failed to update username", Toast.LENGTH_SHORT).show()
                     }
                 }
 
-                Toast.makeText(requireContext(), "Account updated", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireContext(), "Account updated", Toast.LENGTH_SHORT).show()
                 dismiss()
             }
                 catch (e: Exception) {
@@ -114,6 +122,17 @@ class EditAccountFragment : DialogFragment() {
         dialog?.window?.setGravity(Gravity.BOTTOM)
         dialog?.window?.setBackgroundDrawableResource(R.drawable.round_rectangle)
 
+    }
+
+    private fun updateUsernameUI() {
+        val usernameText = view?.findViewById<TextView>(R.id.usernameValue)
+        val user = FirebaseAuth.getInstance().currentUser
+        usernameText?.text = user?.displayName ?: "Unknown"
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateUsernameUI()
     }
 
 }

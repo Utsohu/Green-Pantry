@@ -155,10 +155,15 @@ class FirebaseAuthRepository @Inject constructor(
     }
 
     override suspend fun updateUsername(newUsername: String): Boolean {
-        val user = auth.currentUser ?: return false
+        val user = auth.currentUser
+        if (user == null) {
+            Log.e("UPDATE", "No current user found")
+            return false
+        }
         val profileUpdates = userProfileChangeRequest { displayName = newUsername }
         return try {
             user.updateProfile(profileUpdates).await()
+            user.reload().await()
             Log.d("UPDATE", "Username updated to $newUsername")
             true
         } catch (e: Exception) {
