@@ -73,38 +73,37 @@ class EditAccountFragment : DialogFragment() {
 
             lifecycleScope.launch {
                 try {
-                // Reauthenticate if updating email/password
-                if (originalPassword.isNotBlank() && (newEmail.isNotBlank() || newPassword.isNotBlank())) {
-                    authViewModel.reauthenticateUser(originalPassword) {
-                        // Callback after successful reauthentication
-                        if (newEmail.isNotBlank()) authViewModel.updateEmail(newEmail)
-                        if (newPassword.isNotBlank()) authViewModel.updatePassword(newPassword)
-                    }
-                }
-
-                if (newUsername.isNotBlank()) {
-                    try {
-                        val ok = authViewModel.updateUsername(newUsername)
-                        if (!ok) Toast.makeText(requireContext(), "Username update failed", Toast.LENGTH_SHORT).show()
-                        else {
-                            val updatedName = FirebaseAuth.getInstance().currentUser?.displayName
-                            Log.d("UPDATE", "New username: $updatedName")
+                    // TODO: update email and password like did with username
+                    if (originalPassword.isNotBlank() && (newEmail.isNotBlank() || newPassword.isNotBlank())) {
+                        authViewModel.reauthenticateUser(originalPassword) {
+                            // Callback after successful reauthentication
+                            if (newEmail.isNotBlank()) authViewModel.updateEmail(newEmail)
+                            if (newPassword.isNotBlank()) authViewModel.updatePassword(newPassword)
                         }
-                    } catch (e: Exception) {
-                        Log.e("UPDATE", "Username update error: ${e.message}", e)
-                        Toast.makeText(requireContext(), "Failed to update username", Toast.LENGTH_SHORT).show()
                     }
-                }
 
-//                Toast.makeText(requireContext(), "Account updated", Toast.LENGTH_SHORT).show()
+                    if (newUsername.isNotBlank()) {
+                        try {
+                            val ok = authViewModel.updateUsername(newUsername)
+                            if (!ok) Toast.makeText(requireContext(), "Username update failed", Toast.LENGTH_SHORT).show()
+                            else {
+                                val updatedName = FirebaseAuth.getInstance().currentUser?.displayName
+                                Log.d("UPDATE", "New username: $updatedName")
+                            }
+                        } catch (e: Exception) {
+                            Log.e("UPDATE", "Username update error: ${e.message}", e)
+                            Toast.makeText(requireContext(), "Failed to update username", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
                     val bundle = Bundle().apply {
                         putBoolean("username_updated", true)
                     }
                     parentFragmentManager.setFragmentResult("account_update", bundle)
 
-                dismiss()
-            }
-                catch (e: Exception) {
+                    dismiss()
+
+                } catch (e: Exception) {
                     Log.e("UPDATE", "Crash during update: ${e.message}", e)
                     Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_LONG).show()
                 }
@@ -129,15 +128,5 @@ class EditAccountFragment : DialogFragment() {
 
     }
 
-    private fun updateUsernameUI() {
-        val user = FirebaseAuth.getInstance().currentUser
-        view?.findViewById<TextView>(R.id.usernameValue)?.text = user?.displayName ?: "Unknown"
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        updateUsernameUI()
-    }
 
 }
