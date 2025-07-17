@@ -97,6 +97,11 @@ class EditAccountFragment : DialogFragment() {
                 }
 
 //                Toast.makeText(requireContext(), "Account updated", Toast.LENGTH_SHORT).show()
+                    val bundle = Bundle().apply {
+                        putBoolean("username_updated", true)
+                    }
+                    parentFragmentManager.setFragmentResult("account_update", bundle)
+
                 dismiss()
             }
                 catch (e: Exception) {
@@ -125,10 +130,10 @@ class EditAccountFragment : DialogFragment() {
     }
 
     private fun updateUsernameUI() {
-        val usernameText = view?.findViewById<TextView>(R.id.usernameValue)
         val user = FirebaseAuth.getInstance().currentUser
-        usernameText?.text = user?.displayName ?: "Unknown"
+        view?.findViewById<TextView>(R.id.usernameValue)?.text = user?.displayName ?: "Unknown"
     }
+
 
     override fun onResume() {
         super.onResume()

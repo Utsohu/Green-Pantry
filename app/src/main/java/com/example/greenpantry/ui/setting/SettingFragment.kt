@@ -46,6 +46,15 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
 
         setupNotifBtn(view)
 
+
+
+        parentFragmentManager.setFragmentResultListener("account_update", viewLifecycleOwner) { _, result ->
+            val updated = result.getBoolean("username_updated", false)
+            if (updated) {
+                updateUsernameUI()
+            }
+        }
+
         // switch for turning notifications on when ingredients are low
         val switchIngredientLow = view.findViewById<Switch>(R.id.switchIngredientLow)
         switchIngredientLow.setOnCheckedChangeListener { _, isChecked: Boolean ->
@@ -110,5 +119,10 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
                 kotlinx.coroutines.delay(100) // Check every 100ms
             }
         }
+    }
+
+   private fun updateUsernameUI() {
+        val user = FirebaseAuth.getInstance().currentUser
+        view?.findViewById<TextView>(R.id.usernameValue)?.text = user?.displayName ?: "Unknown"
     }
 }
