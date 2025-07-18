@@ -82,8 +82,19 @@ class RecipeDetailFragment : Fragment() {
 
                     // update image
                     val itemImage = view.findViewById<ImageView>(R.id.recipeImage)
-                    val newImage = item.imageResId // replace with the image of item
-                    itemImage.setImageResource(newImage)
+                    try {
+                        if (item.imageName.isNotBlank()) {
+                            val assetManager = view.context.assets
+                            val inputStream = assetManager.open("recipeImages/${item.imageName}.jpg")
+                            val drawable = Drawable.createFromStream(inputStream, null)
+                            itemImage.setImageDrawable(drawable)
+                        } else {
+                            itemImage.setImageResource(item.imageResId)
+                        }
+                    } catch (e: Exception) {
+                        itemImage.setImageResource(item.imageResId)
+                    }
+
 
 
                     val ingredientView = view.findViewById<RecyclerView>(R.id.ingredientGrid)

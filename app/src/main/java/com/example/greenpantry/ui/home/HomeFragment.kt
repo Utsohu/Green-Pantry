@@ -182,7 +182,22 @@ class RecipeAdapter(
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         val recipe = recipes[position]
 
-        holder.imageView.setImageResource(recipe.imageResId)
+        // Try loading image from assets
+        try {
+            if (recipe.imageName.isNotBlank()) {
+                val assetManager = holder.itemView.context.assets
+                val inputStream = assetManager.open("recipeImages/${recipe.imageName}.jpg")
+                val drawable = Drawable.createFromStream(inputStream, null)
+                holder.imageView.setImageDrawable(drawable)
+            } else {
+                // Fallback to default drawable if imageName is missing
+                holder.imageView.setImageResource(recipe.imageResId)
+            }
+        } catch (e: Exception) {
+            // Fallback to default drawable if image loading fails
+            holder.imageView.setImageResource(recipe.imageResId)
+        }
+
         holder.titleView.text = recipe.name
         holder.descView.text = recipe.description
 
@@ -191,6 +206,7 @@ class RecipeAdapter(
         }
     }
 
-    
+
+
     override fun getItemCount(): Int = recipes.size
 }

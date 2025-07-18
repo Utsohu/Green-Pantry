@@ -36,7 +36,8 @@ fun loadRecipesFromCSV(context: Context): List<Recipe> {
                     description = title,
                     ingredients = mainIngredients.toMutableList(),
                     setUpInstructions = instructionsList.toMutableList(),
-                    imageResId = R.drawable.logo // now a String, like "chicken-miso"
+                    imageResId = R.drawable.logo, // now a String, like "chicken-miso"
+                    imageName = imageName
                 )
 
                 recipes.add(recipe)

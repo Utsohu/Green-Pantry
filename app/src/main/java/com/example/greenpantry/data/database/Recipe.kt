@@ -23,5 +23,6 @@ data class Recipe(
     val calcium: Int = 0,
     val carbs: Int = 0,
     val setUpInstructions: MutableList<String> = mutableListOf("Random Instruction 1", "Random Instruction 2"),
-    val ingredients: MutableList<String> = mutableListOf("Romaine Lettuce", "Iceberg Lettuce", "Butter Lettuce")
+    val ingredients: MutableList<String> = mutableListOf("Romaine Lettuce", "Iceberg Lettuce", "Butter Lettuce"),
+    val imageName: String = ""
 )

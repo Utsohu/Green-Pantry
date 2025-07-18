@@ -1,5 +1,6 @@
 package com.example.greenpantry.ui.home // Or your relevant package
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,7 @@ import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import com.example.greenpantry.ui.sharedcomponents.setNutrition
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class ItemDetailFragment : Fragment() {
 
@@ -130,7 +132,23 @@ class ItemDetailFragment : Fragment() {
                 val titleView = recipeView.findViewById<TextView>(R.id.itemTitle)
                 val descView = recipeView.findViewById<TextView>(R.id.itemDescription)
 
-                imageView.setImageResource(recipe.imageResId)
+                if (recipe.imageName.isNotBlank()) {
+                    try {
+                        val inputStream = context?.assets?.open("recipeImages/${recipe.imageName}.jpg")
+                        if (inputStream != null) {
+                            val drawable = Drawable.createFromStream(inputStream, null)
+                            imageView.setImageDrawable(drawable)
+                        } else {
+                            imageView.setImageResource(recipe.imageResId)
+                        }
+                    } catch (e: IOException) {
+                        // Asset image not found, fallback
+                        imageView.setImageResource(recipe.imageResId)
+                    }
+                } else {
+                    imageView.setImageResource(recipe.imageResId)
+                }
+
                 titleView.text = recipe.name
                 descView.text = recipe.description
 
