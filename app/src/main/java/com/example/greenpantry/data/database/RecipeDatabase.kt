@@ -15,7 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Recipe::class], version = 5, exportSchema = false)
+@Database(entities = [Recipe::class], version = 7, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class RecipeDatabase : RoomDatabase() {
     abstract fun recipeDao(): RecipeDao
@@ -27,78 +27,19 @@ abstract class RecipeDatabase : RoomDatabase() {
         fun getDatabase(context: Context): RecipeDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
-                                context.applicationContext,
-                                RecipeDatabase::class.java,
-                                "recipe_database"
+                    context.applicationContext,
+                    RecipeDatabase::class.java,
+                    "recipe_database"
                 ).fallbackToDestructiveMigration(false)
                     .addCallback(object : RoomDatabase.Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
                             // Insert initial data using coroutine
                             CoroutineScope(Dispatchers.IO).launch {
-                                INSTANCE?.recipeDao()?.apply {
-                                    insertAll(listOf(
-                                        Recipe(
-                                            name = "Avocado Toast",
-                                            description = "A healthy breakfast",
-                                            imageResId = R.drawable.img_avocado_toast,
-                                            time = 50, difficulty = 7, NOS = 2,
-                                            calories = 120, fiber = 5, totalFat = 8, sugars = 2,
-                                            transFat = 5, protein = 2, sodium = 2, iron = 3,
-                                            calcium = 4, carbs = 1,
-                                            setUpInstructions = mutableListOf("Follow the instructions and try to make a good meal!","Go out to restaurant.", "Buy the food!"),
-                                            ingredients = mutableListOf("Romaine Lettuce", "Kale", "Yu Choy", "Apple") // need to change this to list of items
-                                        ),
-                                        Recipe(
-                                            name = "Quinoa Salad",
-                                            description = "Protein-rich lunch",
-                                            imageResId = R.drawable.img_quinoasalad,
-                                            ingredients = mutableListOf("Yu Choy", "Apple", "Tomato")
-                                        ),
-                                        Recipe(
-                                            name = "Smoothie Bowl",
-                                            description = "Energizing snack",
-                                            imageResId = R.drawable.img_smoothiebowl
-                                        ),
-                                        Recipe(
-                                            name = "Kale Smoothie",
-                                            description = "A healthy green smoothie",
-                                            imageResId = R.drawable.logo,
-                                            ingredients = mutableListOf("Kale", "Banana", "Apple")
-                                        ),
-                                        Recipe(
-                                            name = "Tomato Egg Stir-fry",
-                                            description = "Classic Chinese comfort food",
-                                            imageResId = R.drawable.logo,
-                                            ingredients = mutableListOf("Tomato", "Eggs", "Green Onion")
-                                        ),
-                                        Recipe(
-                                            name = "Apple Carrot Slaw",
-                                            description = "Crunchy and fresh side dish",
-                                            imageResId = R.drawable.logo,
-                                            ingredients = mutableListOf("Apple", "Carrot", "Lemon Juice")
-                                        ),
-                                        Recipe(
-                                            name = "Yu Choy Garlic Stir-fry",
-                                            description = "Simple and savory greens",
-                                            imageResId = R.drawable.logo,
-                                            ingredients = mutableListOf("Yu Choy", "Garlic", "Soy Sauce")
-                                        ),
-                                        Recipe(
-                                            name = "Romaine Lettuce Wraps",
-                                            description = "Low-carb lettuce wraps",
-                                            imageResId = R.drawable.logo,
-                                            ingredients = mutableListOf("Romaine Lettuce", "Carrot", "Tofu")
-                                        ),
-                                        Recipe(
-                                            name = "Banana Oat Pancakes",
-                                            description = "Healthy breakfast option",
-                                            imageResId = R.drawable.logo,
-                                            ingredients = mutableListOf("Banana", "Oats", "Eggs")
-                                        )
-                                    ))
-                                    // Add more recipes if needed
-                                }
+                                // Read CSV here with context
+                                val recipes = loadRecipesFromCSV(context.applicationContext)
+
+                                INSTANCE?.recipeDao()?.insertAll(recipes)
                             }
                         }
                     })
@@ -109,6 +50,7 @@ abstract class RecipeDatabase : RoomDatabase() {
         }
     }
 }
+
 
 class Converters {
     @TypeConverter

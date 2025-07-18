@@ -1,5 +1,6 @@
 package com.example.greenpantry.ui.home
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
+import java.io.IOException
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -176,18 +178,19 @@ class RecipeAdapter(
             .inflate(R.layout.recipes_items, parent, false)
         return RecipeViewHolder(view)
     }
-    
+
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         val recipe = recipes[position]
-        
+
         holder.imageView.setImageResource(recipe.imageResId)
         holder.titleView.text = recipe.name
         holder.descView.text = recipe.description
-        
+
         holder.itemView.setOnClickListener {
             onRecipeClick(recipe)
         }
     }
+
     
     override fun getItemCount(): Int = recipes.size
 }

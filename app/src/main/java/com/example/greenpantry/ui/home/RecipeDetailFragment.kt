@@ -1,5 +1,6 @@
 package com.example.greenpantry.ui.home // Or your relevant package
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,7 @@ import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setNutrition
 import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class RecipeDetailFragment : Fragment() {
 
@@ -82,6 +84,7 @@ class RecipeDetailFragment : Fragment() {
                     val itemImage = view.findViewById<ImageView>(R.id.recipeImage)
                     val newImage = item.imageResId // replace with the image of item
                     itemImage.setImageResource(newImage)
+
 
                     val ingredientView = view.findViewById<RecyclerView>(R.id.ingredientGrid)
                     val ingredientList = item.ingredients
