@@ -10,7 +10,8 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="red">#D32F2F</color>
-    
+    <color name="teal_700">#018786</color>
+
     <!-- Category colors for food items -->
     <color name="fruit_color">#FF9800</color>
     <color name="vegetable_color">#4CAF50</color>

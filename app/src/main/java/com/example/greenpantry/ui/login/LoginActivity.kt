@@ -1,30 +1,23 @@
 package com.example.greenpantry.ui.login
 
-import android.app.Activity
 import android.content.Intent
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.view.inputmethod.EditorInfo
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import com.example.greenpantry.MainActivity
-import com.example.greenpantry.databinding.ActivityLoginBinding
-
 import com.example.greenpantry.R
 import com.example.greenpantry.domain.model.LoginInputValidationType
 import com.example.greenpantry.domain.model.validateLoginInput
 import com.example.greenpantry.presentation.viewmodel.AuthViewModel
-import com.example.greenpantry.ui.home.HomeFragment
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,9 +36,9 @@ class LoginActivity : AppCompatActivity() {
         val emailError = findViewById<TextView>(R.id.emailError)
         val passError = findViewById<TextView>(R.id.passError)
         val loginError = findViewById<TextView>(R.id.loginError)
+        val forgotPassword = findViewById<TextView>(R.id.forgotPass)
 
         login.setOnClickListener {
-            // validation
             val results = validateLoginInput(username.text.toString(), password.text.toString())
             var emailBlank = false
 
@@ -83,7 +76,6 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.uiState.observe(this) { state ->
             if (state.loginSuccess) {
-                // Navigate to main/home
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -102,12 +94,27 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        forgotPassword.setOnClickListener {
+            val email = username.text.toString()
+            if (email.isBlank()) {
+                Toast.makeText(this, "Enter your email to reset password", Toast.LENGTH_SHORT).show()
+            } else {
+                FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Password reset email sent", Toast.LENGTH_LONG).show()
+                        } else {
+                            Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                        }
+                    }
+            }
+        }
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
-        // TODO : initiate successful logged in experience
         Toast.makeText(
             applicationContext,
             "$welcome $displayName",
@@ -120,9 +127,6 @@ class LoginActivity : AppCompatActivity() {
     }
 }
 
-/**
- * Extension function to simplify setting an afterTextChanged action to EditText components.
- */
 fun TextInputEditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
     this.addTextChangedListener(object : TextWatcher {
         override fun afterTextChanged(editable: Editable?) {
