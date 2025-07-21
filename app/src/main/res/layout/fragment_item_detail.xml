@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:padding="16dp"
         android:orientation="horizontal"
         android:gravity="center_vertical">
@@ -27,19 +27,6 @@
             android:clickable="true"
             android:focusable="true" />
 
-        <!-- Notification Button -->
-        <ImageButton
-            android:id="@+id/notificationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_notif"
-            android:scaleX="1.2"
-            android:scaleY="1.2"
-            android:padding="2dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/Notifications"/>
     </LinearLayout>
 
     <!-- Item Title -->
@@ -54,8 +41,8 @@
         android:textSize="35sp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/notificationButton"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <FrameLayout
         android:layout_width="match_parent"

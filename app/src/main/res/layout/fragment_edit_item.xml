@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="500dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/round_rectangle"
     android:backgroundTint="@color/white"
@@ -35,31 +36,41 @@
 
     </LinearLayout>
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/dark_gray"
-        android:fontFamily="@font/roboto_regular"
-        android:textSize="16sp"
-        android:layout_marginTop="15dp"
-        android:text="@string/amount"/>
-
-    <!-- amount text box -->
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/amountInput"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:textColor="@color/dark_gray"
             android:fontFamily="@font/roboto_regular"
             android:textSize="16sp"
-            android:textColor="@color/black"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Amount:"/>
+
+        <TextView
+            android:id="@+id/sliderVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/noVal"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:paddingStart="10dp" />
+
+    </LinearLayout>
+
+    <!-- amount slider -->
+    <com.google.android.material.slider.Slider
+        android:id="@+id/amountSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="1"
+        android:valueTo="100"
+        android:stepSize="1"
+        android:layout_marginTop="5dp"
+        app:tickVisible="false"/>
 
     <TextView
         android:layout_width="wrap_content"

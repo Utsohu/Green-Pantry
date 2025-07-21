@@ -23,7 +23,6 @@ import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.utils.ListOptimizations
 import com.example.greenpantry.ui.sharedcomponents.popBack
-import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
 import android.text.TextWatcher
 import android.text.Editable
@@ -46,7 +45,6 @@ class DetailsFragment : Fragment(R.layout.fragment_pantry) {
 
         val backText: TextView = view.findViewById(R.id.pantryBack)
         popBack(backText)
-        setupNotifBtn(view)
 
         // search text value
         val inputField = view.findViewById<EditText>(R.id.searchInput)

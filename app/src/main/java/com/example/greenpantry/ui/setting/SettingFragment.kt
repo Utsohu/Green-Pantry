@@ -14,7 +14,6 @@ import androidx.lifecycle.lifecycleScope
 import com.example.greenpantry.R
 import com.example.greenpantry.presentation.viewmodel.AuthViewModel
 import com.example.greenpantry.ui.notifs.NotificationsFragment
-import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import android.widget.RadioGroup
@@ -44,10 +43,6 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
 
         super.onViewCreated(view, savedInstanceState)
 
-        setupNotifBtn(view)
-
-
-
         parentFragmentManager.setFragmentResultListener("account_update", viewLifecycleOwner) { _, result ->
             val updated = result.getBoolean("username_updated", false)
             if (updated) {
@@ -55,39 +50,10 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
             }
         }
 
-        // switch for turning notifications on when ingredients are low
-        val switchIngredientLow = view.findViewById<Switch>(R.id.switchIngredientLow)
-        switchIngredientLow.setOnCheckedChangeListener { _, isChecked: Boolean ->
-            // Use isChecked safely
-        }
-
-        // switch for turning notifications on for recipes
-        val switchRecipesNotif = view.findViewById<Switch>(R.id.switchRecipes)
-        switchRecipesNotif.setOnCheckedChangeListener { _, isChecked: Boolean ->
-            // Use isChecked safely
-        }
-
-        // switch for turning notifications on for reminders
-        val switchReminders = view.findViewById<Switch>(R.id.remindersSwitch)
-        switchReminders.setOnCheckedChangeListener { _, isChecked: Boolean ->
-            // Use isChecked safely
-        }
-
         val logoutButton = view.findViewById<Button>(R.id.logoutButton)
         logoutButton.setOnClickListener {
             // Call logout method from AuthViewModel
             authViewModel.logout()
-        }
-
-        // Notification frequency radio buttons
-        val radioGroup = view.findViewById<RadioGroup>(R.id.frequencyRadioGroup)
-
-        radioGroup.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.radio_daily -> {/* handle daily */}
-                R.id.radio_weekly -> {/* handle weekly */}
-                R.id.radio_biweekly -> {/* handle biweekly */}
-            }
         }
 
         val editButton = view.findViewById<ImageButton>(R.id.editButton)

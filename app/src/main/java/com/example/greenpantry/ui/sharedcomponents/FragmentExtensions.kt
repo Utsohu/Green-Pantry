@@ -9,16 +9,6 @@ import com.example.greenpantry.data.database.FoodItem
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-fun Fragment.setupNotifBtn(view: View) {
-    val notifBtn = view.findViewById<ImageButton>(R.id.notificationButton)
-    notifBtn.setOnClickListener {
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, NotificationsFragment())
-            .addToBackStack(null)
-            .commit()
-    }
-}
-
 fun Fragment.resetNav(view: View, pos: Int) {
     val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
     bottomNav.menu.setGroupCheckable(0, true, false)

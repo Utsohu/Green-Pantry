@@ -22,7 +22,6 @@ import com.example.greenpantry.R
 import com.example.greenpantry.ui.home.ItemDetailFragment.Companion
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.sharedcomponents.popBack
-import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 
 class FilterFragment : DialogFragment() {
 

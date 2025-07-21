@@ -27,7 +27,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.example.greenpantry.ui.notifs.NotificationsFragment
-import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import java.io.IOException
 
 @AndroidEntryPoint
@@ -40,8 +39,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setupNotifBtn(view)
         
         // Set up FAB for AI recipe generation
         val fabGenerateRecipes = view.findViewById<FloatingActionButton>(R.id.fabGenerateRecipes)

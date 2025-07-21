@@ -30,7 +30,6 @@ import com.example.greenpantry.data.model.RecognizedFoodItem
 import com.example.greenpantry.ui.home.HomeFragment
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.search.SearchFragment
-import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -70,9 +69,6 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
 
         cameraExecutor = Executors.newSingleThreadExecutor()
         progressBar = view.findViewById(R.id.progressBar)
-
-        // notif button
-        setupNotifBtn(view)
 
         // take photo button
         val captureButton = view.findViewById<ImageButton>(R.id.captureButton)

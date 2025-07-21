@@ -28,7 +28,6 @@ import com.example.greenpantry.ui.home.ItemDetailFragment
 import com.example.greenpantry.ui.home.RecipeDetailFragment
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.sharedcomponents.resetNav
-import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 import android.text.TextWatcher
@@ -53,7 +52,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         // ensure search icon is on, instead of camera if it was redirected
         resetNav(view, 2)
-        setupNotifBtn(view)
 
         initializeViews(view)
         setupCategoryFilter()

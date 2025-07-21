@@ -22,7 +22,6 @@ import com.example.greenpantry.ui.utils.ListOptimizations
 import com.example.greenpantry.ui.search.SearchFragment
 import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setNutrition
-import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
 import java.io.IOException
 
@@ -54,7 +53,6 @@ class RecipeDetailFragment : Fragment() {
         // set the back and notif button
         val backText: TextView = view.findViewById(R.id.recipeBack)
         popBack(backText)
-        setupNotifBtn(view)
 
         // Retrieve the recipe name passed as an argument
         val recipeName = arguments?.getString(ARG_RECIPE_NAME) // Assuming ARG_RECIPE_NAME is your bundle key

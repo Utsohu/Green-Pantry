@@ -23,7 +23,6 @@ import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.ui.home.ItemDetailFragment.Companion
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.sharedcomponents.popBack
-import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
 import android.util.Log
 import androidx.fragment.app.viewModels

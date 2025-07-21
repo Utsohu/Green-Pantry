@@ -22,7 +22,6 @@ import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.ui.home.ItemDetailFragment.Companion
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.example.greenpantry.ui.sharedcomponents.popBack
-import com.example.greenpantry.ui.sharedcomponents.setupNotifBtn
 import kotlinx.coroutines.launch
 import android.util.Log
 import com.bumptech.glide.Glide
@@ -30,6 +29,7 @@ import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.PantryItem
 import com.example.greenpantry.data.database.PantryItemDao
 import com.example.greenpantry.ui.sharedcomponents.groupImg
+import com.google.android.material.slider.Slider
 
 class EditItemFragment : DialogFragment() {
 
@@ -66,13 +66,19 @@ class EditItemFragment : DialogFragment() {
 
         // update other values based on item
         val itemImg = view.findViewById<ImageView>(R.id.item_img)
-        val amountDisplay = view.findViewById<EditText>(R.id.amountInput)
+        val amountDisplay = view.findViewById<Slider>(R.id.amountSlider)
+        val amountVal = view.findViewById<TextView>(R.id.sliderVal)
         val unitDisplay = view.findViewById<EditText>(R.id.unitInput)
         val addBtn = view.findViewById<Button>(R.id.addBtn)
 
         // get the current img, amount and unit from database
         val pantryDB = PantryItemDatabase.getDatabase(requireContext())
         val foodDB = FoodItemDatabase.getDatabase(requireContext())
+
+        // adjust amount display for slider as it changes
+        amountDisplay.addOnChangeListener { _, value, _ ->
+            amountVal.text = value.toInt().toString()
+        }
 
         var inPantry = false
         if (itemName != null) { // is in pantry
@@ -85,7 +91,8 @@ class EditItemFragment : DialogFragment() {
                         .load(item.imageURL)
                         .placeholder(R.drawable.logo)
                         .into(itemImg)
-                    amountDisplay.hint = item.curNum.toString()
+                    val newVal = item.curNum.coerceIn(1, 100).toFloat()
+                    amountDisplay.value = newVal
                     unitDisplay.hint = item.quantity
                 }
                 else { // not in pantry so retrieve from food db
@@ -100,7 +107,7 @@ class EditItemFragment : DialogFragment() {
                             .placeholder(foodGroup)
                             .into(itemImg)
                     }
-                    amountDisplay.hint = "0" // none in pantry
+                    amountDisplay.value = 1F // none in pantry
                     unitDisplay.hint = "each" // default
                 }
             }
@@ -111,10 +118,9 @@ class EditItemFragment : DialogFragment() {
 
         addBtn.setOnClickListener {
             // error check the input
-            val amountInput = amountDisplay.text.toString()
+            val addAmount = amountDisplay.value.toInt()
             val unitInput = unitDisplay.text.toString()
 
-            val addAmount = amountInput.toIntOrNull()
             if (addAmount == null || addAmount < 0 || (addAmount == 0 && !inPantry)) {
                 Toast.makeText(view.context, "Please enter a valid amount", Toast.LENGTH_SHORT)
                     .show()
