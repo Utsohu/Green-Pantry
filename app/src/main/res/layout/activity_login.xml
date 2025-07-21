@@ -9,12 +9,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:layout_marginBottom="16dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/loginSection"
-        android:layout_marginTop="0dp">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Email Field -->
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -29,7 +30,6 @@
                 android:src="@drawable/logo_transparent" />
         </FrameLayout>
 
-        <!-- Email Field -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/usernameContainer"
             android:layout_width="match_parent"
@@ -107,8 +107,8 @@
             android:text="Forgot Password?"
             android:textAlignment="center"
             android:textColor="@color/teal_700"
-            android:textStyle="bold"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
