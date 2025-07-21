@@ -1,16 +1,19 @@
 | Date       | Sabina | Cindy | Sreekanth | Sid | Andrei | Boyue | Task                                            |
 |------------|--------|-------|-----------|-----|--------|-------|-------------------------------------------------|
-| 2025/06/03 | 0      | 3     | 0         | 0   | 0      | 0     | Figma Wireframe Design                          |
+| 2025/06/03 | 0      | 3     | 1         | 0   | 0      | 0     | Figma Wireframe Design                          |
 | 2025/06/03 | 3      | 3     | 3         | 3   | ?      | 3     | D1: Proposal Document and Presentation          |
 | 2025/06/14 | 2      | 2     | 2         | 2   | 0      | 2     | D2: Buddy Team Eval                             |
-| 2025/06/16 | 4      | 5     | 0         | 0   | 0      | 0     | Figma High Fidelity                             |
+| 2025/06/16 | 4      | 5     | 2         | 0   | 0      | 0     | Figma High Fidelity                             |
 | 2025/06/17 | 0      | 1     | 0         | 0   | 0      | 4     | Home and Pantry Base Layout                     |
-| 2025/06/18 | 0      | 0     | 8         | 0   | 0      | 0     | Login and Register UI                           |
-| 2025/06/18 | 0      | 0     | 21        | 0   | 0      | 0     | Login Backend and Functionality                 |
-| 2025/06/18 | 0      | 0     | 13        | 0   | 0      | 0     | Register Backend and Functionality              |
-| 2025/06/18 | 0      | 0     | 4         | 0   | 0      | 0     | Login and Register Navigation                   |
+| 2025/06/18 | 0      | 0     | 2         | 0   | 0      | 0     | Login UI                                        |
+| 2025/06/18 | 0      | 0     | 2         | 0   | 0      | 0     | Login, Register and Home Screen Navigation      |
+| 2025/06/19 | 0      | 0     | 4         | 0   | 0      | 0     | Registration UI and Updated Login UI            |
+| 2025/06/19 | 0      | 0     | 3         | 0   | 0      | 0     | Validations for Login and Registration          |
 | 2025/06/20 | 0      | 7     | 2         | 0   | 0      | 0     | UI for Home, Search, Pantry, Notification       |
 | 2025/06/20 | 0      | 0     | 0         | 0   | 0      | 8     | Pantry Database Setup and Integration           |
+| 2025/06/21 | 0      | 0     | 4         | 0   | 0      | 0     | FireStore Setup                                 |
+| 2025/06/21 | 0      | 0     | 12        | 0   | 0      | 0     | Login Backend and Functionality                 |
+| 2025/06/21 | 0      | 0     | 9         | 0   | 0      | 0     | Register Backend and Functionality              |
 | 2025/06/22 | 0      | 1     | 0         | 2   | ?      | 0     | Camera and Food Recognition Setup               |
 | 2025/06/22 | 0      | 0     | 0         | 0   | ?      | 0     | Gemini API Setup and Integration                |
 | 2025/06/23 | 0      | 0     | 0         | 4   | 0      | 0     | Camera Dialogue                                 |
