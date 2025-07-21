@@ -14,7 +14,7 @@
 | 2025/06/22 | 0      | 1     | 0         | 2   | ?      | 0     | Camera and Food Recognition Setup               |
 | 2025/06/22 | 0      | 0     | 0         | 0   | ?      | 0     | Gemini API Setup and Integration                |
 | 2025/06/23 | 0      | 0     | 0         | 4   | 0      | 0     | Camera Dialogue                                 |
-| 2025/06/25 | 1      | 1     | 1         | 1   | ?      | 1     | D3: Prototype Demo                              |
+| 2025/06/25 | 2      | 1     | 1         | 1   | ?      | 1     | D3: Prototype Demo                              |
 | 2025/06/27 | 0      | 8     | 0         | 0   | 0      | 0     | UI for Item, Recipe, EditItem and Filter        |
 | 2025/06/29 | 1      | 3     | 3         | 2   | ?      | 2     | D3: Prototype Document                          |
 | 2025/06/29 | 0      | 0     | 0         | 0   | 0      | 10    | Recipe Database and Search Functionality        |
