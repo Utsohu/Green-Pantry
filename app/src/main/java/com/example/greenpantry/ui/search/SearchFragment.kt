@@ -13,6 +13,7 @@ import android.widget.Toast
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.AdapterView
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -46,6 +47,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var inputField: EditText
     private lateinit var categorySpinner: Spinner
     private lateinit var searchAdapter: SearchAdapter
+    private lateinit var loadingIndicator: ProgressBar
+    private lateinit var emptyStateText: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -62,6 +65,14 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private fun initializeViews(view: View) {
         inputField = view.findViewById(R.id.searchInput)
         searchRecyclerView = view.findViewById(R.id.searchList)
+        loadingIndicator = view.findViewById(R.id.searchLoadingIndicator)
+        emptyStateText = view.findViewById(R.id.searchEmptyState)
+        
+        // Log to verify views are found
+        Log.d("SearchFragment", "Loading indicator found: ${loadingIndicator != null}")
+        Log.d("SearchFragment", "Empty state text found: ${emptyStateText != null}")
+        Log.d("SearchFragment", "Search RecyclerView found: ${searchRecyclerView != null}")
+        Log.d("SearchFragment", "Input field found: ${inputField != null}")
         
         // Setup RecyclerView with adapter
         searchAdapter = SearchAdapter { item ->
@@ -76,6 +87,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         searchRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = searchAdapter
+            // Performance optimizations for better scrolling
+            setHasFixedSize(true)
+            setItemViewCacheSize(20)
+            isNestedScrollingEnabled = true
         }
     }
 
@@ -120,15 +135,58 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     }
 
     private fun observeViewModel() {
+        // Observe search results
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.searchResults.collect { items ->
+                Log.d("SearchFragment", "Received ${items.size} search results")
                 displaySearchResults(items)
             }
+        }
+        
+        // Observe loading state
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.isLoading.collect { isLoading ->
+                Log.d("SearchFragment", "Loading state changed to: $isLoading")
+                // Ensure UI updates happen on main thread
+                view?.post {
+                    showLoadingState(isLoading)
+                }
+            }
+        }
+    }
+
+    private fun showLoadingState(isLoading: Boolean) {
+        Log.d("SearchFragment", "showLoadingState called with isLoading: $isLoading")
+        
+        // Safety check to ensure views are initialized
+        if (!::loadingIndicator.isInitialized || !::searchRecyclerView.isInitialized || !::emptyStateText.isInitialized) {
+            Log.w("SearchFragment", "Views not initialized yet, skipping loading state update")
+            return
+        }
+        
+        if (isLoading) {
+            loadingIndicator.visibility = View.VISIBLE
+            searchRecyclerView.visibility = View.GONE
+            emptyStateText.visibility = View.GONE
+            Log.d("SearchFragment", "Loading state: VISIBLE")
+        } else {
+            loadingIndicator.visibility = View.GONE
+            searchRecyclerView.visibility = View.VISIBLE
+            Log.d("SearchFragment", "Loading state: GONE")
         }
     }
 
     private fun displaySearchResults(items: List<FoodItem>) {
         searchAdapter.submitList(items)
+        
+        // Show empty state if no results and not loading
+        if (items.isEmpty() && loadingIndicator.visibility == View.GONE) {
+            searchRecyclerView.visibility = View.GONE
+            emptyStateText.visibility = View.VISIBLE
+        } else {
+            searchRecyclerView.visibility = View.VISIBLE
+            emptyStateText.visibility = View.GONE
+        }
     }
 
     // RecyclerView Adapter with DiffUtil for efficient updates and smooth scrolling

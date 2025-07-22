@@ -16,12 +16,12 @@
 | 2025/06/21 | 0      | 0     | 9         | 0   | 0      | 0     | Register Backend and Functionality              |
 | 2025/06/22 | 0      | 1     | 0         | 2   | ?      | 0     | Camera and Food Recognition Setup               |
 | 2025/06/22 | 0      | 0     | 0         | 0   | ?      | 0     | Gemini API Setup and Integration                |
-| 2025/06/23 | 0      | 0     | 0         | 4   | 0      | 0     | Camera Dialogue                                 |
+| 2025/06/23 | 0      | 0     | 0         | 5   | 0      | 0     | Camera Dialogue                                 |
 | 2025/06/25 | 1      | 1     | 1         | 1   | ?      | 1     | D3: Prototype Demo                              |
 | 2025/06/27 | 0      | 8     | 0         | 0   | 0      | 0     | UI for Item, Recipe, EditItem and Filter        |
-| 2025/06/29 | 3      | 3     | 3         | 2   | ?      | 2     | D3: Prototype Document                          |
+| 2025/06/29 | 3      | 3     | 3         | 3   | ?      | 2     | D3: Prototype Document                          |
 | 2025/06/29 | 0      | 0     | 0         | 0   | 0      | 10    | Recipe Database and Search Functionality        |
-| 2025/06/30 | 10     | 1     | 0         | 2   | 0      | 0     | Settings UI                                     |
+| 2025/06/30 | 10     | 1     | 0         | 3   | 0      | 0     | Settings UI                                     |
 | 2025/07/2  | 2      | 2     | 4         | 10  | 0      | 2     | Cleanup and Debugging                           |
 | 2025/07/3  | 0      | 3     | 2         | 0   | 0      | 0     | Login and Register UI Replacement               |
 | 2025/07/4  | 0      | 0     | 0         | 5   | 0      | 0     | Camera, Database and Pantry Debugging for Demo  |
@@ -37,3 +37,4 @@
 | 2025/07/21 | 0      | 7     | 0         | 0   | 0      | 0     | Image Database and Minor Feature changes        |
 | 2025/07/21 | 0      | 1     | 4         | 0   | 0      | 0     | Forgot Password UI and Notification             |
 | 2025/07/21 | 0      | 0     | 9         | 0   | 0      | 0     | Forgot Password Backend and Email Notification  |
+| 2025/07/21 | 0      | 0     | 9         | 0   | 0      | 0     | Search Loading Spinner                          |
