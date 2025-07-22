@@ -41,3 +41,4 @@
 | 2025/07/21 | 0      | 1     | 4         | 0   | 0      | 0     | Forgot Password UI and Notification                           |
 | 2025/07/21 | 0      | 0     | 9         | 0   | 0      | 0     | Forgot Password Backend and Email Notification                |
 | 2025/07/21 | 0      | 0     | 0         | 4   | 0      | 0     | Search Loading Spinner                                        |
+| 2025/07/21 | 2      | 0     | 0         | 4   | 0      | 0     | Update email functionality                                    |
