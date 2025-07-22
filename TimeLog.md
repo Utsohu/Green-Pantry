@@ -37,4 +37,4 @@
 | 2025/07/21 | 0      | 7     | 0         | 0   | 0      | 0     | Image Database and Minor Feature changes        |
 | 2025/07/21 | 0      | 1     | 4         | 0   | 0      | 0     | Forgot Password UI and Notification             |
 | 2025/07/21 | 0      | 0     | 9         | 0   | 0      | 0     | Forgot Password Backend and Email Notification  |
-| 2025/07/21 | 0      | 0     | 9         | 0   | 0      | 0     | Search Loading Spinner                          |
+| 2025/07/21 | 0      | 0     | 0         | 4   | 0      | 0     | Search Loading Spinner                          |
