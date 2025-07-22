@@ -47,6 +47,7 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
             val updated = result.getBoolean("username_updated", false)
             if (updated) {
                 updateUsernameUI()
+                updateEmailUI()
             }
         }
 
@@ -90,5 +91,10 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
    private fun updateUsernameUI() {
         val user = FirebaseAuth.getInstance().currentUser
         view?.findViewById<TextView>(R.id.usernameValue)?.text = user?.displayName ?: "Unknown"
+    }
+
+    private fun updateEmailUI() {
+        val user = FirebaseAuth.getInstance().currentUser
+        view?.findViewById<TextView>(R.id.emailValue)?.text = user?.email ?: "No email"
     }
 }

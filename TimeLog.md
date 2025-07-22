@@ -22,7 +22,7 @@
 | 2025/06/29 | 3      | 3     | 3         | 2   | ?      | 2     | D3: Prototype Document                          |
 | 2025/06/29 | 0      | 0     | 0         | 0   | 0      | 10    | Recipe Database and Search Functionality        |
 | 2025/06/30 | 10     | 1     | 0         | 2   | 0      | 0     | Settings UI                                     |
-| 2025/07/2  | 0      | 2     | 4         | 10  | 0      | 2     | Cleanup and Debugging                           |
+| 2025/07/2  | 2      | 2     | 4         | 10  | 0      | 2     | Cleanup and Debugging                           |
 | 2025/07/3  | 0      | 3     | 2         | 0   | 0      | 0     | Login and Register UI Replacement               |
 | 2025/07/4  | 0      | 0     | 0         | 5   | 0      | 0     | Camera, Database and Pantry Debugging for Demo  |
 | 2025/07/9  | 0      | 2     | 0         | 1   | 0      | 3     | Camera, Database and Pantry Debugging for Demo  |

@@ -73,13 +73,14 @@ class EditAccountFragment : DialogFragment() {
             lifecycleScope.launch {
                 try {
                     // TODO: update email and password like did with username
-                    if (originalPassword.isNotBlank() && (newEmail.isNotBlank() || newPassword.isNotBlank())) {
-                        authViewModel.reauthenticateUser(originalPassword) {
-                            // Callback after successful reauthentication
-                            if (newEmail.isNotBlank()) authViewModel.updateEmail(newEmail)
-                            if (newPassword.isNotBlank()) authViewModel.updatePassword(newPassword)
-                        }
-                    }
+//                    if (originalPassword.isNotBlank() && (newEmail.isNotBlank() || newPassword.isNotBlank())) {
+//                        authViewModel.reauthenticateUser(originalPassword) {
+//                            // Callback after successful reauthentication
+//                            if (newEmail.isNotBlank()) authViewModel.updateEmail(newEmail)
+//                            if (newPassword.isNotBlank()) authViewModel.updatePassword(newPassword)
+//                        }
+//                    }
+
 
                     if (newUsername.isNotBlank()) {
                         try {

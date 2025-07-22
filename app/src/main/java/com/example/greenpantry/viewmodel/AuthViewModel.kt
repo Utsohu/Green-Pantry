@@ -63,10 +63,6 @@ class AuthViewModel @Inject constructor(
         onResult(ok)
     }
 
-    fun updateEmail(newEmail: String) = viewModelScope.launch {
-        val ok = repo.updateEmail(newEmail)
-        // optionally update UI state here
-    }
 
     fun updatePassword(newPassword: String) = viewModelScope.launch {
         val ok = repo.updatePassword(newPassword)
@@ -75,6 +71,10 @@ class AuthViewModel @Inject constructor(
     suspend fun updateUsername(newUsername: String): Boolean {
         return repo.updateUsername(newUsername)
 
+    }
+
+    suspend fun updateEmail(newEmail: String): Boolean {
+        return repo.updateEmail(newEmail)
     }
 
 }
