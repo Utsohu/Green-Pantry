@@ -38,7 +38,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="35sp"
+        android:textSize="24sp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
@@ -120,9 +120,10 @@
 
                     <!-- column 1 -->
                     <LinearLayout
-                        android:layout_width="180dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_weight="1">
 
                         <!-- calories -->
                         <LinearLayout
@@ -368,9 +369,10 @@
 
                     <!-- column 2 -->
                     <LinearLayout
-                        android:layout_width="180dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:layout_weight="1"
                         android:layout_marginStart="18dp">
 
                         <!-- fiber -->

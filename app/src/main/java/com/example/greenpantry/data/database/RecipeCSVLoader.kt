@@ -87,7 +87,7 @@ fun extractMainIngredient(ingredient: String): String {
 
 fun parseInstructions(instructionText: String): List<String> {
     return instructionText
-        .split(Regex("\\d+\\."))  // Split by numbered steps like "1.", "2.", etc.
+        .split("\n")  // Split by numbered steps like "1.", "2.", etc.
         .map { it.trim() }
         .filter { it.isNotBlank() }
 }
