@@ -48,6 +48,7 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
             if (updated) {
                 updateUsernameUI()
                 updateEmailUI()
+                updatePasswordUI()
             }
         }
 
@@ -96,5 +97,14 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
     private fun updateEmailUI() {
         val user = FirebaseAuth.getInstance().currentUser
         view?.findViewById<TextView>(R.id.emailValue)?.text = user?.email ?: "No email"
+    }
+
+    private fun updatePasswordUI() {
+        val user = FirebaseAuth.getInstance().currentUser
+
+        // randomize password length for UI
+        val fakeLength = (8..12).random()
+        val hiddenPassword = "*".repeat(fakeLength)
+        view?.findViewById<TextView>(R.id.passwordValue)?.text = hiddenPassword
     }
 }

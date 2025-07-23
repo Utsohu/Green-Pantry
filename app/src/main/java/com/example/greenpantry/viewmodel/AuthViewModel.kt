@@ -64,9 +64,11 @@ class AuthViewModel @Inject constructor(
     }
 
 
-    fun updatePassword(newPassword: String) = viewModelScope.launch {
-        val ok = repo.updatePassword(newPassword)
+    suspend fun updatePassword(newPassword: String): Boolean {
+        return repo.updatePassword(newPassword)
     }
+
+
 
     suspend fun updateUsername(newUsername: String): Boolean {
         return repo.updateUsername(newUsername)

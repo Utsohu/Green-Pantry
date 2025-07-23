@@ -153,12 +153,14 @@ class FirebaseAuthRepository @Inject constructor(
 
     override suspend fun updatePassword(newPassword: String): Boolean {
         val user = auth.currentUser ?: return false
+
         return try {
             user.updatePassword(newPassword).await()
-
+            user.reload().await()
+            Log.d("UPDATE", "Password updated")
             true
         } catch (e: Exception) {
-
+            Log.e("UPDATE", "Password update failed", e)
             false
         }
     }

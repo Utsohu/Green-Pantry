@@ -107,6 +107,18 @@ class EditAccountFragment : DialogFragment() {
                         }
                     }
 
+                    // Updating password
+                    if (newPassword.isNotBlank() && newPassword == confirmPassword) {
+                        try {
+                            val ok = authViewModel.updatePassword(newPassword)
+                            if (!ok) Toast.makeText(requireContext(), "Password update failed", Toast.LENGTH_SHORT).show()
+                            
+                        } catch (e: Exception) {
+                            Log.e("UPDATE", "Password update error: ${e.message}", e)
+                            Toast.makeText(requireContext(), "Failed to update password", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
                     // Updating email
                     if (newEmail.isNotBlank()) {
                         try {
