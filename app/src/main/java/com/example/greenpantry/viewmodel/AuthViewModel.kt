@@ -75,9 +75,9 @@ class AuthViewModel @Inject constructor(
 
     }
 
-    suspend fun updateEmail(newEmail: String): Boolean {
-        return repo.updateEmail(newEmail)
-    }
+//    suspend fun updateEmail(newEmail: String): Boolean {
+//        return repo.updateEmail(newEmail)
+//    }
 
 }
 

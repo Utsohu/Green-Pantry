@@ -67,7 +67,7 @@ class EditAccountFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         val updateButton = view.findViewById<Button>(R.id.updateButton)
         val usernameField = view.findViewById<EditText>(R.id.editUsername)
-        val emailField = view.findViewById<EditText>(R.id.editEmail)
+//        val emailField = view.findViewById<EditText>(R.id.editEmail)
         val newPasswordField = view.findViewById<EditText>(R.id.editPassword)
         val confirmPasswordField = view.findViewById<EditText>(R.id.confirmPassword)
         val originalPasswordField = view.findViewById<EditText>(R.id.originalPassword)
@@ -77,7 +77,7 @@ class EditAccountFragment : DialogFragment() {
 
 
             val newUsername = usernameField.text.toString()
-            val newEmail = emailField.text.toString()
+//            val newEmail = emailField.text.toString()
             val originalPassword = originalPasswordField.text.toString()
             val newPassword = newPasswordField.text.toString()
             val confirmPassword = confirmPasswordField.text.toString()
@@ -112,7 +112,7 @@ class EditAccountFragment : DialogFragment() {
                         try {
                             val ok = authViewModel.updatePassword(newPassword)
                             if (!ok) Toast.makeText(requireContext(), "Password update failed", Toast.LENGTH_SHORT).show()
-                            
+
                         } catch (e: Exception) {
                             Log.e("UPDATE", "Password update error: ${e.message}", e)
                             Toast.makeText(requireContext(), "Failed to update password", Toast.LENGTH_SHORT).show()
@@ -120,49 +120,49 @@ class EditAccountFragment : DialogFragment() {
                     }
 
                     // Updating email
-                    if (newEmail.isNotBlank()) {
-                        try {
-                            // Authentication of current email
-                            val user = FirebaseAuth.getInstance().currentUser
-//                            if (user != null && !user.isEmailVerified) {
-//                                try {
-//                                    user.sendEmailVerification().addOnCompleteListener { task ->
-//                                        if (task.isSuccessful) {
-//                                            Toast.makeText(
-//                                                requireContext(),
-//                                                "Verification email sent to ${user.email}. Please verify before updating.",
-//                                                Toast.LENGTH_LONG
-//                                            ).show()
-//                                            refreshButton.visibility = View.VISIBLE
+//                    if (newEmail.isNotBlank()) {
+//                        try {
+//                            // Authentication of current email
+//                            val user = FirebaseAuth.getInstance().currentUser
+////                            if (user != null && !user.isEmailVerified) {
+////                                try {
+////                                    user.sendEmailVerification().addOnCompleteListener { task ->
+////                                        if (task.isSuccessful) {
+////                                            Toast.makeText(
+////                                                requireContext(),
+////                                                "Verification email sent to ${user.email}. Please verify before updating.",
+////                                                Toast.LENGTH_LONG
+////                                            ).show()
+////                                            refreshButton.visibility = View.VISIBLE
+////
+////                                        } else {
+////                                            Toast.makeText(
+////                                                requireContext(),
+////                                                "Failed to send verification email: ${task.exception?.message}",
+////                                                Toast.LENGTH_LONG
+////                                            ).show()
+////                                        }
+////                                    }
+////                                } catch (e: Exception) {
+////                                    Log.e("VERIFY", "Error sending verification email: ${e.message}", e)
+////                                    Toast.makeText(requireContext(), "Unexpected error occurred", Toast.LENGTH_SHORT).show()
+////                                }
+////                                return@launch  // exit early — don’t proceed with update
+////                            }
 //
-//                                        } else {
-//                                            Toast.makeText(
-//                                                requireContext(),
-//                                                "Failed to send verification email: ${task.exception?.message}",
-//                                                Toast.LENGTH_LONG
-//                                            ).show()
-//                                        }
-//                                    }
-//                                } catch (e: Exception) {
-//                                    Log.e("VERIFY", "Error sending verification email: ${e.message}", e)
-//                                    Toast.makeText(requireContext(), "Unexpected error occurred", Toast.LENGTH_SHORT).show()
-//                                }
-//                                return@launch  // exit early — don’t proceed with update
+//                            // Update email
+//                            val ok = authViewModel.updateEmail(newEmail)
+//                            if (!ok) {
+//                                Toast.makeText(requireContext(), "Email update failed", Toast.LENGTH_SHORT).show()
+//                            } else {
+//                                val updatedEmail = FirebaseAuth.getInstance().currentUser?.email
+//                                Log.d("UPDATE", "New email: $updatedEmail")
 //                            }
-
-                            // Update email
-                            val ok = authViewModel.updateEmail(newEmail)
-                            if (!ok) {
-                                Toast.makeText(requireContext(), "Email update failed", Toast.LENGTH_SHORT).show()
-                            } else {
-                                val updatedEmail = FirebaseAuth.getInstance().currentUser?.email
-                                Log.d("UPDATE", "New email: $updatedEmail")
-                            }
-                        } catch (e: Exception) {
-                            Log.e("UPDATE", "Email update error: ${e.message}", e)
-                            Toast.makeText(requireContext(), "Failed to update email", Toast.LENGTH_SHORT).show()
-                        }
-                    }
+//                        } catch (e: Exception) {
+//                            Log.e("UPDATE", "Email update error: ${e.message}", e)
+//                            Toast.makeText(requireContext(), "Failed to update email", Toast.LENGTH_SHORT).show()
+//                        }
+//                    }
 
 
                     val bundle = Bundle().apply {
