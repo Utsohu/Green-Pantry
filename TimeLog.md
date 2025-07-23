@@ -1,6 +1,6 @@
 | Date       | Sabina | Cindy | Sreekanth | Sid | Andrei | Boyue | Task                                                          |
 |------------|--------|-------|-----------|-----|--------|-------|---------------------------------------------------------------|
-| 2025/06/03 | 2      | 3     | 1         | 0   | 2      | 0     | Figma Wireframe Design                                        |
+| 2025/06/03 | 3      | 3     | 1         | 0   | 2      | 0     | Figma Wireframe Design                                        |
 | 2025/06/03 | 3      | 3     | 3         | 3   | 3      | 3     | D1: Proposal Document and Presentation                        |
 | 2025/06/14 | 2      | 2     | 2         | 2   | 1      | 2     | D2: Buddy Team Eval                                           |
 | 2025/06/16 | 5      | 5     | 2         | 0   | 2      | 0     | Figma High Fidelity                                           |

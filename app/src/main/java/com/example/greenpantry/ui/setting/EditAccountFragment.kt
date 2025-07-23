@@ -73,8 +73,6 @@ class EditAccountFragment : DialogFragment() {
         val originalPasswordField = view.findViewById<EditText>(R.id.originalPassword)
 
         updateButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Update clicked", Toast.LENGTH_SHORT).show()
-
 
             val newUsername = usernameField.text.toString()
 //            val newEmail = emailField.text.toString()
@@ -107,11 +105,18 @@ class EditAccountFragment : DialogFragment() {
                         }
                     }
 
+                    val reauthOk = authViewModel.reauthenticateUser(originalPassword)
+                    if (!reauthOk) {
+                        Toast.makeText(requireContext(), "Reauthentication failed", Toast.LENGTH_SHORT).show()
+                        return@launch
+                    }
+
                     // Updating password
                     if (newPassword.isNotBlank() && newPassword == confirmPassword) {
                         try {
                             val ok = authViewModel.updatePassword(newPassword)
                             if (!ok) Toast.makeText(requireContext(), "Password update failed", Toast.LENGTH_SHORT).show()
+                            else Toast.makeText(requireContext(), "Password updated", Toast.LENGTH_SHORT).show()
 
                         } catch (e: Exception) {
                             Log.e("UPDATE", "Password update error: ${e.message}", e)
@@ -192,6 +197,7 @@ class EditAccountFragment : DialogFragment() {
         val desiredHeightInPx = (desiredHeightInDp * scale + 0.5f).toInt()
 
         dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, desiredHeightInPx)
+        dialog?.window?.setGravity(Gravity.BOTTOM)
         dialog?.window?.setGravity(Gravity.BOTTOM)
         dialog?.window?.setBackgroundDrawableResource(R.drawable.round_rectangle)
 

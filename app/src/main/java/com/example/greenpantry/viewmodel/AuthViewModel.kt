@@ -58,9 +58,8 @@ class AuthViewModel @Inject constructor(
         )
     }
 
-    fun reauthenticateUser(password: String, onResult: (Boolean) -> Unit) = viewModelScope.launch {
-        val ok = repo.reauthenticate(password)
-        onResult(ok)
+    suspend fun reauthenticateUser(password: String): Boolean {
+        return repo.reauthenticate(password)
     }
 
 
