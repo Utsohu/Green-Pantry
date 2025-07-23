@@ -166,7 +166,6 @@ class IngredientAdapter(private val items: List<String>) :
 RecyclerView.Adapter<IngredientAdapter.IngredientHolder>() {
 
     class IngredientHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val image: ImageView = view.findViewById<ImageView>(R.id.item_image)
         val name: TextView = view.findViewById<TextView>(R.id.item_name)
         val amount: TextView = view.findViewById<TextView>(R.id.item_amount)
         val unit: TextView = view.findViewById<TextView>(R.id.item_unit)
@@ -179,8 +178,6 @@ RecyclerView.Adapter<IngredientAdapter.IngredientHolder>() {
     }
 
     override fun onBindViewHolder(holder: IngredientHolder, position: Int) {
-        val itemImg = R.drawable.logo // change this too
-        holder.image.setImageResource(itemImg)
         holder.name.text = items[position]
         val amt = (1..40).random() // change this later one
         holder.amount.text = amt.toString()
@@ -206,7 +203,6 @@ class InstructionAdapter(private val items: List<String>) :
     }
 
     override fun onBindViewHolder(holder: InstructionHolder, position: Int) {
-        val itemImg = R.drawable.ic_launcher_background // change this too
         holder.count.text = (position+1).toString()
         val info = items[position] // change this too
         holder.line.text = info

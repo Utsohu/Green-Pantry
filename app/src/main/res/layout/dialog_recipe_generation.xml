@@ -108,7 +108,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Regenerate"
+            android:text="Refresh"
+            android:textColor="@color/white"
             android:backgroundTint="@color/black"
             android:enabled="false"/>
 

@@ -37,7 +37,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="15sp"
+        android:textSize="24sp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
@@ -76,8 +76,8 @@
                         android:layout_height="100dp"
                         android:src="@drawable/ic_launcher_foreground"
                         android:background="@drawable/outlined_box"
-                        android:clipToOutline="true"
-                        android:scaleType="centerCrop"/>
+                        android:scaleType="centerCrop"
+                        android:clipToOutline="true"/>
 
                     <!-- overview text -->
                     <GridLayout
@@ -194,7 +194,8 @@
 
                     <!-- column 1 -->
                     <LinearLayout
-                        android:layout_width="180dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -442,7 +443,8 @@
 
                     <!-- column 2 -->
                     <LinearLayout
-                        android:layout_width="180dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_marginStart="18dp">

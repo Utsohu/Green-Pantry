@@ -28,161 +28,153 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:textColor="@color/black"/>
 
-        <FrameLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Account Information Header -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <ScrollView
+            <TextView
+                android:id="@+id/accountInfoTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Account Information"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/SettingTitle" />
+
+            <!-- Edit Button -->
+            <ImageButton
+                android:id="@+id/editButton"
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/edit_button_background"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/accountInfoTitle" />
+        </LinearLayout>
+
+
+        <!-- Account info -->
+        <LinearLayout
+            android:id="@+id/accountInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle">
+
+            <!-- username -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Username"
+                android:textColor="@color/gray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/usernameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Lorem"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+            <!-- divider -->
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/light_gray" />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+            <!-- TextViews for Password -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Password"
+                android:textColor="@color/gray"
+                android:textSize="16sp" />
 
-                    <!-- Account Information Header -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_gravity="center_vertical">
+            <TextView
+                android:id="@+id/passwordValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="**********"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
 
-                        <TextView
-                            android:id="@+id/accountInfoTitle"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Account Information"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            app:layout_constraintTop_toBottomOf="@+id/SettingTitle"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_gravity="center_vertical"/>
+            <!-- divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/light_gray" />
 
-                        <!-- Edit Button -->
-                        <ImageButton
-                            android:id="@+id/editButton"
-                            android:layout_width="75dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/ic_edit"
-                            android:background="@drawable/edit_button_background"
-                            app:layout_constraintTop_toTopOf="@+id/accountInfoTitle"
-                            app:layout_constraintEnd_toEndOf="parent"/>
-                    </LinearLayout>
+            <!-- TextViews for Email -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Email"
+                android:textColor="@color/gray"
+                android:textSize="16sp" />
 
+            <TextView
+                android:id="@+id/emailValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="lorem@email"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
 
-                    <!-- Account info -->
-                    <LinearLayout
-                        android:id="@+id/accountInfo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle">
+            <!-- divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/light_gray" />
 
-                        <!-- username -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="Username"
-                            android:textColor="@color/gray"
-                            android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-                        <TextView
-                            android:id="@+id/usernameValue"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="Lorem"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-
-                        <!-- divider -->
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:background="@color/light_gray" />
-
-                        <!-- TextViews for Password -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="Password"
-                            android:textColor="@color/gray"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:id="@+id/passwordValue"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="**********"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-
-                        <!-- divider -->
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:background="@color/light_gray" />
-
-                        <!-- TextViews for Email -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="Email"
-                            android:textColor="@color/gray"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:id="@+id/emailValue"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="lorem@email"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-
-                        <!-- divider -->
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:background="@color/light_gray" />
-
-                    </LinearLayout>
-
-
-                <!-- Logout Button -->
-                <Button
-                    android:id="@+id/logoutButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="LOG OUT"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@color/red"
-                    android:layout_marginTop="100dp"
-                    app:layout_constraintTop_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-                </LinearLayout>
-            </ScrollView>
-        </FrameLayout>
-
-
+        <!-- Logout Button -->
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LOG OUT"
+            android:textColor="@android:color/white"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/red" />
+    </FrameLayout>
 </LinearLayout>
