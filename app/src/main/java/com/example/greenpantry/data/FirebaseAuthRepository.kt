@@ -133,14 +133,23 @@ class FirebaseAuthRepository @Inject constructor(
     }
 
     override suspend fun updateEmail(newEmail: String): Boolean {
-        val user = auth.currentUser ?: return false
+        val user = auth.currentUser
+        if (user == null) {
+            Log.e("UPDATE", "No current user found")
+            return false
+        }
+
         return try {
             user.updateEmail(newEmail).await()
+            user.reload().await()
+            Log.d("UPDATE", "Email updated to $newEmail")
             true
         } catch (e: Exception) {
+            Log.e("UPDATE", "Email update failed", e)
             false
         }
     }
+
 
     override suspend fun updatePassword(newPassword: String): Boolean {
         val user = auth.currentUser ?: return false
@@ -171,5 +180,7 @@ class FirebaseAuthRepository @Inject constructor(
             false
         }
     }
+
+
 
 }

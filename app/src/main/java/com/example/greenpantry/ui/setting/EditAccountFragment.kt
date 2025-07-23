@@ -96,6 +96,22 @@ class EditAccountFragment : DialogFragment() {
                         }
                     }
 
+                    if (newEmail.isNotBlank()) {
+                        try {
+                            val ok = authViewModel.updateEmail(newEmail)
+                            if (!ok) {
+                                Toast.makeText(requireContext(), "Email update failed", Toast.LENGTH_SHORT).show()
+                            } else {
+                                val updatedEmail = FirebaseAuth.getInstance().currentUser?.email
+                                Log.d("UPDATE", "New email: $updatedEmail")
+                            }
+                        } catch (e: Exception) {
+                            Log.e("UPDATE", "Email update error: ${e.message}", e)
+                            Toast.makeText(requireContext(), "Failed to update email", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+
                     val bundle = Bundle().apply {
                         putBoolean("username_updated", true)
                     }
