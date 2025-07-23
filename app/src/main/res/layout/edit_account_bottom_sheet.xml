@@ -123,6 +123,14 @@
             android:hint="Confirm New Password"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+<!--    <Button-->
+<!--        android:id="@+id/refreshVerificationButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="I've Verified My Email"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:visibility="gone" />-->
+
 
     <Button
         android:id="@+id/updateButton"
