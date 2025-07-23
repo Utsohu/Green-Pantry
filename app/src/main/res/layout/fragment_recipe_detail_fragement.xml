@@ -37,7 +37,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="35sp"
+        android:textSize="15sp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
@@ -76,7 +76,8 @@
                         android:layout_height="100dp"
                         android:src="@drawable/ic_launcher_foreground"
                         android:background="@drawable/outlined_box"
-                        android:clipToOutline="true"/>
+                        android:clipToOutline="true"
+                        android:scaleType="centerCrop"/>
 
                     <!-- overview text -->
                     <GridLayout

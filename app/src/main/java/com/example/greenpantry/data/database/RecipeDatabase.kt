@@ -15,7 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Recipe::class], version = 8, exportSchema = false)
+@Database(entities = [Recipe::class], version = 9, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class RecipeDatabase : RoomDatabase() {
     abstract fun recipeDao(): RecipeDao
@@ -36,10 +36,14 @@ abstract class RecipeDatabase : RoomDatabase() {
                             super.onCreate(db)
                             // Insert initial data using coroutine
                             CoroutineScope(Dispatchers.IO).launch {
-                                // Read CSV here with context
-                                val recipes = loadRecipesFromCSV(context.applicationContext)
+                                val recipeDb = getDatabase(context.applicationContext)
+                                val itemDb = FoodItemDatabase.getDatabase(context.applicationContext) // ✅
 
-                                INSTANCE?.recipeDao()?.insertAll(recipes)
+                                val recipeDao = recipeDb.recipeDao()
+                                val itemDao = itemDb.foodItemDao() // ✅ from separate DB
+
+                                val recipes = loadRecipesFromCSV(context.applicationContext, itemDao)
+                                recipeDao.insertAll(recipes)
                             }
                         }
                     })

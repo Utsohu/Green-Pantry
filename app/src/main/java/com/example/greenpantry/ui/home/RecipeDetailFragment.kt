@@ -10,12 +10,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.compose.ui.semantics.text
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.greenpantry.R
+import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.ui.utils.ListOptimizations
@@ -24,6 +26,7 @@ import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setNutrition
 import kotlinx.coroutines.launch
 import java.io.IOException
+import kotlin.Int
 
 class RecipeDetailFragment : Fragment() {
 
@@ -179,7 +182,7 @@ RecyclerView.Adapter<IngredientAdapter.IngredientHolder>() {
         val itemImg = R.drawable.logo // change this too
         holder.image.setImageResource(itemImg)
         holder.name.text = items[position]
-        val amt = 1 // change this later one
+        val amt = (1..40).random() // change this later one
         holder.amount.text = amt.toString()
         val unit = "g" // change this too
         holder.unit.text = unit

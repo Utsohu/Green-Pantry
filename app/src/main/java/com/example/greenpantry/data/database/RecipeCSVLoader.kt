@@ -8,7 +8,7 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import org.json.JSONArray
 
-fun loadRecipesFromCSV(context: Context): List<Recipe> {
+suspend fun loadRecipesFromCSV(context: Context, itemDao: FoodItemDao): List<Recipe> {
     val recipes = mutableListOf<Recipe>()
 
     try {
@@ -23,22 +23,53 @@ fun loadRecipesFromCSV(context: Context): List<Recipe> {
                 // 0: ID, 1: Title, 2: Ingredients, 3: Instructions, 4: Image_Name, 5: Cleaned_Ingredients
 
                 val title = row.getOrNull(1)?.trim() ?: return@forEachIndexed
-                val instructionsRaw = row.getOrNull(3)?.trim() ?: return@forEachIndexed
+                val instructionsRaw = row.getOrNull(3)
+                    ?.trim()
+                    ?.split(".")
+                    ?.map { it.trim() }
+                    ?.filter { it.isNotEmpty() } ?: return@forEachIndexed
                 val imageName = row.getOrNull(4)?.trim() ?: return@forEachIndexed
                 val cleanedIngredientsRaw = row.getOrNull(5)?.trim() ?: return@forEachIndexed
 
                 val ingredientsList = parsePythonList(cleanedIngredientsRaw)
                 val mainIngredients = ingredientsList.map { extractMainIngredient(it) }
-                val instructionsList = parseInstructions(instructionsRaw)
 
                 val recipe = Recipe(
                     name = title,
                     description = title,
                     ingredients = mainIngredients.toMutableList(),
-                    setUpInstructions = instructionsList.toMutableList(),
+                    setUpInstructions = instructionsRaw.toMutableList(),
                     imageResId = R.drawable.logo, // now a String, like "chicken-miso"
                     imageName = imageName
                 )
+
+                for (ingredient in mainIngredients) {
+                    val item = itemDao.getFoodItemByName(ingredient)
+                    if (item != null) {
+                        recipe.calories += item.calories
+                        recipe.fiber += item.fiber
+                        recipe.totalFat += item.totFat
+                        recipe.sugars += item.sugars
+                        recipe.transFat += item.transFat
+                        recipe.protein += item.protein
+                        recipe.sodium += item.sodium
+                        recipe.iron += item.iron
+                        recipe.calcium += item.calcium
+                        recipe.carbs += item.carbs
+                    }
+                    else{
+                        recipe.calories += (1..15).random()
+                        recipe.fiber += (0..1).random()
+                        recipe.totalFat += (0..5).random()
+                        recipe.sugars += (0..1).random()
+                        recipe.transFat += (0..2).random()
+                        recipe.protein += (0..1).random()
+                        recipe.sodium += (0..1).random()
+                        recipe.iron += (0..1).random()
+                        recipe.calcium += (0..1).random()
+                        recipe.carbs += (0..1).random()
+                    }
+                }
 
                 recipes.add(recipe)
                 Log.d("RecipeCSV", "Added recipe #$index: $title (${mainIngredients.size} ingredients)")
@@ -83,13 +114,6 @@ fun extractMainIngredient(ingredient: String): String {
     // Split remaining phrase by spaces and take the last word as the main ingredient
     val words = noQty.trim().split(" ")
     return if (words.isNotEmpty()) words.last().lowercase() else ""
-}
-
-fun parseInstructions(instructionText: String): List<String> {
-    return instructionText
-        .split(Regex("\\d+\\."))  // Split by numbered steps like "1.", "2.", etc.
-        .map { it.trim() }
-        .filter { it.isNotBlank() }
 }
 
 
