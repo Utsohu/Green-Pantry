@@ -4,7 +4,7 @@
 | 2025/06/03 | 3      | 3     | 3         | 3   | 3      | 3     | D1: Proposal Document and Presentation                        |
 | 2025/06/14 | 2      | 2     | 2         | 2   | 1      | 2     | D2: Buddy Team Eval                                           |
 | 2025/06/16 | 5      | 5     | 2         | 0   | 2      | 0     | Figma High Fidelity                                           |
-| 2025/06/17 | 0      | 1     | 0         | 0   | 0      | 4     | Home and Pantry Base Layout                                   |
+| 2025/06/17 | 0      | 1     | 0         | 0   | 0      | 5     | Home and Pantry Base Layout                                   |
 | 2025/06/18 | 0      | 0     | 2         | 0   | 0      | 0     | Login UI                                                      |
 | 2025/06/18 | 0      | 0     | 2         | 0   | 0      | 0     | Login, Register and Home Screen Navigation                    |
 | 2025/06/19 | 0      | 0     | 4         | 0   | 0      | 0     | Registration UI and Updated Login UI                          |
@@ -20,7 +20,7 @@
 | 2025/06/23 | 0      | 0     | 0         | 5   | 0      | 0     | Camera Dialogue                                               |
 | 2025/06/25 | 1      | 1     | 1         | 1   | 1      | 1     | D3: Prototype Demo                                            |
 | 2025/06/27 | 0      | 8     | 0         | 0   | 2      | 0     | UI for Item, Recipe, EditItem and Filter                      |
-| 2025/06/29 | 3      | 3     | 3         | 3   | 3      | 2     | D3: Prototype Document                                        |
+| 2025/06/29 | 3      | 3     | 3         | 3   | 3      | 3     | D3: Prototype Document                                        |
 | 2025/06/29 | 0      | 0     | 0         | 0   | 0      | 10    | Recipe Database and Search Functionality                      |
 | 2025/06/30 | 10     | 1     | 0         | 3   | 0      | 0     | Settings UI                                                   |
 | 2025/07/2  | 2      | 2     | 4         | 10  | 3      | 2     | Cleanup and Debugging                                         |
@@ -42,4 +42,5 @@
 | 2025/07/21 | 0      | 0     | 9         | 0   | 0      | 0     | Forgot Password Backend and Email Notification                |
 | 2025/07/21 | 0      | 0     | 0         | 4   | 0      | 0     | Search Loading Spinner                                        |
 | 2025/07/21 | 2      | 0     | 0         | 4   | 0      | 0     | Update email functionality                                    |
-| 2025/07/22 | 0      | 3     | 0         | 0   | 0      | 0     | Minor UI and database changes/debugs                          |
+| 2025/07/22 | 0      | 3     | 0         | 0   | 0      | 3     | Minor UI and database changes/debugs                          |
+| 2025/07/23 | 0      | 0     | 0         | 0   | 0      | 4     | Nutrition Analyzer Setup                                      |
