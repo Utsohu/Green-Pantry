@@ -15,11 +15,9 @@
         app:layout_constraintBottom_toTopOf="@+id/loginSection"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Email Field -->
-
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="350dp"
             android:background="@drawable/login_stock">
 
             <ImageView
@@ -30,6 +28,7 @@
                 android:src="@drawable/logo_transparent" />
         </FrameLayout>
 
+        <!-- Email Field -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/usernameContainer"
             android:layout_width="match_parent"

@@ -1,11 +1,14 @@
 package com.example.greenpantry.ui.sharedcomponents
 
+import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.greenpantry.R
 import com.example.greenpantry.data.database.FoodItem
+import com.example.greenpantry.data.database.PantryItem
 import com.example.greenpantry.ui.notifs.NotificationsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -74,4 +77,46 @@ fun groupImg(group: String): Int {
     }
 
     return newImg
+}
+
+fun itemImageSetup(item: FoodItem?, pantry: PantryItem?, view: ImageView) {
+    if (item != null) {
+        var foodGroup = item.category?.let { groupImg(it) }
+        try {
+            if (foodGroup == null) {
+                foodGroup = R.drawable.logo
+            }
+            if (item.imageURL.isNotBlank()) {
+                val assetManager = view.context.assets
+                val inputStream = assetManager.open("itemImages/${item.imageURL}.jpg")
+                val drawable = Drawable.createFromStream(inputStream, null)
+                view.setImageDrawable(drawable)
+            } else {
+                view.setImageResource(foodGroup)
+            }
+        } catch (e: Exception) {
+            if (foodGroup != null) {
+                view.setImageResource(foodGroup)
+            }
+        }
+    } else if (pantry != null){
+        var foodGroup = pantry.category?.let { groupImg(it) }
+        try {
+            if (foodGroup == null) {
+                foodGroup = R.drawable.logo
+            }
+            if (pantry.imageURL.isNotBlank()) {
+                val assetManager = view.context.assets
+                val inputStream = assetManager.open("itemImages/${pantry.imageURL}.jpg")
+                val drawable = Drawable.createFromStream(inputStream, null)
+                view.setImageDrawable(drawable)
+            } else {
+                view.setImageResource(foodGroup)
+            }
+        } catch (e: Exception) {
+            if (foodGroup != null) {
+                view.setImageResource(foodGroup)
+            }
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.greenpantry.ui.home
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -29,6 +30,7 @@ import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.PantryItem
 import com.example.greenpantry.data.database.PantryItemDao
 import com.example.greenpantry.ui.sharedcomponents.groupImg
+import com.example.greenpantry.ui.sharedcomponents.itemImageSetup
 import com.google.android.material.slider.Slider
 
 class EditItemFragment : DialogFragment() {
@@ -87,26 +89,16 @@ class EditItemFragment : DialogFragment() {
                 if (item != null) { // in pantry
                     // Set image, amount and unit hints using current data
                     inPantry = true
-                    Glide.with(itemImg.context)
-                        .load(item.imageURL)
-                        .placeholder(R.drawable.logo)
-                        .into(itemImg)
-                    val newVal = item.curNum.coerceIn(1, 100).toFloat()
+
+                    itemImageSetup(null, item, itemImg)
+
+                    val newVal = item.curNum.coerceIn(0, 100).toFloat()
                     amountDisplay.value = newVal
                     unitDisplay.hint = item.quantity
                 }
                 else { // not in pantry so retrieve from food db
                     val food = foodDB.foodItemDao().getFoodItemByName(itemName)
-                    if (food != null) {
-                        var foodGroup = food.category?.let { groupImg(it) }
-                        if (foodGroup == null) {
-                            foodGroup = R.drawable.logo
-                        }
-                        Glide.with(itemImg.context)
-                            .load(food.imageURL)
-                            .placeholder(foodGroup)
-                            .into(itemImg)
-                    }
+                    itemImageSetup(food, null, itemImg)
                     amountDisplay.value = 1F // none in pantry
                     unitDisplay.hint = "each" // default
                 }

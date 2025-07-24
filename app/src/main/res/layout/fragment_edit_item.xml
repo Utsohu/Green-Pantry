@@ -66,7 +66,7 @@
         android:id="@+id/amountSlider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:valueFrom="1"
+        android:valueFrom="0"
         android:valueTo="100"
         android:stepSize="1"
         android:layout_marginTop="5dp"

@@ -20,6 +20,7 @@ import com.example.greenpantry.data.database.PantryItemDatabase
 import com.example.greenpantry.data.database.RecipeDatabase
 import com.example.greenpantry.ui.search.SearchFragment
 import com.example.greenpantry.ui.sharedcomponents.groupImg
+import com.example.greenpantry.ui.sharedcomponents.itemImageSetup
 import com.example.greenpantry.ui.sharedcomponents.popBack
 import com.example.greenpantry.ui.sharedcomponents.setNutrition
 import kotlinx.coroutines.launch
@@ -88,16 +89,8 @@ class ItemDetailFragment : Fragment() {
 
                     // update image
                     val itemImage = view.findViewById<ImageView>(R.id.itemImage)
-                    var foodGroup = item.category?.let { groupImg(it) }
-                    if (foodGroup == null) {
-                        foodGroup = R.drawable.logo
-                    }
-                    Glide.with(itemImage.context)
-                        .load(item.imageURL)
-                        .placeholder(foodGroup)
-                        .into(itemImage)
-
-                }else {
+                    itemImageSetup(item, null, itemImage)
+                } else {
                     // fallback dummy values
                     setNutrition(view, 165, 1, 4,
                         1, 1, 31,

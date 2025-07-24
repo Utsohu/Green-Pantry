@@ -72,7 +72,8 @@ class CSVLoader(
             val foodID = row[0].toIntOrNull() ?: continue
             val foodGroup = row[2].toIntOrNull() ?: continue
             val foodName = row[4].trim()
-            val foodImage = row[10].trim()
+            val foodImage = row.lastOrNull()?.trim() ?: "" // always last row, but theres some blank before it
+            Log.d("Item Image", foodImage)
 
             // set the category
             val foodCat = when (foodGroup) {

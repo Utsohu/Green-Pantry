@@ -1,5 +1,6 @@
 package com.example.greenpantry.ui.home
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +32,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import com.bumptech.glide.Glide
 import com.example.greenpantry.ui.sharedcomponents.groupImg
+import com.example.greenpantry.ui.sharedcomponents.itemImageSetup
 
 class DetailsFragment : Fragment(R.layout.fragment_pantry) {
     private var allItems: List<PantryItem> = emptyList()
@@ -235,19 +237,7 @@ class DetailItemAdapter(private var items: List<PantryItem>, private val fragmen
             amount.text = item.curNum.toString()
 
             // Optimize image loading to prevent memory issues
-            try {
-                var foodGroup = item.category?.let { groupImg(it) }
-                if (foodGroup == null) {
-                    foodGroup = R.drawable.logo
-                }
-                Glide.with(image.context)
-                    .load(item.imageURL)
-                    .placeholder(foodGroup)
-                    .into(image)
-            } catch (e: Exception) {
-                // Fallback to default image if resource loading fails
-                image.setImageResource(R.drawable.ic_launcher_foreground)
-            }
+            itemImageSetup(null, item, image)
 
             // Remove and re-set listener to avoid memory leaks
             editBtn.setOnClickListener(null)

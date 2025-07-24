@@ -1,5 +1,6 @@
 package com.example.greenpantry.ui.search
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,6 +39,7 @@ import com.example.greenpantry.data.database.FoodItem
 import com.example.greenpantry.data.database.FoodItemDatabase
 import com.bumptech.glide.Glide
 import com.example.greenpantry.ui.sharedcomponents.groupImg
+import com.example.greenpantry.ui.sharedcomponents.itemImageSetup
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -211,11 +213,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             
             fun bind(item: FoodItem, onItemClick: (FoodItem) -> Unit) {
                 // Set image with proper category-based placeholder
-                val foodGroup = item.category?.let { groupImg(it) } ?: R.drawable.logo
-                Glide.with(imageView.context)
-                    .load(item.imageURL)
-                    .placeholder(foodGroup)
-                    .into(imageView)
+                itemImageSetup(item, null, imageView)
 
                 titleView.text = item.name
                 descView.text = "Food Group: ${item.category}"
