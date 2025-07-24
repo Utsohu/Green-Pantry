@@ -115,46 +115,65 @@ class ItemDetailFragment : Fragment() {
         lifecycleScope.launch {
             // recipe display
             val items = recipeDB.recipeDao().getRecipesByIngredient(itemName?:"")
+
+            // only show the ones related to the item and limit to 10 recipes
+            val itemRecipes = mutableListOf<com.example.greenpantry.data.database.Recipe>()
             for (recipe in items) {
-                val recipeView = LayoutInflater.from(context)
-                    .inflate(R.layout.recipes_items, recipeItems, false)
+                if (recipe.ingredients.any { it.contains(itemName ?: "", ignoreCase = true) }) {
+                    itemRecipes.add(recipe)
+                }
 
-                val imageView = recipeView.findViewById<ImageView>(R.id.itemImage)
-                val titleView = recipeView.findViewById<TextView>(R.id.itemTitle)
-                val descView = recipeView.findViewById<TextView>(R.id.itemDescription)
+                if (itemRecipes.size >= 10) break
+            }
 
-                if (recipe.imageName.isNotBlank()) {
-                    try {
-                        val inputStream = context?.assets?.open("recipeImages/${recipe.imageName}.jpg")
-                        if (inputStream != null) {
-                            val drawable = Drawable.createFromStream(inputStream, null)
-                            imageView.setImageDrawable(drawable)
-                        } else {
+            // if itemRecipe is empty, hide the recipe option
+            val recipeTitle = view.findViewById<TextView>(R.id.itemRecipeTitle)
+            if (itemRecipes.size == 0) {
+                recipeTitle.visibility = View.INVISIBLE
+            } else { // not empty, so show recipes
+                recipeTitle.visibility = View.VISIBLE
+
+                for (recipe in itemRecipes) { // inflate
+                    val recipeView = LayoutInflater.from(context)
+                        .inflate(R.layout.recipes_items, recipeItems, false)
+
+                    val imageView = recipeView.findViewById<ImageView>(R.id.itemImage)
+                    val titleView = recipeView.findViewById<TextView>(R.id.itemTitle)
+                    val descView = recipeView.findViewById<TextView>(R.id.itemDescription)
+
+                    if (recipe.imageName.isNotBlank()) {
+                        try {
+                            val inputStream = context?.assets?.open("recipeImages/${recipe.imageName}.jpg")
+                            if (inputStream != null) {
+                                val drawable = Drawable.createFromStream(inputStream, null)
+                                imageView.setImageDrawable(drawable)
+                            } else {
+                                imageView.setImageResource(recipe.imageResId)
+                            }
+                        } catch (e: IOException) {
+                            // Asset image not found, fallback
                             imageView.setImageResource(recipe.imageResId)
                         }
-                    } catch (e: IOException) {
-                        // Asset image not found, fallback
+                    } else {
                         imageView.setImageResource(recipe.imageResId)
                     }
-                } else {
-                    imageView.setImageResource(recipe.imageResId)
+
+                    titleView.text = recipe.name
+                    descView.text = recipe.description
+
+                    recipeView.setOnClickListener {
+                        val recipeDetailFragment = RecipeDetailFragment.newInstance(recipe.name)
+                        parentFragmentManager.beginTransaction()
+                            .replace(
+                                R.id.fragment_container,
+                                recipeDetailFragment
+                            ) // R.id.fragment_container is your main container
+                            .addToBackStack(null) // Allows users to navigate back
+                            .commit()
+                    }
+
+                    recipeItems.addView(recipeView)
                 }
-
-                titleView.text = recipe.name
-                descView.text = recipe.description
-
-                recipeView.setOnClickListener {
-                    val recipeDetailFragment = RecipeDetailFragment.newInstance(recipe.name)
-                    parentFragmentManager.beginTransaction()
-                        .replace(
-                            R.id.fragment_container,
-                            recipeDetailFragment
-                        ) // R.id.fragment_container is your main container
-                        .addToBackStack(null) // Allows users to navigate back
-                        .commit()
-                }
-
-                recipeItems.addView(recipeView)
             }
         }
 

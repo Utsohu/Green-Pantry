@@ -78,6 +78,7 @@ suspend fun loadRecipesFromCSV(context: Context, itemDao: FoodItemDao): List<Rec
                 Log.e("RecipeCSV", "Error parsing row #$index", e)
             }
         }
+        Log.d("RecipeCSV", "All recipes loaded")
 
     } catch (e: Exception) {
         Log.e("RecipeCSV", "Error reading CSV file", e)

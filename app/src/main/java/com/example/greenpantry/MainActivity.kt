@@ -2,6 +2,7 @@ package com.example.greenpantry
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -29,7 +30,12 @@ import androidx.compose.foundation.layout.height
 import androidx.room.Room
 import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.CSVLoader
+import com.example.greenpantry.data.database.RecipeDatabase
+import com.example.greenpantry.data.database.loadRecipesFromCSV
 import com.example.greenpantry.ui.login.LoginActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -65,11 +71,28 @@ class MainActivity : AppCompatActivity() {
             "foodItem_database"
         ).build()
 
+        // load the items
         val foodItemDao = db.foodItemDao()
         val loader = CSVLoader(applicationContext, foodItemDao)
+
+        // load the recipe database
+        val recipeDb = RecipeDatabase.getDatabase(applicationContext)
+        val recipeDao = recipeDb.recipeDao()
+
         lifecycleScope.launch {
-            loader.loadIfNeeded() // load the item database
-            isLoadingDatabase = false // Database loading complete
+            withContext(Dispatchers.IO) { // load databases before going to login
+                // Load item DB
+                loader.loadIfNeeded() // load the item database
+
+                // Load recipes if not done already
+                if (recipeDao.getRecipeCount() == 0) {
+                    val recipes = loadRecipesFromCSV(applicationContext, foodItemDao)
+                    recipeDao.insertAll(recipes)
+                }
+
+                isLoadingDatabase = false // Database loading complete
+            }
+            Log.d("LoadScreen", "Done loading databases")
         }
 
         lifecycleScope.launch {
@@ -78,6 +101,7 @@ class MainActivity : AppCompatActivity() {
             loggedInState = authRepository.getLoginState()
             // loggedInState = false
             checkedLoginState = true
+            Log.d("LoadScreen", "Done retrieving loggedInState")
         }
 
         composeView.setContent {
@@ -98,7 +122,7 @@ class MainActivity : AppCompatActivity() {
                         CircularProgressIndicator()
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            text = if (!checkedLoginState) "Checking login..." else "Loading food database...",
+                            text = if (!checkedLoginState) "Checking login..." else "Loading databases...",
                             style = MaterialTheme.typography.bodyLarge
                         )
                         Spacer(modifier = Modifier.height(8.dp))

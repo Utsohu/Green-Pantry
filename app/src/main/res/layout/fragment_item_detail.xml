@@ -632,7 +632,8 @@
                     android:layout_marginTop="16dp"
                     android:textColor="@color/dark_gray"
                     app:layout_constraintTop_toBottomOf="@id/servingSize"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="invisible"/>
 
                 <LinearLayout
                     android:id="@+id/ItemRecipesList"
