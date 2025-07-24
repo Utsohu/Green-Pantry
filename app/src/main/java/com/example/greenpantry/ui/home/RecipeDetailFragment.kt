@@ -167,8 +167,6 @@ RecyclerView.Adapter<IngredientAdapter.IngredientHolder>() {
 
     class IngredientHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name: TextView = view.findViewById<TextView>(R.id.item_name)
-        val amount: TextView = view.findViewById<TextView>(R.id.item_amount)
-        val unit: TextView = view.findViewById<TextView>(R.id.item_unit)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientHolder {
@@ -179,10 +177,6 @@ RecyclerView.Adapter<IngredientAdapter.IngredientHolder>() {
 
     override fun onBindViewHolder(holder: IngredientHolder, position: Int) {
         holder.name.text = items[position]
-        val amt = (1..40).random() // change this later one
-        holder.amount.text = amt.toString()
-        val unit = "g" // change this too
-        holder.unit.text = unit
     }
 
     override fun getItemCount(): Int = items.size

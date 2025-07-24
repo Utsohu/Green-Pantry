@@ -25,25 +25,25 @@ suspend fun loadRecipesFromCSV(context: Context, itemDao: FoodItemDao): List<Rec
                 val title = row.getOrNull(1)?.trim() ?: return@forEachIndexed
                 val instructionsRaw = row.getOrNull(3)
                     ?.trim()
-                    ?.split(".")
+                    ?.split("\n")
                     ?.map { it.trim() }
                     ?.filter { it.isNotEmpty() } ?: return@forEachIndexed
+
                 val imageName = row.getOrNull(4)?.trim() ?: return@forEachIndexed
                 val cleanedIngredientsRaw = row.getOrNull(5)?.trim() ?: return@forEachIndexed
 
                 val ingredientsList = parsePythonList(cleanedIngredientsRaw)
-                val mainIngredients = ingredientsList.map { extractMainIngredient(it) }
 
                 val recipe = Recipe(
                     name = title,
                     description = title,
-                    ingredients = mainIngredients.toMutableList(),
+                    ingredients = ingredientsList.toMutableList(),
                     setUpInstructions = instructionsRaw.toMutableList(),
                     imageResId = R.drawable.logo, // now a String, like "chicken-miso"
                     imageName = imageName
                 )
 
-                for (ingredient in mainIngredients) {
+                for (ingredient in ingredientsList) {
                     val item = itemDao.getFoodItemByName(ingredient)
                     if (item != null) {
                         recipe.calories += item.calories
@@ -72,7 +72,7 @@ suspend fun loadRecipesFromCSV(context: Context, itemDao: FoodItemDao): List<Rec
                 }
 
                 recipes.add(recipe)
-                Log.d("RecipeCSV", "Added recipe #$index: $title (${mainIngredients.size} ingredients)")
+                Log.d("RecipeCSV", "Added recipe #$index: $title (${ingredientsList.size} ingredients)")
 
             } catch (e: Exception) {
                 Log.e("RecipeCSV", "Error parsing row #$index", e)

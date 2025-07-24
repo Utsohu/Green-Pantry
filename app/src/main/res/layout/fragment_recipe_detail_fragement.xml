@@ -728,6 +728,7 @@
                     android:text="@string/Instructions"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
+                    android:paddingTop="20dp"
                     android:fontFamily="@font/roboto_bold"
                     android:textSize="20sp"
                     android:textColor="@color/dark_gray"

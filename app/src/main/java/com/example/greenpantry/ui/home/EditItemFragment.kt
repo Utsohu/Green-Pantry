@@ -152,8 +152,13 @@ class EditItemFragment : DialogFragment() {
                         updatedItem?.let { // ensure not null
                             pantryDB.pantryItemDao().updatePantryItem(it)
                         }
-                        Toast.makeText(requireContext(), "Added to pantry", Toast.LENGTH_SHORT)
-                            .show()
+                        if (btnText == "UPDATE" && addAmount == 0) {
+                            Toast.makeText(requireContext(), "Removed from pantry", Toast.LENGTH_SHORT)
+                                .show()
+                        } else {
+                            Toast.makeText(requireContext(), "Added to pantry", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                         parentFragmentManager.setFragmentResult("edit_item_result", Bundle().apply {
                             putBoolean("updated", true)
                         })

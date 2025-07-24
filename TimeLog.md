@@ -47,4 +47,4 @@
 | 2025/07/23 | 4      | 0     | 0         | 4   | 0      | 0     | Update email functionality + debugging                        |
 | 2025/07/23 | 2      | 0     | 0         | 4   | 0      | 0     | Update password from settings functionality                   |
 | 2025/07/23 | 0      | 6     | 0         | 0   | 0      | 0     | Image debugging and added local image db                      |
-| 2025/07/24 | 0      | 4     | 0         | 0   | 0      | 0     | Debugging and feature fixes                                   |
+| 2025/07/24 | 0      | 5     | 0         | 0   | 0      | 0     | Debugging and feature fixes                                   |

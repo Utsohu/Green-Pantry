@@ -172,12 +172,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                                     .replace(R.id.fragment_container, recipeDetailFragment)
                                     .addToBackStack(null)
                                     .commit()
-                                Toast.makeText(
-                                    context,
-                                    "${recipe.name} clicked",
-                                    Toast.LENGTH_SHORT
-                                )
-                                    .show()
                             },
                             onDeleteClick = { recipe ->
                                 lifecycleScope.launch {
