@@ -1,5 +1,6 @@
 package com.example.greenpantry.data.repository
 
+import android.os.Bundle
 import android.util.Log
 import com.example.greenpantry.R
 import com.example.greenpantry.data.api.GeminiApiClient
@@ -54,7 +55,7 @@ class RecipeGenerationRepositoryImpl @Inject constructor(
             val recipeEntity = Recipe(
                 name = recipe.name,
                 description = recipe.description,
-                imageResId = R.drawable.logo, // Default image
+                imageResId = R.drawable.recipe_placeholder, // Default image
                 time = recipe.time,
                 difficulty = recipe.difficulty,
                 NOS = recipe.servings,
@@ -72,11 +73,16 @@ class RecipeGenerationRepositoryImpl @Inject constructor(
                 ingredients = recipe.ingredients.toMutableList()
             )
             
-            // Insert into database
-            recipeDao.insertRecipe(recipeEntity)
-            
-            Log.d(TAG, "Successfully saved recipe: ${recipe.name}")
-            Result.success(Unit)
+            // Insert into database if doesn't already exist
+            val check = recipeDao.getRecipeByTitle(recipe.name)
+            if (check == null) { // not in db
+                recipeDao.insertRecipe(recipeEntity)
+                Log.d(TAG, "Successfully saved recipe: ${recipe.name}")
+                Result.success(Unit)
+            } else { // in db
+                Log.d(TAG, "Recipe already saved: ${recipe.name}")
+                Result.failure(Exception("${recipe.name} already saved"))
+            }
         } catch (e: Exception) {
             Log.e(TAG, "Failed to save recipe: ${e.message}")
             Result.failure(e)

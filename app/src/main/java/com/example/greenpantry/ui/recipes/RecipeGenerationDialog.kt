@@ -84,6 +84,11 @@ class RecipeGenerationDialog : DialogFragment() {
         }
         
         btnClose.setOnClickListener {
+            // tell home to refresh the recipes
+            parentFragmentManager.setFragmentResult("added_recipe", Bundle().apply {
+                putBoolean("updated", true)
+            })
+
             dismiss()
         }
     }

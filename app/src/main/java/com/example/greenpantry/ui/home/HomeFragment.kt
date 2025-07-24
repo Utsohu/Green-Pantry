@@ -2,6 +2,7 @@ package com.example.greenpantry.ui.home
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -106,7 +107,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val noSuggestions = view.findViewById<LinearLayout>(R.id.noSuggestions)
         
         // Load recipes asynchronously and cache them
-        loadRecipes(view, noSuggestions)
+        loadRecipes(view, noSuggestions, false)
+
+        parentFragmentManager.setFragmentResultListener("added_recipe", viewLifecycleOwner) { _, bundle ->
+            val wasUpdated = bundle.getBoolean("updated", false)
+            if (wasUpdated) {
+                Log.d("Home","Refreshing saved recipes")
+                loadRecipes(view, noSuggestions, true)
+            }
+        }
     }
     
     private fun showLoadingState(view: View, isLoading: Boolean) {
@@ -122,33 +131,69 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
     
-    private fun loadRecipes(view: View, noSuggestions: LinearLayout) {
+    private fun loadRecipes(view: View, noSuggestions: LinearLayout, refresh: Boolean) {
         // Only load recipes once per fragment instance to avoid repeated database calls
-        if (::recipesAdapter.isInitialized) return
+        if (::recipesAdapter.isInitialized && !refresh) return
         
         val db = RecipeDatabase.getDatabase(requireContext())
         
         viewLifecycleOwner.lifecycleScope.launch {
             try {
-                val items = db.recipeDao().getAllRecipes()
-                
+                val allItems = db.recipeDao().getAllRecipes()
+
+                // only display the one's that were saved from generation
+                val items = mutableListOf<Recipe>()
+                for (recipe in allItems) {
+                    if (recipe.imageResId == R.drawable.recipe_placeholder) {
+                        items.add(recipe)
+                    }
+                }
+
                 if (items.isEmpty()) {
                     recipesRecyclerView.visibility = View.INVISIBLE
                     noSuggestions.visibility = View.VISIBLE
                 } else {
                     recipesRecyclerView.visibility = View.VISIBLE
                     noSuggestions.visibility = View.INVISIBLE
-                    
-                    recipesAdapter = RecipeAdapter(items) { recipe ->
-                        val recipeDetailFragment = RecipeDetailFragment.newInstance(recipe.name)
-                        parentFragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, recipeDetailFragment)
-                            .addToBackStack(null)
-                            .commit()
-                        Toast.makeText(context, "${recipe.name} clicked", Toast.LENGTH_SHORT).show()
+
+                    if (::recipesAdapter.isInitialized && !refresh) {
+                        return@launch
                     }
-                    
-                    recipesRecyclerView.adapter = recipesAdapter
+
+                    if (::recipesAdapter.isInitialized && refresh) { // recipes already initialized
+                        recipesAdapter.updateList(items)
+                    } else {
+                        recipesAdapter = RecipeAdapter(
+                            items,
+                            onRecipeClick = { recipe ->
+                                val recipeDetailFragment =
+                                    RecipeDetailFragment.newInstance(recipe.name)
+                                parentFragmentManager.beginTransaction()
+                                    .replace(R.id.fragment_container, recipeDetailFragment)
+                                    .addToBackStack(null)
+                                    .commit()
+                                Toast.makeText(
+                                    context,
+                                    "${recipe.name} clicked",
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                            },
+                            onDeleteClick = { recipe ->
+                                lifecycleScope.launch {
+                                    db.recipeDao().deleteRecipe(recipe)
+                                    loadRecipes(view, noSuggestions, true)
+                                    Toast.makeText(
+                                        context,
+                                        "${recipe.name} deleted",
+                                        Toast.LENGTH_SHORT
+                                    )
+                                        .show()
+                                }
+                            }
+                        )
+                        recipesRecyclerView.adapter = recipesAdapter
+                    }
                 }
             } catch (e: Exception) {
                 // Handle error - show no suggestions or error message
@@ -160,14 +205,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 }
 
 class RecipeAdapter(
-    private val recipes: List<Recipe>,
-    private val onRecipeClick: (Recipe) -> Unit
+    private var recipes: List<Recipe>,
+    private val onRecipeClick: (Recipe) -> Unit,
+    private val onDeleteClick: (Recipe) -> Unit
 ) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
     
     class RecipeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.itemImage)
         val titleView: TextView = view.findViewById(R.id.itemTitle)
         val descView: TextView = view.findViewById(R.id.itemDescription)
+        val trashView: ImageView = view.findViewById(R.id.deleteBtn)
     }
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
@@ -179,28 +226,26 @@ class RecipeAdapter(
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         val recipe = recipes[position]
 
-        // Try loading image from assets
-        try {
-            if (recipe.imageName.isNotBlank()) {
-                val assetManager = holder.itemView.context.assets
-                val inputStream = assetManager.open("recipeImages/${recipe.imageName}.jpg")
-                val drawable = Drawable.createFromStream(inputStream, null)
-                holder.imageView.setImageDrawable(drawable)
-            } else {
-                // Fallback to default drawable if imageName is missing
-                holder.imageView.setImageResource(recipe.imageResId)
-            }
-        } catch (e: Exception) {
-            // Fallback to default drawable if image loading fails
-            holder.imageView.setImageResource(recipe.imageResId)
-        }
+        // only displaying generated recipe so hide image
+        holder.imageView.visibility = View.GONE
+        holder.trashView.visibility = View.VISIBLE
 
         holder.titleView.text = recipe.name
         holder.descView.text = recipe.description
 
+        holder.trashView.setOnClickListener {
+            Log.d("Home","Delete recipe clicked")
+            onDeleteClick(recipe)
+        }
+
         holder.itemView.setOnClickListener {
             onRecipeClick(recipe)
         }
+    }
+
+    fun updateList(newList: List<Recipe>) {
+        recipes = newList
+        notifyDataSetChanged()
     }
 
 

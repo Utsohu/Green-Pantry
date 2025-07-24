@@ -1,6 +1,7 @@
 package com.example.greenpantry.data.database
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -32,6 +33,9 @@ interface RecipeDao {
     // Delete all recipes
     @Query("DELETE FROM recipes")
     suspend fun deleteAllRecipes()
+
+    @Delete
+    suspend fun deleteRecipe(recipe: Recipe)
 
     // Count how many recipes are in the table
     @Query("SELECT COUNT(*) FROM recipes")

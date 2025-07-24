@@ -16,7 +16,7 @@
     <string name="WelcomeBack">"Welcome Back!"</string>
     <string name="PantryOverview">"Pantry Overview"</string>
     <string name="SeeFullPantry">"SEE FULL PANTRY"</string>
-    <string name="SuggestedPantryRecipes">"Suggested Pantry Recipes"</string>
+    <string name="SuggestedPantryRecipes">"Your Pantry Recipes"</string>
     <string name="YourPantry">"Your Pantry"</string>
     <string name="pantryBack">"&lt; Back"</string>
     <string name="Notifications">"Notifications"</string>
@@ -30,8 +30,8 @@
     <string name="Grains">"Grains"</string>
     <string name="Other">"Other"</string>
     <string name="noVal">"0"</string>
-    <string name="noSuggestions1">"Looks like your pantry is empty"</string>
-    <string name="noSuggestions2">"Add items to your pantry\nto get suggested recipes"</string>
+    <string name="noSuggestions1">"No saved pantry recipes"</string>
+    <string name="noSuggestions2">"Generate and save recipes using AI"</string>
     <string name="emptyPantry1">"Your pantry is empty"</string>
     <string name="emptyPantry2">"Add items to your pantry through\nthe camera or searching"</string>
     <string name="edit">"Edit"</string>
