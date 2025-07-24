@@ -107,7 +107,7 @@ class EditAccountFragment : DialogFragment() {
 
                     val reauthOk = authViewModel.reauthenticateUser(originalPassword)
                     if (!reauthOk) {
-                        Toast.makeText(requireContext(), "Reauthentication failed", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Incorrect Original Password", Toast.LENGTH_SHORT).show()
                         return@launch
                     }
 

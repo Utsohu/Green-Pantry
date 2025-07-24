@@ -44,7 +44,8 @@
 | 2025/07/21 | 2      | 0     | 0         | 4   | 0      | 0     | Update email functionality                                    |
 | 2025/07/22 | 0      | 3     | 0         | 0   | 0      | 3     | Minor UI and database changes/debugs                          |
 | 2025/07/23 | 0      | 0     | 0         | 0   | 0      | 4     | Nutrition Analyzer Setup                                      |
-| 2025/07/23 | 4      | 0     | 0         | 4   | 0      | 0     | Update email functionality + debugging                        |
-| 2025/07/23 | 2      | 0     | 0         | 4   | 0      | 0     | Update password from settings functionality                   |
+| 2025/07/23 | 4      | 0     | 0         | 0   | 0      | 0     | Update email functionality + debugging                        |
+| 2025/07/23 | 4      | 0     | 0         | 0   | 0      | 0     | Update password from settings functionality                   |
 | 2025/07/23 | 0      | 6     | 0         | 0   | 0      | 0     | Image debugging and added local image db                      |
 | 2025/07/24 | 0      | 5     | 0         | 0   | 0      | 0     | Debugging and feature fixes                                   |
+| 2025/07/24 | 5      | 0     | 0         | 0   | 0      | 0     | Debugging settings page and fixes                             |
