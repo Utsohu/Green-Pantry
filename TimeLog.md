@@ -27,7 +27,7 @@
 | 2025/07/2  | 2      | 2     | 4         | 10  | 3      | 2     | Cleanup and Debugging                                         |
 | 2025/07/3  | 0      | 3     | 2         | 0   | 0      | 0     | Login and Register UI Replacement                             |
 | 2025/07/4  | 0      | 0     | 0         | 5   | 5      | 0     | Camera, Database and Pantry Debugging for Demo                |
-| 2025/07/9  | 0      | 2     | 0         | 1   | 0      | 3     | Camera, Database and Pantry Debugging for Demo                |
+| 2025/07/9  | 0      | 2     | 0         | 2   | 0      | 3     | Camera, Database and Pantry Debugging for Demo                |
 | 2025/07/10 | 0      | 0     | 0         | 7   | 0      | 0     | Scrolling and Optimization                                    |
 | 2025/07/10 | 0      | 10    | 0         | 0   | 0      | 0     | Item Database and Filter Setup and Integration                |
 | 2025/07/11 | 2      | 2     | 2         | 0   | 2      | 2     | D4: Architecture Style Examples                               |
@@ -51,4 +51,5 @@
 | 2025/07/24 | 0      | 5     | 0         | 0   | 0      | 0     | Debugging and feature fixes                                   |
 | 2025/07/24 | 5      | 0     | 0         | 0   | 0      | 0     | Debugging settings page and fixes                             |
 | 2025/07/26 | 3      | 3     | 3         | 3   | 3      | 3     | Final demo preparation                                        |
+| 2025/07/26 | 0      | 0     | 7         | 0   | 0      | 0     | Database Loading Optimization, update loading screen          |
 | 2025/07/26 | ?      | ?     | ?         | ?   | ?      | 6     | D6: Arch + Design Document                                    |

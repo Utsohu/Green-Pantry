@@ -72,13 +72,16 @@ suspend fun loadRecipesFromCSV(context: Context, itemDao: FoodItemDao): List<Rec
                 }
 
                 recipes.add(recipe)
-                Log.d("RecipeCSV", "Added recipe #$index: $title (${ingredientsList.size} ingredients)")
+                // Only log every 1000 recipes to reduce log spam
+                if (index % 1000 == 0) {
+                    Log.d("RecipeCSV", "Processed $index recipes...")
+                }
 
             } catch (e: Exception) {
                 Log.e("RecipeCSV", "Error parsing row #$index", e)
             }
         }
-        Log.d("RecipeCSV", "All recipes loaded")
+        Log.d("RecipeCSV", "All recipes loaded: ${recipes.size} total")
 
     } catch (e: Exception) {
         Log.e("RecipeCSV", "Error reading CSV file", e)

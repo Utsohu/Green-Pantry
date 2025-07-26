@@ -34,17 +34,8 @@ abstract class RecipeDatabase : RoomDatabase() {
                     .addCallback(object : RoomDatabase.Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
-                            // Insert initial data using coroutine
-                            CoroutineScope(Dispatchers.IO).launch {
-                                val recipeDb = getDatabase(context.applicationContext)
-                                val itemDb = FoodItemDatabase.getDatabase(context.applicationContext) // ✅
-
-                                val recipeDao = recipeDb.recipeDao()
-                                val itemDao = itemDb.foodItemDao() // ✅ from separate DB
-
-                                val recipes = loadRecipesFromCSV(context.applicationContext, itemDao)
-                                recipeDao.insertAll(recipes)
-                            }
+                            // NOTE: Recipe loading is now handled by DatabaseInitializer
+                            // No need to load recipes here anymore
                         }
                     })
                     .build()

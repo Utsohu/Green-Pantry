@@ -22,17 +22,22 @@ import com.example.greenpantry.domain.repositories.AuthRepository
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.room.Room
 import com.example.greenpantry.data.database.FoodItemDatabase
 import com.example.greenpantry.data.database.CSVLoader
 import com.example.greenpantry.data.database.RecipeDatabase
-import com.example.greenpantry.data.database.loadRecipesFromCSV
+import com.example.greenpantry.presentation.viewmodel.DatabaseViewModel
 import com.example.greenpantry.ui.login.LoginActivity
+import com.example.greenpantry.ui.sharedcomponents.DatabaseLoadingScreen
+import com.example.greenpantry.utils.DatabaseValidation
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -42,6 +47,8 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var authRepository: AuthRepository
+
+    private val databaseViewModel: DatabaseViewModel by viewModels()
 
     private var isLoggedIn = false
 
@@ -62,38 +69,9 @@ class MainActivity : AppCompatActivity() {
         // Check login state on startup
         var checkedLoginState = false
         var loggedInState by mutableStateOf(false)
-        var isLoadingDatabase by mutableStateOf(true)
 
-        // item database initialization
-        val db = Room.databaseBuilder(
-            applicationContext,
-            FoodItemDatabase::class.java,
-            "foodItem_database"
-        ).build()
-
-        // load the items
-        val foodItemDao = db.foodItemDao()
-        val loader = CSVLoader(applicationContext, foodItemDao)
-
-        // load the recipe database
-        val recipeDb = RecipeDatabase.getDatabase(applicationContext)
-        val recipeDao = recipeDb.recipeDao()
-
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) { // load databases before going to login
-                // Load item DB
-                loader.loadIfNeeded() // load the item database
-
-                // Load recipes if not done already
-                if (recipeDao.getRecipeCount() == 0) {
-                    val recipes = loadRecipesFromCSV(applicationContext, foodItemDao)
-                    recipeDao.insertAll(recipes)
-                }
-
-                isLoadingDatabase = false // Database loading complete
-            }
-            Log.d("LoadScreen", "Done loading databases")
-        }
+        // Start database initialization immediately
+        databaseViewModel.initializeDatabases()
 
         lifecycleScope.launch {
             // ------------------ NOTE ------------------
@@ -108,30 +86,25 @@ class MainActivity : AppCompatActivity() {
             var showingRegister by remember { mutableStateOf(false) }
             val isLoggedInState = remember { mutableStateOf(loggedInState) }
 
+            // Observe database loading state
+            val isLoadingDatabase by databaseViewModel.isLoading.collectAsState()
+            val loadingProgress by databaseViewModel.loadingProgress.collectAsState()
+            val loadingMessage by databaseViewModel.loadingMessage.collectAsState()
+            val initializationComplete by databaseViewModel.initializationComplete.collectAsState()
+
             // Observe login state changes
             LaunchedEffect(loggedInState) {
                 isLoggedInState.value = loggedInState
             }
 
             if (!checkedLoginState || isLoadingDatabase) {
-                // Show loading indicator while checking login state or loading database
-                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        CircularProgressIndicator()
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Text(
-                            text = if (!checkedLoginState) "Checking login..." else "Loading databases...",
-                            style = MaterialTheme.typography.bodyLarge
-                        )
-                        Spacer(modifier = Modifier.height(8.dp))
-                        Text(
-                            text = if (isLoadingDatabase) "This may take a moment on first launch" else "",
-                            style = MaterialTheme.typography.bodySmall
-                        )
-                    }
-                }
+                // Show enhanced loading screen
+                DatabaseLoadingScreen(
+                    isLoadingAuth = !checkedLoginState,
+                    isLoadingDatabase = isLoadingDatabase,
+                    loadingProgress = loadingProgress,
+                    loadingMessage = loadingMessage
+                )
             } else if (!isLoggedInState.value) {
                 if (showingRegister) {
                     val intent = Intent(this, RegisterScreen::class.java)
@@ -145,21 +118,30 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Update UI visibility based on login state
+        // Update UI visibility based on login state and database initialization
         lifecycleScope.launch {
-            // Wait until login state is checked AND database is loaded
-            while (!checkedLoginState || isLoadingDatabase) {
-                kotlinx.coroutines.delay(50)
-            }
-            if (!loggedInState) {
-                composeView.isVisible       = true
-                fragmentContainer.isVisible = false
-                bottomNav.isVisible         = false
-            } else {
-                composeView.isVisible       = false
-                fragmentContainer.isVisible = true
-                bottomNav.isVisible         = true
-                loadHome()
+            databaseViewModel.initializationComplete.collect { isComplete ->
+                if (isComplete && checkedLoginState) {
+                    // Quick status check
+                    try {
+                        val foodItemDao = databaseViewModel.foodItemDao
+                        val recipeDao = databaseViewModel.recipeDao
+                        DatabaseValidation.quickTest(this@MainActivity, foodItemDao, recipeDao)
+                    } catch (e: Exception) {
+                        Log.d("MainActivity", "Could not run database test: ${e.message}")
+                    }
+                    
+                    if (!loggedInState) {
+                        composeView.isVisible       = true
+                        fragmentContainer.isVisible = false
+                        bottomNav.isVisible         = false
+                    } else {
+                        composeView.isVisible       = false
+                        fragmentContainer.isVisible = true
+                        bottomNav.isVisible         = true
+                        loadHome()
+                    }
+                }
             }
         }
 

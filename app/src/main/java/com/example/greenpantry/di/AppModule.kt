@@ -15,6 +15,7 @@ import com.example.greenpantry.data.repository.FoodRecognitionRepository
 import com.example.greenpantry.data.repository.FoodRecognitionRepositoryImpl
 import com.example.greenpantry.data.repository.RecipeGenerationRepository
 import com.example.greenpantry.data.repository.RecipeGenerationRepositoryImpl
+import com.example.greenpantry.data.database.DatabaseInitializer
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -103,5 +104,11 @@ object AppModule {
         recipeDao: RecipeDao
     ): RecipeGenerationRepository {
         return RecipeGenerationRepositoryImpl(geminiApiClient, pantryItemDao, recipeDao)
+    }
+    
+    @Provides
+    @Singleton
+    fun provideDatabaseInitializer(): DatabaseInitializer {
+        return DatabaseInitializer()
     }
 }
