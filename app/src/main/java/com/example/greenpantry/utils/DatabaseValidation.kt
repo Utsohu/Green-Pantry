@@ -15,7 +15,7 @@ object DatabaseValidation {
     private const val TAG = "DatabaseTest"
     
     // 🔧 ENABLE/DISABLE TESTING: Set to false to disable all database testing
-    private const val TESTING_ENABLED = true
+    private const val TESTING_ENABLED = false
     
     /**
      * Quick performance test - logs current status and timing
@@ -32,16 +32,16 @@ object DatabaseValidation {
                 val itemCount = foodItemDao.getItemCount()
                 val recipeCount = recipeDao.getRecipeCount()
                 
-                Log.d(TAG, "📊 Database Status: $itemCount items, $recipeCount recipes")
+                Log.d(TAG, "Database Status: $itemCount items, $recipeCount recipes")
                 
                 if (itemCount == 0 || recipeCount == 0) {
-                    Log.d(TAG, "🔄 Running performance test...")
+                    Log.d(TAG, "Running performance test...")
                     runFullTest(context, foodItemDao, recipeDao)
                 } else {
-                    Log.d(TAG, "✅ Database already loaded")
+                    Log.d(TAG, "Database already loaded")
                 }
             } catch (e: Exception) {
-                Log.e(TAG, "❌ Test failed: ${e.message}")
+                Log.e(TAG, "Test failed: ${e.message}")
             }
         }
     }
@@ -63,15 +63,15 @@ object DatabaseValidation {
         val recipeCount = recipeDao.getRecipeCount()
         
         Log.d(TAG, "")
-        Log.d(TAG, "🚀 PERFORMANCE RESULTS:")
-        Log.d(TAG, "⏱️  Load Time: ${loadTime / 1000.0}s")
-        Log.d(TAG, "📦 Items: $itemCount")
-        Log.d(TAG, "🍳 Recipes: $recipeCount")
+        Log.d(TAG, "PERFORMANCE RESULTS:")
+        Log.d(TAG, "Load Time: ${loadTime / 1000.0}s")
+        Log.d(TAG, "Items: $itemCount")
+        Log.d(TAG, "Recipes: $recipeCount")
         
         when {
-            loadTime < 30000 -> Log.d(TAG, "✅ EXCELLENT: Under 30 seconds!")
-            loadTime < 60000 -> Log.d(TAG, "✅ GOOD: Under 1 minute")
-            else -> Log.d(TAG, "⚠️  SLOW: Over 1 minute")
+            loadTime < 30000 -> Log.d(TAG, "EXCELLENT: Under 30 seconds!")
+            loadTime < 60000 -> Log.d(TAG, "GOOD: Under 1 minute")
+            else -> Log.d(TAG, "SLOW: Over 1 minute")
         }
         Log.d(TAG, "")
     }
