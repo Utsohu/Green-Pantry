@@ -21,7 +21,8 @@
 | 2025/06/25 | 1      | 1     | 1         | 1   | 1      | 1     | D3: Prototype Demo                                            |
 | 2025/06/27 | 0      | 8     | 0         | 0   | 2      | 0     | UI for Item, Recipe, EditItem and Filter                      |
 | 2025/06/29 | 3      | 3     | 3         | 3   | 3      | 3     | D3: Prototype Document                                        |
-| 2025/06/29 | 0      | 0     | 0         | 0   | 0      | 10    | Recipe Database and Search Functionality                      |
+| 2025/06/29 | 0      | 0     | 0         | 0   | 0      | 8     | Recipe Database                                               |
+| 2025/06/29 | 0      | 0     | 0         | 0   | 0      | 6     | Search Functionality on Home and Pantry                       |
 | 2025/06/30 | 10     | 1     | 0         | 3   | 0      | 0     | Settings UI                                                   |
 | 2025/07/2  | 2      | 2     | 4         | 10  | 3      | 2     | Cleanup and Debugging                                         |
 | 2025/07/3  | 0      | 3     | 2         | 0   | 0      | 0     | Login and Register UI Replacement                             |
@@ -43,10 +44,11 @@
 | 2025/07/21 | 0      | 0     | 0         | 4   | 0      | 0     | Search Loading Spinner                                        |
 | 2025/07/21 | 3      | 0     | 0         | 4   | 0      | 0     | Update email functionality                                    |
 | 2025/07/22 | 0      | 3     | 0         | 0   | 0      | 3     | Minor UI and database changes/debugs                          |
-| 2025/07/23 | 0      | 0     | 0         | 0   | 0      | 4     | Nutrition Analyzer Setup                                      |
+| 2025/07/23 | 0      | 0     | 0         | 0   | 0      | 5     | Nutrition Analyzer Setup                                      |
 | 2025/07/23 | 4      | 0     | 0         | 0   | 0      | 0     | Update email functionality + debugging                        |
 | 2025/07/23 | 5      | 0     | 0         | 0   | 0      | 0     | Update password from settings functionality                   |
 | 2025/07/23 | 0      | 6     | 0         | 0   | 0      | 0     | Image debugging and added local image db                      |
 | 2025/07/24 | 0      | 5     | 0         | 0   | 0      | 0     | Debugging and feature fixes                                   |
 | 2025/07/24 | 5      | 0     | 0         | 0   | 0      | 0     | Debugging settings page and fixes                             |
 | 2025/07/26 | 3      | 3     | 3         | 3   | 3      | 3     | Final demo preparation                                        |
+| 2025/07/26 | ?      | ?     | ?         | ?   | ?      | 6     | D6: Arch + Design Document                                    |
