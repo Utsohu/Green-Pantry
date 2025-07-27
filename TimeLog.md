@@ -52,4 +52,4 @@
 | 2025/07/24 | 5      | 0     | 0         | 0   | 0      | 0     | Debugging settings page and fixes                             |
 | 2025/07/26 | 3      | 3     | 3         | 3   | 3      | 3     | Final demo preparation                                        |
 | 2025/07/26 | 0      | 0     | 0         | 7   | 0      | 0     | Database Loading Optimization, update loading screen          |
-| 2025/07/26 | ?      | ?     | ?         | ?   | ?      | 6     | D6: Arch + Design Document                                    |
+| 2025/07/26 | 3      | ?     | ?         | ?   | ?      | 6     | D6: Arch + Design Document                                    |
