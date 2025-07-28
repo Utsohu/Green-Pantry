@@ -2,10 +2,12 @@ package com.example.greenpantry.data.database
 
 import android.content.Context
 import android.util.Log
+import com.opencsv.CSVReaderBuilder
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import java.io.InputStreamReader
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.system.measureTimeMillis
@@ -245,7 +247,7 @@ class DatabaseInitializer @Inject constructor() {
     }
     
     /**
-     * Optimized recipe loading with parallel processing
+     * Optimized recipe loading with parallel processing and proper CSV parsing
      */
     private suspend fun loadRecipesOptimized(
         context: Context,
@@ -266,54 +268,61 @@ class DatabaseInitializer @Inject constructor() {
         var processedCount = 0
         val totalEstimated = 58783 // Known size of RECIPE_SETUP_DATA.csv
         
-        context.assets.open("RECIPE_SETUP_DATA.csv").bufferedReader().use { reader ->
-            reader.readLine() // Skip header
-            
-            reader.lineSequence().chunked(BATCH_SIZE / 10).forEach { batch ->
-                val batchRecipes = batch.mapNotNull { line ->
-                    processRecipeLine(line, foodItemsMap.await())
-                }
-                
-                recipes.addAll(batchRecipes)
-                processedCount += batch.size
-                
-                // Update progress
-                val progress = (processedCount.toFloat() / totalEstimated).coerceAtMost(1f)
-                onProgress(progress)
-                
-                // Insert in smaller batches for recipes due to complexity
-                if (recipes.size >= 100) {
-                    recipeDao.insertAll(recipes.take(100))
-                    recipes.removeAll(recipes.take(100))
-                    // Only log every 1000 processed items to reduce spam
-                    if (processedCount % 1000 == 0) {
-                        Log.d(TAG, "Processed $processedCount/$totalEstimated recipe lines (${(progress*100).toInt()}%)")
-                    }
-                }
+        // Use proper CSV parser instead of simple string splitting
+        val inputStream = context.assets.open("RECIPE_SETUP_DATA.csv")
+        val reader = CSVReaderBuilder(InputStreamReader(inputStream))
+            .withSkipLines(1) // Skip header line
+            .build()
+        
+        reader.forEachIndexed { index, row ->
+            val recipe = processRecipeRow(row, foodItemsMap.await())
+            if (recipe != null) {
+                recipes.add(recipe)
             }
             
-            // Insert remaining recipes
-            if (recipes.isNotEmpty()) {
-                recipeDao.insertAll(recipes)
+            processedCount++
+            
+            // Update progress
+            val progress = (processedCount.toFloat() / totalEstimated).coerceAtMost(1f)
+            onProgress(progress)
+            
+            // Insert in smaller batches for recipes due to complexity
+            if (recipes.size >= 100) {
+                recipeDao.insertAll(recipes.take(100))
+                recipes.removeAll(recipes.take(100))
+                // Only log every 1000 processed items to reduce spam
+                if (processedCount % 1000 == 0) {
+                    Log.d(TAG, "Processed $processedCount/$totalEstimated recipes (${(progress*100).toInt()}%)")
+                }
             }
         }
+        
+        // Insert remaining recipes
+        if (recipes.isNotEmpty()) {
+            recipeDao.insertAll(recipes)
+        }
+        
+        reader.close()
         
         Log.d(TAG, "Recipe loading completed: ${recipeDao.getRecipeCount()} recipes")
     }
     
     /**
-     * Process individual recipe line with nutrition calculation
+     * Process individual recipe row with proper CSV parsing and nutrition calculation
      */
-    private fun processRecipeLine(line: String, foodItemsMap: Map<String, FoodItem>): Recipe? {
+    private fun processRecipeRow(row: Array<String>, foodItemsMap: Map<String, FoodItem>): Recipe? {
         return try {
-            val parts = line.split(",")
-            if (parts.size < 6) return null
+            // Column indices based on CSV:
+            // 0: ID, 1: Title, 2: Ingredients, 3: Instructions, 4: Image_Name, 5: Cleaned_Ingredients
             
-            val title = parts[1].trim()
-            val instructionsRaw = parts[3].trim().split("\n")
-                .map { it.trim() }.filter { it.isNotEmpty() }
-            val imageName = parts[4].trim()
-            val cleanedIngredientsRaw = parts[5].trim()
+            val title = row.getOrNull(1)?.trim() ?: return null
+            val instructionsRaw = row.getOrNull(3)
+                ?.trim()
+                ?.split("\n")
+                ?.map { it.trim() }
+                ?.filter { it.isNotEmpty() } ?: return null
+            val imageName = row.getOrNull(4)?.trim() ?: return null
+            val cleanedIngredientsRaw = row.getOrNull(5)?.trim() ?: return null
             
             val ingredientsList = parsePythonList(cleanedIngredientsRaw)
             
@@ -331,7 +340,7 @@ class DatabaseInitializer @Inject constructor() {
             
             recipe
         } catch (e: Exception) {
-            Log.w(TAG, "Failed to process recipe line", e)
+            Log.w(TAG, "Failed to process recipe row", e)
             null
         }
     }
