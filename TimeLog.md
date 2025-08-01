@@ -28,7 +28,7 @@
 | 2025/07/3  | 0      | 3     | 2         | 0   | 0      | 0     | Login and Register UI Replacement                           |
 | 2025/07/4  | 0      | 0     | 0         | 5   | 5      | 0     | Camera, Database and Pantry Debugging for Demo              |
 | 2025/07/9  | 0      | 2     | 0         | 2   | 0      | 3     | Camera, Database and Pantry Debugging for Demo              |
-| 2025/07/10 | 0      | 0     | 0         | 7   | 0      | 0     | Scrolling and Optimization                                  |
+| 2025/07/10 | 0      | 0     | 2         | 7   | 0      | 0     | Scrolling and Optimization                                  |
 | 2025/07/10 | 0      | 10    | 0         | 0   | 0      | 0     | Item Database and Filter Setup and Integration              |
 | 2025/07/11 | 2      | 2     | 2         | 0   | 2      | 2     | D4: Architecture Style Examples                             |
 | 2025/07/14 | 0      | 6     | 0         | 0   | 0      | 0     | Partial Item Image DB Integration and Log setup             |
