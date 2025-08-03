@@ -32,7 +32,7 @@
 | 2025/07/10 | 0      | 10    | 0         | 0   | 0      | 0     | Item Database and Filter Setup and Integration              |
 | 2025/07/11 | 2      | 2     | 2         | 0   | 2      | 2     | D4: Architecture Style Examples                             |
 | 2025/07/14 | 0      | 6     | 0         | 0   | 0      | 0     | Partial Item Image DB Integration and Log setup             |
-| 2025/07/14 | 0      | 0     | 0         | 7   | 0      | 0     | Search functionality, scrolling optimization                |
+| 2025/07/14 | 0      | 0     | 3         | 7   | 0      | 0     | Search functionality, scrolling optimization                |
 | 2025/07/18 | 2      | 1     | 2         | 2   | 2      | 2     | D5: Design Pattern Examples                                 |
 | 2025/07/17 | 6      | 0     | 0         | 0   | 0      | 0     | Update Username functionality                               |
 | 2025/07/17 | 6      | 0     | 0         | 0   | 10     | 0     | AI Recipe Generation Functionality for Pantry population    |
@@ -52,7 +52,7 @@
 | 2025/07/24 | 0      | 5     | 0         | 0   | 0      | 0     | Debugging and feature fixes                                 |
 | 2025/07/24 | 5      | 0     | 0         | 0   | 0      | 0     | Debugging settings page and fixes                           |
 | 2025/07/26 | 3      | 3     | 3         | 3   | 8      | 3     | Final demo preparation                                      |
-| 2025/07/26 | 0      | 0     | 0         | 7   | 0      | 0     | Database Loading Optimization, update loading screen        |
+| 2025/07/26 | 0      | 0     | 2         | 7   | 0      | 0     | Database Loading Optimization, update loading screen        |
 | 2025/07/26 | 0      | 0     | 0         | 0   | 8      | 0     | Firebase AI config & demo environment toggle functionality  |
 | 2025/07/26 | 0      | 0     | 0         | 2   | 0      | 0     | Fix recipes database parsing                                |
 | 2025/07/29 | 0      | 3     | 0         | 0   | 0      | 0     | Demo Video                                                  |
