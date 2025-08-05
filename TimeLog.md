@@ -15,8 +15,8 @@
 | 2025/06/21 | 0      | 0     | 12        | 0   | 0      | 0     | Login Backend and Functionality                             |
 | 2025/06/21 | 0      | 0     | 9         | 0   | 0      | 0     | Register Backend and Functionality                          |
 | 2025/06/22 | 0      | 1     | 0         | 3   | 5      | 0     | Camera and Food Recognition Setup                           |
-| 2025/06/22 | 0      | 0     | 0         | 0   | 5      | 0     | Gemini API Setup and Integration                            |
-| 2025/06/22 | 0      | 0     | 0         | 0   | 7      | 0     | AI Item classifier Functionality                            |
+| 2025/06/22 | 0      | 0     | 2         | 0   | 5      | 0     | Gemini API Setup and Integration                            |
+| 2025/06/22 | 0      | 0     | 3         | 0   | 7      | 0     | AI Item classifier Functionality                            |
 | 2025/06/23 | 0      | 0     | 0         | 5   | 0      | 0     | Camera Dialogue                                             |
 | 2025/06/25 | 1      | 1     | 1         | 1   | 1      | 1     | D3: Prototype Demo                                          |
 | 2025/06/27 | 0      | 8     | 0         | 0   | 2      | 0     | UI for Item, Recipe, EditItem and Filter                    |
@@ -35,7 +35,7 @@
 | 2025/07/14 | 0      | 0     | 3         | 7   | 0      | 0     | Search functionality, scrolling optimization                |
 | 2025/07/18 | 2      | 1     | 2         | 2   | 2      | 2     | D5: Design Pattern Examples                                 |
 | 2025/07/17 | 6      | 0     | 0         | 0   | 0      | 0     | Update Username functionality                               |
-| 2025/07/17 | 6      | 0     | 0         | 0   | 10     | 0     | AI Recipe Generation Functionality for Pantry population    |
+| 2025/07/17 | 6      | 0     | 3         | 0   | 10     | 0     | AI Recipe Generation Functionality for Pantry population    |
 | 2025/07/17 | 6      | 0     | 0         | 0   | 3      | 0     | Human in the loop functionality for AI actions implementation |
 | 2025/07/17 | 6      | 0     | 0         | 0   | 6      | 0     | AI Recipe & Identification UI Design                        |
 | 2025/07/18 | 0      | 0     | 0         | 0   | 0      | 9     | Upload Initial Data and Images for Recipe                   |
